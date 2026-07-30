@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+title: "InSites: AI-assisted heritage significance assessment under epistemic notation and expert governance"
+abstract: >-
+  InSites is an experimental assistant that carries out context-based
+  significance assessment of heritage places. It runs as a prose
+  specification executed by a language model stage by stage, with expert
+  review between stages. Every claim carries a mark reporting its distance
+  from the source evidence. This repository holds the current
+  specification, the architecture documentation, and the research record
+  behind the Heritage 4.0 paper.
+type: software
+message: >-
+  If you use this system or the research record, please cite it. For the
+  findings reported in the Heritage 4.0 paper, cite the tagged release
+  v1.0.0 rather than a branch.
+authors:
+  - family-names: Alef
+    given-names: Yael
+    affiliation: "AFFILIATION TO COMPLETE"
+  - family-names: Shafriri
+    given-names: Yuval
+    affiliation: "AFFILIATION TO COMPLETE"
+version: 1.0.0
+date-released: "2026-07-30"
+license: Apache-2.0
+repository-code: "https://github.com/InSites-Lab/insites"
+keywords:
+  - cultural heritage
+  - significance assessment
+  - AI governance
+  - epistemic notation
+  - human-in-the-loop
+  - heritage informatics
+preferred-citation:
+  type: conference-paper
+  title: "From Report to Inquiry: Governing Generative AI Insights in Heritage Significance Assessment"
+  authors:
+    - family-names: Alef
+      given-names: Yael
+    - family-names: Shafriri
+      given-names: Yuval
+    - family-names: Berger
+      given-names: Uri
+  collection-title: "Heritage 4.0"
+  year: 2026
+  publisher:
+    name: Springer
+  notes: "Communications in Computer and Information Science. Details to complete on publication."

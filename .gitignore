@@ -1,0 +1,46 @@
+# Dependencies — never commit
+node_modules/
+package-lock.json
+.venv/
+__pycache__/
+
+# Working environment
+.vscode/
+.idea/
+*.code-workspace
+
+# Word and Office temporary locks
+~$*
+*.tmp
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Working layers that do not belong in a public repository
+OLD/
+old/
+**/OLD/
+**/old/
+_to_delete/
+
+# Never publish: paper drafts, reviewer correspondence, project management
+Papers/
+**/reviewer-comments*
+**/style-contract*
+**/style-guide*
+**/content2verdict*
+
+# Never publish: third-party source documents
+studies/**/*.pdf
+sites-data/**/*.pdf
+sites-data/**/*.doc*
+sites-data/**/*.xls*
+!sites-data/README.md
+
+# Pre-submission working files
+local-work/
+
+# Internal handover, not for the public repository
+MIGRATION.md

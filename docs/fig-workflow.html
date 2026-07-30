@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>InSites workflow — figure</title>
+<style>
+  :root{
+    --ink:#141414; --ink-soft:#4a4a4a; --ink-faint:#8a8a8a;
+    --rule:#c9c9c9; --rule-soft:#e2e2e2;
+    --band:#f2f2f2; --band-strong:#e6e6e6;
+  }
+  html,body{margin:0;background:#fafafa;color:var(--ink);
+    font:15px/1.5 Inter,"Helvetica Neue",Arial,sans-serif;}
+  .wrap{max-width:1120px;margin:0 auto;padding:32px 24px 64px;}
+  h1{font-size:15px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+     color:var(--ink-soft);margin:0 0 4px;}
+  p.sub{margin:0 0 24px;color:var(--ink-faint);font-size:13px;max-width:60ch;}
+  .stage{background:#fff;border:1px solid var(--rule-soft);border-radius:2px;
+     padding:8px;box-shadow:0 1px 2px rgba(0,0,0,.04);}
+  .bar{display:flex;gap:8px;margin:20px 0 0;}
+  button{font:inherit;font-size:13px;padding:7px 14px;border:1px solid var(--rule);
+     background:#fff;border-radius:2px;cursor:pointer;color:var(--ink);}
+  button:hover{background:#f4f4f4;}
+  svg{display:block;width:100%;height:auto;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>InSites — the staged workflow</h1>
+  <p class="sub">Column width preview. Edit the DATA block at the foot of this file to change any label; nothing else moves.</p>
+  <div class="stage"><div id="fig"></div></div>
+  <div class="bar">
+    <button onclick="dlSVG()">Download SVG</button>
+    <button onclick="dlPNG()">Download PNG ×3</button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   DATA — the only block to edit.
+   Every string below is a label in the figure. Structure,
+   spacing and layout are computed; changing text moves nothing.
+   ============================================================ */
+const DATA = {
+  columns: { stage: "Stage", output: "Output" },
+  checkpointLead: "Expert checkpoint",
+  groups: [
+    { label: "Entry governance", note: "", stages: [
+      { n:"0", name:"Preliminary Review and Data Gaps",
+        output:"Data-quality summary, category checklist, documentation profile, gaps list",
+        checkpoint:"Judges whether the documentation base is adequate" }
+    ]},
+    { label: "CBSA reasoning", note: "claims carry no mark, ° synthesis, or 💭 hypothesis", stages: [
+      { n:"1", name:"Description and Contexts",
+        output:"Site description, timeline, marked and cited contexts, planning implications",
+        checkpoint:"Decides which contexts belong, and supplies any missed" },
+      { n:"2", name:"Values Analysis",
+        output:"Marked and cited value set; attribute–value–significance–implication table",
+        checkpoint:"Weighs the values against one another and against the evidence" },
+      { n:"3", name:"Authenticity and Integrity",
+        output:"Nara Grid table, integrity condition",
+        checkpoint:"Audits the heritage concepts, and confirms what rests on first-hand knowledge" },
+      { n:"4", name:"Comparison",
+        output:"Comparison set against stated criteria, summary",
+        checkpoint:"Sets the comparative frame, and may widen it beyond the sources" },
+      { n:"5", name:"Significance Statement",
+        output:"Significance statement, open questions",
+        checkpoint:"Extends the synthesis and authors the final statement" }
+    ]},
+    { label: "Exit governance", note: "", stages: [
+      { n:"6", name:"Quality Check and Summary",
+        output:"Process summary, quick-improvement table, planning implications",
+        checkpoint:"Settles the reliability constraint the assessment will carry" }
+    ]}
+  ],
+  extensions: {
+    label: "Extensions",
+    note: "invoked by name, not in sequence",
+    items: ["Knowledge Graph", "Analytic Dashboard", "Alternative Reading", "Collection Analysis"]
+  }
+};
+
+/* ============================================================
+   LAYOUT — geometry only. No content lives below this line.
+   ============================================================ */
+const G = {
+  W: 1000, padTop: 8, padBot: 8,
+  spineX: 26, colStage: 62, colStageW: 250, colOut: 336, colOutW: 664,
+  rowPadY: 13, lineH: 19, gapH: 50, groupH: 28,
+  fsNum: 21, fsName: 15.5, fsOut: 14, fsChk: 13.5, fsGroup: 11.5, fsHead: 11.5,
+  dotR: 5.5
+};
+
+const NS = "http://www.w3.org/2000/svg";
+const el = (t, a = {}) => { const n = document.createElementNS(NS, t);
+  for (const k in a) n.setAttribute(k, a[k]); return n; };
+
+/* crude but stable width metric: avoids canvas/font race at export */
+const CHARW = { def:0.52, wide:0.78, narrow:0.30 };
+function textW(s, fs){
+  let w = 0;
+  for (const c of s){
+    if ("MWmw@".includes(c)) w += CHARW.wide;
+    else if ("iljtIf.,;:'’()[]| ".includes(c)) w += CHARW.narrow;
+    else w += CHARW.def;
+  }
+  return w * fs;
+}
+function wrap(s, fs, maxW){
+  const words = s.split(/\s+/), out = []; let line = "";
+  for (const w of words){
+    const t = line ? line + " " + w : w;
+    if (textW(t, fs) > maxW && line){ out.push(line); line = w; }
+    else line = t;
+  }
+  if (line) out.push(line);
+  return out;
+}
+
+function build(){
+  const rows = [];           // laid-out items, y assigned in a second pass
+  let y = G.padTop;
+
+  const headH = 22;
+  rows.push({ kind:"head", y, h:headH });
+  y += headH + 6;
+
+  DATA.groups.forEach((grp, gi) => {
+    rows.push({ kind:"group", y, h:G.groupH, label:grp.label, note:grp.note });
+    y += G.groupH;
+
+    grp.stages.forEach((st, si) => {
+      const nameL = wrap(st.name, G.fsName, G.colStageW - 34);
+      const outL  = wrap(st.output, G.fsOut, G.colOutW - 22);
+      const bodyH = Math.max(nameL.length, outL.length) * G.lineH + G.rowPadY * 2;
+      rows.push({ kind:"stage", y, h:bodyH, st, nameL, outL });
+      y += bodyH;
+
+      const isLastOverall = (gi === DATA.groups.length - 1) && (si === grp.stages.length - 1);
+      const chkL = wrap(st.checkpoint, G.fsChk, G.colOutW - 10);
+      const gh = Math.max(G.gapH, chkL.length * 17 + 30);
+      rows.push({ kind:"gap", y, h:gh, chkL, last:isLastOverall });
+      y += gh;
+    });
+  });
+
+  // extensions block
+  const ext = DATA.extensions;
+  const extH = 96;
+  rows.push({ kind:"ext", y, h:extH, ext });
+  y += extH + G.padBot;
+
+  const H = y;
+  const svg = el("svg", { xmlns:NS, viewBox:`0 0 ${G.W} ${H}`,
+    width:G.W, height:H, "font-family":"Inter, 'Helvetica Neue', Arial, sans-serif" });
+
+  // background so exported PNG is not transparent
+  svg.appendChild(el("rect", { x:0, y:0, width:G.W, height:H, fill:"#ffffff" }));
+
+  const put = (tag, attrs, txt) => { const n = el(tag, attrs);
+    if (txt !== undefined) n.textContent = txt; svg.appendChild(n); return n; };
+
+  // ---- continuous spine: unbroken through stages 0 to 6 ----
+  const first = rows.find(r => r.kind === "stage");
+  const lastStage = [...rows].reverse().find(r => r.kind === "stage");
+  const lastGap = [...rows].reverse().find(r => r.kind === "gap");
+  put("line", { x1:G.spineX, y1:first.y + 10, x2:G.spineX, y2:lastStage.y + lastStage.h,
+    stroke:"#9a9a9a", "stroke-width":1.6 });
+  // dashed tail to the extensions
+  put("line", { x1:G.spineX, y1:lastGap.y, x2:G.spineX, y2:lastGap.y + lastGap.h + 10,
+    stroke:"#9a9a9a", "stroke-width":1.6, "stroke-dasharray":"3 5" });
+
+  rows.forEach(r => {
+    if (r.kind === "head"){
+      put("text", { x:G.colStage, y:r.y + 14, "font-size":G.fsHead, "letter-spacing":"0.13em",
+        fill:"#8a8a8a", "text-transform":"uppercase" }, DATA.columns.stage.toUpperCase());
+      put("text", { x:G.colOut, y:r.y + 14, "font-size":G.fsHead, "letter-spacing":"0.13em",
+        fill:"#8a8a8a" }, DATA.columns.output.toUpperCase());
+      put("line", { x1:G.colStage, y1:r.y + 22, x2:G.W, y2:r.y + 22, stroke:"#d8d8d8", "stroke-width":1 });
+    }
+
+    if (r.kind === "group"){
+      put("text", { x:G.colStage, y:r.y + 20, "font-size":G.fsGroup, "letter-spacing":"0.15em",
+        fill:"#141414", "font-weight":"600" }, r.label.toUpperCase());
+      if (r.note){
+        put("text", { x:G.W, y:r.y + 20, "font-size":G.fsGroup, fill:"#8a8a8a",
+          "text-anchor":"end" }, r.note);
+      }
+    }
+
+    if (r.kind === "stage"){
+      put("rect", { x:G.colStage - 12, y:r.y, width:G.W - G.colStage + 12, height:r.h,
+        fill:"#ffffff", stroke:"#dcdcdc", "stroke-width":1, rx:2 });
+      // divider between the two columns
+      put("line", { x1:G.colOut - 18, y1:r.y + 9, x2:G.colOut - 18, y2:r.y + r.h - 9,
+        stroke:"#e6e6e6", "stroke-width":1 });
+      // stage number
+      put("text", { x:G.colStage, y:r.y + G.rowPadY + 15, "font-size":G.fsNum,
+        "font-weight":"300", fill:"#9a9a9a" }, r.st.n);
+      r.nameL.forEach((ln, i) =>
+        put("text", { x:G.colStage + 30, y:r.y + G.rowPadY + 14 + i * G.lineH,
+          "font-size":G.fsName, "font-weight":"600", fill:"#141414" }, ln));
+      r.outL.forEach((ln, i) =>
+        put("text", { x:G.colOut, y:r.y + G.rowPadY + 14 + i * G.lineH,
+          "font-size":G.fsOut, fill:"#4a4a4a" }, ln));
+    }
+
+    if (r.kind === "gap"){
+      const cy = r.y + 20;
+      put("circle", { cx:G.spineX, cy, r:G.dotR, fill:"#141414" });
+      put("circle", { cx:G.spineX, cy, r:G.dotR + 4.5, fill:"none",
+        stroke:"#141414", "stroke-width":1, opacity:.30 });
+      put("text", { x:G.colStage, y:cy + 4, "font-size":G.fsChk, "letter-spacing":"0.09em",
+        fill:"#141414", "font-weight":"600" }, DATA.checkpointLead.toUpperCase());
+      r.chkL.forEach((ln, i) =>
+        put("text", { x:G.colOut, y:cy + 4 + i * 17, "font-size":G.fsChk,
+          fill:"#4a4a4a" }, ln));
+    }
+
+    if (r.kind === "ext"){
+      const n = r.ext.items.length, gapx = 14;
+      const w = (G.W - G.colStage + 12 - gapx * (n - 1)) / n;
+      put("text", { x:G.colStage, y:r.y + 12, "font-size":G.fsGroup, "letter-spacing":"0.15em",
+        fill:"#141414", "font-weight":"600" }, r.ext.label.toUpperCase());
+      put("text", { x:G.W, y:r.y + 12, "font-size":G.fsGroup, fill:"#8a8a8a",
+        "text-anchor":"end" }, r.ext.note);
+      r.ext.items.forEach((it, i) => {
+        const x = G.colStage - 12 + i * (w + gapx);
+        put("rect", { x, y:r.y + 26, width:w, height:52, fill:"#f4f4f4",
+          stroke:"#dcdcdc", "stroke-width":1, "stroke-dasharray":"3 4", rx:2 });
+        wrap(it, 13.5, w - 20).forEach((ln, j) =>
+          put("text", { x:x + w / 2, y:r.y + 26 + 26 + j * 16 - (wrap(it,13.5,w-20).length-1)*8,
+            "font-size":13.5, fill:"#4a4a4a", "text-anchor":"middle" }, ln));
+      });
+    }
+  });
+
+  return svg;
+}
+
+function render(){
+  const host = document.getElementById("fig");
+  host.innerHTML = "";
+  host.appendChild(build());
+}
+render();
+
+/* ---------- export ---------- */
+function svgText(){
+  const s = document.querySelector("#fig svg").cloneNode(true);
+  s.setAttribute("xmlns", NS);
+  return '<?xml version="1.0" encoding="UTF-8"?>\n' + new XMLSerializer().serializeToString(s);
+}
+function save(blob, name){
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(blob); a.download = name; a.click();
+  setTimeout(() => URL.revokeObjectURL(a.href), 2000);
+}
+function dlSVG(){ save(new Blob([svgText()], {type:"image/svg+xml"}), "fig-workflow.svg"); }
+function dlPNG(){
+  const svg = document.querySelector("#fig svg");
+  const vb = svg.getAttribute("viewBox").split(" ").map(Number);
+  const scale = 3, img = new Image();
+  img.onload = () => {
+    const c = document.createElement("canvas");
+    c.width = vb[2] * scale; c.height = vb[3] * scale;
+    const x = c.getContext("2d");
+    x.fillStyle = "#fff"; x.fillRect(0, 0, c.width, c.height);
+    x.drawImage(img, 0, 0, c.width, c.height);
+    c.toBlob(b => save(b, "fig-workflow@3x.png"), "image/png");
+  };
+  img.src = "data:image/svg+xml;base64," + btoa(unescape(encodeURIComponent(svgText())));
+}
+</script>
+</body>
+</html>
