@@ -4,6 +4,10 @@ InSites is a **specification** that a language model executes stage by stage, wi
 
 A paper rests on this repository: *From Report to Inquiry: Governing Generative AI Insights in Heritage Significance Assessment* (Heritage 4.0, Florence, 2026). Reference [14] of that paper resolves to the tag `v1.0.0`, and a footnote in §1 points at the repository root. So a reader may arrive here to verify a sentence, and the rules below exist to keep that possible.
 
+## Start of session
+
+**If `TODO.md` is present in the working tree, read it before doing anything else.** It is the publication working sheet — what is done, what is still blocking, and the exact sequence for going public and tagging. It is not committed and is not part of the published repository, so it will be absent for anyone who clones this; its absence means the publication work is finished.
+
 ## The three rules that override everything else
 
 ### 1. `studies/` is a historical record. Never synchronise it.
