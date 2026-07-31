@@ -39,7 +39,7 @@ Each of Stages 1 to 6 opens with a brief on the previous stage's findings, close
 Three tiers, applied by the model to its own output, marking each claim's distance from source evidence.
 
 **No mark** — the claim is explicit in the sources, and is cited to the passage that states it.
-**°** — synthesis: the claim connects two or more pieces of evidence.
+**〰️** — synthesis: the claim connects two or more pieces of evidence.
 **💭** — hypothesis: an interpretive reading beyond what the sources state.
 
 Where the sources supply nothing, the system declares the gap and asks for material rather than inferring across it. Notation is the extension of that same principle to the case where the evidence is partial rather than absent.
@@ -48,7 +48,7 @@ Where the sources supply nothing, the system declares the gap and asks for mater
 
 The gate is applied before a claim is written, not by auditing the text afterwards.
 
-1. **Evidential**: *Can this claim be stated from a single source?* If yes, no mark. If it requires connecting evidence across sources, °. If *a reasonable expert could read it differently*, 💭.
+1. **Evidential**: *Can this claim be stated from a single source?* If yes, no mark. If it requires connecting evidence across sources, 〰️. If *a reasonable expert could read it differently*, 💭.
 2. **Evidence against assertion**: *Is the claim itself in the source, or only the evidence supporting it?* Where the source supplies the evidence and the model supplies the evaluative move, the claim is marked.
 3. **Ties resolve toward marking**: *better an unnecessary notation than an unmarked claim that appears factual.*
 
@@ -70,7 +70,7 @@ Eleven context types frame the analysis: geographic, landscape, urban, historica
 
 ## Other governance components
 
-The paper on epistemic notation follows the two mechanisms that act on the analysis itself. Three more shape the run and are described in the specifications under [`specs/`](specs/):
+The paper follows the two mechanisms that act on the analysis itself. Three more shape the run. They are not separate documents: each is written into the specification files themselves, in [`../system/`](../system/), as rules the model executes.
 
 **Source grounding** — the system works only on material the user provides, and declares gaps rather than filling them.
 **Scope constraints** — material that lies outside a significance assessment is refused rather than assessed.

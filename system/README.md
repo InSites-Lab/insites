@@ -32,7 +32,7 @@ ChatGPT splits what the other two carry in one file. `instructions.md` holds the
 
 `cbsa-stages.md` the stage specifications · `cbsa-appendices.md` the taxonomies and reference material · `kg-spec.md`, `dashboard-spec.md`, `collection-dashboard-spec.md`, `report-tab-spec.md` the rendered outputs · `ma-ra-spec.md`, `ma-rc-spec.md` the read-assessment and read-collection workflows.
 
-**These are runtime inputs.** Where their content overlaps `../docs/specs/`, the `docs/` version is the description written for a reader and these are the files the platform loads. Neither is a copy of the other's job.
+**These are runtime inputs**, written to be loaded by the platform rather than read. Where the same mechanism is also explained for a reader, that explanation is in [`../docs/`](../docs/) — the two serve different jobs and neither is a copy of the other.
 
 ## What is not here
 

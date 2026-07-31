@@ -1,16 +1,18 @@
 # Session Report Spec — Post-Hoc Analytic Layer for CBSA Sessions
 
 **Spec ID:** [CA-IP]
-**Status:** Source-of-truth, platform-neutral. Was previously embedded inline in the Claude / Gemini / GPT bot brains; extracted from there for the Bezalel workshop variant where the bot closes after the Debrief without auto-generating an inline report.
+**Status:** Source of truth, platform-neutral. Held here as a separate document because some deployments close the session after the debrief without producing a report inline, and some produce it as part of the closing sequence.
 
-## When to invoke
+This is the layer that turns a session into an audit trail: it records who changed what, using the fixed vocabulary of six action tags below, which is the vocabulary [`architecture.md`](architecture.md) and the Heritage 4.0 paper both refer to.
 
-After a CBSA session has ended and a transcript is available. The bot brain in the current workshop variant intentionally does NOT generate this report inline. To produce a report:
+## When it runs
 
-- **(a) Post-hoc:** feed a saved session transcript to a fresh Claude / GPT / Gemini context with this spec loaded as a skill or pasted inline.
-- **(b) On demand inside a live session:** paste this spec into the bot's context to re-enable in-session generation for one specific run.
+After a CBSA session has ended and a transcript exists. Two routes:
 
-**Trigger phrases:** "session report", "analyze session", "generate [CA-IP]"
+- **Post-hoc** — give a saved transcript to a fresh Claude, GPT or Gemini context with this specification loaded.
+- **In a live session** — where the deployment does not generate the report itself, loading this specification re-enables it for that run.
+
+**Triggers:** "session report", "analyze session", "generate [CA-IP]"
 
 **Inputs:** A complete CBSA session transcript (user + bot turns, including the user's answer to the Debrief question).
 
@@ -77,15 +79,7 @@ Key insight:                [1 sentence connecting B + C]
 1. One row per intervention. Max 10 rows.
 2. "What changed" ≤15 words, concrete, not evaluative.
 3. No rows for passive confirmation ("continue", "looks good").
-3a. **Retracted interventions**: If a user intervenes but then retracts (e.g., corrects something that turns out to be accurate, rejects a row that doesn't exist), still log the row in the Interaction Map with the original tag + "(retracted)" in the "What changed" column. Count retracted stages as interacted, not "accepted without change."
-4. Section C: preserve user's voice. Do not paraphrase, interpret, or respond.
-5. If user chose not to answer: write "User chose not to share." Do not interpret silence.
-6. Do not grade the user, compare sessions, or re-open the assessment.
-
-## Differences from the legacy in-bot version
-
-This spec drops three things that the older inlined version had:
-
-1. **Section C** in the report template was three lines (`▸ Surprise:` / `▸ Trust:` / `▸ Open:`) reflecting the original 3-question Debrief. With the Bezalel single-question Hebrew Debrief, Section C is now one line containing the user's verbatim answer.
-2. **Trust profile** has been removed from both Section D of the template and from Session Signature Criteria. It was derived from the Trust answer in the old 3-question Debrief and is no longer applicable.
-3. **Rule 5** has been rephrased from "If user answered partially..." to "If user chose not to answer..." — the new Debrief is one question, so partial-answer doesn't apply.
+4. **Retracted interventions.** If a user intervenes and then retracts — corrects something that turns out to be accurate, rejects a row that does not exist — still log the row with its original tag and "(retracted)" in the "What changed" column. A retracted stage counts as interacted, not as accepted without change.
+5. Section C preserves the user's voice. Do not paraphrase, interpret, or respond.
+6. If the user chose not to answer, write "User chose not to share." Do not interpret silence.
+7. Do not grade the user, compare sessions, or re-open the assessment.

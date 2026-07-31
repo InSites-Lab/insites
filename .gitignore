@@ -50,3 +50,7 @@ PLAN.md
 # Forensic working note for the research team. Its reader-facing conclusions
 # live in studies/heritage4.0-tuba-2026/README.md, under "What ran".
 studies/heritage4.0-tuba-2026/system/PROVENANCE.md
+
+# Withdrawn from the published repository, kept on disk under their original
+# paths. Nothing here is deleted; see _archive/README.md for what and why.
+_archive/
