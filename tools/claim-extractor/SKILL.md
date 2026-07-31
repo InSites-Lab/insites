@@ -10,7 +10,7 @@ user-invocable: true
 
 **Method**: Directed qualitative content analysis with stage-aware extraction rules. Each claim is identified at the analytical-move level, classified, and traced to its source basis.
 
-**Default transcript**: `InSites-Brain/Claude/tests/tz-textonly.md`
+**Default transcript**: any complete CBSA session transcript. The one this protocol was built on and applied to is published at [`../../studies/heritage4.0-tuba-2026/session/transcript.md`](../../studies/heritage4.0-tuba-2026/session/transcript.md).
 **Scope**: CBSA assessment sessions (Stages 0–6). Dedicated to this structure for extraction accuracy.
 
 ---
@@ -265,10 +265,11 @@ Answer each with specific numbers from the tables:
 
 #### F. Key Findings (3-5 bullets)
 Write 3-5 findings in plain language, each citing specific numbers.
-These must be suitable for direct citation in the Heritage 4.0 paper.
 Format: "[Finding]. ([numerator]/[denominator], [percentage]%)"
 
-Save the full report to `InSites-Brain/Heritage4.0/evidence/claim-extraction-[date].md`.
+Report the counts as a description of the coded session, not as a measure of the system. One session cannot establish a rate.
+
+Save the full report alongside the other extraction runs, as `claim-extraction-[date].md`. The runs produced by this protocol for the Tuba-Zangariyye session are in [`../../studies/heritage4.0-tuba-2026/coding/runs/`](../../studies/heritage4.0-tuba-2026/coding/runs/).
 
 ---
 
@@ -295,4 +296,4 @@ This comparison is the reproducibility evidence for the research method.
 ## Version
 - Codebook v1.1 — 2026-03-25
 - v1.1: CBSA-dedicated stage-aware extraction rules; analytical-move granularity (prevents inflation); Step 6 epistemic analysis with cross-tabulations and enabler analysis
-- v1.0: Initial codebook based on extraction documented in `Heritage4.0/evidence/Claim-Level-Count-2303.md` (45 claims). Produced 106 claims on re-extraction due to assertion-level granularity — led to v1.1 calibration.
+- v1.0: Initial codebook, based on the extraction published as [`../../studies/heritage4.0-tuba-2026/coding/claim-level-count.md`](../../studies/heritage4.0-tuba-2026/coding/claim-level-count.md) (45 claims). Produced 106 claims on re-extraction, because it cut claims at assertion level rather than analytical-move level — which is what v1.1 calibrated.

@@ -19,6 +19,8 @@ One heritage expert assessed the same site twice: first manually, for European h
 | `coding/runs/` | Three independent runs of the extraction protocol, a finer-grained re-extraction, and the cross-run comparisons |
 | `sources/README.md` | Citations for the three assessed documents. The documents themselves are third-party works and are not redistributed here |
 
+**File paths inside the coding files point somewhere else.** `coding/run-analysis.md` and the four extraction runs were written while the work lived in a private development repository, and they name its paths — `InSites-Brain/Claude/…`, `tz-textonly.md`, `evidence/tuba-session-transcript.md`. Those strings do not resolve here and are left as they were written rather than rewritten, because these files are a record. What they refer to is in this folder: the session they analyse is `session/transcript.md`, and the specification they propose changes to is the one in `system/`.
+
 ## What ran
 
 The file in `system/` is the specification as it stood when the session took place. It was extracted unchanged from the development repository and verified byte-identical to the version in force that day; it declares itself `InSites-CAA-mono-v2.1`. The session ran on 22 March 2026, after 15:40 local time, on **Claude Opus 4.6**.

@@ -34,6 +34,19 @@ ChatGPT splits what the other two carry in one file. `instructions.md` holds the
 
 **These are runtime inputs**, written to be loaded by the platform rather than read. Where the same mechanism is also explained for a reader, that explanation is in [`../docs/`](../docs/) — the two serve different jobs and neither is a copy of the other.
 
+## The files the specifications name
+
+A specification refers to four files by name. Two are here; two are not, on purpose.
+
+| Named as | Where it is |
+|---|---|
+| `atar-runtime/data-contract.md` | [`atar-runtime/data-contract.md`](atar-runtime/data-contract.md) — the one `DATA` shape every rendered output is built from, and the aliases that let the ChatGPT and Claude key sets both work |
+| `artifact-ux-contract.md` | [`artifact-ux-contract.md`](artifact-ux-contract.md) — the visual language, the entity-type palette, and the AI-query behaviour, held in common across the three platforms |
+| `test-mode.md` | **Not here, by design.** A development harness that runs the whole pipeline unattended against a built-in sample. The specification calls it dev-only and instructs the model to ignore it when absent, so its absence is the intended state rather than a missing file |
+| `kg-runtime.js` | **Not here.** An earlier renderer, named where the specification lists Hebrew entity labels. It has been replaced by the `atar-runtime` package the contracts above describe, and nothing in this build loads it |
+
+The rendering itself comes from the `atar-runtime` npm package, loaded at view time from a pinned CDN version. No part of it is hosted here.
+
 ## What is not here
 
 The version that produced the findings reported in the Heritage 4.0 paper is **not** in this folder. It is archived, unchanged, at [`../studies/heritage4.0-tuba-2026/system/`](../studies/heritage4.0-tuba-2026/system/), and it is never synchronised with the files here. This folder develops; that one is a record of a session that happened.

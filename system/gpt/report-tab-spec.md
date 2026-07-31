@@ -81,7 +81,7 @@ For a downloadable file, show a header note at the top of the Report tab:
 
 When the user asks, the bot generates the file in the conversation (using GPT's file / Code-Interpreter path) and delivers it as a chat download — not from inside the artifact.
 
-(Deferred in-artifact print/export component — see `../design/specs/future-features.md`.)
+(An in-artifact print/export component is specified but deferred, and is not part of this build.)
 
 ## Platform Notes
 
