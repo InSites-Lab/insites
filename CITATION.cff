@@ -16,10 +16,11 @@ message: >-
 authors:
   - family-names: Alef
     given-names: Yael
-    affiliation: "AFFILIATION TO COMPLETE"
+    affiliation: "Technion – Israel Institute of Technology, Haifa, Israel"
+    orcid: "https://orcid.org/0000-0003-3278-2644"
   - family-names: Shafriri
     given-names: Yuval
-    affiliation: "AFFILIATION TO COMPLETE"
+    affiliation: "EdTec Consultant, Kiryat Tivon, Israel"
 version: "tuba-study"
 date-released: "2026-07-30"
 license: Apache-2.0
@@ -41,6 +42,7 @@ preferred-citation:
       given-names: Yuval
     - family-names: Berger
       given-names: Uri
+      orcid: "https://orcid.org/0009-0001-0865-8339"
   collection-title: "Heritage 4.0"
   year: 2026
   publisher:
