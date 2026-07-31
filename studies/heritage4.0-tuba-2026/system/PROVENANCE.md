@@ -100,8 +100,17 @@ or if the analysis was written the following day, but the run itself post-dates 
 - Claude.ai conversation exports do not record a model ID in any case, so recovering the exact
   point release from the export would not have been possible even if it had survived.
 
-**Do not write a specific model ID into the paper.** "Claude Opus" is what the evidence
-supports. Anything more precise would be reconstruction presented as record.
+**Nothing in the repository recovers the point release.** "Claude Opus" is what the archived
+files support, and a more precise identifier taken from them would be reconstruction presented
+as record.
+
+**Added 31.7.2026 — the assessor supplies the version directly.** Y. Alef states from her own
+knowledge of the session that it ran on **Claude Opus 4.6**, and the paper reports that. This is
+testimony rather than an artefact recovered from the record, and the distinction is the reason
+this paragraph exists rather than a silent edit above: a reader who checks the archived files
+will find "Claude Opus" and no version, and should know why. The difference matters — 4.6, 4.7,
+4.8 and Opus 5 are not interchangeable for a run of this kind — which is why the paper carries
+the point release rather than the generic name.
 
 **v2.1 versus v2.2.** Commit `203d262` (22.3 18:58) bumped the version string v2.1 to v2.2 and
 changed nothing else, so v2.2 at that point is content-identical to v2.1. Commit `62186ef`

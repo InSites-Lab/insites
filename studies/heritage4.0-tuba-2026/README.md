@@ -13,7 +13,7 @@ One heritage expert assessed the same site twice: first manually, for European h
 | Folder | Contents |
 |---|---|
 | `system/` | The specification exactly as it ran, `InSites-v2.1_AS-RUN-tuba-2026-03-22.md`, with its provenance note |
-| `session/` | The full transcript of the assessment session |
+| `session/` | The full turn-by-turn record of the assessment session between the expert and the system, in markdown |
 | `protocols/` | The written observation protocol, given to the expert **before** the run |
 | `coding/` | The claim-level dataset, the case evidence with quotations, the manual-versus-AI comparison, and the run analysis |
 | `coding/runs/` | Three independent runs of the extraction protocol, a finer-grained re-extraction, and the cross-run comparisons |

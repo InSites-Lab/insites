@@ -2,7 +2,7 @@
 
 InSites is a **specification** that a language model executes stage by stage, with an expert review between stages. There is no code to build and no test suite to run. Almost everything here is prose, and prose in this repository is either **live documentation** or **evidence for a published paper**. Which one a file is decides what you may do to it.
 
-A paper rests on this repository: *From Report to Inquiry: Governing Generative AI Insights in Heritage Significance Assessment* (Heritage 4.0, Florence, 2026). Reference [14] of that paper resolves to the tag `v1.0.0`, and a footnote in §1 points at the repository root. So a reader may arrive here to verify a sentence, and the rules below exist to keep that possible.
+A paper rests on this repository: *From Report to Inquiry: Governing Generative AI Insights in Heritage Significance Assessment* (Heritage 4.0, Florence, 2026). Reference [14] of that paper resolves to the tag `tuba-study`, and a footnote in §1 points at the repository root. So a reader may arrive here to verify a sentence, and the rules below exist to keep that possible.
 
 ## Start of session
 
@@ -46,4 +46,4 @@ The percentages inside `studies/coding/` describe that dataset and nothing beyon
 
 ## The tag
 
-`v1.0.0` is the paper's evidence and is immutable. Do not move or delete it; do not rename the repository or the `InSites-Lab` organisation — either breaks the reference. After submission, `main` is free.
+`tuba-study` is the paper's evidence and is immutable. Do not move or delete it; do not rename the repository or the `InSites-Lab` organisation — either breaks the reference. After submission, `main` is free.

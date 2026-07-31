@@ -7,7 +7,7 @@ The paper calls them the **survey**, the **management report** and the **regiona
 | Called in the paper | Register | Citation | In the paper |
 |---|---|---|---|
 | Survey | Archaeological field survey | Berger et al., *Hadashot Arkheologiyot: Excavations and Surveys in Israel* 137 (2025). `[[PLACEHOLDER — full author names, article title, pages, URL]]` | Reference [12] |
-| Regional synthesis | Regional research synthesis | Stepansky (2005). `[[PLACEHOLDER — given name, full title, journal or volume, pages, publisher]]` | `[[PLACEHOLDER — new entry]]` |
+| Regional synthesis | Regional research synthesis | Stepansky, Y.: The megalithic culture of the Corazim Plateau, Eastern Galilee, Israel: new evidence for a chronological and social framework. *Mediterranean Archaeology and Archaeometry* 5(1), 39–50 (2005) | `[[PLACEHOLDER — number in the paper's list]]` |
 | Management report | Significance assessment in EAC format, by the first author | `[[PLACEHOLDER — decide: citable publication, or an unpublished assessment prepared under EAC Guidelines 11]]` | `[[PLACEHOLDER]]` |
 
 **The edition matters.** Every page reference in `../coding/` assumes the pagination of these editions.
