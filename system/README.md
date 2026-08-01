@@ -14,11 +14,11 @@ The same specification exists for three platforms. **Copy the file into the plat
 
 The three implementations are the same architecture and are not at the same generation. Each is what its platform last ran.
 
-| Platform | State | Notes |
-|---|---|---|
-| Claude | current | The implementation used in the Tuba-Zangariyye study, in the version recorded there |
-| Gemini | v9.3 | `[[PLACEHOLDER — date, and whether it lags the Claude implementation]]` |
-| ChatGPT | multi-file | `[[PLACEHOLDER — date; the knowledge files are runtime inputs, listed below]]` |
+| Platform | Version | Last changed | Form |
+|---|---|---|---|
+| Claude | v10 | July 2026 | One file. The Tuba-Zangariyye study ran on this implementation, but on the earlier version archived in [`../studies/heritage4.0-tuba-2026/system/`](../studies/heritage4.0-tuba-2026/system/) — not on the file here |
+| Gemini | v9.3 | June 2026 | One file |
+| ChatGPT | build of June 2026 | June 2026 | `instructions.md` plus the knowledge files beside it |
 
 **Do not read the differences between platforms as performance.** They are ports of one specification to three instruction formats, they have not been compared, and this repository makes no claim about which runs it better.
 

@@ -12,7 +12,7 @@ type: software
 message: >-
   If you use this system or the research record, please cite it. For the
   findings reported in the Heritage 4.0 paper, cite the tagged release
-  tuba-study rather than a branch.
+  v1.0.0 rather than a branch.
 authors:
   - family-names: Alef
     given-names: Yael
@@ -21,7 +21,7 @@ authors:
   - family-names: Shafriri
     given-names: Yuval
     affiliation: "EdTec Consultant, Kiryat Tivon, Israel"
-version: "tuba-study"
+version: 1.0.0
 date-released: "2026-07-30"
 license: Apache-2.0
 repository-code: "https://github.com/InSites-Lab/insites"

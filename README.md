@@ -21,7 +21,7 @@ The architecture is a prompt file. It is bound to no particular model, and it ne
 
 **`docs/`** — architecture, the notation, and the output specifications. Also live.
 
-**`studies/heritage4.0-tuba-2026/`** — the research record behind *From Report to Inquiry: Governing Generative AI Insights in Heritage Significance Assessment* (Heritage 4.0, Florence, 2026). It holds the specification exactly as it ran, the session transcript, the protocols, and the claim-level coding. **This is a record of a session that happened**, so it is static by nature rather than by rule; what the paper cites is the tagged snapshot `tuba-study`, and a tag cannot move.
+**`studies/heritage4.0-tuba-2026/`** — the research record behind *From Report to Inquiry: Governing Generative AI Insights in Heritage Significance Assessment* (Heritage 4.0, Florence, 2026). It holds the specification exactly as it ran, the session transcript, the protocols, and the claim-level coding. **This is a record of a session that happened**, so it is static by nature rather than by rule; what the paper cites is the tagged snapshot `v1.0.0`, and a tag cannot move.
 
 **`tools/claim-extractor/`** — the protocol that produced the claim-level coding.
 
@@ -31,7 +31,7 @@ The findings reported in the paper belong to **one run of one version** of the C
 
 ## Citation
 
-See [`CITATION.cff`](CITATION.cff). For the research record, cite the tagged release `tuba-study` rather than a branch.
+See [`CITATION.cff`](CITATION.cff). For the research record, cite the tagged release `v1.0.0` rather than a branch.
 
 ## Licence
 
