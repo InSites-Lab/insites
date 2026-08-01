@@ -1,0 +1,26 @@
+{
+  "name": "atar-runtime",
+  "version": "0.3.4",
+  "description": "Atar.Bot artifact-rendering runtime (Knowledge Graph / dashboards / map) for the InSites CBSA bots. Loaded by Claude/GPT/Gemini artifacts via cdn.jsdelivr.net.",
+  "main": "dist/atar-runtime.umd.js",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "node build.mjs",
+    "check": "node --check dist/atar-runtime.umd.js",
+    "prepublishOnly": "npm run build && npm run check"
+  },
+  "keywords": [
+    "insites",
+    "atar-bot",
+    "cbsa",
+    "heritage",
+    "knowledge-graph"
+  ],
+  "license": "MIT",
+  "sideEffects": false,
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}

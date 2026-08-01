@@ -1,0 +1,162 @@
+/* Assessment Dashboard — flex layout (robust when embedded in a sized artifact container).
+   Ported from dashboard-runtime.js injectStyles; position:fixed sidebar → flex; scoped to .atar-assessment. */
+.atar-assessment {
+  display: flex; flex-direction: column; height: 100%; min-height: 520px; overflow: hidden;
+  background: #f5f7fa; color: #1e293b;
+  font-family: 'DM Sans', 'Noto Sans Hebrew', 'Segoe UI', system-ui, sans-serif; line-height: 1.6;
+}
+.atar-assessment .db-shell { display: flex; flex: 1 1 auto; min-height: 0; }
+.atar-assessment .db-sidebar { flex: 0 0 180px; background: #fff; border-right: 1px solid #dfe4ea; display: flex; flex-direction: column; overflow-y: auto; }
+.atar-assessment.rtl .db-sidebar { border-right: none; border-left: 1px solid #dfe4ea; }
+.atar-assessment .db-main { flex: 1 1 auto; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+
+.atar-assessment .db-header { flex: 0 0 auto; background: #1e293b; color: #fff; padding: 18px 28px; }
+.atar-assessment .db-header-name { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.01em; }
+.atar-assessment .db-header-meta { font-size: 0.82rem; color: #94a3b8; margin-top: 4px; }
+
+.atar-assessment .db-sidebar-header { padding: 16px 14px 8px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8; font-weight: 600; }
+.atar-assessment .db-sidebar-tab { display: flex; align-items: center; gap: 8px; padding: 10px 14px; cursor: pointer; font-size: 0.85rem; color: #475569; border: none; background: none; width: 100%; text-align: inherit; position: relative; font-family: inherit; transition: background 0.15s, color 0.15s; }
+.atar-assessment .db-sidebar-tab:hover { background: #dbeafe; color: #2563eb; }
+.atar-assessment .db-sidebar-tab.is-active { color: #2563eb; font-weight: 600; background: #dbeafe; }
+.atar-assessment .db-tab-indicator { position: absolute; left: 0; top: 4px; bottom: 4px; width: 3px; border-radius: 0 3px 3px 0; background: #2563eb; display: none; }
+.atar-assessment.rtl .db-tab-indicator { left: auto; right: 0; }
+.atar-assessment .db-sidebar-tab.is-active .db-tab-indicator { display: block; }
+.atar-assessment .db-tab-icon { font-size: 1rem; flex-shrink: 0; width: 22px; text-align: center; }
+
+.atar-assessment .db-content { flex: 1 1 auto; overflow-y: auto; overflow-x: hidden; padding: 24px 28px 40px; }
+/* Content fills the panel width (responsive); text-dense cards stay readable via their own grids.
+   No global max-width cap — it left dead space on wide panels and kept the map from using the width. */
+
+.atar-assessment .db-card { background: #fff; border: 1px solid #dfe4ea; border-radius: 10px; padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.atar-assessment .db-card-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 10px; color: #1e293b; }
+.atar-assessment .db-empty { text-align: center; color: #94a3b8; }
+
+.atar-assessment .db-kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.atar-assessment .db-kpi { background: #fff; border: 1px solid #dfe4ea; border-radius: 10px; padding: 16px; text-align: center; }
+.atar-assessment .db-kpi-value { font-size: 1.6rem; font-weight: 700; color: #2563eb; font-family: 'JetBrains Mono', ui-monospace, monospace; }
+.atar-assessment .db-kpi-label { font-size: 0.75rem; color: #94a3b8; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+.atar-assessment .db-pill { display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: 0.75rem; font-weight: 500; margin: 2px 3px; }
+.atar-assessment .db-pill-accent { background: #dbeafe; color: #2563eb; }
+.atar-assessment .db-pill-green { background: #d1fae5; color: #065f46; }
+.atar-assessment .db-pill-amber { background: #fef3c7; color: #92400e; }
+.atar-assessment .db-pill-red { background: #fee2e2; color: #991b1b; }
+.atar-assessment .db-pill-purple { background: #ede9fe; color: #5b21b6; }
+.atar-assessment .db-pill-slate { background: #f1f5f9; color: #64748b; }
+.atar-assessment .db-pill-clickable { cursor: pointer; transition: opacity 0.15s; }
+.atar-assessment .db-pill-clickable:hover { opacity: 0.75; }
+.atar-assessment .db-rating { display: inline-flex; align-items: center; gap: 4px; padding: 2px 10px; border-radius: 6px; font-size: 0.78rem; font-weight: 600; }
+
+.atar-assessment .db-integrity-range { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 8px; }
+.atar-assessment .db-integrity-chip { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 8px; font-size: 0.78rem; border: 1px solid; }
+
+.atar-assessment .db-list { list-style: none; padding: 0; margin: 0; }
+.atar-assessment .db-list li { padding: 4px 0; font-size: 0.88rem; color: #475569; }
+.atar-assessment .db-list li::before { content: "•"; color: #2563eb; margin-right: 8px; }
+.atar-assessment.rtl .db-list li::before { margin-right: 0; margin-left: 8px; }
+
+.atar-assessment .db-scroll-x { overflow-x: auto; }
+.atar-assessment .db-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+.atar-assessment .db-table th { background: #f5f7fa; padding: 8px 12px; text-align: inherit; font-weight: 600; border-bottom: 2px solid #dfe4ea; }
+.atar-assessment .db-table td { padding: 8px 12px; border-bottom: 1px solid #dfe4ea; vertical-align: top; }
+.atar-assessment .db-table tr:last-child td { border-bottom: none; }
+.atar-assessment .db-td-strong { font-weight: 500; }
+.atar-assessment .db-td-dim { color: #475569; }
+
+.atar-assessment .db-timeline { position: relative; padding: 0 0 0 24px; }
+.atar-assessment.rtl .db-timeline { padding: 0 24px 0 0; }
+.atar-assessment .db-timeline::before { content: ""; position: absolute; left: 7px; top: 0; bottom: 0; width: 2px; background: #dfe4ea; }
+.atar-assessment.rtl .db-timeline::before { left: auto; right: 7px; }
+.atar-assessment .db-tl-event { position: relative; padding-bottom: 8px; }
+.atar-assessment .db-tl-dot { position: absolute; left: -21px; top: 6px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,0.1); }
+.atar-assessment.rtl .db-tl-dot { left: auto; right: -21px; }
+.atar-assessment .db-tl-year { font-size: 0.78rem; font-weight: 700; color: #475569; }
+.atar-assessment .db-tl-label { font-size: 0.88rem; color: #1e293b; }
+.atar-assessment .db-tl-spacer { height: 1px; }
+.atar-assessment .db-tl-legend { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; font-size: 0.78rem; color: #94a3b8; }
+.atar-assessment .db-tl-legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+.atar-assessment.rtl .db-tl-legend-dot { margin-right: 0; margin-left: 4px; }
+
+.atar-assessment .db-ctx-card, .atar-assessment .db-val-card { border-left: 3px solid #2563eb; padding-left: 14px; margin-bottom: 14px; cursor: pointer; }
+.atar-assessment.rtl .db-ctx-card, .atar-assessment.rtl .db-val-card { border-left: none; border-right: 3px solid #2563eb; padding-left: 0; padding-right: 14px; }
+.atar-assessment .db-ctx-card.is-highlight, .atar-assessment .db-val-card.is-highlight { background: #dbeafe; border-radius: 6px; padding: 10px 14px; }
+.atar-assessment .db-ctx-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; }
+.atar-assessment .db-ctx-timespan { font-size: 0.78rem; color: #94a3b8; margin-bottom: 4px; }
+.atar-assessment .db-ctx-pills { margin-top: 6px; }
+.atar-assessment .db-val-head { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.atar-assessment .db-val-name { font-weight: 600; font-size: 0.95rem; }
+.atar-assessment .db-val-summary { font-size: 0.88rem; color: #475569; margin-top: 4px; }
+
+.atar-assessment .db-highlight-banner { background: #dbeafe; border: 1px solid #2563eb; border-radius: 8px; padding: 8px 14px; margin-bottom: 16px; display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 0.85rem; }
+.atar-assessment .db-highlight-clear { background: none; border: 1px solid #2563eb; color: #2563eb; border-radius: 6px; padding: 2px 10px; cursor: pointer; font-size: 0.78rem; font-family: inherit; }
+
+.atar-assessment .db-nara-summary { font-size: 0.95rem; color: #1e293b; font-weight: 500; }
+.atar-assessment .db-nara-card { border-radius: 10px; border: 1px solid #dfe4ea; padding: 16px; margin-bottom: 12px; position: relative; }
+.atar-assessment .db-nara-left-bar { position: absolute; left: 0; top: 8px; bottom: 8px; width: 4px; border-radius: 0 4px 4px 0; }
+.atar-assessment.rtl .db-nara-left-bar { left: auto; right: 0; border-radius: 4px 0 0 4px; }
+.atar-assessment .db-nara-body { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; padding-left: 12px; }
+.atar-assessment.rtl .db-nara-body { padding-left: 0; padding-right: 12px; }
+.atar-assessment .db-nara-main { flex: 1; min-width: 200px; }
+.atar-assessment .db-nara-aspect { font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; }
+.atar-assessment .db-nara-desc { font-size: 0.85rem; color: #475569; margin-bottom: 6px; }
+.atar-assessment .db-nara-ve { font-size: 0.82rem; color: #94a3b8; }
+
+.atar-assessment .db-vuln-legend { font-size: 0.78rem; color: #94a3b8; margin-bottom: 10px; }
+.atar-assessment .db-vuln-table th, .atar-assessment .db-vuln-table td { text-align: center; padding: 6px 10px; font-size: 0.8rem; }
+.atar-assessment .db-vuln-rating { font-weight: 400; font-size: 0.72rem; color: #94a3b8; }
+.atar-assessment .db-vuln-rowlabel { text-align: inherit; }
+.atar-assessment .db-vuln-cell { border-radius: 4px; padding: 4px 8px; display: inline-block; min-width: 28px; }
+.atar-assessment .db-vuln-3 { background: #fee2e2; color: #991b1b; font-weight: 600; }
+.atar-assessment .db-vuln-2 { background: #fef3c7; color: #92400e; }
+.atar-assessment .db-vuln-1 { background: #f1f5f9; color: #64748b; }
+.atar-assessment .db-vuln-0 { background: #f8fafc; color: #cbd5e1; }
+
+.atar-assessment .db-comp-card { border: 1px solid #dfe4ea; border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+.atar-assessment .db-comp-card.is-highlight { box-shadow: 0 0 0 2px #2563eb; }
+.atar-assessment .db-comp-name { font-weight: 600; font-size: 1rem; margin-bottom: 6px; }
+.atar-assessment .db-comp-meta { font-size: 0.82rem; color: #475569; margin-bottom: 8px; }
+.atar-assessment .db-comp-pills { margin-top: 6px; }
+.atar-assessment .db-comp-dist { font-size: 0.88rem; color: #1e293b; margin-top: 8px; }
+
+.atar-assessment .db-sig-title { margin-bottom: 12px; }
+.atar-assessment .db-sig-block { background: linear-gradient(135deg, #1e293b 0%, #334155 100%); color: #fff; border-radius: 12px; padding: 28px 24px; font-size: 1.05rem; line-height: 1.7; }
+
+.atar-assessment .db-map { height: min(440px, 60vh); border-radius: 10px; border: 1px solid #e2e8f0; overflow: hidden; position: relative; }
+.atar-assessment .db-map-placeholder { height: 440px; display: flex; align-items: center; justify-content: center; background: #f8fafc; border-radius: 10px; border: 1px dashed #dfe4ea; color: #94a3b8; font-size: 0.9rem; }
+.atar-assessment .db-coord-note { font-size: 0.78rem; color: #94a3b8; margin-top: 8px; }
+
+.atar-assessment .db-theme-card { border: 1px solid #dfe4ea; border-radius: 10px; padding: 16px; margin-bottom: 14px; }
+.atar-assessment .db-theme-head { font-weight: 600; font-size: 0.95rem; margin-bottom: 6px; }
+.atar-assessment .db-theme-desc { font-size: 0.85rem; color: #475569; margin-bottom: 8px; }
+.atar-assessment .db-theme-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+.atar-assessment.rtl .db-theme-dot { margin-right: 0; margin-left: 6px; }
+.atar-assessment .db-theme-sub-tabs { display: flex; gap: 8px; margin-bottom: 16px; flex-wrap: wrap; }
+.atar-assessment .db-theme-sub-tab { padding: 4px 14px; border-radius: 99px; border: 1px solid #dfe4ea; background: #fff; cursor: pointer; font-size: 0.82rem; font-family: inherit; }
+.atar-assessment .db-theme-sub-tab.is-active { background: #2563eb; color: #fff; border-color: #2563eb; }
+
+.atar-assessment .db-section-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: #94a3b8; font-weight: 600; margin-bottom: 10px; margin-top: 18px; }
+
+.atar-assessment .db-card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
+.atar-assessment .db-gcard-title { font-weight: 600; font-size: 0.95rem; margin-bottom: 4px; }
+.atar-assessment .db-gcard-sub { font-size: 0.82rem; color: #94a3b8; margin-bottom: 6px; }
+.atar-assessment .db-gcard-body { font-size: 0.88rem; color: #475569; }
+.atar-assessment .db-gcard-badges { margin-top: 8px; }
+.atar-assessment .db-prose-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 8px; color: #1e293b; }
+.atar-assessment .db-prose-body { font-size: 0.9rem; color: #475569; line-height: 1.7; }
+.atar-assessment .db-link-btn { background: none; border: none; color: #2563eb; cursor: pointer; font: inherit; text-decoration: underline; padding: 0; }
+
+.atar-assessment .db-ai-mount { max-width: 760px; }
+
+/* Narrow: sidebar → horizontal top bar */
+@media (max-width: 768px) {
+  .atar-assessment .db-shell { flex-direction: column; }
+  .atar-assessment .db-sidebar { flex: 0 0 auto; flex-direction: row; overflow-x: auto; overflow-y: hidden; border-right: none; border-bottom: 1px solid #dfe4ea; }
+  .atar-assessment.rtl .db-sidebar { border-left: none; border-bottom: 1px solid #dfe4ea; }
+  .atar-assessment .db-sidebar-header { display: none; }
+  .atar-assessment .db-sidebar [role="tablist"] { display: flex; }
+  .atar-assessment .db-sidebar-tab { flex-direction: column; padding: 8px 10px; font-size: 0.72rem; gap: 2px; white-space: nowrap; }
+  .atar-assessment .db-tab-indicator { display: none !important; }
+  .atar-assessment .db-sidebar-tab.is-active { border-bottom: 2px solid #2563eb; }
+  .atar-assessment .db-content { padding: 16px 14px 32px; }
+  .atar-assessment .db-kpi-row { grid-template-columns: repeat(2, 1fr); }
+}

@@ -1,0 +1,118 @@
+/* Collection Dashboard — flex layout, scoped to .atar-collection. Ported from collection-dashboard-runtime.js. */
+.atar-collection {
+  display: flex; flex-direction: column; height: 100%; min-height: 520px; overflow: hidden;
+  background: #f5f7fa; color: #1e293b;
+  font-family: 'DM Sans', 'Noto Sans Hebrew', 'Segoe UI', system-ui, sans-serif; line-height: 1.6;
+}
+.atar-collection .cd-shell { display: flex; flex: 1 1 auto; min-height: 0; }
+.atar-collection .cd-sidebar { flex: 0 0 180px; background: #fff; border-right: 1px solid #dfe4ea; display: flex; flex-direction: column; overflow-y: auto; }
+.atar-collection.rtl .cd-sidebar { border-right: none; border-left: 1px solid #dfe4ea; }
+.atar-collection .cd-main { flex: 1 1 auto; display: flex; flex-direction: column; min-width: 0; min-height: 0; }
+
+.atar-collection .cd-header { flex: 0 0 auto; background: #1e293b; color: #fff; padding: 18px 28px; }
+.atar-collection .cd-header-name { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.01em; }
+.atar-collection .cd-header-meta { font-size: 0.82rem; color: #94a3b8; margin-top: 4px; }
+
+.atar-collection .cd-sidebar-header { padding: 16px 14px 8px; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: #94a3b8; font-weight: 600; }
+.atar-collection .cd-sidebar-tab { display: flex; align-items: center; gap: 8px; padding: 10px 14px; cursor: pointer; font-size: 0.85rem; color: #475569; border: none; background: none; width: 100%; text-align: inherit; position: relative; font-family: inherit; transition: background 0.15s, color 0.15s; }
+.atar-collection .cd-sidebar-tab:hover { background: #dbeafe; color: #2563eb; }
+.atar-collection .cd-sidebar-tab.is-active { color: #2563eb; font-weight: 600; background: #dbeafe; }
+.atar-collection .cd-tab-indicator { position: absolute; left: 0; top: 4px; bottom: 4px; width: 3px; border-radius: 0 3px 3px 0; background: #2563eb; display: none; }
+.atar-collection.rtl .cd-tab-indicator { left: auto; right: 0; }
+.atar-collection .cd-sidebar-tab.is-active .cd-tab-indicator { display: block; }
+.atar-collection .cd-tab-icon { font-size: 1rem; flex-shrink: 0; width: 22px; text-align: center; }
+
+.atar-collection .cd-content { flex: 1 1 auto; overflow-y: auto; overflow-x: hidden; padding: 24px 28px 40px; }
+/* Content fills the panel width (responsive); no global max-width cap (see dashboard.css note). */
+
+.atar-collection .cd-card { background: #fff; border: 1px solid #dfe4ea; border-radius: 10px; padding: 20px; margin-bottom: 16px; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+.atar-collection .cd-card-title { font-size: 0.95rem; font-weight: 600; margin-bottom: 10px; color: #1e293b; }
+.atar-collection .cd-empty { text-align: center; color: #94a3b8; }
+.atar-collection .cd-narrative { font-size: 0.9rem; color: #475569; line-height: 1.65; }
+
+.atar-collection .cd-kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 20px; }
+.atar-collection .cd-kpi { background: #fff; border: 1px solid #dfe4ea; border-radius: 10px; padding: 16px; text-align: center; }
+.atar-collection .cd-kpi-value { font-size: 1.6rem; font-weight: 700; color: #2563eb; font-family: 'JetBrains Mono', ui-monospace, monospace; }
+.atar-collection .cd-kpi-label { font-size: 0.75rem; color: #94a3b8; margin-top: 2px; text-transform: uppercase; letter-spacing: 0.04em; }
+
+.atar-collection .cd-pill { display: inline-block; padding: 2px 10px; border-radius: 99px; font-size: 0.75rem; font-weight: 500; margin: 2px 3px; }
+.atar-collection .cd-pill-accent { background: #dbeafe; color: #2563eb; }
+.atar-collection .cd-pill-green { background: #d1fae5; color: #065f46; }
+.atar-collection .cd-pill-amber { background: #fef3c7; color: #92400e; }
+.atar-collection .cd-pill-red { background: #fee2e2; color: #991b1b; }
+.atar-collection .cd-pill-purple { background: #ede9fe; color: #5b21b6; }
+.atar-collection .cd-pill-slate { background: #f1f5f9; color: #64748b; }
+.atar-collection .cd-pill-btn { cursor: pointer; border: none; font-family: inherit; }
+
+.atar-collection .cd-bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; font-size: 0.82rem; }
+.atar-collection .cd-bar-label { min-width: 100px; color: #475569; text-align: end; flex-shrink: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.atar-collection.rtl .cd-bar-label { text-align: start; }
+.atar-collection .cd-bar-track { flex: 1; height: 18px; background: #f5f7fa; border-radius: 4px; overflow: hidden; }
+.atar-collection .cd-bar-fill { height: 100%; border-radius: 4px; transition: width 0.3s; min-width: 2px; }
+.atar-collection .cd-bar-count { min-width: 24px; font-weight: 600; font-size: 0.78rem; color: #1e293b; }
+
+.atar-collection .cd-list { list-style: none; padding: 0; margin: 0; }
+.atar-collection .cd-list li { padding: 4px 0; font-size: 0.88rem; color: #475569; }
+.atar-collection .cd-list li::before { content: "•"; color: #2563eb; margin-right: 8px; }
+.atar-collection.rtl .cd-list li::before { margin-right: 0; margin-left: 8px; }
+
+.atar-collection .cd-scroll-x { overflow-x: auto; }
+.atar-collection .cd-table { width: 100%; border-collapse: collapse; font-size: 0.82rem; }
+.atar-collection .cd-table th { background: #f5f7fa; padding: 8px 10px; text-align: inherit; font-weight: 600; border-bottom: 2px solid #dfe4ea; font-size: 0.75rem; white-space: nowrap; }
+.atar-collection .cd-table td { padding: 8px 10px; border-bottom: 1px solid #dfe4ea; vertical-align: top; }
+.atar-collection .cd-table tr:last-child td { border-bottom: none; }
+.atar-collection .cd-th-center, .atar-collection .cd-td-center { text-align: center; }
+.atar-collection .cd-td-strong { font-weight: 600; }
+.atar-collection .cd-table-foot { font-weight: 600; background: #f5f7fa; }
+.atar-collection .cd-foot-counts { font-size: 0.72rem; }
+.atar-collection .cd-c-e { color: #065f46; }
+.atar-collection .cd-c-i { color: #92400e; }
+.atar-collection .cd-c-a { color: #94a3b8; }
+.atar-collection .cd-val-cell { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 24px; border-radius: 4px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; }
+
+.atar-collection .cd-site-link { background: none; border: none; color: #2563eb; cursor: pointer; font-weight: 600; font-size: inherit; text-decoration: underline; text-decoration-color: transparent; transition: text-decoration-color 0.15s; padding: 0; text-align: inherit; font-family: inherit; }
+.atar-collection .cd-site-link:hover { text-decoration-color: #2563eb; }
+.atar-collection .cd-expand { background: #f5f7fa; border: 1px solid #dfe4ea; border-radius: 8px; padding: 14px; margin-top: 8px; }
+.atar-collection .cd-expand-hl { margin-top: 6px; font-size: 0.85rem; font-style: italic; color: #475569; }
+.atar-collection .cd-expand-spec { margin-top: 6px; }
+.atar-collection .cd-expand-spec-text { font-size: 0.85rem; color: #475569; }
+
+.atar-collection .cd-map { height: min(480px, 60vh); border-radius: 10px; border: 1px solid #e2e8f0; overflow: hidden; position: relative; }
+.atar-collection .cd-map-placeholder { height: min(480px, 60vh); display: flex; align-items: center; justify-content: center; background: #f8fafc; border-radius: 10px; border: 1px dashed #dfe4ea; color: #94a3b8; font-size: 0.9rem; }
+.atar-collection .cd-filter-row { display: flex; gap: 6px; margin-bottom: 14px; flex-wrap: wrap; }
+.atar-collection .cd-filter-btn { padding: 4px 14px; border-radius: 99px; border: 1px solid #dfe4ea; background: #fff; cursor: pointer; font-size: 0.82rem; font-family: inherit; transition: all 0.15s; }
+.atar-collection .cd-filter-btn:hover { border-color: #2563eb; }
+.atar-collection .cd-filter-btn.is-active { background: #2563eb; color: #fff; border-color: #2563eb; }
+.atar-collection .cd-back-btn { display: inline-flex; align-items: center; gap: 4px; background: none; border: 1px solid #dfe4ea; border-radius: 6px; padding: 4px 12px; cursor: pointer; font-size: 0.82rem; color: #2563eb; margin-bottom: 14px; font-family: inherit; }
+.atar-collection .cd-back-btn:hover { background: #dbeafe; }
+
+.atar-collection .cd-theme-head { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.atar-collection .cd-theme-dot { display: inline-block; width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+.atar-collection .cd-theme-label { margin-bottom: 0; }
+.atar-collection .cd-theme-desc { font-size: 0.88rem; color: #475569; line-height: 1.6; margin-bottom: 10px; }
+.atar-collection .cd-theme-sites { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 8px; }
+.atar-collection .cd-theme-evidence { margin-top: 6px; }
+.atar-collection .cd-evidence-row { font-size: 0.82rem; color: #475569; margin-top: 4px; }
+
+.atar-collection .cd-card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 14px; }
+.atar-collection .cd-gcard-sub { font-size: 0.82rem; color: #94a3b8; margin-bottom: 6px; }
+.atar-collection .cd-gcard-body { font-size: 0.88rem; color: #475569; margin-top: 8px; line-height: 1.6; }
+.atar-collection .cd-prose-body { font-size: 0.88rem; color: #475569; line-height: 1.65; }
+
+.atar-collection .cd-section-label { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: #94a3b8; font-weight: 600; margin-bottom: 10px; margin-top: 18px; }
+.atar-collection .cd-ai-mount { max-width: 760px; }
+
+/* Narrow: sidebar → horizontal top bar */
+@media (max-width: 768px) {
+  .atar-collection .cd-shell { flex-direction: column; }
+  .atar-collection .cd-sidebar { flex: 0 0 auto; flex-direction: row; overflow-x: auto; overflow-y: hidden; border-right: none; border-bottom: 1px solid #dfe4ea; }
+  .atar-collection.rtl .cd-sidebar { border-left: none; border-bottom: 1px solid #dfe4ea; }
+  .atar-collection .cd-sidebar-header { display: none; }
+  .atar-collection .cd-sidebar-tab { flex-direction: column; padding: 8px 10px; font-size: 0.72rem; gap: 2px; white-space: nowrap; }
+  .atar-collection .cd-tab-indicator { display: none !important; }
+  .atar-collection .cd-sidebar-tab.is-active { border-bottom: 2px solid #2563eb; }
+  .atar-collection .cd-content { padding: 16px 14px 32px; }
+  .atar-collection .cd-kpi-row { grid-template-columns: repeat(2, 1fr); }
+  .atar-collection .cd-table { font-size: 0.72rem; }
+  .atar-collection .cd-bar-label { min-width: 70px; }
+}

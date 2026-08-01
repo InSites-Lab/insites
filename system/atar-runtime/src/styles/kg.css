@@ -1,0 +1,126 @@
+/* Knowledge Graph — flex layout (robust when embedded in a sized artifact container). */
+.atar-kg { display: flex; flex-direction: column; width: 100%; height: 100%; min-height: 480px; overflow: hidden; background: #f8fafc; color: #0f172a;
+  font-family: 'Noto Sans', 'Noto Sans Hebrew', 'Noto Sans Arabic', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif; }
+
+.atar-kg .kg-toolbar { flex: 0 0 auto; z-index: 20; display: flex; justify-content: space-between; align-items: flex-start; gap: 14px;
+  padding: 9px 14px; background: rgba(255,255,255,0.96); border-bottom: 1px solid #e2e8f0; }
+.atar-kg .kg-body { flex: 1 1 auto; display: flex; min-height: 0; }
+.atar-kg .kg-sidebar { flex: 0 0 300px; min-width: 0; display: flex; flex-direction: column; overflow: hidden;
+  background: rgba(255,255,255,0.97); border-right: 1px solid #e2e8f0; transition: flex-basis 0.18s ease; }
+.atar-kg .kg-network { flex: 1 1 auto; position: relative; min-width: 0; background: #f8fafc; }
+.atar-kg .kg-loading { padding: 48px 16px; text-align: center; color: #94a3b8; }
+
+/* D3 SVG graph (replaces the old vis-network canvas). The svg fills .kg-network; d3.zoom
+   transforms .kg-zoom-layer. Node/edge highlight + dim are set as per-element attributes by
+   restyle(), not classes. NOTE: keep this file free of the star-slash comment-close sequence. */
+.atar-kg .kg-svg { width: 100%; height: 100%; display: block; cursor: grab; touch-action: none; }
+.atar-kg .kg-svg:active { cursor: grabbing; }
+.atar-kg .kg-node { cursor: pointer; }
+.atar-kg .kg-node circle { transition: r 0.12s ease, stroke-width 0.12s ease; }
+.atar-kg .kg-node text { font-size: 11px; font-weight: 600; fill: #0f172a; pointer-events: none;
+  paint-order: stroke; stroke: #ffffff; stroke-width: 3px; stroke-linejoin: round;
+  font-family: 'Noto Sans', 'Noto Sans Hebrew', system-ui, sans-serif; }
+.atar-kg .kg-edge { fill: none; stroke: #848484; stroke-width: 1.5px; }
+.atar-kg .kg-edge-label { font-size: 11px; fill: #555; pointer-events: none;
+  paint-order: stroke; stroke: rgba(255,255,255,0.82); stroke-width: 3px; stroke-linejoin: round;
+  font-family: 'Noto Sans', 'Noto Sans Hebrew', system-ui, sans-serif; }
+
+/* Collapse the panel → graph gets the full width */
+.atar-kg.kg-collapsed .kg-sidebar { flex-basis: 0; width: 0; min-width: 0; border: 0; overflow: hidden; }
+.atar-kg .kg-collapse-toggle { position: absolute; top: 8px; left: 8px; z-index: 19; width: 26px; height: 26px; padding: 0;
+  border-radius: 7px; border: 1px solid #cbd5e1; background: rgba(255,255,255,0.92); color: #334155; cursor: pointer;
+  font-size: 16px; line-height: 1; display: flex; align-items: center; justify-content: center; box-shadow: 0 1px 3px rgba(15,23,42,0.08); }
+.atar-kg .kg-collapse-toggle:hover { background: #ffffff; }
+
+.kg-tab-bar { display: flex; background: #f1f5f9; border-bottom: 1px solid #e2e8f0; flex-shrink: 0; min-height: 40px; width: 100%; }
+.kg-tab { flex: 1 1 0%; padding: 10px 8px; margin: 0; font-size: 0.85rem; font-weight: 700; font-family: inherit; text-align: center;
+  cursor: pointer; border: none; border-bottom: 2px solid transparent; border-radius: 0; background: transparent; color: #64748b; line-height: 1.2;
+  appearance: none; -webkit-appearance: none; transition: color 0.15s, border-color 0.15s, background 0.15s; }
+.kg-tab.is-active { background: #ffffff; color: #3b82f6; border-bottom-color: #3b82f6; }
+.kg-tab:hover:not(.is-active) { color: #334155; }
+.kg-tab-content { flex: 1; overflow: auto; padding: 16px; }
+
+.kg-toolbar-main, .kg-toolbar-controls { display: flex; flex-direction: column; gap: 10px; }
+.kg-toolbar-controls { align-items: flex-end; }
+.kg-title { font-size: 17px; font-weight: 800; color: #0f172a; line-height: 1.15; }
+.kg-subtitle { margin-top: 1px; font-size: 11px; color: #94a3b8; }
+.kg-status-pills, .kg-filter-row { display: flex; gap: 6px; flex-wrap: wrap; }
+.kg-pill { display: inline-flex; align-items: center; padding: 4px 9px; border-radius: 999px; border: 1px solid #dbe3ef; background: #fff; color: #334155; font-size: 12px; font-weight: 700; }
+.kg-pill-accent { background: #eef2ff; border-color: #c7d2fe; color: #4338ca; }
+.kg-pill-strong { background: #eff6ff; border-color: #bfdbfe; color: #1d4ed8; }
+
+.kg-search-wrap { display: flex; gap: 6px; flex-wrap: wrap; }
+.kg-search-wrap input { min-width: 200px; border: 1px solid #cbd5e1; border-radius: 10px; background: #fff; padding: 8px 11px; font-size: 14px; color: #0f172a; outline: none; }
+.kg-search-wrap button, .kg-filter-btn, .kg-result-btn { border: 1px solid #cbd5e1; border-radius: 10px; background: #fff; color: #0f172a; padding: 7px 11px; font-size: 13px; font-weight: 700; cursor: pointer; font-family: inherit; }
+.kg-filter-btn { display: inline-flex; align-items: center; gap: 5px; }
+.kg-filter-btn.is-active { background: #eff6ff; border-color: #93c5fd; color: #1d4ed8; }
+.kg-show-all { background: #f8fafc; }
+.kg-filter-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+.kg-panel-section { background: #fff; border: 1px solid #e2e8f0; border-radius: 14px; padding: 14px; margin-bottom: 14px; box-shadow: 0 4px 12px rgba(15,23,42,0.04); }
+.kg-panel-title { font-size: 18px; font-weight: 800; color: #0f172a; margin-bottom: 10px; }
+.kg-section-label { font-size: 11px; font-weight: 800; color: #64748b; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 10px; }
+.kg-panel-text, .kg-meta-row, .kg-empty { font-size: 14px; line-height: 1.55; color: #334155; margin-top: 8px; }
+.kg-type-badge { display: inline-block; width: 10px; height: 10px; border-radius: 50%; vertical-align: middle; margin: 0 4px; }
+.kg-result-btn { width: 100%; margin-top: 6px; display: flex; justify-content: space-between; align-items: center; gap: 8px; text-align: start; }
+.kg-result-name { font-weight: 700; color: #0f172a; }
+.kg-result-type { font-size: 12px; color: #64748b; }
+.kg-edge-label { font-size: 11px; color: #94a3b8; font-style: italic; }
+
+.kg-epistemic-row { border-top: 1px solid #e2e8f0; margin-top: 10px; padding-top: 10px; }
+.kg-epistemic-row strong { display: flex; align-items: center; gap: 6px; color: #334155; font-weight: 700; }
+.kg-epistemic-note { font-size: 12px; color: #64748b; font-style: italic; margin-top: 4px; }
+.kg-epistemic-summary { font-size: 14px; color: #475569; margin-bottom: 8px; }
+.kg-review-prompt { font-size: 12px; color: #64748b; line-height: 1.5; margin-bottom: 8px; }
+.kg-review-item { justify-content: flex-start; }
+.kg-review-icon { font-size: 15px; flex-shrink: 0; }
+
+.kg-stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px; }
+.kg-stat-card { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 12px; text-align: center; }
+.kg-stat-value { font-size: 1.6rem; font-weight: 800; color: #3b82f6; line-height: 1.2; }
+.kg-stat-label { font-size: 0.72rem; font-weight: 700; color: #64748b; text-transform: uppercase; letter-spacing: 0.04em; margin-top: 4px; }
+
+.atar-kg .kg-legend { position: absolute; bottom: 12px; left: 12px; z-index: 18; display: flex; flex-wrap: wrap; gap: 6px 12px; padding: 7px 12px;
+  background: rgba(30,41,59,0.85); border-radius: 10px; max-width: calc(100% - 24px); }
+.kg-legend-item { display: inline-flex; align-items: center; gap: 5px; font-size: 0.72rem; color: #e2e8f0; white-space: nowrap; }
+.kg-legend-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+.kg-tab-content::-webkit-scrollbar { width: 8px; }
+.kg-tab-content::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 999px; }
+.kg-tab-content::-webkit-scrollbar-track { background: transparent; }
+
+/* Fallback (d3 engine unavailable) */
+.kg-fallback { padding: 16px; overflow: auto; height: 100%; }
+.kg-fallback-note { font-weight: 700; color: #b45309; margin-bottom: 10px; }
+.kg-fallback-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.kg-fallback ul { list-style: none; margin: 6px 0 0; padding: 0; font-size: 13px; color: #334155; }
+.kg-fallback li { padding: 3px 0; }
+.kg-fallback i { color: #94a3b8; font-size: 11px; }
+.kg-fb-dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+
+/* RTL: a dir=rtl container already reverses the flex main axis, so plain `row` puts the
+   sidebar on the right — no flex-direction override needed (row-reverse would double-flip it). */
+/* Panel (sidebar) always on the LEFT, uniform across languages — force the body's flex order to LTR;
+   text inside the sidebar/graph stays language-appropriate (RTL for Hebrew). */
+.atar-kg.rtl .kg-body { direction: ltr; }
+.atar-kg.rtl .kg-sidebar, .atar-kg.rtl .kg-network { direction: rtl; }
+.atar-kg.rtl .kg-sidebar { border-right: 1px solid #e2e8f0; border-left: none; }
+.atar-kg.rtl .kg-legend { left: auto; right: 12px; }
+.atar-kg.rtl .kg-toolbar-controls { align-items: flex-start; }
+.atar-kg.rtl .kg-fb-dot { margin-right: 0; margin-left: 6px; }
+
+/* Responsive layout is driven SOLELY by the renderer's container measurement (`.kg-compact` on the
+   root, set by its ResizeObserver) — deliberately NOT by a viewport @media query, which inside an
+   artifact iframe reacts to the host page/viewport rather than the artifact container, and fought
+   the JS toggle (the inconsistency). Single source of truth = the JS container size. */
+
+/* Compact mode — small container (inline GPT/Claude artifact): graph-first.
+   Toggled by the renderer (.kg-compact on the root, via its ResizeObserver); the sidebar is
+   auto-collapsed in JS, and here the toolbar is slimmed/stacked so the graph gets the height. */
+.atar-kg.kg-compact .kg-toolbar { flex-direction: column; align-items: stretch; padding: 6px 10px; gap: 6px; }
+.atar-kg.kg-compact .kg-toolbar-main, .atar-kg.kg-compact .kg-toolbar-controls { gap: 6px; align-items: stretch; }
+.atar-kg.kg-compact .kg-title { font-size: 14px; }
+.atar-kg.kg-compact .kg-subtitle { display: none; }
+.atar-kg.kg-compact .kg-filter-row { display: none; }   /* entity-type chips hidden in compact; full chrome only when expanded */
+.atar-kg.kg-compact .kg-search-wrap input { min-width: 0; flex: 1; }
+.atar-kg.kg-compact .kg-network { min-height: 240px; }

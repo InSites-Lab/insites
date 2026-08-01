@@ -40,12 +40,18 @@ A specification refers to four files by name. Two are here; two are not, on purp
 
 | Named as | Where it is |
 |---|---|
-| `atar-runtime/data-contract.md` | [`atar-runtime/data-contract.md`](atar-runtime/data-contract.md) — the one `DATA` shape every rendered output is built from, and the aliases that let the ChatGPT and Claude key sets both work |
+| `atar-runtime/data-contract.md` | [`atar-runtime/data-contract.md`](atar-runtime/data-contract.md) — the one `DATA` shape every rendered output is built from, and the aliases that let the ChatGPT and Claude key sets both work. The runtime it describes is here too, in source: [`atar-runtime/`](atar-runtime/) |
 | `artifact-ux-contract.md` | [`artifact-ux-contract.md`](artifact-ux-contract.md) — the visual language, the entity-type palette, and the AI-query behaviour, held in common across the three platforms |
 | `test-mode.md` | **Not here, by design.** A development harness that runs the whole pipeline unattended against a built-in sample. The specification calls it dev-only and instructs the model to ignore it when absent, so its absence is the intended state rather than a missing file |
 | `kg-runtime.js` | **Not here.** An earlier renderer, named where the specification lists Hebrew entity labels. It has been replaced by the `atar-runtime` package the contracts above describe, and nothing in this build loads it |
 
-The rendering itself comes from the `atar-runtime` npm package, loaded at view time from a pinned CDN version. No part of it is hosted here.
+## The rendering runtime
+
+A specification file is prose, but the knowledge graph and the two dashboards are drawn by actual code, and [`atar-runtime/`](atar-runtime/) is that code: roughly 180 KB of JavaScript and CSS — three renderers, a Leaflet map with a zero-network vector fallback, right-to-left detection, and the AI-query panel — plus the esbuild driver that produces the bundle and the React shell a Claude artifact emits.
+
+A running artifact does not load this directory. It loads the published `atar-runtime` package from a CDN at a pinned version, which is the only external-script path an artifact sandbox permits. What is here is the source that package is built from, so a reader can see what the shell is handing its data to rather than take the rendering on trust.
+
+It is MIT rather than Apache-2.0; see [`../LICENSING.md`](../LICENSING.md).
 
 ## What is not here
 

@@ -1,0 +1,18 @@
+.atar-root { font: 14px/1.5 system-ui, -apple-system, 'Segoe UI', sans-serif; color: #0f172a; height: 100%; box-sizing: border-box; }
+.atar-root *, .atar-root *::before, .atar-root *::after { box-sizing: border-box; }
+.atar-root.rtl { direction: rtl; text-align: right; }
+.atar-stub, .atar-error { padding: 16px; border: 1px solid #e2e8f0; border-radius: 10px; background: #f8fafc; }
+.atar-error { color: #dc2626; }
+
+/* Shared AI-Query panel */
+.atar-ai { padding: 12px 0; }
+.atar-ai-head { font-weight: 700; margin-bottom: 8px; }
+.atar-ai-starters { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.atar-ai-starter { font: inherit; font-size: 12px; padding: 5px 10px; border: 1px solid #cbd5e1; border-radius: 999px; background: #fff; cursor: pointer; color: #334155; }
+.atar-ai-starter:hover { background: #f1f5f9; }
+.atar-ai-input { width: 100%; font: inherit; padding: 8px; border: 1px solid #cbd5e1; border-radius: 8px; resize: vertical; }
+.atar-ai-ask { margin-top: 8px; font: inherit; padding: 6px 14px; border: 0; border-radius: 8px; background: #3b82f6; color: #fff; cursor: pointer; }
+.atar-ai-out { margin-top: 10px; white-space: pre-wrap; }
+.atar-ai-loading { color: #94a3b8; }
+.atar-ai-copy { color: #475569; }
+.atar-ai-copybtn { margin-top: 6px; font: inherit; font-size: 12px; padding: 4px 10px; border: 1px solid #cbd5e1; border-radius: 8px; background: #fff; cursor: pointer; }
