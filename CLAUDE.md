@@ -39,7 +39,7 @@ The only edits foreseen in `studies/` are the source citations in `sources/READM
 
 ### 2. `system/`, `docs/` and every README are the live path.
 
-These change freely as the system develops. Improvements, corrections and expansions belong here. `docs/architecture.md` is load-bearing for a reviewer: the paper names source grounding, scope constraints and sequencing control without describing them, and points here instead.
+These change freely as the system develops. Improvements, corrections and expansions belong here. `docs/architecture.md` is load-bearing for a reviewer: the paper names scope constraints and sequencing control and then sets them aside to follow the two mechanisms it is about, so this repository is the only place they are described. The paper does not link to `docs/` — a reader arrives at the root and has to find it.
 
 ### 3. No claim about performance, anywhere.
 
@@ -68,4 +68,4 @@ The percentages inside `studies/heritage4.0-tuba-2026/coding/` describe that dat
 
 ## The tag
 
-`v1.0.0` is the paper's evidence and is immutable. Do not move or delete it; do not rename the repository or the `InSites-Lab` organisation — either breaks the reference. After submission, `main` is free.
+Do not move or delete `v1.0.0`, and do not rename the repository or the `InSites-Lab` organisation. Each of the three breaks reference [10], and the paper is already submitted with those strings printed in it.
