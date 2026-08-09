@@ -14,6 +14,7 @@ The architecture is a prompt file. It is bound to no particular model, and it ne
 | Understand how it works | [`docs/architecture.md`](docs/architecture.md) |
 | Understand the marks | [`docs/epistemic-notation.md`](docs/epistemic-notation.md) |
 | Check a claim in the Heritage 4.0 paper | [`studies/heritage4.0-tuba-2026/`](studies/heritage4.0-tuba-2026/) |
+| Find the archived Cultural-InSites specification | [`studies/Cultural-InSites-Paper/`](studies/Cultural-InSites-Paper/) |
 
 ## What is here
 
@@ -22,6 +23,8 @@ The architecture is a prompt file. It is bound to no particular model, and it ne
 **`docs/`** — architecture, the notation, and the output specifications. Also live.
 
 **`studies/heritage4.0-tuba-2026/`** — the research record behind *From Report to Inquiry: Governing Generative AI Insights in Heritage Significance Assessment* (Heritage 4.0, Florence, 2026). It holds the specification exactly as it ran, the session transcript, the protocols, and the claim-level coding. **This is a record of a session that happened**, so it is static by nature rather than by rule; what the paper cites is the tagged snapshot `v1.0.0`, and a tag cannot move.
+
+**`studies/Cultural-InSites-Paper/`** — the version of the specification the students used, run on DeepSeek-V3. Static; cite the tagged snapshot `cultural-insites-v1.0`.
 
 **`tools/claim-extractor/`** — the protocol that produced the claim-level coding.
 
