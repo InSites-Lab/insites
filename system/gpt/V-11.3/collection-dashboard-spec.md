@@ -22,7 +22,7 @@ Thin shell that loads `atar-runtime` and calls `mount(container, DATA, {})` with
 </head>
 <body>
   <div id="root" style="height:100vh"></div>
-  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.4/dist/atar-runtime.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.7/dist/atar-runtime.umd.js"></script>
   <script>
     var DATA = {
       type: "collection",
@@ -39,9 +39,13 @@ Thin shell that loads `atar-runtime` and calls `mount(container, DATA, {})` with
 
 **GPT delivery:** Follow **GPT-5.6 HTML delivery** in `instructions.md`; fallback filename: `{collection-name}-cbsa-collection-dashboard.html`.
 
+Set `{LANG}`/`{DIR}` by content language. The `<title>` text follows the output language — translate "Collection Dashboard" when the output is not English. Do **not** set tab labels here; the runtime localizes them.
+
 ## 3. Data Extraction
 
 Build per-site JSON from MA-RC Step 2 output. Only extracted data — nothing fabricated.
+
+**Mandatory location resolution — before writing `DATA`:** For every site, use supplied coordinates first; otherwise a scoped web lookup is permitted solely to verify a user-supplied address or place anchor. When the exact address cannot be resolved but the locality or region is clear, use its approximate point. Leave `lat`/`lng` as `null` only when no place anchor can be recognized, and record the reason in `collectionSummary.gaps`. Sites at the same stated place receive the same point. **The Map tab must render whenever at least one site has an explicit or inferred point.**
 
 ## 4. Data Schema (`type: "collection"`)
 
@@ -79,12 +83,13 @@ Fixed (auto): **Overview · Map · Values · [Themes]**, then your dynamic `tabs
 - `themes[]` MANDATORY (≥1). Minimum: group sites by overlapping value patterns; include `evidence` per site.
 - `site.highlight` MANDATORY and non-empty for every site.
 - Every site has a valid `id`; `values` use `e`/`i`/`a` consistently.
-- Coordinates: extract / infer / `null`.
+- Coordinates: apply the mandatory location-resolution rule above. A recognized locality or region cannot stay `null`; an unresolved location requires a specific `collectionSummary.gaps` entry.
 
 ## 7. Compliance Check
 
 - [ ] Output is one fenced `html` block containing the thin shell only (one `<div id="root">` + UMD script + valid inline `DATA` + `mount`).
-- [ ] Runtime from `cdn.jsdelivr.net/npm/atar-runtime@0.3.4`; `mount(root, DATA, {})`; `DATA.type === "collection"`.
+- [ ] Runtime from `cdn.jsdelivr.net/npm/atar-runtime@0.3.7`; `mount(root, DATA, {})`; `DATA.type === "collection"`.
+- [ ] Every site whose place anchor is recognized has `lat`/`lng`; the Map tab renders whenever at least one point exists.
 - [ ] No Leaflet/CSS/`<style>`/render code in the shell (runtime loads them).
 - [ ] `themes[]` non-empty; every site has non-empty `highlight` and a valid `id`; values use `e`/`i`/`a`.
 - [ ] `lang`/`dir` match language; GPT delivery follows `instructions.md`; fallback filename is correct.

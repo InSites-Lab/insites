@@ -25,7 +25,7 @@ The bot outputs a thin shell that loads `atar-runtime` and calls `mount(containe
 </head>
 <body>
   <div id="root" style="height:100vh"></div>
-  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.4/dist/atar-runtime.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.7/dist/atar-runtime.umd.js"></script>
   <script>
     var DATA = {
       type: "assessment",
@@ -42,6 +42,7 @@ The bot outputs a thin shell that loads `atar-runtime` and calls `mount(containe
 
 **Rules**:
 - Set `{LANG}`/`{DIR}` to `he`/`rtl` or `en`/`ltr` by content language; the runtime also auto-detects Hebrew → RTL.
+- The `<title>` text follows the output language — translate "CBSA Dashboard" when the output is not English. Do **not** set tab labels here; the runtime localizes them.
 - `DATA` must be valid inline JS — no `fetch()`.
 - Add no inline CSS/JS beyond the `DATA` assignment + the `mount` call.
 
@@ -65,7 +66,7 @@ Re-read all stage outputs and extract:
 | Location | Stage 0 + context | Lat/lng for asset + comparators (explicit / inferred / null) |
 | Themes | Stages 1–3 | Group values/contexts/threats by narrative thread (≥2 members) |
 
-**Mandatory location resolution — before writing `DATA`:** Re-read the asset name, Stage 0 location, headings, and context descriptions. When they contain an unambiguous locality, region, address, or other recognized place anchor but no exact point, do **not** leave `coordinates` as `null` merely because precise coordinates were absent. Use geographic knowledge to place an approximate point at that anchor and set `coordinateSource:"inferred"`; this is a permitted inference, not fabrication. If the anchor is ambiguous or cannot be identified confidently, do not guess: use `null` and add a specific `dataQuality.gaps` entry stating what could not be resolved or needs confirmation. The asset map must render whenever an unambiguous place anchor exists.
+**Mandatory location resolution — before writing `DATA`:** Use supplied coordinates first. Otherwise re-read the asset name, Stage 0 location, headings, and context descriptions for a place anchor; a scoped web lookup is permitted solely to verify a user-supplied address or place anchor. When the exact address cannot be verified but the locality or region is clear, place an approximate point at that anchor and set `coordinateSource:"inferred"` — a permitted inference, not fabrication. Never leave `coordinates` as `null` merely because the street or house number was not verified. Use `null` only when no place anchor can be recognized, and then add a specific `dataQuality.gaps` entry naming what could not be resolved. Apply the same rule to each comparator, without claiming more precision than the evidence supports. **The map must render whenever at least one explicit or inferred point exists.**
 
 ## 4. Data Schema (`type: "assessment"`)
 
@@ -110,7 +111,7 @@ Fixed (auto, in order): **Overview · Map · Timeline · Contexts & Values · [T
 2. `authenticity.grid` = structured objects (never flatten to strings).
 3. `comparative.sites` = per-site objects with criteria (never a flat name list).
 4. `timeline[].changeType` mandatory; `contexts[].relatedValues` links each context to value categories.
-5. Apply the mandatory location-resolution rule above: a recognized unambiguous place anchor requires approximate coordinates with `coordinateSource:"inferred"`; use `null` only for unresolved or ambiguous location and report why.
+5. Apply the mandatory location-resolution rule above: a recognized locality or region requires approximate coordinates with `coordinateSource:"inferred"`; use `null` only when no place anchor can be recognized, and report why. The map renders whenever at least one explicit or inferred point exists.
 6. `vulnerability`: 3 = severe, 2 = moderate, 1 = minor.
 7. `themes`: ≥2 members each; populate only if ≥3 values OR ≥3 contexts.
 8. In `tabs[]` use exact asset/comparator names so cross-links resolve.
@@ -124,10 +125,10 @@ Use **Code Interpreter** for DOCX export. The Session Debrief follows `[CA-IP]` 
 ## 8. Compliance Check
 
 - [ ] Output is one fenced `html` block containing the thin shell only (one `<div id="root">` + UMD script + valid inline `DATA` + `mount`).
-- [ ] Runtime from `cdn.jsdelivr.net/npm/atar-runtime@0.3.4`; `mount(root, DATA, {})`; `DATA.type === "assessment"`.
+- [ ] Runtime from `cdn.jsdelivr.net/npm/atar-runtime@0.3.7`; `mount(root, DATA, {})`; `DATA.type === "assessment"`.
 - [ ] No Leaflet/CSS/`<style>`/render code in the shell (runtime loads them).
 - [ ] Structured `authenticity.grid`, per-site `comparative.sites`, `timeline[].changeType`, `contexts[].relatedValues`, `vulnerability`.
-- [ ] Location audit completed: the asset has explicit or inferred coordinates and a map whenever a clear place anchor exists; otherwise `dataQuality.gaps` names the unresolved ambiguity.
+- [ ] Location audit completed: a recognized locality or region yields explicit or inferred coordinates, the map renders whenever at least one point exists, and otherwise `dataQuality.gaps` names the unresolved location.
 - [ ] Themes only when ≥2 total; Report prose tab always present; Debrief/Session only when they occurred.
 - [ ] Only real conversation data; `lang`/`dir` match language; GPT delivery follows `instructions.md`; fallback filename is correct.
 

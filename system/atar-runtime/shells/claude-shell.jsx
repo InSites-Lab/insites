@@ -7,7 +7,7 @@ import { useEffect, useRef, useState } from 'react';
 // window.claude.complete stays in scope and the live AI Query works.
 // type: 'kg' | 'assessment' | 'collection'  (see data-contract.md for schemas)
 // ---------------------------------------------------------------
-const RUNTIME_URL = 'https://cdn.jsdelivr.net/npm/atar-runtime@0.3.4/dist/atar-runtime.umd.js';
+const RUNTIME_URL = 'https://cdn.jsdelivr.net/npm/atar-runtime@0.3.7/dist/atar-runtime.umd.js';
 
 // >>> the bot replaces DATA with the assessment/collection/KG object (see data-contract.md) >>>
 const DATA = {

@@ -72,61 +72,35 @@ All artifacts must support English and Hebrew UI strings (en/he objects). The ru
 
 ## §2 — Generic AI Query Contract `[CA-AIQ]`
 
-All artifacts that include an AI Query tab follow this contract. Three platform modes, **same UI shell**, different API backend.
+All artifacts that include an AI Query tab follow this contract. Three platform modes use the **same UI shell** with different host capabilities.
 
 ### Platform Modes
 
-| Platform | Mode | API Endpoint |
-|----------|------|-------------|
-| Claude | `anthropic` | `POST https://api.anthropic.com/v1/messages` — no API key needed in artifact context |
-| Gemini | `gemini` | `POST https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview:generateContent?key={KEY}` |
-| GPT | `placeholder` | No API calls — shows example prompts, routes queries to GPT conversation |
+| Platform | Mode | Host capability |
+|----------|------|-----------------|
+| Claude | `live` | Pass `window.claude.complete` through `host.complete` when available; otherwise use copy-to-chat |
+| Gemini | `copy` | Pass `host = {}`; no direct model API call from Canvas |
+| GPT | `copy` | Pass `host = {}`; no direct model API call from Preview |
 
-### API Call Shapes
+### Host Call Shape
 
-**Claude (Anthropic):**
+**Claude:**
 ```js
-// CRITICAL: Do NOT use AbortController or AbortSignal — they cannot be cloned
-// through the artifact sandbox postMessage proxy and will throw DataCloneError.
-// Use Promise.race with setTimeout for timeout instead.
-const fetchWithTimeout = (url, options, ms = 20000) =>
-  Promise.race([
-    fetch(url, options),
-    new Promise((_, reject) => setTimeout(() => reject(new Error("Timeout")), ms))
-  ]);
-
-const response = await fetchWithTimeout("https://api.anthropic.com/v1/messages", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({
-    model: "claude-sonnet-4-20250514",
-    max_tokens: 1000,
-    messages: [{ role: "user", content: systemPrompt + "\n\n" + userQuery }]
-  })
-});
-const data = await response.json();
-const replyText = data.content?.[0]?.text || "Unable to analyze.";
+const live = typeof window !== "undefined"
+  && window.claude
+  && typeof window.claude.complete === "function";
+const host = live
+  ? { complete: window.claude.complete.bind(window.claude) }
+  : {};
+window.AtarRuntime.mount(root, DATA, host);
 ```
 
-**Gemini:**
+**Gemini and GPT:**
 ```js
-const response = await fetch(
-  `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview:generateContent?key=${apiKey}`,
-  {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      systemInstruction: { parts: [{ text: systemPrompt }] },
-      contents: [{ role: "user", parts: [{ text: userQuery }] }]
-    })
-  }
-);
-const data = await response.json();
-const replyText = data.candidates?.[0]?.content?.parts?.[0]?.text || "Unable to analyze.";
+window.AtarRuntime.mount(root, DATA, {});
 ```
 
-**GPT (placeholder mode):**
-No fetch call. Display:
+No API key, direct model endpoint, or pinned model name belongs in an artifact. In copy mode display:
 - Title: "Deep Graph Query" / "Deep Dashboard Query"
 - Description: "Use the conversation to ask questions about this [artifact]. The chatbot can analyze relationships, trace connections, identify patterns, and interpret the heritage significance map."
 - Starter prompt cards (clickable, user copies to chat)
@@ -255,13 +229,13 @@ Asset nodes may have a star (★) overlay to distinguish the primary heritage as
 
 **All three platforms now render via the shared `atar-runtime`** (vanilla D3 + Leaflet, published to npm, loaded from `cdn.jsdelivr.net/npm/atar-runtime@<ver>`). The bot emits a thin shell + a `DATA` object (`type: kg | assessment | collection`) and calls `mount(root, DATA, host)`; the runtime owns all rendering (force graph, map, tabs, RTL, legend, search). Claude wraps the shell in a native React artifact and passes `host.complete = window.claude.complete` → **live** AI Query; Gemini and GPT emit a vanilla HTML shell with `host = {}` → AI Query = copy-to-chat. See `[CA-AIQ]` §2 above.
 
-**Convergence note:** ChatGPT was the last to converge, in June 2026; the earlier vis-network build it used is no longer part of any implementation. Where Canvas is unavailable the identical shell is delivered as a `/mnt/data` download, never a custom UI. All three platforms target the **same visual result** using the tokens in §1 and the colours in §3.
+**Convergence note:** ChatGPT was the last to converge, in June 2026; the earlier vis-network build it used is no longer part of any implementation. In GPT v11, the identical shell is delivered primarily as a supported HTML Code/Preview block; a `/mnt/data` copy is created only on explicit request or reported Preview failure, never as a custom UI. All three platforms target the **same visual result** using the tokens in §1 and the colours in §3.
 
 ### Architecture Constraints
 
 | Platform | Constraint | Consequence |
 |----------|-----------|-------------|
-| GPT | Canvas removed on GPT-5.5; canvas doesn't handle large inline code | All visual products = external `atar-runtime` shell from `cdn.jsdelivr.net/npm`; Canvas optional → `/mnt/data` shell fallback |
+| GPT | GPT-5.6 uses supported HTML Code/Preview blocks; Preview availability and external-network access can vary by account or workspace | All visual products = external `atar-runtime` shell from `cdn.jsdelivr.net/npm`; identical `/mnt/data` file only on request or reported Preview failure |
 | GPT | No native API calls from the shell | AI Query = placeholder / copy-to-chat |
 | Claude | Native artifact support | React shell loads `atar-runtime`; live API via `window.claude.complete` |
 | Gemini | Must manually activate canvas mode | Without activation, outputs code as text instead of rendering |
@@ -274,7 +248,7 @@ Asset nodes may have a star (★) overlay to distinguish the primary heritage as
 Same skill files work for both Claude and Gemini. When deploying to Gemini:
 
 1. **Activate canvas mode** before generating artifacts (otherwise Gemini outputs code as text)
-2. **Swap the API call block** from Anthropic to Gemini endpoint per `[CA-AIQ]` §2
+2. Pass `host = {}`; do not add a model API key or direct model endpoint
 3. Everything else — visual language, sidebar, tabs, interactions, entity types — is identical
 
 ---
@@ -283,10 +257,10 @@ Same skill files work for both Claude and Gemini. When deploying to Gemini:
 
 Full specification in [`gpt/report-tab-spec.md`](gpt/report-tab-spec.md). Summary:
 
-- **Position**: second-to-last tab (before AI Query)
-- **Content**: one-page printable assessment report pulling from all dashboard data
-- **Export**: HTML download + `window.print()` for PDF
-- **Cross-platform**: identical structure, no platform-specific behavior
+- **Position**: after Significance and before optional Debrief/Session tabs; AI Query remains last
+- **Content**: structured on-screen assessment report pulling from all dashboard data, with an 800–1,200-word target
+- **Export**: no print/export buttons inside ChatGPT Preview; the user requests DOCX export in chat through Code Interpreter
+- **Cross-platform**: the report data structure is shared; delivery follows each host's artifact contract
 - **Collection variant**: specified, and not part of this build
 
 ---
@@ -314,3 +288,4 @@ Before returning any artifact, verify:
 | 2026-03-27 | v1 — Initial contract. Consolidates KG, Dashboard, Collection visual language across Claude, Gemini, GPT. |
 | 2026-03-27 | v1.1 — Full propagation: [CA-UX]/[CA-AIQ]/[CA-EC] refs added to mono v5, Gemini, GPT, split core. AI Query tab added to [CA-DB] + [CA-DB-C] across all platforms. MA-RC updated to v2 everywhere. GPT kg-spec renamed, collection-dashboard-spec created. Test artifacts for Gemini. |
 | 2026-03-27 | v1.2 — Added [CA-RPT] Report tab spec (§6.1). New files: report-tab-spec.md (single), collection-report-spec.md (collection, not active). GPT dashboard test files created. |
+| 2026-08-05 | v1.3 — Removed obsolete direct Anthropic/Gemini API calls. Claude now uses the supported host bridge when available; Gemini and GPT use copy-to-chat mode. |

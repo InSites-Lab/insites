@@ -38,7 +38,7 @@ These sections appear only when the assessment data contains relevant findings. 
 | Section | When to include | Content |
 |---------|----------------|---------|
 | **🔗 Context Effects** | When significant bidirectional context↔value relationships emerged | Most impactful context effects + connected planning recommendations (if planning advice was written in the source file) |
-| **⚡ Priority Insights** | When surprising or high-priority findings emerged | Key discoveries, emerging patterns, urgent recommendations |
+| **⚡ Priority Insights** | When surprising or high-priority findings emerged | Key discoveries, emerging patterns, and urgent steps **that were named in the source** — do not introduce new recommendations |
 | **🗺️ Comparative Position** | When comparative analysis produced meaningful distinctions | How this asset sits in its regional/typological context, key differentiators |
 
 ### Session Sections (from conversation data)
@@ -66,10 +66,10 @@ These sections appear only when the assessment data contains relevant findings. 
 
 ### Evidence Indicators
 
-Same as Values tab:
-- ● = sourced (documented evidence)
-- ◐ = implied (inferred from context)
-- ○ = uncertain (limited evidence)
+Same as Values tab — use the `evidence` enum tokens, not synonyms:
+- ● = `sourced` (documented evidence)
+- ◐ = `inferred` (from context)
+- ○ = `uncertain` (limited evidence)
 
 ## Export
 

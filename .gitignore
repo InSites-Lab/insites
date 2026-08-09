@@ -55,3 +55,27 @@ studies/heritage4.0-tuba-2026/system/PROVENANCE.md
 # Withdrawn from the published repository, kept on disk under their original
 # paths. Nothing here is deleted; see _archive/README.md for what and why.
 _archive/
+
+# docs/ is written for a reader. These are working files that failed that test
+# and are kept on disk only. Three grounds, all of them standing policy:
+#   performance claims  — the model-tier memo, the optimisation audit, the
+#                         cross-platform QA matrix, the agentic thinking note
+#   third-party content — QA runs derived from real conservation files, and a
+#                         named private individual in their fixtures
+#   not documentation   — localisation plans, translation and QA logs,
+#                         checklists, workshop teaching material, and skill
+#                         packages already tracked under .agents/skills/
+docs/qa-runs/
+docs/skills/
+docs/future-agentic-development.md
+docs/workshop-custom-gpt-he.md
+docs/gpt-v11-hebrew-*.md
+docs/gpt-v11-html-preview-migration.md
+system/atar-runtime/qa/ayelet-reference.mjs
+
+# Development tooling, kept on disk. The public tree carries the system, the
+# research records, and the documentation that explains them. tools/ keeps
+# claim-extractor, which the Heritage 4.0 record cites; the rest is local.
+.agents/
+tools/check-gpt-hebrew-sync.ps1
+tools/qa-*.mjs

@@ -24,6 +24,17 @@ var RATING_COLORS = {
 
 var EVIDENCE_ICONS = { sourced: '✅', inferred: '〰️', uncertain: '💭' };
 
+var VALUE_LABELS_HE = {
+  Historical: 'היסטורי', Aesthetic: 'אסתטי', Social: 'חברתי', Technological: 'טכנולוגי',
+  Symbolic: 'סמלי', Landscape: 'נופי', Scientific: 'מדעי', Documentary: 'תיעודי',
+  Spiritual: 'רוחני', Environmental: 'סביבתי', Urban: 'אורבני', Mystery: 'מסתורין וחידה',
+  Functional: 'תפקודי', Educational: 'חינוכי'
+};
+var RATING_LABELS_HE = { high: 'גבוהה', medium: 'בינונית', 'low-medium': 'נמוכה–בינונית', low: 'נמוכה', unknown: 'לא ידוע' };
+var CRITERION_LABELS_HE = { high: 'גבוהה', moderate: 'בינונית', medium: 'בינונית', low: 'נמוכה', unknown: 'לא ידוע' };
+var CHANGE_LABELS_HE = { structure: 'מבנה', use: 'שימוש', setting: 'סביבה', infrastructure: 'תשתית' };
+var EVIDENCE_LABELS_HE = { sourced: 'מתועד במקור', inferred: 'מוסק', uncertain: 'לא ודאי' };
+
 var CONTEXT_EMOJIS = {
   historical: '🏛️', spatial: '🗺️', social: '👥', political: '⚖️',
   economic: '💰', technological: '⚙️', environmental: '🌿', cultural: '🎨', religious: '🕌'
@@ -55,7 +66,7 @@ var UI = {
     integrityRange: 'טווח שלמות', noData: 'אין נתונים זמינים',
     noCoords: 'מיקום לא צוין בחומר המקור', coordSource: 'קואורדינטות',
     timelineEmpty: 'לא נרשמו אירועי ציר זמן', attribute: 'מאפיין',
-    assocValues: 'ערכים קשורים', siteSig: 'משמעות', implication: 'משמעות',
+    assocValues: 'ערכים קשורים', siteSig: 'משמעות', implication: 'השלכה',
     aspect: 'היבט', valueExpr: 'ביטוי ערכי', rating: 'דירוג',
     vulnAnalysis: 'ניתוח פגיעות', vulnLegend: '🔴 = אבדן חמור, 🟡 = בינוני, ⚪ = קל',
     comparatorSummary: 'סיכום', period: 'תקופה', architect: 'אדריכל',
@@ -93,6 +104,16 @@ export function renderDashboard(root, data, host, env) {
   var ui = UI[env.lang] || UI.en;
   var state = { activeTab: 'overview', highlight: null, mapHandle: null };
 
+  function valueLabel(value) {
+    var raw = String(value || '');
+    if (env.lang !== 'he') return raw;
+    return raw.split(/\s*,\s*/).map(function (part) { return VALUE_LABELS_HE[part] || part; }).join(', ');
+  }
+  function ratingLabel(value) { return env.lang === 'he' ? (RATING_LABELS_HE[value] || value) : value; }
+  function criterionLabel(value) { return env.lang === 'he' ? (CRITERION_LABELS_HE[value] || value) : value; }
+  function changeLabel(value) { return env.lang === 'he' ? (CHANGE_LABELS_HE[value] || value) : value; }
+  function evidenceLabel(value) { return env.lang === 'he' ? (EVIDENCE_LABELS_HE[value] || value) : value; }
+
   // ── Entity name map (auto-link in dynamic tabs) ──
   var entityNameMap = {};
   if (data.asset && data.asset.name) entityNameMap[data.asset.name] = '__asset__';
@@ -101,7 +122,7 @@ export function renderDashboard(root, data, host, env) {
   /* ── render helpers ── */
   function ratingBadge(rating) {
     var r = RATING_COLORS[rating] || RATING_COLORS.medium;
-    return '<span class="db-rating" style="background:' + r.bg + ';color:' + r.text + ';">' + r.emoji + ' ' + escapeHtml(rating) + '</span>';
+    return '<span class="db-rating" style="background:' + r.bg + ';color:' + r.text + ';">' + r.emoji + ' ' + escapeHtml(ratingLabel(rating)) + '</span>';
   }
   function critPill(label, value) {
     var cls = 'db-pill ', v = String(value).toLowerCase();
@@ -109,12 +130,12 @@ export function renderDashboard(root, data, host, env) {
     else if (v === 'moderate' || v === 'medium') cls += 'db-pill-amber';
     else if (v === 'low') cls += 'db-pill-red';
     else cls += 'db-pill-slate';
-    return '<span class="' + cls + '">' + escapeHtml(label) + ': ' + escapeHtml(value) + '</span>';
+    return '<span class="' + cls + '">' + escapeHtml(label) + ': ' + escapeHtml(criterionLabel(value)) + '</span>';
   }
   function valuePill(val, clickable) {
     var cls = 'db-pill db-pill-accent' + (clickable ? ' db-pill-clickable' : '');
     var attr = clickable ? ' data-nav-value="' + escapeHtml(val) + '"' : '';
-    return '<span class="' + cls + '"' + attr + '>' + escapeHtml(val) + '</span>';
+    return '<span class="' + cls + '"' + attr + '>' + escapeHtml(valueLabel(val)) + '</span>';
   }
   function isHighlighted(type, id) { return !!state.highlight && state.highlight.type === type && state.highlight.id === id; }
   function isValueHighlighted(valueId) {
@@ -236,7 +257,7 @@ export function renderDashboard(root, data, host, env) {
       }
       html += '<div class="db-tl-event"><div class="db-tl-dot" style="background:' + dotColor + '"></div>';
       html += '<div class="db-tl-year">' + escapeHtml(evt.year) + '</div>';
-      html += '<div class="db-tl-label">' + escapeHtml(evt.label) + ' <span class="db-pill db-pill-slate" style="border-left:3px solid ' + dotColor + '">' + escapeHtml(evt.changeType) + '</span></div></div>';
+      html += '<div class="db-tl-label">' + escapeHtml(evt.label) + ' <span class="db-pill db-pill-slate" style="border-left:3px solid ' + dotColor + '">' + escapeHtml(changeLabel(evt.changeType)) + '</span></div></div>';
     });
     html += '</div></div>';
     var presentTypes = {};
@@ -244,7 +265,7 @@ export function renderDashboard(root, data, host, env) {
     html += '<div class="db-tl-legend">';
     Object.keys(CHANGE_COLORS).forEach(function (type) {
       if (!presentTypes[type]) return;
-      html += '<span><span class="db-tl-legend-dot" style="background:' + CHANGE_COLORS[type] + '"></span>' + escapeHtml(type) + '</span>';
+      html += '<span><span class="db-tl-legend-dot" style="background:' + CHANGE_COLORS[type] + '"></span>' + escapeHtml(changeLabel(type)) + '</span>';
     });
     html += '</div>';
     return html;
@@ -272,9 +293,9 @@ export function renderDashboard(root, data, host, env) {
       var hl = isValueHighlighted(val.id) ? ' is-highlight' : '';
       html += '<div class="db-val-card' + hl + '" data-val-id="' + escapeHtml(val.id) + '">';
       html += '<div class="db-val-head"><span class="db-val-name">' + escapeHtml(val.name) + '</span>';
-      html += '<span class="db-pill db-pill-accent">' + escapeHtml(val.category) + '</span>';
+      html += '<span class="db-pill db-pill-accent">' + escapeHtml(valueLabel(val.category)) + '</span>';
       var evIcon = EVIDENCE_ICONS[val.evidence] || '❓';
-      html += '<span title="' + escapeHtml(val.evidence) + '">' + evIcon + '</span></div>';
+      html += '<span title="' + escapeHtml(evidenceLabel(val.evidence)) + '">' + evIcon + '</span></div>';
       if (val.summary) html += '<div class="db-val-summary">' + escapeHtml(val.summary) + '</div>';
       html += '</div>';
     });
@@ -312,8 +333,13 @@ export function renderDashboard(root, data, host, env) {
         var dotColor = theme.color || COLORS.accent;
         html += '<div class="db-theme-card"><div class="db-theme-head"><span class="db-theme-dot" style="background:' + escapeHtml(dotColor) + '"></span>' + escapeHtml(theme.label) + '</div>';
         if (theme.description) html += '<div class="db-theme-desc">' + escapeHtml(theme.description) + '</div>';
-        var memberIds = theme.valueIds || theme.contextIds || theme.vulnerabilities || [];
-        memberIds.forEach(function (mid) { html += '<span class="db-pill db-pill-accent db-pill-clickable" data-nav-member="' + escapeHtml(mid) + '">' + escapeHtml(mid) + '</span>'; });
+        var memberIds = theme.valueIds || theme.contextIds || theme.vulnerabilities || theme.members || [];
+        memberIds.forEach(function (mid) {
+          var value = data.values.filter(function (item) { return item.id === mid; })[0];
+          var context = data.contexts.filter(function (item) { return item.id === mid; })[0];
+          var memberLabel = value ? value.name : (context ? context.label : mid);
+          html += '<span class="db-pill db-pill-accent db-pill-clickable" data-nav-member="' + escapeHtml(mid) + '">' + escapeHtml(memberLabel) + '</span>';
+        });
         html += '</div>';
       });
       html += '</div>';
@@ -332,24 +358,28 @@ export function renderDashboard(root, data, host, env) {
         html += '<div class="db-nara-card"><div class="db-nara-left-bar" style="background:' + r.border + '"></div>';
         html += '<div class="db-nara-body"><div class="db-nara-main"><div class="db-nara-aspect">' + escapeHtml(n.aspect) + '</div>';
         html += '<div class="db-nara-desc">' + escapeHtml(n.desc) + '</div>';
-        if (n.valueExpression) html += '<div class="db-nara-ve">' + escapeHtml(ui.valueExpr) + ': ' + escapeHtml(n.valueExpression) + '</div>';
+        if (n.valueExpression) html += '<div class="db-nara-ve">' + escapeHtml(ui.valueExpr) + ': ' + escapeHtml(valueLabel(n.valueExpression)) + '</div>';
         html += '</div><div>' + ratingBadge(n.rating) + '</div></div></div>';
       });
     }
     if (data.vuln.length > 0) {
       html += '<div class="db-section-label">🔴 ' + escapeHtml(ui.vulnAnalysis) + '</div>';
       html += '<div class="db-vuln-legend">' + escapeHtml(ui.vulnLegend) + '</div>';
-      var aspects = ['Form & Design', 'Materials', 'Use & Function', 'Setting'];
+      var aspects = env.lang === 'he' ? ['צורה ותכנון', 'חומרים', 'שימוש ותפקוד', 'סביבה'] : ['Form & Design', 'Materials', 'Use & Function', 'Setting'];
       var naraAspectShort = ['form', 'material', 'use', 'setting'];
+      var naraAspectHe = ['צורה', 'חומר', 'שימוש', 'סביבה'];
       html += '<div class="db-card db-scroll-x"><table class="db-table db-vuln-table"><thead><tr><th></th>';
       aspects.forEach(function (a, i) {
-        var naraMatch = data.nara.filter(function (n) { return n.aspect.toLowerCase().indexOf(naraAspectShort[i]) !== -1; })[0];
-        var ratingStr = naraMatch ? ' (' + naraMatch.rating + ')' : '';
+        var naraMatch = data.nara.filter(function (n) {
+          var aspect = n.aspect.toLowerCase();
+          return aspect.indexOf(naraAspectShort[i]) !== -1 || aspect.indexOf(naraAspectHe[i]) !== -1;
+        })[0];
+        var ratingStr = naraMatch ? ' (' + ratingLabel(naraMatch.rating) + ')' : '';
         html += '<th>' + escapeHtml(a) + '<br><span class="db-vuln-rating">' + escapeHtml(ratingStr) + '</span></th>';
       });
       html += '</tr></thead><tbody>';
       data.vuln.forEach(function (row) {
-        html += '<tr><td class="db-td-strong db-vuln-rowlabel">' + escapeHtml(row.value) + '</td>';
+        html += '<tr><td class="db-td-strong db-vuln-rowlabel">' + escapeHtml(valueLabel(row.value)) + '</td>';
         html += '<td>' + vulnCell(row.form) + '</td><td>' + vulnCell(row.material) + '</td><td>' + vulnCell(row.use) + '</td><td>' + vulnCell(row.setting) + '</td></tr>';
       });
       html += '</tbody></table></div>';

@@ -9,24 +9,45 @@ import { renderAIPanel } from '../shared/ai-query.js';
 const D3_URL = 'https://cdnjs.cloudflare.com/ajax/libs/d3/7.9.0/d3.min.js';
 const D3_FALLBACK = 'https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js';
 
+const VALUE_LABELS_HE = {
+  Historical: 'היסטורי', Aesthetic: 'אסתטי', Social: 'חברתי', Technological: 'טכנולוגי',
+  Symbolic: 'סמלי', Landscape: 'נופי', Scientific: 'מדעי', Documentary: 'תיעודי',
+  Spiritual: 'רוחני', Environmental: 'סביבתי', Urban: 'אורבני', Mystery: 'מסתורין וחידה',
+  Functional: 'תפקודי', Educational: 'חינוכי'
+};
+const EDGE_LABELS_HE = {
+  located_in: 'נמצא ב־', part_of: 'חלק מ־', supplied: 'הזין', built: 'בנתה', supervised: 'פיקח על',
+  credits: 'מייחס ל־', constructed_during: 'הוקם במהלך', used_during: 'שימש במהלך', affected: 'השפיע על',
+  expresses_value: 'מבטא ערך', supports: 'תומך ב־', commemorates: 'מנציח', influenced_by: 'הושפע מ־'
+};
+
+function localizedValueLabel(value, rtl) { return rtl ? (VALUE_LABELS_HE[value] || value) : value; }
+function localizedEdgeLabel(value, rtl) { return rtl ? (EDGE_LABELS_HE[value] || value) : value; }
+
 const UI_STRINGS = {
   en: {
+    graphTitle: 'Knowledge Graph',
     selectNode: 'Click a node to inspect it.', searchResults: 'Search Results', noResults: 'No results for',
     type: 'Type', meaning: 'Meaning', valueType: 'Value Type', connections: 'Connections', noRelations: 'No connections.',
     subtitle: 'CBSA interactive graph', search: 'Search', clear: 'Clear', showAll: 'Show all',
     placeholder: 'Search node, type, meaning', tabInfo: 'Info', tabAnalytics: 'Analytics', tabAI: 'AI Query',
     nodes: 'Nodes', edges: 'Edges', types: 'Types', density: 'Density', mostConnected: 'Most Connected',
     outgoing: 'Outgoing', incoming: 'Incoming', entitiesToReview: 'Entities to review',
-    reviewPrompt: 'Readings beyond the sources — to keep, rename, or reject one, mention it in the chat.'
+    reviewPrompt: 'Readings beyond the sources — to keep, rename, or reject one, mention it in the chat.',
+    inferredReading: 'Inferred — connected from multiple sources',
+    interpretiveReading: 'Interpretive — my reading, not explicit in the sources'
   },
   he: {
+    graphTitle: 'גרף ידע',
     selectNode: 'לחצו על צומת כדי לראות פרטים.', searchResults: 'תוצאות חיפוש', noResults: 'לא נמצאו תוצאות עבור',
     type: 'סוג', meaning: 'משמעות', valueType: 'סוג ערך', connections: 'קשרים', noRelations: 'אין קשרים.',
     subtitle: 'גרף ידע אינטראקטיבי CBSA', search: 'חיפוש', clear: 'נקה', showAll: 'הצג הכל',
     placeholder: 'חיפוש צומת, סוג, משמעות', tabInfo: 'מידע', tabAnalytics: 'ניתוח', tabAI: 'שאילתת AI',
     nodes: 'צמתים', edges: 'קשרים', types: 'סוגים', density: 'צפיפות', mostConnected: 'הכי מקושרים',
     outgoing: 'יוצאים', incoming: 'נכנסים', entitiesToReview: 'ישויות לבדיקה',
-    reviewPrompt: 'קריאות מעבר למקורות — לשמור, לשנות שם או לדחות אחת, ציין/י בצ׳אט.'
+    reviewPrompt: 'קריאות מעבר למקורות — לשמור, לשנות שם או לדחות אחת, ציין/י בצ׳אט.',
+    inferredReading: 'מוסק — חיבור בין כמה ראיות',
+    interpretiveReading: 'פרשני — קריאה שאינה מפורשת במקורות'
   }
 };
 
@@ -100,10 +121,13 @@ export async function renderKG(root, data, host, env) {
   }
   function getNodeSize(node) {
     const canonical = resolveType(node.type);
-    if (canonical === 'Asset') return 16;
-    if (canonical === 'Cultural Value' || canonical === 'Value' || node.value_type) return 11;
-    return 9;
+    const compact = root.classList.contains('kg-compact');
+    if (canonical === 'Asset') return compact ? 14 : 9;
+    if (canonical === 'Cultural Value' || canonical === 'Value' || node.value_type) return compact ? 10 : 6.5;
+    return compact ? 8 : 5.5;
   }
+  function getNodeLabelOffset(node) { return getNodeSize(node) + (root.classList.contains('kg-compact') ? 10 : 5); }
+  function getNodeFocusGrowth() { return root.classList.contains('kg-compact') ? 3 : 2; }
 
   // --- adjacency / degree (built from allEdges; the sidebar reads THESE, not the d3-mutated links) ---
   const nodeById = new Map(allNodes.map((n) => [n.id, n]));
@@ -170,7 +194,7 @@ export async function renderKG(root, data, host, env) {
   const defs = svg.append('defs');
   function addMarker(id, color) {
     defs.append('marker').attr('id', id).attr('viewBox', '0 -5 10 10').attr('refX', 20).attr('refY', 0)
-      .attr('markerWidth', 6).attr('markerHeight', 6).attr('orient', 'auto')
+      .attr('markerWidth', 5).attr('markerHeight', 5).attr('orient', 'auto')
       .append('path').attr('d', 'M0,-5L10,0L0,5').attr('fill', color);
   }
   addMarker('kg-arrow', '#94a3b8');
@@ -213,7 +237,7 @@ export async function renderKG(root, data, host, env) {
       .force('center', d3.forceCenter(w / 2, h / 2))
       .force('x', d3.forceX(w / 2).strength(fp.sx))   // aspect-aware: shape the graph to the container
       .force('y', d3.forceY(h / 2).strength(fp.sy))
-      .force('collide', d3.forceCollide().radius((d) => getNodeSize(d) + 6));
+      .force('collide', d3.forceCollide().radius((d) => getNodeSize(d) + 5));
     // Synchronous warm-up so nodes have explicit x/y before the first paint (headless-safe).
     sim.stop();
     for (let i = 0; i < 300; i++) sim.tick();
@@ -228,7 +252,11 @@ export async function renderKG(root, data, host, env) {
     const mx = (d.source.x + d.target.x) / 2, my = (d.source.y + d.target.y) / 2;
     const dx = d.target.x - d.source.x, dy = d.target.y - d.source.y;
     const len = Math.sqrt(dx * dx + dy * dy) || 1;
-    return { x: mx + (-dy / len) * 12, y: my + (dx / len) * 12 };   // perpendicular offset ≈ arc apex
+    // arcPath uses a radius of 1.2 * chord length. Its midpoint sits about 10.9% of the
+    // chord away from the straight midpoint. Use the arc's actual (sweep=1) side so the
+    // relationship label sits on the line instead of being mirrored away from it.
+    const curveOffset = len * (1.2 - Math.sqrt(1.2 * 1.2 - 0.25));
+    return { x: mx + (dy / len) * curveOffset, y: my + (-dx / len) * curveOffset };
   }
   function tickPositions() {
     if (edgeSel) edgeSel.attr('d', arcPath);
@@ -252,7 +280,7 @@ export async function renderKG(root, data, host, env) {
     edgeLabelSel = gEdgeLabels.selectAll('text.kg-edge-label').data(simLinks.filter((d) => d.label), (d) => d.from + '__' + d.to + '__' + d.label);
     edgeLabelSel.exit().remove();
     edgeLabelSel = edgeLabelSel.enter().append('text').attr('class', 'kg-edge-label').attr('text-anchor', 'middle').merge(edgeLabelSel);
-    edgeLabelSel.text((d) => d.label);
+    edgeLabelSel.text((d) => localizedEdgeLabel(d.label, anyRTL));
     // nodes
     nodeSel = gNodes.selectAll('g.kg-node').data(simNodes, (d) => d.id);
     nodeSel.exit().remove();
@@ -261,11 +289,11 @@ export async function renderKG(root, data, host, env) {
     enter.append('text').attr('text-anchor', 'middle');
     nodeSel = enter.merge(nodeSel);
     nodeSel.select('circle').attr('fill', (d) => (d._resolved_color || FALLBACK_COLOR).background);
-    nodeSel.select('text').attr('dy', (d) => getNodeSize(d) + 13).text((d) => truncate(d.name, 20));
+    nodeSel.select('text').attr('dy', getNodeLabelOffset).text((d) => truncate(d.name, 20));
     nodeSel.call(dragBehavior());
     nodeSel.on('click', function (ev, d) { ev.stopPropagation(); selectedId = d.id; activeTab = 'info'; update(true); });
-    nodeSel.on('mouseenter', function (ev, d) { d3.select(this).select('circle').attr('r', getNodeSize(d) + 4); });
-    nodeSel.on('mouseleave', function (ev, d) { d3.select(this).select('circle').attr('r', selectedId === d.id ? getNodeSize(d) + 4 : getNodeSize(d)); });
+    nodeSel.on('mouseenter', function (ev, d) { d3.select(this).select('circle').attr('r', getNodeSize(d) + getNodeFocusGrowth()); });
+    nodeSel.on('mouseleave', function (ev, d) { d3.select(this).select('circle').attr('r', selectedId === d.id ? getNodeSize(d) + getNodeFocusGrowth() : getNodeSize(d)); });
     tickPositions();
     restyle(state);
   }
@@ -281,16 +309,16 @@ export async function renderKG(root, data, host, env) {
       const g = d3.select(this);
       g.attr('opacity', opacity);
       g.select('circle')
-        .attr('r', isSel ? getNodeSize(d) + 4 : getNodeSize(d))
+        .attr('r', isSel ? getNodeSize(d) + getNodeFocusGrowth() : getNodeSize(d))
         .attr('stroke', (isSel || isMatch) ? '#0f172a' : (d._resolved_color || FALLBACK_COLOR).border)
-        .attr('stroke-width', isSel ? 4 : isMatch ? 3 : 2);
+        .attr('stroke-width', isSel ? 3 : isMatch ? 2.25 : 1.5);
     });
     edgeSel.each(function (d) {
       const selEdge = selectedId && (d.from === selectedId || d.to === selectedId);
       const nearby = selectedId && (selectedNeighbors.has(d.from) || selectedNeighbors.has(d.to));
-      let opacity = 0.9, width = 1.5;
-      if (selectedId) { opacity = selEdge ? 1 : nearby ? 0.55 : 0.14; width = selEdge ? 2.6 : 1.5; } else if (appliedSearch) opacity = 0.4;
-      d3.select(this).attr('stroke-opacity', opacity).attr('stroke-width', width)
+      let opacity = 0.88, width = 0.75;
+      if (selectedId) { opacity = selEdge ? 1 : nearby ? 0.52 : 0.12; width = selEdge ? 1.35 : 0.75; } else if (appliedSearch) opacity = 0.38;
+      d3.select(this).attr('stroke-opacity', opacity).style('stroke-width', width + 'px')
         .attr('stroke', selEdge ? '#334155' : '#848484')
         .attr('marker-end', selEdge ? 'url(#kg-arrow-sel)' : 'url(#kg-arrow)');
     });
@@ -309,7 +337,10 @@ export async function renderKG(root, data, host, env) {
     const minX = Math.min.apply(null, xs), maxX = Math.max.apply(null, xs), minY = Math.min.apply(null, ys), maxY = Math.max.apply(null, ys);
     const sz = getSize(), pad = Math.max(24, Math.round(Math.min(sz.w, sz.h) * 0.06));   // % of the smaller dim, not fixed px
     const gw = Math.max(maxX - minX, 1), gh = Math.max(maxY - minY, 1);
-    const scale = Math.min(1.6, Math.max(0.2, Math.min((sz.w - 2 * pad) / gw, (sz.h - 2 * pad) / gh)));
+    // Compact artifacts keep the established graph-first rendering. Wide artifacts may use
+    // their extra room for layout, but must never magnify glyphs beyond their natural size.
+    const maxFitScale = root.classList.contains('kg-compact') ? 1.6 : 1.07;
+    const scale = Math.min(maxFitScale, Math.max(0.2, Math.min((sz.w - 2 * pad) / gw, (sz.h - 2 * pad) / gh)));
     const cx = (minX + maxX) / 2, cy = (minY + maxY) / 2;
     svg.call(zoomBehavior.transform, d3.zoomIdentity.translate(sz.w / 2 - cx * scale, sz.h / 2 - cy * scale).scale(scale));
   }
@@ -325,6 +356,9 @@ export async function renderKG(root, data, host, env) {
         if (sim.force('x')) sim.force('x').x(sz.w / 2).strength(fp.sx);
         if (sim.force('y')) sim.force('y').y(sz.h / 2).strength(fp.sy);
         if (sim.force('link')) sim.force('link').distance(fp.linkDist);
+        if (sim.force('collide')) sim.force('collide').radius((d) => getNodeSize(d) + 5);
+        if (nodeSel) nodeSel.select('text').attr('dy', getNodeLabelOffset);
+        if (nodeSel) restyle(computeVisibleState());
         sim.alpha(0.3).restart();
       }
       fitToBounds();
@@ -386,7 +420,7 @@ export async function renderKG(root, data, host, env) {
     const selectedNode = selectedId ? nodeById.get(selectedId) : null;
     const directMatches = getDirectMatches(state);
     if (!selectedNode) {
-      let html = '<div class="kg-panel-section"><div class="kg-panel-title">Knowledge Graph</div><div class="kg-panel-text">' + escapeHtml(ui.selectNode) + '</div></div>';
+      let html = '<div class="kg-panel-section"><div class="kg-panel-title">' + escapeHtml(ui.graphTitle) + '</div><div class="kg-panel-text">' + escapeHtml(ui.selectNode) + '</div></div>';
       if (appliedSearch) {
         html += '<div class="kg-panel-section"><div class="kg-section-label">' + escapeHtml(ui.searchResults) + '</div>';
         if (directMatches.length) directMatches.forEach((n) => { html += '<button class="kg-result-btn" data-node-id="' + escapeHtml(n.id) + '"><span class="kg-result-name">' + escapeHtml(n.name) + '</span><span class="kg-result-type">' + escapeHtml(n.display_type || n.type) + '</span></button>'; });
@@ -400,18 +434,18 @@ export async function renderKG(root, data, host, env) {
     let html = '<div class="kg-panel-section"><div class="kg-panel-title">' + escapeHtml(selectedNode.name) + '</div>' +
       '<div class="kg-meta-row"><strong>' + escapeHtml(ui.type) + ':</strong> <span class="kg-type-badge" style="background:' + nodeColor.border + '"></span> <span>' + escapeHtml(selectedNode.display_type || selectedNode.type || '—') + '</span></div>' +
       '<div class="kg-meta-row"><strong>' + escapeHtml(ui.meaning) + ':</strong> <span>' + escapeHtml(selectedNode.meaning || '—') + '</span></div>' +
-      (selectedNode.value_type ? '<div class="kg-meta-row"><strong>' + escapeHtml(ui.valueType) + ':</strong> <span>' + escapeHtml(selectedNode.value_type) + '</span></div>' : '');
+      (selectedNode.value_type ? '<div class="kg-meta-row"><strong>' + escapeHtml(ui.valueType) + ':</strong> <span>' + escapeHtml(localizedValueLabel(selectedNode.value_type, anyRTL)) + '</span></div>' : '');
     if (selectedNode.meta) Object.keys(selectedNode.meta).forEach((key) => { html += '<div class="kg-meta-row"><strong>' + escapeHtml(key) + ':</strong> <span>' + escapeHtml(selectedNode.meta[key]) + '</span></div>'; });
     if (selectedNode.epistemic && selectedNode.epistemic !== 'sourced') {
       const epiMark = selectedNode.epistemic === 'interpretive' ? '💭' : '〰️';
-      const epiText = selectedNode.epistemic === 'interpretive' ? 'Interpretive — my reading, not explicit in the sources' : 'Inferred — connected from multiple sources';
+      const epiText = selectedNode.epistemic === 'interpretive' ? ui.interpretiveReading : ui.inferredReading;
       html += '<div class="kg-meta-row kg-epistemic-row"><strong>' + epiMark + ' ' + escapeHtml(epiText) + '</strong>';
       if (selectedNode.epistemic_note) html += '<div class="kg-epistemic-note">' + escapeHtml(selectedNode.epistemic_note) + '</div>';
       html += '</div>';
     }
     html += '</div>';
-    if (out.length) { html += '<div class="kg-panel-section"><div class="kg-section-label">' + escapeHtml(ui.outgoing) + '</div>'; out.forEach((e) => { const t = nodeById.get(e.to); if (t) html += '<button class="kg-result-btn" data-node-id="' + escapeHtml(e.to) + '"><span class="kg-result-name">' + escapeHtml(t.name) + '</span><span class="kg-edge-label">' + escapeHtml(e.label) + '</span></button>'; }); html += '</div>'; }
-    if (inc.length) { html += '<div class="kg-panel-section"><div class="kg-section-label">' + escapeHtml(ui.incoming) + '</div>'; inc.forEach((e) => { const s = nodeById.get(e.from); if (s) html += '<button class="kg-result-btn" data-node-id="' + escapeHtml(e.from) + '"><span class="kg-result-name">' + escapeHtml(s.name) + '</span><span class="kg-edge-label">' + escapeHtml(e.label) + '</span></button>'; }); html += '</div>'; }
+    if (out.length) { html += '<div class="kg-panel-section"><div class="kg-section-label">' + escapeHtml(ui.outgoing) + '</div>'; out.forEach((e) => { const t = nodeById.get(e.to); if (t) html += '<button class="kg-result-btn" data-node-id="' + escapeHtml(e.to) + '"><span class="kg-result-name">' + escapeHtml(t.name) + '</span><span class="kg-edge-label">' + escapeHtml(localizedEdgeLabel(e.label, anyRTL)) + '</span></button>'; }); html += '</div>'; }
+    if (inc.length) { html += '<div class="kg-panel-section"><div class="kg-section-label">' + escapeHtml(ui.incoming) + '</div>'; inc.forEach((e) => { const s = nodeById.get(e.from); if (s) html += '<button class="kg-result-btn" data-node-id="' + escapeHtml(e.from) + '"><span class="kg-result-name">' + escapeHtml(s.name) + '</span><span class="kg-edge-label">' + escapeHtml(localizedEdgeLabel(e.label, anyRTL)) + '</span></button>'; }); html += '</div>'; }
     if (!out.length && !inc.length) html += '<div class="kg-panel-section"><div class="kg-empty">' + escapeHtml(ui.noRelations) + '</div></div>';
     return html;
   }
@@ -526,6 +560,7 @@ export async function renderKG(root, data, host, env) {
     if (root && root !== container) ro.observe(root);
   }
 
+  applyResponsive();
   update();
   setTimeout(function () { try { applyResponsive(); } catch (e) {} }, 150);
 }
@@ -537,9 +572,9 @@ function renderEmbeddedKGFallback(root, data, env) {
   root.innerHTML =
     '<div class="kg-fallback"><div class="kg-fallback-note">' + (env.rtl ? 'הגרף לא נטען — תצוגת רשימה' : 'Graph engine unavailable — list view') + '</div>' +
     '<div class="kg-fallback-cols"><div><b>' + (env.rtl ? 'צמתים' : 'Nodes') + ' (' + nodes.length + ')</b><ul>' +
-    nodes.map((n) => { const c = (COLOR_BY_TYPE[n.type] || FALLBACK_COLOR).border; return '<li><span class="kg-fb-dot" style="background:' + c + '"></span>' + esc(n.name) + ' <i>' + esc(n.type || '') + '</i></li>'; }).join('') +
+    nodes.map((n) => { const canonical = CANONICAL_TYPE_MAP[n.type] || n.type; const c = (COLOR_BY_TYPE[canonical] || FALLBACK_COLOR).border; const typeLabel = env.rtl ? (HEBREW_LABEL_BY_CANONICAL[canonical] || canonical) : canonical; return '<li><span class="kg-fb-dot" style="background:' + c + '"></span>' + esc(n.name) + ' <i>' + esc(typeLabel || '') + '</i></li>'; }).join('') +
     '</ul></div><div><b>' + (env.rtl ? 'קשרים' : 'Edges') + ' (' + edges.length + ')</b><ul>' +
-    edges.map((e) => '<li>' + esc(e.from != null ? e.from : e.source) + ' → ' + esc(e.to != null ? e.to : e.target) + (e.label ? ' (' + esc(e.label) + ')' : '') + '</li>').join('') +
+    edges.map((e) => '<li>' + esc(e.from != null ? e.from : e.source) + ' → ' + esc(e.to != null ? e.to : e.target) + (e.label ? ' (' + esc(localizedEdgeLabel(e.label, env.rtl)) + ')' : '') + '</li>').join('') +
     '</ul></div></div></div>';
   return { ok: true, live: env.live, type: 'kg', fallback: true };
 }

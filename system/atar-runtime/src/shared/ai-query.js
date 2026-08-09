@@ -1,5 +1,40 @@
 import { escapeHtml } from './escape.js';
 
+// Clipboard access is often denied inside artifact/Preview iframes even when
+// navigator.clipboard exists. Try the modern API first, then fall back to the
+// user-gesture-compatible execCommand path. Resolve only after a real result.
+function legacyCopyText(text) {
+  var area = null;
+  var ok = false;
+  try {
+    area = document.createElement('textarea');
+    area.value = text;
+    area.setAttribute('readonly', '');
+    area.setAttribute('aria-hidden', 'true');
+    area.style.position = 'fixed';
+    area.style.inset = '0 auto auto -9999px';
+    area.style.opacity = '0';
+    document.body.appendChild(area);
+    area.focus();
+    area.select();
+    area.setSelectionRange(0, area.value.length);
+    ok = typeof document.execCommand === 'function' && document.execCommand('copy');
+  } catch (e) {}
+  if (area && area.parentNode) area.parentNode.removeChild(area);
+  return !!ok;
+}
+
+function copyText(text) {
+  try {
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+      return Promise.resolve(navigator.clipboard.writeText(text))
+        .then(function () { return true; })
+        .catch(function () { return legacyCopyText(text); });
+    }
+  } catch (e) {}
+  return Promise.resolve(legacyCopyText(text));
+}
+
 // Live AI call — Promise.race timeout, NEVER AbortController (DataCloneError across the artifact boundary).
 export function aiQuery(host, prompt, opts) {
   opts = opts || {};
@@ -55,7 +90,21 @@ export function renderAIPanel(el, env, cfg) {
     btn.className = 'atar-ai-copybtn';
     btn.textContent = L === 'he' ? 'העתק שאלה' : 'Copy question';
     btn.addEventListener('click', function () {
-      try { navigator.clipboard.writeText(q); btn.textContent = '✓'; } catch (e) {}
+      btn.disabled = true;
+      btn.textContent = L === 'he' ? 'מעתיק…' : 'Copying…';
+      copyText(q).then(function (ok) {
+        btn.disabled = false;
+        if (ok) {
+          btn.textContent = L === 'he' ? '✓ הועתק' : '✓ Copied';
+          return;
+        }
+        btn.textContent = L === 'he' ? 'העתקה נכשלה' : 'Copy failed';
+        note.textContent = '⚠ ' + (L === 'he'
+          ? 'העתקה אוטומטית נחסמה. השאלה סומנה להעתקה ידנית.'
+          : 'Automatic copy was blocked. The question is selected for manual copying.');
+        input.focus();
+        input.select();
+      });
     });
     out.appendChild(btn);
   }

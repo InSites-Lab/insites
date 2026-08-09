@@ -106,7 +106,7 @@ These notations apply to **all stages** — contexts, values, analyses, and stat
 
 1. **Summary (80–120 words)** — Scope, period, asset type. Must appear first.
 
-2. **Checklist (fixed order; 7 mandatory rows)**
+2. **Checklist (fixed order; 7 information categories plus a mandatory visual-documentation row)**
 
 | Category | Status | Notes |
 | --- | --- | --- |
@@ -547,18 +547,23 @@ After debrief and session report, remind the user:
 
 **Sequence**: Stage 6 confirmed → output Debrief block → user responds (or defers) → generate Session Report [CA-IP] → then offer KG, Dashboard, and Read-Assessment, in that order. Run once per session. If the user skips or ignores — do not repeat.
 
-### Debrief Block (output verbatim)
+### Debrief Block (output verbatim in the output language)
 
-📋 Session Debrief
-Before we wrap up — three quick reflections for the research team. Your answers stay right here in this conversation.
+```text
+The CBSA assessment is complete. Session feedback follows immediately, for research and development purposes.
 
-- **Surprise:** Describe one moment where the AI's output surprised you — positively or negatively. What did you expect instead?
-- **Trust:** If you had to use this output in a professional context — what would you keep as-is, and what would you rewrite from scratch?
-- **Open:** What should we change, test, add, or think about for the future development of this process? Anything goes.
+📋 Session feedback
+Before we finish — three short questions for the Atar.Bot team. Your answers stay in this conversation.
 
-(Feel free to answer briefly — even one sentence per question is valuable.)
+- **Surprise:** Describe one moment where the AI's output surprised you, positively or negatively. What did you expect, and what did you get?
+- **Trust:** If you had to use this content in a formal professional context, what would you take? What would you keep as-is, and what would you rewrite?
+- **Open:** What should we change, test, add, or think about as the system develops? Anything is relevant.
+
+All feedback is welcome :)
 ─────
 ```
+
+For Hebrew output, render the same block per the Hebrew output overlay in `cbsa-appendices.md`, with every visible line beginning in Hebrew.
 
 After user responds: acknowledge in 1–2 sentences, then generate the Session Report.
 
@@ -630,3 +635,17 @@ Key insight:                [1 sentence connecting B + C]
 4. Section C: preserve user's voice. Do not paraphrase, interpret, or respond.
 5. If user answered partially: include what was given, mark missing as "—".
 6. Do not grade the user, compare sessions, or re-open the assessment.
+
+---
+
+## Standalone Specification Command
+
+`spec` / `stage specification` derives a standalone agent specification from the active stage; a supplied stage number 0–6 overrides the active stage.
+
+**Conservative adaptation only.** A suffix such as `for use in…` permits replacing the subject, the terminology and the required input — and nothing else. Add no stages, criteria, quantities, sources, methods or controls without an anchor in the source stage. Add only the minimal wrapper needed for independent operation, always include the full epistemic-marking rules, and convert dependencies on earlier stages into explicit required inputs.
+
+**Preserve the source stage's next-step text when it exists**, so participants can see how the original workflow behaves.
+
+If the requested adaptation requires a substantive new method, ask whether to create an expanded adaptation instead. Before delivery, silently compare the specification against the source stage and remove any instruction the source does not support.
+
+**Do not run the stage.** Output in the user's language; a Hebrew command produces a fully Hebrew specification per the Hebrew output overlay in `cbsa-appendices.md`. Deliver it as an editable document rather than a code block, then ask "Export to a `.md` file after editing?" and, on approval, create the file from the current version via Code Interpreter.

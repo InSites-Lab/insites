@@ -18,7 +18,7 @@ The three implementations are the same architecture and are not at the same gene
 |---|---|---|---|
 | Claude | v10 | July 2026 | One file. The Tuba-Zangariyye study ran on this implementation, but on the earlier version archived in [`../studies/heritage4.0-tuba-2026/system/`](../studies/heritage4.0-tuba-2026/system/) — not on the file here |
 | Gemini | v9.3 | June 2026 | One file |
-| ChatGPT | build of June 2026 | June 2026 | `instructions.md` plus the knowledge files beside it |
+| ChatGPT | v11 | August 2026 | `instructions.md` plus the knowledge files beside it |
 
 **Do not read the differences between platforms as performance.** They are ports of one specification to three instruction formats, they have not been compared, and this repository makes no claim about which runs it better.
 
@@ -33,6 +33,10 @@ ChatGPT splits what the other two carry in one file. `instructions.md` holds the
 `cbsa-stages.md` the stage specifications · `cbsa-appendices.md` the taxonomies and reference material · `kg-spec.md`, `dashboard-spec.md`, `collection-dashboard-spec.md`, `report-tab-spec.md` the rendered outputs · `ma-ra-spec.md`, `ma-rc-spec.md` the read-assessment and read-collection workflows.
 
 **These are runtime inputs**, written to be loaded by the platform rather than read. Where the same mechanism is also explained for a reader, that explanation is in [`../docs/`](../docs/) — the two serve different jobs and neither is a copy of the other.
+
+### Hebrew ChatGPT port
+
+The Hebrew workshop port is developed separately in [`gpt-hebrew/`](gpt-hebrew/). It does not replace or modify the English GPT in `gpt/`; the English files remain canonical. Its nine runtime files and local parity/rendering checks are complete. It remains pre-release until the pinned runtime update is published and the GPT passes Preview checks in both a builder and participant account.
 
 ## The files the specifications name
 
@@ -56,3 +60,5 @@ It is MIT rather than Apache-2.0; see [`../LICENSING.md`](../LICENSING.md).
 ## What is not here
 
 The version that produced the findings reported in the Heritage 4.0 paper is **not** in this folder. It is archived, unchanged, at [`../studies/heritage4.0-tuba-2026/system/`](../studies/heritage4.0-tuba-2026/system/), and it is never synchronised with the files here. This folder develops; that one is a record of a session that happened.
+
+The Cultural-InSites version is likewise not here. It is archived at [`../studies/Cultural-InSites-Paper/`](../studies/Cultural-InSites-Paper/) in the unified single-file form the `gpt/` files were later split out of, and it is never synchronised with them either.

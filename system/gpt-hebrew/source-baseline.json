@@ -1,0 +1,126 @@
+{
+  "schemaVersion": 1,
+  "productVersion": "GPT v11",
+  "localizedVersion": "GPT v11-he",
+  "capturedAt": "2026-08-04",
+  "sourceDirectory": "system/gpt",
+  "targetDirectory": "system/gpt-hebrew",
+  "git": {
+    "branch": "update-gpts-v11",
+    "head": "f014dbf1f42995a3a48f2a75359bd647c9fd1365",
+    "snapshot": "working-tree",
+    "note": "The working tree contains the approved GPT v11 edits. The per-file SHA-256 values, not HEAD alone, define this localization baseline."
+  },
+  "totals": {
+    "runtimeFiles": 9,
+    "bytes": 107547,
+    "lines": 1834,
+    "headings": 147,
+    "controlIds": 21
+  },
+  "runtime": {
+    "package": "atar-runtime",
+    "version": "0.3.4",
+    "dataContract": "system/atar-runtime/data-contract.md",
+    "dataContractSha256": "723fa3cfc9a21281b67cff92d57555cc63ed63e0e3a575ab1ff5b0ceec22f6db",
+    "artifactUxContract": "system/artifact-ux-contract.md",
+    "artifactUxContractSha256": "4fd6290713c7947a46c7ca40d1aa4d16135ff2440dec64cd42ec88c0445fa2f6"
+  },
+  "controlIds": [
+    "[CA-AIQ]",
+    "[CA-C]",
+    "[CA-CS]",
+    "[CA-DB]",
+    "[CA-DB-C]",
+    "[CA-E]",
+    "[CA-EC]",
+    "[CA-EV]",
+    "[CA-HE]",
+    "[CA-IMG]",
+    "[CA-IP]",
+    "[CA-KG]",
+    "[CA-RPT]",
+    "[CA-T]",
+    "[CA-UX]",
+    "[CA-V]",
+    "[CA-WF]",
+    "[GB-1]",
+    "[MA-RA]",
+    "[MA-RC]",
+    "[SM-3]"
+  ],
+  "files": [
+    {
+      "name": "cbsa-appendices.md",
+      "bytes": 15226,
+      "lines": 226,
+      "headings": 22,
+      "sha256": "c572afced790a9e60e7baaaa9dbd2f0cf38136b430a2efd94371b329f6b0d69e",
+      "controls": ["[CA-C]", "[CA-CS]", "[CA-DB]", "[CA-E]", "[CA-EC]", "[CA-EV]", "[CA-HE]", "[CA-IMG]", "[CA-KG]", "[CA-T]", "[CA-V]", "[GB-1]", "[MA-RA]", "[MA-RC]", "[SM-3]"]
+    },
+    {
+      "name": "cbsa-stages.md",
+      "bytes": 37245,
+      "lines": 632,
+      "headings": 43,
+      "sha256": "98f391ee13b463debf168e26394a3709eba5e982f0bbc52d90192e335ecf6ebd",
+      "controls": ["[CA-C]", "[CA-CS]", "[CA-IP]", "[GB-1]", "[SM-3]"]
+    },
+    {
+      "name": "collection-dashboard-spec.md",
+      "bytes": 4765,
+      "lines": 94,
+      "headings": 9,
+      "sha256": "c5adc4a4cdada6666f074b57573dd579cd9d04b1ccc03d20cb79dd693f29f2dc",
+      "controls": ["[CA-DB-C]"]
+    },
+    {
+      "name": "dashboard-spec.md",
+      "bytes": 9862,
+      "lines": 135,
+      "headings": 9,
+      "sha256": "3f7c9e3e712bba634a181cd9631d21070726650d54d7ffc7ddd7dff4b7335ec5",
+      "controls": ["[CA-DB]", "[CA-IP]", "[CA-V]"]
+    },
+    {
+      "name": "instructions.md",
+      "bytes": 7918,
+      "lines": 102,
+      "headings": 13,
+      "sha256": "ab51d1724b602f95fcfcadb354c7822e03b1d7743a26a2a014ae7e5ff5030a7f",
+      "controls": ["[CA-C]", "[CA-CS]", "[CA-DB]", "[CA-DB-C]", "[CA-EC]", "[CA-EV]", "[CA-HE]", "[CA-IMG]", "[CA-IP]", "[CA-KG]", "[CA-T]", "[CA-V]", "[GB-1]", "[MA-RA]", "[MA-RC]", "[SM-3]"]
+    },
+    {
+      "name": "kg-spec.md",
+      "bytes": 7898,
+      "lines": 141,
+      "headings": 11,
+      "sha256": "41ee9d2eaf23647e16dde8b3862815f37532a401fedf0d78962f269568301169",
+      "controls": ["[CA-EC]", "[CA-V]"]
+    },
+    {
+      "name": "ma-ra-spec.md",
+      "bytes": 13601,
+      "lines": 269,
+      "headings": 16,
+      "sha256": "f7c671f621cf51a66ab346bdc0f76f465b8530a3c885c74dac673a657554b671",
+      "controls": ["[CA-IP]", "[CA-KG]", "[CA-WF]", "[MA-RA]"]
+    },
+    {
+      "name": "ma-rc-spec.md",
+      "bytes": 4795,
+      "lines": 119,
+      "headings": 8,
+      "sha256": "38084c1d9d2df09539ae46a01649ce02efa0117644d6d89643e0eea510f46ff0",
+      "controls": ["[CA-DB-C]", "[CA-WF]", "[MA-RC]"]
+    },
+    {
+      "name": "report-tab-spec.md",
+      "bytes": 6237,
+      "lines": 116,
+      "headings": 16,
+      "sha256": "60edf4ad2b234089d40cd2fe61d6a715c488cf657b906e684b5a9beee2f0d095",
+      "controls": ["[CA-AIQ]", "[CA-EC]", "[CA-RPT]", "[CA-UX]"]
+    }
+  ]
+}

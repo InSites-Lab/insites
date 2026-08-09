@@ -30,9 +30,14 @@ AtarRuntime.mount(container, data, host)
 ```sh
 npm install     # esbuild, the only dependency
 npm run build   # → dist/atar-runtime.umd.js + dist/atar-runtime.css
+npm run qa:gpt-hebrew # build and exercise Hebrew KG/assessment/collection fixtures in jsdom
+npm run qa:ayelet     # run the full Ayelet reference fixture and generate local-only HTML artifacts
+npm run check   # syntax-check the built UMD bundle
 ```
 
 Artifacts do not load this directory. They load the published package from a CDN at a **pinned** version — never `@latest`, because the CDN caches aggressively and an artifact that silently changes renderer is worse than one that fails. To release: bump `version` in `package.json`, publish, then update the pinned URL in `shells/claude-shell.jsx` and in the shells inside the specification files.
+
+The source package version can temporarily lead the pinned public version while a release candidate is under QA. Do not update specification pins until the corresponding npm version is actually published and verified on the CDN.
 
 ## Licence
 

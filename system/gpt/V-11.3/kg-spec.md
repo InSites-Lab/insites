@@ -12,7 +12,7 @@ This specification is a required implementation contract, not guidance.
 
 Required:
 - Emit the exact HTML shell below (one `<div id="root">` + the runtime UMD + a `DATA` object + a `mount` call).
-- Load the runtime UMD from the pinned jsDelivr URL: `atar-runtime@0.3.4`.
+- Load the runtime UMD from the pinned jsDelivr URL: `atar-runtime@0.3.7`.
 - Pass a single `DATA` object with `type: "kg"` to `window.AtarRuntime.mount(container, DATA, {})`.
 
 Forbidden:
@@ -88,7 +88,7 @@ Generate exactly this; replace only `{LANG}`, `{DIR}`, `{TITLE}`, and the `DATA`
 </head>
 <body>
   <div id="root" style="height:100vh"></div>
-  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.4/dist/atar-runtime.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.7/dist/atar-runtime.umd.js"></script>
   <script>
     var DATA = {
       type: "kg",
@@ -111,6 +111,8 @@ Generate exactly this; replace only `{LANG}`, `{DIR}`, `{TITLE}`, and the `DATA`
 
 Only `DATA` belongs inline. The runtime injects its own styles and fonts. `host` is `{}` on GPT (no `window.claude.complete`) → the AI Query tab shows starter prompts + copy-to-chat.
 
+The `<title>` suffix follows the output language — translate "Knowledge Graph" when the output is not English. Do **not** set sidebar tab labels here; the runtime localizes them.
+
 ## Entity types [CA-EC]
 
 Use these English tokens for `type` (the runtime maps colours + Hebrew labels; unknown types get a dynamic fallback colour). Do NOT embed hex colours:
@@ -130,7 +132,7 @@ Do not append follow-up prose to the artifact response. After the user confirms 
 ## Compliance Check
 
 - [ ] Output is one fenced `html` block containing the thin shell only: one `<div id="root">` + the UMD script + valid inline `DATA` + the `mount` call.
-- [ ] Runtime loaded from `cdn.jsdelivr.net/npm/atar-runtime@0.3.4`; `mount(root, DATA, {})` called.
+- [ ] Runtime loaded from `cdn.jsdelivr.net/npm/atar-runtime@0.3.7`; `mount(root, DATA, {})` called.
 - [ ] `DATA.type === "kg"`; every node has `id`, `name`, `type` (English [CA-EC] token), `meaning`; edges use `source`/`target` + lowercase verb.
 - [ ] No vis-network / D3 / React / SVG / inline UI / per-node colour / sizing / CSS.
 - [ ] Counts: 10–15 nodes (≤20), ≤25 edges, ≤3 Cultural Value; no orphans.
