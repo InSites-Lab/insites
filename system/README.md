@@ -6,9 +6,9 @@ The same specification exists for three platforms. **Copy the file into the plat
 
 | Platform | Copy this | Form |
 |---|---|---|
-| **Claude** | [`claude/InSites-claude-current.md`](claude/InSites-claude-current.md) | One file |
-| **Google Gemini** | [`gemini/InSites-CAA-GEM-v9.3.md`](gemini/InSites-CAA-GEM-v9.3.md) | One file |
-| **ChatGPT** | [`gpt/instructions.md`](gpt/instructions.md) plus the knowledge files beside it | Instructions + knowledge files |
+| **Claude** | [`claude/V-11.3/InSites-claude-v11.3.md`](claude/V-11.3/InSites-claude-v11.3.md) | One file |
+| **Google Gemini** | [`gemini/V-11.3/InSites-CAA-GEM-v11.3.md`](gemini/V-11.3/InSites-CAA-GEM-v11.3.md) | One file |
+| **ChatGPT** | [`gpt/V-11.3/en/instructions.md`](gpt/V-11.3/en/instructions.md) plus the knowledge files beside it | Instructions + knowledge files |
 
 ## Versions
 
@@ -16,9 +16,9 @@ The three implementations are the same architecture and are not at the same gene
 
 | Platform | Version | Last changed | Form |
 |---|---|---|---|
-| Claude | v10 | July 2026 | One file. The Tuba-Zangariyye study ran on this implementation, but on the earlier version archived in [`../studies/heritage4.0-tuba-2026/system/`](../studies/heritage4.0-tuba-2026/system/) — not on the file here |
-| Gemini | v9.3 | June 2026 | One file |
-| ChatGPT | v11 | August 2026 | `instructions.md` plus the knowledge files beside it |
+| Claude | v11.3 | August 2026 | One file. The Tuba-Zangariyye study ran on this implementation, but on the earlier version archived in [`../studies/heritage4.0-tuba-2026/system/`](../studies/heritage4.0-tuba-2026/system/) — not on the file here |
+| Gemini | v11.3 | August 2026 | One file |
+| ChatGPT | v11.3 | August 2026 | `instructions.md` plus the knowledge files beside it |
 
 **Do not read the differences between platforms as performance.** They are ports of one specification to three instruction formats, they have not been compared, and this repository makes no claim about which runs it better.
 
@@ -36,7 +36,7 @@ ChatGPT splits what the other two carry in one file. `instructions.md` holds the
 
 ### Hebrew ChatGPT port
 
-The Hebrew workshop port is developed separately in [`gpt-hebrew/`](gpt-hebrew/). It does not replace or modify the English GPT in `gpt/`; the English files remain canonical. Its nine runtime files and local parity/rendering checks are complete. It remains pre-release until the pinned runtime update is published and the GPT passes Preview checks in both a builder and participant account.
+The Hebrew workshop port is developed separately in [`gpt/V-11.3/hebrew/`](gpt/V-11.3/hebrew/). It does not replace or modify the English GPT in `gpt/V-11.3/en/`; the English files remain canonical. Its nine runtime files and local parity/rendering checks are complete. It remains a candidate for Preview review until it passes ChatGPT Preview checks in both a builder and participant account.
 
 ## The files the specifications name
 

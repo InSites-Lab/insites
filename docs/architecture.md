@@ -78,8 +78,10 @@ The paper follows the two mechanisms that act on the analysis itself. Three more
 
 ## Version history and the freeze note
 
-`system/claude/InSites-claude-current.md` is the current specification and changes over time.
+`system/claude/V-11.3/InSites-claude-v11.3.md` is the current specification and changes over time.
 
 `studies/heritage4.0-tuba-2026/system/InSites-v2.1_AS-RUN-tuba-2026-03-22.md` is the specification exactly as it ran in the assessment reported in the Heritage 4.0 paper. **Every number in that paper belongs to that file and that session.** Changes since, some of them prompted by what the session exposed: a revision now cannot be followed by advancing until the expert confirms; the prose around a mark must match its epistemic status; synthesis carries 〰️ rather than °; and the marks travel into rendered outputs such as the knowledge graph.
 
 The staged structure, the tiered marks, and the review checkpoints are the same in both. **No performance comparison between versions is intended or supported.**
+
+A third, unrelated lineage is archived at [`studies/Cultural-InSites-Paper/`](../studies/Cultural-InSites-Paper/): the version of the specification a class of students used, run on DeepSeek-V3. It is static, not a prior version of what is described above, and **no performance comparison to it is intended or supported either.**

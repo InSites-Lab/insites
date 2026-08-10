@@ -255,7 +255,7 @@ Same skill files work for both Claude and Gemini. When deploying to Gemini:
 
 ## §6.1 — Report Tab `[CA-RPT]`
 
-Full specification in [`gpt/report-tab-spec.md`](gpt/report-tab-spec.md). Summary:
+Full specification in [`gpt/V-11.3/en/report-tab-spec.md`](gpt/V-11.3/en/report-tab-spec.md). Summary:
 
 - **Position**: after Significance and before optional Debrief/Session tabs; AI Query remains last
 - **Content**: structured on-screen assessment report pulling from all dashboard data, with an 800–1,200-word target

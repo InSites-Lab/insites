@@ -16,6 +16,7 @@ A paper rests on this repository: *From Report to Inquiry: Governing Generative 
 | `system/atar-runtime/` | **The code.** ~180 KB of JavaScript and CSS that renders the knowledge graph and the two dashboards, plus the esbuild driver and the React shell an artifact emits. Source of the `atar-runtime` npm package; `npm install && npm run build` works from it. `dist/` is untracked |
 | `docs/` | Written for a reader: `architecture.md` (the anatomy), `epistemic-notation.md` (the marks), `Session-Report-spec.md` (the six intervention tags), `cbsa-archaeology-layer.md` (an optional module), `fig-workflow.html` (the source of the paper's figure) |
 | `studies/heritage4.0-tuba-2026/` | The research record the paper cites. `system/` holds the specification **as it ran**; `session/` the transcript; `protocols/` the observation protocol; `coding/` the claim-level dataset and the extraction runs; `sources/README.md` the citations for the three assessed documents |
+| `studies/Cultural-InSites-Paper/` | A second, unrelated historical record: the specification a class of students used, run on DeepSeek-V3. Static; cite the tagged snapshot `cultural-insites-v1.0`. Same rule as above — never synchronise it with `system/` |
 | `tools/claim-extractor/` | The protocol that produced the coding |
 | `sites-data/` | A listing of practice documents. The documents themselves are third-party and are not here |
 
@@ -33,7 +34,7 @@ It is not committed, so anyone cloning this repository will not have it. Its abs
 
 `studies/heritage4.0-tuba-2026/` documents a session that happened in March 2026. Its `system/InSites-v2.1_AS-RUN-tuba-2026-03-22.md` is the specification **as it ran** — not an old copy of the current one.
 
-It resembles `system/claude/InSites-claude-current.md`, and that resemblance is a trap. **Do not reconcile them, diff them into alignment, "update" the archived file, or propagate a fix from one to the other.** Overwriting it destroys the evidence the paper cites. The filename says `AS-RUN` and a date for exactly this reason.
+It resembles `system/claude/V-11.3/InSites-claude-v11.3.md`, and that resemblance is a trap. **Do not reconcile them, diff them into alignment, "update" the archived file, or propagate a fix from one to the other.** Overwriting it destroys the evidence the paper cites. The filename says `AS-RUN` and a date for exactly this reason.
 
 The only edits foreseen in `studies/` are the source citations in `sources/README.md`, which are presentation rather than evidence. If evidence itself ever has to change because an error is found in it, the repair is a **new tag plus a line saying what changed** — never an overwrite, because published numbers point at the old state.
 
