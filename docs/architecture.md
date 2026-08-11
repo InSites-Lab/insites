@@ -1,6 +1,6 @@
 # Architecture
 
-This document describes how InSites is built and why. It exists so that papers about the system can point here instead of spending pages on mechanics.
+This document describes how [InSites](../README.md) is built and why. It exists so that papers about the system can point here instead of spending pages on mechanics.
 
 ## What the system is
 
