@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>InSites Knowledge Lab · Technion</title>
+<meta name="description" content="InSites Knowledge Lab develops computational and knowledge-modelling methods for the assessment of built cultural heritage. Faculty of Architecture and Town Planning, Technion – Israel Institute of Technology.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Literata:opsz,wght@7..72,500;7..72,600&family=Public+Sans:wght@300;400;500;600&display=swap">
+<style>
+:root{
+  --bg:#FAFAF8; --paper:#FFFFFF; --ink:#1B2325; --ink-2:#55615F; --line:#DCE0DC;
+  --accent:#1E6E68; --accent-soft:#E3EEEC;
+}
+@media (prefers-color-scheme: dark){
+  :root{ --bg:#141A1B; --paper:#1C2426; --ink:#E9EDEB; --ink-2:#A8B3B2; --line:#303B3B; --accent:#63C2B8; --accent-soft:#1F3533; }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Public Sans",system-ui,Arial,sans-serif;font-weight:300;font-size:17px;line-height:1.65}
+a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+h1,h2,h3{font-family:"Literata",Georgia,serif;font-weight:600;line-height:1.2;margin:0;text-wrap:balance}
+h1{font-size:clamp(2rem,5vw,3rem)}
+h2{font-size:1.5rem}
+h3{font-size:1.1rem}
+p{margin:.6rem 0;max-width:66ch}
+.wrap{max-width:960px;margin:0 auto;padding:0 24px}
+header.top{border-bottom:1px solid var(--line)}
+nav{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;justify-content:space-between;padding:18px 0;font-size:.9rem}
+nav .brand{font-family:"Literata",serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none}
+nav ul{list-style:none;margin:0;padding:0;display:flex;gap:22px;flex-wrap:wrap}
+nav a{color:var(--ink-2);text-decoration:none}
+nav a:hover{color:var(--accent)}
+.hero{padding:72px 0 56px;border-bottom:1px solid var(--line)}
+.eyebrow{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:14px}
+.hero .sub{font-family:"Literata",serif;font-size:clamp(1.15rem,2.4vw,1.45rem);font-weight:500;color:var(--ink-2);max-width:32ch;margin-top:18px}
+.hero .aff{margin-top:28px;font-size:.95rem;color:var(--ink-2)}
+section{padding:48px 0;border-bottom:1px solid var(--line)}
+section h2{margin-bottom:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:20px 22px}
+.card h3{margin-bottom:8px}
+.card p{font-size:.95rem;margin:.4rem 0}
+.card .meta{font-size:.82rem;color:var(--ink-2);letter-spacing:.02em}
+.pi{display:grid;grid-template-columns:1fr 2fr;gap:28px;align-items:start}
+@media (max-width:640px){.pi{grid-template-columns:1fr}}
+.pi .facts{font-size:.92rem;color:var(--ink-2);line-height:1.8}
+.pi .facts strong{color:var(--ink);font-weight:500}
+.questions{list-style:none;padding:0;margin:18px 0 0;display:grid;gap:12px}
+.questions li{padding:14px 18px;background:var(--accent-soft);border-radius:4px;max-width:70ch}
+.pubs li{margin:.6rem 0;max-width:80ch}
+ul.plain{padding-left:1.1rem}
+.status{background:var(--accent-soft);border-radius:4px;padding:14px 18px;font-size:.95rem;max-width:70ch}
+footer{padding:36px 0 56px;font-size:.88rem;color:var(--ink-2)}
+footer .cols{display:flex;flex-wrap:wrap;gap:24px 48px}
+footer p{margin:.3rem 0}
+</style>
+</head>
+<body>
+
+<header class="top"><div class="wrap">
+<nav>
+  <a class="brand" href="#">InSites Knowledge Lab</a>
+  <ul>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publications">Publications</a></li>
+    <li><a href="#people">People</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+</div></header>
+
+<div class="hero"><div class="wrap">
+  <div class="eyebrow">Faculty of Architecture and Town Planning · Technion – Israel Institute of Technology</div>
+  <h1>InSites Knowledge Lab</h1>
+  <p class="sub">Computational and knowledge-modelling methods in the assessment of built cultural heritage</p>
+  <p class="aff">Head: <a href="https://architecture.technion.ac.il/members/yael-alef/">Assoc. Prof. Yael Alef</a> · Haifa, Israel · Established 2026</p>
+</div></div>
+
+<section id="research"><div class="wrap">
+  <h2>What the lab studies</h2>
+  <p>Significance assessment is the step that decides what a heritage place is worth protecting for. It rests on heterogeneous documentation: surveys, archaeological reports, planning files, historical sources. The lab treats the assessment as a knowledge-engineering problem: how documentation becomes governed, traceable claims about value, and what a language model can and cannot contribute to that process under expert control.</p>
+  <p>Our methods combine LLM pipelines with per-claim epistemic marking (what a source states, what is synthesised, what is hypothesised), expert review between stages, and a verified reference corpus used for evaluation and for comparing frontier models with locally run open-weight models.</p>
+  <ul class="questions">
+    <li>At which stages of a heritage assessment do local open-weight models converge with frontier models, and where does the gap remain substantive?</li>
+    <li>How can a machine-generated observation acquire an epistemic status inside an interpretive assessment, and what governance does that require?</li>
+    <li>What does a context-based significance assessment look like when every claim carries its distance from the evidence?</li>
+  </ul>
+</div></section>
+
+<section id="projects"><div class="wrap">
+  <h2>Projects</h2>
+  <div class="grid">
+    <div class="card">
+      <h3><a href="https://github.com/InSites-Lab/insites">InSites</a></h3>
+      <p class="meta">Open specification · Apache-2.0 / CC BY 4.0 · release v1.0.0</p>
+      <p>An assistant for context-based significance assessment, run as a specification executed stage by stage by a language model, with expert review between stages. Every claim carries an epistemic mark. Implementations for three LLM platforms.</p>
+    </div>
+    <div class="card">
+      <h3>Heritage 4.0 study</h3>
+      <p class="meta">Tuba-Zangariyye dolmen field, 2026</p>
+      <p>A governed assessment session compared claim by claim against an expert assessment, with the full research record (specification as run, transcript, coding) published alongside the paper.</p>
+    </div>
+    <div class="card">
+      <h3>Cultural InSites</h3>
+      <p class="meta">Teaching · with University of Nottingham Ningbo China</p>
+      <p>The assessment framework used by students outside conservation, in project-based learning around digital heritage storytelling.</p>
+    </div>
+    <div class="card">
+      <h3>Workshops</h3>
+      <p class="meta">CIPA 2025, Seoul · CAA 2026 · ICOMOS Israel</p>
+      <p>Hands-on sessions in which heritage professionals run a governed significance assessment with InSites, in Israel in its Hebrew version, Atar.Bot. The aim is adoption of the approach, not only the tool. Materials for the CAA workshop: <a href="https://github.com/InSites-Lab/Insites-CAA2026">github.com/InSites-Lab/Insites-CAA2026</a>.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="publications"><div class="wrap">
+  <h2>Publications</h2>
+  <ul class="plain pubs">
+    <li>Alef, Y., Shafriri, Y., &amp; Berger, U. (forthcoming). From Report to Inquiry: Governing Generative AI Insights in Heritage Significance Assessment. In F. Di Ciaccio, E. I. Parisi, &amp; G. Tucci (Eds.), <em>Digital Ecosystems for Heritage 4.0</em>. Springer, Communications in Computer and Information Science.</li>
+    <li>[[PLACEHOLDER — Cultural InSites paper with Chao Zhou and Eugene Ch'ng (University of Nottingham Ningbo China): full author order, title, venue, status]]</li>
+    <li>Alef, Y., &amp; Shafriri, Y. (2026). InSites: specification, protocols and research record for the case study. GitHub repository. <a href="https://github.com/InSites-Lab/insites/tree/v1.0.0">github.com/InSites-Lab/insites/tree/v1.0.0</a></li>
+    <li>Alef, Y., &amp; Shafriri, Y. (2025). Cultural Significance Assessment of Archaeological Sites for Heritage Management: From Text to Spatial Networks of Meanings. In J. W. H. P. Verhagen et al. (Eds.), <em>Advances in Digital Archaeology</em>. Sidestone Press, Leiden.</li>
+  </ul>
+  <p><a href="https://orcid.org/0000-0003-3278-2644">Full list on ORCID</a></p>
+</div></section>
+
+<section id="people"><div class="wrap">
+  <h2>People</h2>
+  <div class="pi">
+    <div>
+      <h3>Yael Alef</h3>
+      <p class="facts"><strong>Head of the lab. Associate Professor</strong>, Architecture Track, Faculty of Architecture and Town Planning, Technion.<br>
+      Ph.D., Bar-Ilan University (2021) · M.A. in Conservation, Raymond Lemaire Centre, KU Leuven (2002)<br>
+      Formerly led national projects at the Israel Antiquities Authority's Conservation Department; Visiting Scholar, Getty Conservation Institute (2023).<br>
+      <a href="https://architecture.technion.ac.il/members/yael-alef/">Technion profile</a> · <a href="https://orcid.org/0000-0003-3278-2644">ORCID</a></p>
+    </div>
+    <div>
+      <p><strong>[[PLACEHOLDER — doctoral student 1, name and topic, with consent]]</strong></p>
+      <p><strong>[[PLACEHOLDER — doctoral student 2, name and topic, with consent]]</strong></p>
+      <p><strong>Open positions.</strong> The lab is recruiting doctoral students and a lab manager. Enquiries to the address below.</p>
+    </div>
+  </div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <h2>Contact</h2>
+  <p class="status">The lab was established in 2026 with dedicated infrastructure funding. This page is its current public entry point; a full site is in preparation.</p>
+  <p>Yael Alef · <a href="mailto:yaelalef@technion.ac.il">yaelalef@technion.ac.il</a><br>
+  Segoe Building, Technion City, Haifa 3200003, Israel<br>
+  <a href="https://github.com/InSites-Lab">github.com/InSites-Lab</a></p>
+</div></section>
+
+<footer><div class="wrap">
+  <div class="cols">
+    <p>© 2026 InSites Knowledge Lab, Technion – Israel Institute of Technology</p>
+    <p>Site content CC BY 4.0</p>
+  </div>
+</div></footer>
+
+</body>
+</html>
