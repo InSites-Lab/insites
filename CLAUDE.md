@@ -34,7 +34,7 @@ It is not committed, so anyone cloning this repository will not have it. Its abs
 
 `studies/heritage4.0-tuba-2026/` documents a session that happened in March 2026. Its `system/InSites-v2.1_AS-RUN-tuba-2026-03-22.md` is the specification **as it ran** — not an old copy of the current one.
 
-It resembles `system/claude/V-11.3/InSites-claude-v11.3.md`, and that resemblance is a trap. **Do not reconcile them, diff them into alignment, "update" the archived file, or propagate a fix from one to the other.** Overwriting it destroys the evidence the paper cites. The filename says `AS-RUN` and a date for exactly this reason.
+It resembles `system/claude/V-11.5/InSites-claude-v11.5.md`, and that resemblance is a trap. **Do not reconcile them, diff them into alignment, "update" the archived file, or propagate a fix from one to the other.** Overwriting it destroys the evidence the paper cites. The filename says `AS-RUN` and a date for exactly this reason.
 
 The only edits foreseen in `studies/` are the source citations in `sources/README.md`, which are presentation rather than evidence. If evidence itself ever has to change because an error is found in it, the repair is a **new tag plus a line saying what changed** — never an overwrite, because published numbers point at the old state.
 

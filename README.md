@@ -18,7 +18,7 @@ The architecture is a prompt file. It is bound to no particular model, and it ne
 
 ## What is here
 
-**`system/`** — the current specification, for Claude, Gemini and ChatGPT. Three ports of one architecture, which is what "bound to no particular model" means in practice. **This part is live and changes as the system develops.**
+**`system/`** — the current specification, for Claude, Gemini, ChatGPT and DeepSeek. Four ports of one architecture, which is what "bound to no particular model" means in practice. **This part is live and changes as the system develops.**
 
 **`docs/`** — architecture, the notation, and the output specifications. Also live.
 

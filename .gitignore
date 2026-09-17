@@ -79,3 +79,17 @@ system/atar-runtime/qa/ayelet-reference.mjs
 .agents/
 tools/check-gpt-hebrew-sync.ps1
 tools/qa-*.mjs
+
+# Public delivery: only the current specification and the platform guide.
+# On a version update, replace these exact allowlist entries and retain the
+# previous files locally under OLD/. Reports/manifests/working notes stay local.
+/system/deepseek/*
+!/system/deepseek/README.md
+!/system/deepseek/V-11.4/
+/system/deepseek/V-11.4/*
+!/system/deepseek/V-11.4/InSites-deepseek-v11.4.md
+/system/claude/*
+!/system/claude/README.md
+!/system/claude/V-11.5/
+/system/claude/V-11.5/*
+!/system/claude/V-11.5/InSites-claude-v11.5.md
