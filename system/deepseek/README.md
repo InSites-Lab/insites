@@ -46,9 +46,9 @@ Explore a heritage site's significance through its sources, then use your findin
 
 ### 6. 保存与继续
 
-输入 **保存进度**，获取一份 Markdown 续接文档，包含进度摘要、完整的已确认输出及资料清单。下载 `.md` 文件；若只提供文本，请复制到文本编辑器并保存为 `.md`。保留原始资料；换对话时上传续接文件、同一版本的规范及所需资料。
+输入 **保存进度**，获取一份 TXT 进度文件，包含进度摘要、完整的已确认输出及资料清单。下载文件；若只提供文本，请复制并保存为 TXT。保留原始资料；换对话时上传进度文件、同一版本的规范及所需资料。
 
-仪表板是研究发现的可视化报告，可配合使用，但不能替代续接文件或原始资料。
+仪表板是研究发现的可视化报告，可配合使用，但不能替代进度文件或原始资料。
 
 若显示失败，将错误原文发回对话，请求修复显示并保留已确认的内容。
 
@@ -93,8 +93,8 @@ Try **kg** to explore connections between places, people, events and values, the
 
 ## 6. Save and resume
 
-Say **save progress** for one Markdown resume document containing the progress summary, full approved outputs and source inventory. Download the `.md` file; if only text is provided, copy it into a text editor and save as `.md`. Keep original sources; in a new chat, upload the resume file, the same specification version and needed sources.
+Say **save progress** for one TXT progress file containing the progress summary, full approved outputs and source inventory. Download the file; if only text is provided, copy and save it as TXT. Keep original sources; in a new chat, upload the progress file, the same specification version and needed sources.
 
-The dashboard is a visual report of findings. It complements, but does not replace, the resume file or original sources.
+The dashboard is a visual report of findings. It complements, but does not replace, the progress file or original sources.
 
 If a display fails, paste the exact error into chat and request a repair that preserves approved findings.
