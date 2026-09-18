@@ -9,7 +9,7 @@ Explore a heritage site's significance through its sources, then use your findin
 
 ### 1. 准备对话
 
-每个遗产地新建一个对话，上传你收到的 InSites 规范文件（[当前版本](V-11.6/InSites-deepseek-v11.6.md)）。也可粘贴全文，但上传文件能让对话更清晰。请用你希望使用的语言发出指令；InSites 支持中文和英文，并按你的指令语言工作。
+每个遗产地新建一个对话，上传你收到的 InSites 规范文件（[当前版本](InSites-deepseek-v11.6.md)）。也可粘贴全文，但上传文件能让对话更清晰。请用你希望使用的语言发出指令；InSites 支持中文和英文，并按你的指令语言工作。
 
 随时可以问：“InSites 是什么？”或“CBSA 方法如何运作？”
 
@@ -19,7 +19,7 @@ Explore a heritage site's significance through its sources, then use your findin
 
 流程：**0 资料初审 → 1 描述与背景 → 2 价值 → 3 真实性与完整性 → 4 比较分析 → 5 文化意义陈述 → 6 质量检查与总结**。
 
-评估后，通过扩展继续探索：**解读评估 → 知识图谱 → 仪表板**，使用方法见下文。也可输入 **图像分析**，分析上传的照片或图纸。
+评估阶段完成后，通过扩展继续探索：**解读评估 → 知识图谱 → 仪表板**，使用方法见下文。也可在任一阶段输入 **图像分析**，分析上传的照片或图纸。
 
 ### 3. 主动审阅
 
@@ -56,7 +56,7 @@ Explore a heritage site's significance through its sources, then use your findin
 
 ## 1. Prepare a chat
 
-Start a new chat for each site. Upload the InSites specification file you received ([current version](V-11.6/InSites-deepseek-v11.6.md)). Pasting its full text also works, but uploading keeps the conversation readable. Write your instructions in your preferred language: InSites works in Chinese or English, following your instruction language.
+Start a new chat for each site. Upload the InSites specification file you received ([current version](InSites-deepseek-v11.6.md)). Pasting its full text also works, but uploading keeps the conversation readable. Write your instructions in your preferred language: InSites works in Chinese or English, following your instruction language.
 
 You can ask “What is InSites?” or “How does CBSA work?” at any time.
 
@@ -66,7 +66,7 @@ Upload documents, photographs or drawings with source and page identifiers. Say 
 
 The route: **0 Sources → 1 Description and contexts → 2 Values → 3 Authenticity and integrity → 4 Comparison → 5 Significance → 6 Quality check and summary**.
 
-After the assessment, explore the extensions: **read assessment → kg (knowledge graph) → dashboard**, with guidance below. You can also request **image analysis** of an uploaded photograph or drawing.
+After the assessment stages, explore the extensions: **read assessment → kg (knowledge graph) → dashboard**, with guidance below. You can also request **image analysis** of an uploaded photograph or drawing at any stage.
 
 ## 3. Review actively
 

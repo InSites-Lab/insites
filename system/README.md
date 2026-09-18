@@ -7,7 +7,7 @@ The specification has four platform editions. **Load the appropriate files, uplo
 | Platform | Copy this | Form |
 |---|---|---|
 | **Claude** | [`claude/V-11.5/InSites-claude-v11.5.md`](claude/V-11.5/InSites-claude-v11.5.md) | One file |
-| **DeepSeek** | [`deepseek/V-11.6/InSites-deepseek-v11.6.md`](deepseek/V-11.6/InSites-deepseek-v11.6.md) | One file; [student guide](deepseek/README.md) |
+| **DeepSeek** | [`deepseek/InSites-deepseek-v11.6.md`](deepseek/InSites-deepseek-v11.6.md) | One file; [student guide](deepseek/README.md) |
 | **Google Gemini** | [`gemini/V-11.3/InSites-CAA-GEM-v11.3.md`](gemini/V-11.3/InSites-CAA-GEM-v11.3.md) | One file |
 | **ChatGPT** | [`gpt/V-11.3/en/instructions.md`](gpt/V-11.3/en/instructions.md) plus the knowledge files beside it | Instructions + knowledge files |
 
