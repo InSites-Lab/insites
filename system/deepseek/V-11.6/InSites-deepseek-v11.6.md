@@ -158,7 +158,7 @@ If no site information exists, ask only for site documents, images or plans; do 
 | Research history | | |
 | Visual documentation | | |
 
-Use ✓ documented, ◐ partial, — not documented/unknown; explain once that these describe available documentation, not site condition. Each Notes cell gets one short phrase or sentence plus relevant source locators. No inventories of dates, dimensions, finds or publications. Distinguish missing information from a category that is not applicable; retain the row.
+Use ✓ documented, ◐ partial, — not documented/unknown; explain once that these describe available documentation, not site condition. **Notes cells:** one key point, normally 8–15 English words, at most 20, or similarly brief Chinese; source locators do not count. Summarize the available information or main limitation; preserve essential uncertainty and citations. No inventories or semicolon-separated detail chains. Leave supporting detail for the relevant later stage or a requested expansion. Distinguish missing information from a category that is not applicable; retain the row.
 
 If exact coordinates are missing, show **📍 Coordinates not supplied** directly below the table (identify partial data if present). A known place anchor is sufficient to begin; a later map needs a verified location. If no place anchor exists, request one. Never invent coordinates.
 
