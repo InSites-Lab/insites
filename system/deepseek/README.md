@@ -1,4 +1,4 @@
-# InSites for DeepSeek · v11.4
+# InSites for DeepSeek · v11.6
 
 Explore a heritage site's significance through its sources, then use your findings to develop your project. You guide the work and review each stage.
 
@@ -9,13 +9,13 @@ Explore a heritage site's significance through its sources, then use your findin
 
 ### 1. 准备对话
 
-每个遗产地新建一个对话，上传你收到的 InSites 规范文件（[当前版本](V-11.4/InSites-deepseek-v11.4.md)）。也可粘贴全文，但上传文件能让对话更清晰。请用你希望使用的语言发出指令；InSites 支持中文和英文，并按你的指令语言工作。
+每个遗产地新建一个对话，上传你收到的 InSites 规范文件（[当前版本](V-11.6/InSites-deepseek-v11.6.md)）。也可粘贴全文，但上传文件能让对话更清晰。请用你希望使用的语言发出指令；InSites 支持中文和英文，并按你的指令语言工作。
 
 随时可以问：“InSites 是什么？”或“CBSA 方法如何运作？”
 
 ### 2. 提供资料并开始
 
-上传文献、照片或图纸，保留来源和页码。输入 **开始评估**，核对资料清单、缺口及图片是否可读取。
+上传文献、照片或图纸，保留来源和页码。输入 **开始评估**，核对资料、主要缺口及图片是否可读取。
 
 流程：**0 资料初审 → 1 描述与背景 → 2 价值 → 3 真实性与完整性 → 4 比较分析 → 5 文化意义陈述 → 6 质量检查与总结**。
 
@@ -50,13 +50,13 @@ Explore a heritage site's significance through its sources, then use your findin
 
 ## 1. Prepare a chat
 
-Start a new chat for each site. Upload the InSites specification file you received ([current version](V-11.4/InSites-deepseek-v11.4.md)). Pasting its full text also works, but uploading keeps the conversation readable. Write your instructions in your preferred language: InSites works in Chinese or English, following your instruction language.
+Start a new chat for each site. Upload the InSites specification file you received ([current version](V-11.6/InSites-deepseek-v11.6.md)). Pasting its full text also works, but uploading keeps the conversation readable. Write your instructions in your preferred language: InSites works in Chinese or English, following your instruction language.
 
 You can ask “What is InSites?” or “How does CBSA work?” at any time.
 
 ## 2. Supply sources and start
 
-Upload documents, photographs or drawings with source and page identifiers. Say **start**. Check the source inventory, gaps and image readability.
+Upload documents, photographs or drawings with source and page identifiers. Say **start**. Check the sources, key gaps and image readability.
 
 The route: **0 Sources → 1 Description and contexts → 2 Values → 3 Authenticity and integrity → 4 Comparison → 5 Significance → 6 Quality check and summary**.
 

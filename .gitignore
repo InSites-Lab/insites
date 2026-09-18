@@ -85,9 +85,9 @@ tools/qa-*.mjs
 # previous files locally under OLD/. Reports/manifests/working notes stay local.
 /system/deepseek/*
 !/system/deepseek/README.md
-!/system/deepseek/V-11.4/
-/system/deepseek/V-11.4/*
-!/system/deepseek/V-11.4/InSites-deepseek-v11.4.md
+!/system/deepseek/V-11.6/
+/system/deepseek/V-11.6/*
+!/system/deepseek/V-11.6/InSites-deepseek-v11.6.md
 /system/claude/*
 !/system/claude/README.md
 !/system/claude/V-11.5/

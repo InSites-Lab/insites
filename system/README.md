@@ -7,7 +7,7 @@ The specification has four platform editions. **Load the appropriate files, uplo
 | Platform | Copy this | Form |
 |---|---|---|
 | **Claude** | [`claude/V-11.5/InSites-claude-v11.5.md`](claude/V-11.5/InSites-claude-v11.5.md) | One file |
-| **DeepSeek** | [`deepseek/V-11.4/InSites-deepseek-v11.4.md`](deepseek/V-11.4/InSites-deepseek-v11.4.md) | One file; [student guide](deepseek/README.md) |
+| **DeepSeek** | [`deepseek/V-11.6/InSites-deepseek-v11.6.md`](deepseek/V-11.6/InSites-deepseek-v11.6.md) | One file; [student guide](deepseek/README.md) |
 | **Google Gemini** | [`gemini/V-11.3/InSites-CAA-GEM-v11.3.md`](gemini/V-11.3/InSites-CAA-GEM-v11.3.md) | One file |
 | **ChatGPT** | [`gpt/V-11.3/en/instructions.md`](gpt/V-11.3/en/instructions.md) plus the knowledge files beside it | Instructions + knowledge files |
 
@@ -18,7 +18,7 @@ The four implementations are the same architecture and are not at the same gener
 | Platform | Version | Last changed | Form |
 |---|---|---|---|
 | Claude | v11.5 | September 2026 | One file. The Tuba-Zangariyye study ran on this implementation, but on the earlier version archived in [`../studies/heritage4.0-tuba-2026/system/`](../studies/heritage4.0-tuba-2026/system/) — not on the file here |
-| DeepSeek | v11.4 | September 2026 | One file; English/Chinese course edition. Epistemic marks remain in assessment/readings, not the KG |
+| DeepSeek | v11.6 | September 2026 | One file; English/Chinese course edition. Epistemic marks remain in assessment/readings, not the KG |
 | Gemini | v11.3 | August 2026 | One file |
 | ChatGPT | v11.3 | August 2026 | `instructions.md` plus the knowledge files beside it |
 
