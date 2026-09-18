@@ -21,7 +21,9 @@ Explore a heritage site's significance through its sources, then use your findin
 
 ### 3. 主动审阅
 
-每个阶段结束后，可用 **展开［主题］** 深入分析，结合资料提出更正，或 **返回第2阶段**。准备好后再说 **继续**；提出问题或更正不等于同意进入下一阶段。
+每个阶段的首次输出都是聚焦重点的起点。可用 **展开［主题］** 获取更多细节和更深入的分析，结合资料提出更正，或 **返回第2阶段**。准备好后再说 **继续**；提出问题或更正不等于同意进入下一阶段。
+
+留意第1–6阶段的**反思问题**，借此审视研究发现，并思考它们如何帮助你的项目。
 
 可以问：
 
@@ -62,7 +64,9 @@ The route: **0 Sources → 1 Description and contexts → 2 Values → 3 Authent
 
 ## 3. Review actively
 
-After each stage, **expand [topic]**, correct a finding using your sources, or **go back to Stage 2**. Say **continue** when ready; a question or correction does not approve advancement.
+Each stage's initial output is a focused starting point. Use **expand [topic]** for more detail and deeper analysis, correct a finding using your sources, or **go back to Stage 2**. Say **continue** when ready; a question or correction does not approve advancement.
+
+Notice the **reflection question** in Stages 1–6: use it to examine the findings and consider how they could inform your project.
 
 Try asking:
 
