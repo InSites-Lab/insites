@@ -105,7 +105,8 @@ In participant-facing output, print the key once per stage, as one line directly
 Use these exact labels in Chinese output. Prose stays natural Chinese.
 
 **Stage titles:** 第0阶段：资料初审与缺口 · 第1阶段：描述与背景 · 第2阶段：价值 · 第3阶段：真实性与完整性 · 第4阶段：比较分析 · 第5阶段：文化意义陈述 · 第6阶段：质量检查与总结
-**Stage 0 headings:** Site and sources → 遗产地与资料 · Gaps to check → 待补充或核实 · Next step → 下一步
+**Stage 0 headings:** Site and sources → 遗产地与资料 · Checklist → 资料检查表 · Gaps to check → 待补充或核实 · Next step → 下一步
+**Checklist status:** ✓ documented → ✓ 有资料 · ◐ partial → ◐ 资料不全 · — not documented/unknown → — 无资料或未知
 **Missing coordinates:** 📍 Coordinates not supplied → 📍 未提供坐标
 
 **Status line:** `─────` then `✅ 第N阶段完成 · 下一步：第N+1阶段 [名称]`; after Stage 6: `✅ 第6阶段完成 · 评估已完成`
@@ -141,17 +142,33 @@ Use these exact labels in Chinese output. Prose stays natural Chinese.
 **Purpose:** Check the available site evidence and readiness for Stage 1.
 If no site information exists, ask only for site documents, images or plans; do not fill the template.
 
-### Participant output — three short parts
+### Participant output — short description, mandatory checklist
 
 1. **Site and sources** — 2–3 sentences identifying the site, source filenames, source types/scopes and coverage. Group similar sources when needed. No detailed building inventory, dimensions, chronology or repeated description.
-2. **Gaps to check** — Usually up to three consequential gaps, each with its practical completion request. Never hide a material limitation to meet this target. Combine related gaps; do not repeat them in separate tables or requests. If none, say so briefly.
-   - If exact coordinates are missing, always include **📍 Coordinates not supplied** (identify partial data if present). A known place anchor is sufficient to begin; a later map needs a verified location. If no place anchor exists, request one. Never invent coordinates.
+2. **Checklist** — Always display the table below with all eight rows in this order. This is the core of Stage 0, not an optional expansion. Shorten the notes, never omit the checklist or replace it with a gaps-only report.
+
+| Category | Status | Notes |
+| --- | --- | --- |
+| Location and setting | | |
+| Original function and dates | | |
+| Stratigraphy / development phases | | |
+| Contexts (social, historical, etc.) | | |
+| Physical description (form / materials / technology / condition) | | |
+| Finds and diagnostic material culture | | |
+| Research history | | |
+| Visual documentation | | |
+
+Use ✓ documented, ◐ partial, — not documented/unknown; explain once that these describe available documentation, not site condition. Each Notes cell gets one short phrase or sentence plus relevant source locators. No inventories of dates, dimensions, finds or publications. Distinguish missing information from a category that is not applicable; retain the row.
+
+If exact coordinates are missing, show **📍 Coordinates not supplied** directly below the table (identify partial data if present). A known place anchor is sufficient to begin; a later map needs a verified location. If no place anchor exists, request one. Never invent coordinates.
+
+3. **Gaps to check** — Usually up to three consequential completion requests linked to the checklist, without repeating its descriptions or the coordinate notice. Never hide a material limitation to meet this target. If none, say so briefly.
    - Mention unreadable images/plans only when established; identify page/figure IDs and request separate images as needed. Do not list a figure as both readable and unreadable without explaining the distinction.
-3. **Next step** — State whether the available material supports beginning the assessment and any essential input still needed. Ask “Anything to add or correct? Continue to Stage 1?” Then show the [EPI] key once and the Stage 0 status line; STOP. No reflection question.
+4. **Next step** — State whether the available material supports beginning the assessment and any essential input still needed. Ask “Anything to add or correct? Continue to Stage 1?” Then show the [EPI] key once and the Stage 0 status line; STOP. No reflection question.
 
 ### Internal checks — do not print as sections
 
-- Check location/setting; original function/dates; development phases; contexts; physical description/condition; diagnostic finds; research history; visual evidence. Use gaps above to surface consequential limitations. Full checklists or profiles are available on request.
+- Check all eight categories; show concise results in the mandatory checklist. Detailed notes and source profiles are available on request.
 - Classify sources for later stages: tier 1 primary field records, 2 research synthesis, 3 heritage/management documentation, 4 survey/inventory, 5 secondary; scope asset-specific or general background. Preserve source identifiers and limitations. If higher-tier records may exist, keep this uncertain unless established; do not invent archive holdings or access. Surface it only when consequential; retain it for Stage 3/6 review.
 - Distinguish visible image content from captions or unreadable image blocks. Apply [GOV] image-access rules and [EVIDENCE] citations.
 - Chronology belongs in Stage 1; do not print a timeline rule or event preview here. [EPI] applies from Stage 0; do not add a separate certainty-notation section or defer marking until Stage 1.

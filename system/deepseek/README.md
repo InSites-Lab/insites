@@ -15,7 +15,7 @@ Explore a heritage site's significance through its sources, then use your findin
 
 ### 2. 提供资料并开始
 
-上传文献、照片或图纸，保留来源和页码。输入 **开始评估**，核对资料、主要缺口及图片是否可读取。
+上传文献、照片或图纸，保留来源和页码。输入 **开始评估**，逐行核对八项资料检查表、主要缺口及图片是否可读取。
 
 流程：**0 资料初审 → 1 描述与背景 → 2 价值 → 3 真实性与完整性 → 4 比较分析 → 5 文化意义陈述 → 6 质量检查与总结**。
 
@@ -56,7 +56,7 @@ You can ask “What is InSites?” or “How does CBSA work?” at any time.
 
 ## 2. Supply sources and start
 
-Upload documents, photographs or drawings with source and page identifiers. Say **start**. Check the sources, key gaps and image readability.
+Upload documents, photographs or drawings with source and page identifiers. Say **start**. Review all eight checklist rows, key gaps and image readability.
 
 The route: **0 Sources → 1 Description and contexts → 2 Values → 3 Authenticity and integrity → 4 Comparison → 5 Significance → 6 Quality check and summary**.
 
