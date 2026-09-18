@@ -19,6 +19,8 @@ Explore a heritage site's significance through its sources, then use your findin
 
 流程：**0 资料初审 → 1 描述与背景 → 2 价值 → 3 真实性与完整性 → 4 比较分析 → 5 文化意义陈述 → 6 质量检查与总结**。
 
+评估后，通过扩展继续探索：**解读评估 → 知识图谱 → 仪表板**，使用方法见下文。也可输入 **图像分析**，分析上传的照片或图纸。
+
 ### 3. 主动审阅
 
 每个阶段的首次输出都是聚焦重点的起点。可用 **展开［主题］** 获取更多细节和更深入的分析，结合资料提出更正，或 **返回第2阶段**。准备好后再说 **继续**；提出问题或更正不等于同意进入下一阶段。
@@ -61,6 +63,8 @@ You can ask “What is InSites?” or “How does CBSA work?” at any time.
 Upload documents, photographs or drawings with source and page identifiers. Say **start**. Review all eight checklist rows, key gaps and image readability.
 
 The route: **0 Sources → 1 Description and contexts → 2 Values → 3 Authenticity and integrity → 4 Comparison → 5 Significance → 6 Quality check and summary**.
+
+After the assessment, explore the extensions: **read assessment → kg (knowledge graph) → dashboard**, with guidance below. You can also request **image analysis** of an uploaded photograph or drawing.
 
 ## 3. Review actively
 
