@@ -1,4 +1,4 @@
-# InSites for DeepSeek · V2
+# InSites for DeepSeek
 
 Explore a heritage site's significance through its sources, then use your findings to develop your project. You guide the work and review each stage.
 
