@@ -50,7 +50,12 @@ Explore a heritage site's significance through its sources, then use your findin
 - “哪些细节有证据支持？”
 - “同样的证据还可以支持什么不同的解读？”
 
-无标记＝资料明确记载；〰️＝根据证据推断；💭＝解读，可商榷。请核对引用；资料中的记载不一定就是已证实的事实。
+> **无标记＝资料明确记载。**
+>
+> #### 〰️ 根据证据推断
+> #### 💭 解读，可商榷
+>
+> **请核对引用：资料中的记载不一定就是已证实的事实。**
 
 ### 4. 解读评估
 
@@ -127,7 +132,12 @@ Try asking:
 - “Which details are supported by evidence?”
 - “What other interpretation could the same evidence support?”
 
-No mark = stated in sources; 〰️ = inferred from evidence; 💭 = interpretation, open to challenge. Check references: a source's statement is not necessarily an established fact.
+> **No mark = stated in sources.**
+>
+> #### 〰️ Inferred from evidence
+> #### 💭 Interpretation, open to challenge
+>
+> **Check references: a source's statement is not necessarily an established fact.**
 
 ## 4. Read the assessment
 
