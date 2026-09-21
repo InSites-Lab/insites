@@ -7,8 +7,7 @@ Example heritage documents and images for practising with InSites. Ayelet water 
 | Example | Language | Files |
 |---|---|---|
 | [Ayelet water tower](Ayelet-waterTower/) | Hebrew | [Source document](Ayelet-waterTower/Ayelet-WT.docx), [sample images](Ayelet-waterTower/images-samples/) and [all images](Ayelet-waterTower/all-images/) |
-| [Sites of Christianity](sites-of-christianity/) | English | [Mount of Beatitudes](sites-of-christianity/Description_Beatitude.pdf) and [Mount Tabor](sites-of-christianity/Description_Mt_Tabor.pdf) |
-| Tabgha | English | [Source document](Description_Tabgha_NoSA.pdf) |
+| [Sites of Christianity](sites-of-christianity/) | English | [Mount of Beatitudes](sites-of-christianity/Description_Beatitude.pdf), [Mount Tabor](sites-of-christianity/Description_Mt_Tabor.pdf) and [Tabgha](sites-of-christianity/Description_Tabgha.pdf) |
 
 Open an example folder to browse its files, or download a source document and upload it to your InSites chat. For Ayelet, you can also upload the sample images; their filenames retain the original page and image identifiers.
 
