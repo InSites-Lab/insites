@@ -28,7 +28,7 @@ InSites 只处理你提供的内容。任何遗产文献均可：调查报告、
 
 **请务必加入你自己收集的材料。这是任何模型都无法自行获得的部分。**
 
-实地踏勘、场所精神、人们如何使用并谈论这个地方、正式文献遗漏了什么——这些都是正当的资料来源，而且只有在你写下来并上传之后，InSites 才能接触到。
+实地踏勘——你在现场的所见、所闻、所嗅、所感，以及场所精神——加上人们如何使用并谈论这个地方、正式文献遗漏了什么。这些都是正当的资料来源，而且只有在你写下来并上传之后，InSites 才能接触到。
 
 请整理成一份简短文档，注明日期、观察者与地点。仅凭现有文献做出的评估，至多只能复述这些文献；你的第一手材料，才使它成为对**这一个**地方的评估。
 
@@ -55,6 +55,6 @@ InSites works only on what you provide. Any heritage documentation will do: a su
 
 **Include the material you gathered yourself. This is the part no model can reach on its own.**
 
-A field visit, the spirit of the place, how people use it and speak about it, what the formal documentation leaves out — all of it counts as source material, and all of it reaches InSites only if you write it down and upload it.
+A field visit — what you saw, heard, smelled and felt there, the spirit of the place — plus how people use it and speak about it, and what the formal documentation leaves out. All of it counts as source material, and it reaches InSites only if you write it down and upload it.
 
 Write it up as a short document, dated and saying who observed what and where. An assessment drawn only from existing documents can do little more than restate them; your first-hand material is what makes it an assessment of **this** place.
