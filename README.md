@@ -11,6 +11,7 @@ The architecture is a prompt file. It is bound to no particular model, and it ne
 | If you want to | Go to |
 |---|---|
 | Run an assessment | [`system/`](system/) — pick your platform, copy the file into its instructions field, upload a heritage document, type `start` |
+| Browse example source data | [`sites-data/`](sites-data/) — Ayelet water tower in Hebrew; other examples in English |
 | Understand how it works | [`docs/architecture.md`](docs/architecture.md) |
 | Understand the marks | [`docs/epistemic-notation.md`](docs/epistemic-notation.md) |
 | Check a claim in the Heritage 4.0 paper | [`studies/heritage4.0-tuba-2026/`](studies/heritage4.0-tuba-2026/) |

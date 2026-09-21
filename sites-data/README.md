@@ -1,14 +1,16 @@
-# sites-data
+# Example source data
 
-Heritage documents used to practise with InSites, and the source sets behind the published studies.
+Example heritage documents and images for practising with InSites. Ayelet water tower is in Hebrew; the other examples are in English.
 
-**The documents themselves are not distributed here.** They are third-party works, and this repository lists them rather than republishing them. Each set below names its documents and where they come from; obtain them from the issuing body or the publisher.
+## Practice examples
 
-## Practice sets
+| Example | Language | Files |
+|---|---|---|
+| [Ayelet water tower](Ayelet-waterTower/) | Hebrew | [Source document](Ayelet-waterTower/Ayelet-WT.docx), [sample images](Ayelet-waterTower/images-samples/) and [all images](Ayelet-waterTower/all-images/) |
+| [Sites of Christianity](sites-of-christianity/) | English | [Mount of Beatitudes](sites-of-christianity/Description_Beatitude.pdf) and [Mount Tabor](sites-of-christianity/Description_Mt_Tabor.pdf) |
+| Tabgha | English | [Source document](Description_Tabgha_NoSA.pdf) |
 
-Sites across several countries, used in workshops and teaching: Capernaum, Chorazin, Magdala and Tabgha in Israel; Chaco Canyon in the United States; Grosse Île in Canada; Hadrian's Wall in the United Kingdom; Port Arthur in Australia. Each folder holds the site's documentation as supplied by its heritage authority.
-
-`[[PLACEHOLDER — per-set listing: document titles, issuing body, year, and where to obtain]]`
+Open an example folder to browse its files, or download a source document and upload it to your InSites chat. For Ayelet, you can also upload the sample images; their filenames retain the original page and image identifiers.
 
 ## Study sources
 

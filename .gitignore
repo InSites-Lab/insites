@@ -39,6 +39,10 @@ sites-data/**/*.pdf
 sites-data/**/*.doc*
 sites-data/**/*.xls*
 !sites-data/README.md
+!sites-data/Ayelet-waterTower/Ayelet-WT.docx
+!sites-data/sites-of-christianity/Description_Beatitude.pdf
+!sites-data/sites-of-christianity/Description_Mt_Tabor.pdf
+!sites-data/Description_Tabgha_NoSA.pdf
 
 # Pre-submission working files
 local-work/

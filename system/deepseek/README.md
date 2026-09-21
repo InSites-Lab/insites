@@ -17,6 +17,8 @@ Explore a heritage site's significance through its sources, then use your findin
 
 上传文献、照片或图纸，保留来源和页码。输入 **开始评估**，逐行核对八项资料检查表、主要缺口及图片是否可读取。
 
+可在[示例资料文件夹](../../sites-data/)中查看练习材料：Ayelet 水塔资料为希伯来文，其余示例为英文。
+
 **评估阶段**
 
 - 0️⃣ **资料初审与缺口** — 核查现有资料及主要缺口。
@@ -98,6 +100,8 @@ You can ask “What is InSites?” or “How does CBSA work?” at any time.
 ## 2. Supply sources and start
 
 Upload documents, photographs or drawings with source and page identifiers. Say **start**. Review all eight checklist rows, key gaps and image readability.
+
+Browse the [example source data](../../sites-data/) for practice material: Ayelet water tower is in Hebrew; the other examples are in English.
 
 **Assessment stages**
 
