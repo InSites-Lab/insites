@@ -1,0 +1,85 @@
+## Stage 2️⃣ Values Analysis
+
+**💡 Brief** — see [CSR]. Anchor in Stage 1 contexts and timeline.
+
+**Inferred Values Rule (mandatory):** Every inferred value must cite 1-2 evidence passages from asset-specific sources.
+**Scope and Coverage Check (mandatory):** Use asset-specific sources as primary; use general-background sources only if requested or for a cited gap (tag "general reference"). If asset-specific sources may be incomplete, mark "⚠ Asset-specific sources may be incomplete" and request the missing sections.
+
+**Source audit:** Any explicit research questions or open hypotheses in source material not yet flagged? If found, surface them — sources often contain the author's own uncertainties which should not be flattened into assertions.
+
+### 2.0 Values: Identification and Analysis
+
+**(Usually 4-6 values, ~300-350 words total. Expand when the evidence demands it.)**
+
+The range is a writing target, not a taxonomy or exclusion rule. Never omit, merge, or relabel a source-grounded site-specific or uncatalogued value merely to meet the target. A value that does not fit [CA-V] remains valid in its own terms.
+
+Ordered by cultural weight. **Each point must include**:
+
+1. **Value Type — Value Meaning** (from the values taxonomy or site-specific — and its meaning here)
+  - Example: **Historical — "Infrastructure as Survival"**
+  - A value type alone is not valid; always add a meaning subtitle.
+
+**Output shaping (critical)**:
+- Each value starts with `**[Type] — "[Site-Specific Meaning]"**`. The meaning subtitle is mandatory — a bare type label ("Historical Value") fails this test.
+- Structure each value as: title line → evidence bullet(s) → broader meaning bullet. Do NOT run these into a single paragraph.
+- Mark epistemic status inline per notation key — in BOTH evidence AND broader meaning bullets: no mark = sourced, 〰️ = inferred, 💭 = interpretive.
+- **LIM phrasing**: If a value can be stated in 2 sentences, don't stretch it to 4. Tightest possible without losing meaning. Density = quality.
+
+**Triviality Test (apply before including any value)**: Does this value articulate something SPECIFIC and IRREPLACEABLE about this site — or would it apply to any similar structure? If the latter, skip it.
+  - ✗ "Landscape Value: contributes to the visual character of the area" (any building)
+  - ✓ "Landscape Value: only surviving viewshed corridor connecting three Mamluk fortifications" (this site)
+
+**Value Title Calibration**: The meaning subtitle must make an interpretive CLAIM, not describe a feature. The title is where analysis lives.
+  - ✓ "Historical — Continuity of Monastic Community Across Religious Transitions"
+  - ✓ "Social — Women-Centered Communal Space, Documented Across Three Centuries"
+  - ✗ "Historical — The Site Was Built in the Mamluk Period" (description, not claim)
+  - ✗ "Social — Was Used by the Community" (trivial, applies to most sites)
+
+2. **Evidence** (concrete elements; cite file/page/paragraph if available, otherwise section heading or unique quoted phrase)
+3. **Broader Meaning** — How Stage 1 contexts frame this value. Apply the Per-Claim Epistemic Gate here: if the significance is self-evident from the evidence above, state it plainly (no mark). If you are connecting evidence the source didn't connect → 〰️. If you are making an interpretive claim a peer could argue → 💭. Not every broader meaning requires an interpretive leap — some things are significant on their face. Where a context-effect extends beyond the asset, state the connection.
+
+**Value Identification (critical strategy)**:
+- Identify values **explicitly stated** in the materials
+- **Infer additional values** through intelligent analysis of Stage 1 contexts (〰️)
+- Include values from **reading between the lines** of the data (💭) (even if not explicitly documented)
+- Focus on **relevance**: avoid listing values without a clear connection to the site
+- Each value articulates: what does THIS SITE mean within the context from Stage 1? Reference the context by name. State the meaning that Stage 1's description did not make explicit — rarity, uniqueness, representativeness, contribution. Full significance weighing follows Stages 3–5. If your value text could be copy-pasted into Stage 1 without feeling out of place, you haven't made the analytical move.
+
+**Mystery and Enigma Distinction (critical)**:
+- Distinguish between routine information gaps and persistent uncertainties that shape cultural significance.
+- Classify as "mystery and enigma" only when the unknown itself sustains clear cultural significance.
+- Routine gaps (missing dates, unclear authors) ≠ mystery and enigma value.
+
+**Value Dynamics (nuance check)**:
+- Briefly scan for relationships between values. Do they reinforce each other (cohesion) or compete (tension)?
+- Example: Does the need for functional modernization compete with material preservation?
+- **Rule**: Document tension only if supported by evidence. If the site represents harmony/continuity, state this clearly.
+
+### 2.1 Unified Attribute-Value-Significance-Implication Table
+
+| Attribute | Associated Value(s) | Site-Specific Meaning | 🔑 Implication |
+| --- | --- | --- | --- |
+
+- **Traceability Rule (mandatory):** Every value from 2.0 must appear in 2.1, and table rows should default to Stage 1 dossier attributes; add other attributes only when supported by cited asset-specific evidence.
+
+**Quality Requirements**:
+- Every value from section 2.0 appears in this table.
+- One row per attribute; order by significance prominence.
+- Link each attribute to Stage 1 contexts or change types when helpful: **(fabric)**, **(use)**, **(setting)**, **(infrastructure)**, **(interpretation)**.
+- Each row: identifies value(s), gives significance in up to 9 words, and states a clear implication — i.e., how the attribute embodies significance, and what would happen to the significance if the attribute were compromised.
+
+**Implication Emphasis Rule**: The 🔑 Implication column is the decision-critical column — it answers "what would happen to significance if this attribute were compromised?" Write each cell as a consequence statement: "Loss of [X] → [specific effect on significance]." One punchy sentence. If ≥5 rows, add a summary after the table: "**Top implications**: [1-2 sentences naming the highest-stakes attributes]."
+
+---
+
+### 💡 Reflection
+One focused question: a genuine tension between values, community perspectives, or value conflicts — where two reasonable expert positions exist. Anchor in this stage's specific findings.
+
+Continue to Stage 3, or add/correct anything first?
+
+---
+
+```
+─────
+2️⃣ Stage 2/6 done · Next: Stage 3 Authenticity & Integrity
+```

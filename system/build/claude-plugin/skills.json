@@ -1,0 +1,91 @@
+{
+  "static": [
+    ".claude-plugin/plugin.json",
+    "README.md"
+  ],
+  "agents": {
+    "epistemic-auditor.md": { "head": "agents/epistemic-auditor.md", "body": ["03-notation"] }
+  },
+  "footers": {
+    "stage": "stage-footer.md"
+  },
+  "skills": {
+    "assess": {
+      "head": "skills/assess.md",
+      "body": ["00-core-system", "02-core-rules", "03-notation", "04-title-examples"],
+      "references": {
+        "stage-0.md": { "modules": ["10-stage-0"], "footer": "stage" },
+        "stage-1.md": { "modules": ["11-stage-1"], "footer": "stage" },
+        "stage-2.md": { "modules": ["12-stage-2"], "footer": "stage" },
+        "stage-3.md": { "modules": ["13-stage-3"], "footer": "stage" },
+        "stage-4.md": { "modules": ["14-stage-4"], "footer": "stage" },
+        "stage-5.md": { "modules": ["15-stage-5"], "footer": "stage" },
+        "stage-6.md": { "modules": ["16-stage-6"], "footer": "stage" },
+        "session-report.md": ["17-session-report"],
+        "vocabularies.md": ["21-gb-1", "22-ca-v", "23-ca-c", "24-ca-t", "25-sm-3", "26-ca-e", "27-ca-cs"],
+        "image-analysis.md": ["28-ca-img"],
+        "continuity.md": ["30-continuity"],
+        "hebrew-overlay.md": ["31-ca-he"]
+      }
+    },
+    "knowledge-graph": {
+      "head": "skills/knowledge-graph.md",
+      "body": ["41-ca-kg"],
+      "references": {
+        "entity-categories.md": ["29-ca-ec"],
+        "dashboard-foundation.md": ["42-ca-db-f"],
+        "notation.md": ["03-notation"],
+        "continuity.md": ["30-continuity"],
+        "hebrew-overlay.md": ["31-ca-he"]
+      }
+    },
+    "dashboard": {
+      "head": "skills/dashboard.md",
+      "body": ["43-ca-db"],
+      "references": {
+        "dashboard-foundation.md": ["42-ca-db-f"],
+        "notation.md": ["03-notation"],
+        "continuity.md": ["30-continuity"],
+        "hebrew-overlay.md": ["31-ca-he"]
+      }
+    },
+    "read-assessment": {
+      "head": "skills/read-assessment.md",
+      "body": ["51-ma-ra"],
+      "references": {
+        "notation.md": ["03-notation"],
+        "vocabularies.md": ["21-gb-1", "22-ca-v", "23-ca-c", "24-ca-t", "25-sm-3", "26-ca-e", "27-ca-cs"],
+        "hebrew-overlay.md": ["31-ca-he"]
+      }
+    },
+    "read-collection": {
+      "head": "skills/read-collection.md",
+      "body": ["52-ma-rc"],
+      "references": {
+        "collection-dashboard.md": ["53-ca-db-c"],
+        "dashboard-foundation.md": ["42-ca-db-f"],
+        "vocabularies.md": ["21-gb-1", "22-ca-v", "23-ca-c", "24-ca-t", "25-sm-3", "26-ca-e", "27-ca-cs"],
+        "hebrew-overlay.md": ["31-ca-he"]
+      }
+    },
+    "stage-spec": {
+      "head": "skills/stage-spec.md",
+      "body": ["01-spec-command"],
+      "references": {
+        "notation.md": ["03-notation"],
+        "stage-0.md": ["10-stage-0"],
+        "stage-1.md": ["11-stage-1"],
+        "stage-2.md": ["12-stage-2"],
+        "stage-3.md": ["13-stage-3"],
+        "stage-4.md": ["14-stage-4"],
+        "stage-5.md": ["15-stage-5"],
+        "stage-6.md": ["16-stage-6"],
+        "vocabularies.md": ["21-gb-1", "22-ca-v", "23-ca-c", "24-ca-t", "25-sm-3", "26-ca-e", "27-ca-cs"],
+        "hebrew-overlay.md": ["31-ca-he"]
+      }
+    },
+    "claim-extractor": {
+      "copy": "tools/claim-extractor/SKILL.md"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+## [CA-DB-F] Dashboard Foundation — Shared Rules
+
+> **Cross-platform reference**: Visual tokens follow `[CA-UX]`, entity colors follow `[CA-EC]`, AI Query follows `[CA-AIQ]`. See `artifact-ux-contract.md` for the cross-platform source of truth.
+
+These rules apply to **both** the single-assessment dashboard [CA-DB] and the collection dashboard [CA-DB-C]. Each spec references this foundation rather than repeating these patterns.
+
+### Projection fidelity — display is not analysis (critical)
+
+The Knowledge Graph and dashboards are **projection layers**. They display, cross-reference, filter, and mechanically aggregate findings already produced and approved in the chat, CBSA stage outputs, MA-RA, or MA-RC. They must not create a new value category, theme, relationship, vulnerability judgment, significance premise, highlight, or comparative interpretation while preparing `DATA`.
+
+- Preserve exact value names and site-specific meanings from the approved output, including uncatalogued and unique values.
+- Populate analytical fields (`themes`, `vulnerability`, `relatedValues`, `significancePremises`, dynamic analytical tabs) only when that finding already exists in an approved upstream output. Otherwise leave the field empty.
+- Mechanical transformations are permitted: copying, formatting, sorting, exact counting, and cross-referencing stable IDs. Semantic inference or normalization is not.
+- A mapping to [CA-V], [CA-C], OUV, or another controlled vocabulary appears only if the upstream output already contains it or the user explicitly requested that mapping. Always retain the original term alongside it.
+- If the runtime requires a controlled token for colour/layout, store it in a separate optional display field with a neutral fallback; never overwrite the finding's original label.
+
+### Rendering — via the `atar-runtime` shell
+
+Both dashboards ([CA-DB] single-assessment, [CA-DB-C] collection) render through the shared **`atar-runtime`** package (vanilla JS + D3 / Leaflet, loaded from `cdn.jsdelivr.net/npm/`). You emit a thin React **shell** that calls `mount(container, DATA, host)`. The runtime owns: all tabs + layout, the map (Leaflet + OSM tiles with a zero-network SVG vector fallback), cross-tab entity highlighting, charts/matrices, RTL auto-detection, and the **live AI Query** (`window.claude.complete`, with a copy-to-chat fallback).
+
+> **Mandatory & exclusive (non-negotiable) — KG and both dashboards.** The ONLY permitted artifact is this shell: it loads the pinned `RUNTIME_URL` and calls `mount(container, DATA, host)`; you replace **only** `DATA`. NEVER write your own *rendering engine* — no d3, `<svg>` map, Leaflet, recharts, force layout, hand-built React dashboard, or chart/tab renderer — not partially, not "as a fallback," not "to guarantee a render." (Populating `DATA` is always fine, **including** a `custom` tab's `html` content — what is banned is authoring the renderer, not the data it shows.) If the runtime fails to load, **emit the shell anyway** and let its built-in `load-error` branch render: a failed load is a **finding to report, not something to engineer around**. Self-check before emitting: the artifact must be only the shell + `DATA` + the untouched `load-error` branch; if any d3 / `<svg` / Leaflet / chart / force code appears outside that branch, regenerate as the shell.
+
+- **host**: `{ complete: window.claude.complete.bind(window.claude) }` when available, else `{}` (→ copy-to-chat). Guard with `typeof window.claude?.complete === 'function'`.
+- **DATA**: carries a `type` (`assessment` | `collection`) plus a faithful projection of approved upstream fields. See each spec's §2/§3 and `atar-runtime/data-contract.md` for shapes + GPT/Claude key aliases. The contract must implement the open-vocabulary and projection-fidelity rules in this prompt; a fixed enum or mandatory derived field in an older contract must be updated, not satisfied by altering the findings.
+- **No browser storage; no `AbortController`** (it can't cross the artifact `postMessage` boundary). The shell's `load-error` branch is the only render code left in-prompt — a never-blank fallback.
+- **Dynamic `tabs[]`** (types `table`/`cards`/`matrix`/`prose`/`custom`) carry MA-RA / MA-RC reading results, and — for the single assessment — the Report (always), Debrief, and Session-Analysis tabs as `prose`. They render after the fixed tabs, before AI Query.
+- **LIM**: no top-of-tab guide banners; the content speaks for itself.
+
+---
+
