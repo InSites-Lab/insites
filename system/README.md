@@ -7,6 +7,7 @@ The specification has four platform editions. **Load the appropriate files, uplo
 | Platform | Copy this | Form |
 |---|---|---|
 | **Claude** | [`claude/V-11.5/InSites-claude-v11.5.md`](claude/V-11.5/InSites-claude-v11.5.md) | One file |
+| **Claude, as a plugin** | [`claude-plugin/insites/`](claude-plugin/insites/) — add the marketplace `InSites-Lab/insites` | The same text as the Claude file, split into skills |
 | **DeepSeek** | [`deepseek/InSites-deepseek-V2.md`](deepseek/InSites-deepseek-V2.md) | One file; [student guide](deepseek/README.md) |
 | **Google Gemini** | [`gemini/V-11.3/InSites-CAA-GEM-v11.3.md`](gemini/V-11.3/InSites-CAA-GEM-v11.3.md) | One file |
 | **ChatGPT** | [`gpt/V-11.3/en/instructions.md`](gpt/V-11.3/en/instructions.md) plus the knowledge files beside it | Instructions + knowledge files |
@@ -23,6 +24,12 @@ The four implementations are the same architecture and are not at the same gener
 | ChatGPT | v11.3 | August 2026 | `instructions.md` plus the knowledge files beside it |
 
 **Do not read the differences between platforms as performance.** They are ports of one specification to four instruction formats, they have not been compared, and this repository makes no claim about which runs it better.
+
+## Modules and editions
+
+The Claude specification is also held as modules in [`modules/`](modules/), one per section, in the order [`modules/manifest.json`](modules/manifest.json) gives. Joined in that order they equal `claude/V-11.5/InSites-claude-v11.5.md` exactly, and [`build/build.mjs`](build/build.mjs) checks that (`node system/build/build.mjs --check`).
+
+The build script assembles editions from the modules: the [Claude plugin](claude-plugin/insites/), where each part becomes a skill read when its task arrives, and the joined single file (`--monolith`). It joins and copies text and nothing it produces runs as code, so the specification is still what runs. The plugin folder is generated: edit the modules and the wrappers in [`build/claude-plugin/`](build/claude-plugin/), then rebuild.
 
 ## Why multiple platforms
 

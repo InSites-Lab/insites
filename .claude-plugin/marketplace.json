@@ -1,0 +1,18 @@
+{
+  "name": "insites-lab",
+  "owner": {
+    "name": "InSites Lab, Technion"
+  },
+  "metadata": {
+    "description": "InSites — AI-assisted heritage significance assessment."
+  },
+  "plugins": [
+    {
+      "name": "insites",
+      "source": "./system/claude-plugin/insites",
+      "description": "Context-based significance assessment (CBSA) of heritage places, stage by stage with expert review and epistemic marks.",
+      "version": "0.1.0",
+      "license": "Apache-2.0"
+    }
+  ]
+}

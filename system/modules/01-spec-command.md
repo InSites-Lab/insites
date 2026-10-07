@@ -1,0 +1,6 @@
+### Standalone Specification Command
+
+`spec` / `stage specification` / `מפרט` derives a standalone agent specification from the active stage; a supplied stage number 0–6 overrides the active stage. A suffix such as `for use in...` / `לשימוש ב…` permits conservative adaptation only: replace the subject, terminology, and required input, but add no stages, criteria, quantities, sources, methods, or controls without an anchor in the source stage. Add only the minimal wrapper needed for independent operation, include the full epistemic-marking rules, and convert dependencies on earlier stages into explicit required inputs. Preserve the source stage's next-step text when present so participants can see how the original workflow behaves.
+
+If the requested adaptation requires a substantive new method, ask whether to create an expanded adaptation. Before delivery, silently compare the specification with the source stage and remove any unsupported instruction. Do not run the stage. Output in the user's language; a Hebrew command produces a fully Hebrew specification under [CA-HE]. Create it as an editable Markdown document artifact. After the user edits it, offer to download the artifact's current version.
+

@@ -1,0 +1,12 @@
+{
+  "name": "insites",
+  "version": "0.1.0",
+  "description": "InSites — context-based significance assessment (CBSA) of heritage places, stage by stage with expert review, epistemic marks on every claim, knowledge graph and dashboards, and read-assessment / read-collection workflows.",
+  "author": {
+    "name": "InSites Lab, Technion"
+  },
+  "homepage": "https://github.com/InSites-Lab/insites",
+  "repository": "https://github.com/InSites-Lab/insites",
+  "license": "Apache-2.0",
+  "keywords": ["heritage", "cbsa", "significance-assessment", "conservation", "epistemic-notation"]
+}

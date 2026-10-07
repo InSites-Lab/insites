@@ -1,0 +1,217 @@
+{
+  "spec": "InSites CBSA",
+  "version": "11.5",
+  "source": "system/claude/V-11.5/InSites-claude-v11.5.md",
+  "modules": [
+    {
+      "id": "00-core-system",
+      "file": "00-core-system.md",
+      "kind": "core",
+      "title": "Persona, governance, routing, output discipline, output mode, triggers"
+    },
+    {
+      "id": "01-spec-command",
+      "file": "01-spec-command.md",
+      "kind": "command",
+      "title": "Standalone specification command"
+    },
+    {
+      "id": "02-core-rules",
+      "file": "02-core-rules.md",
+      "kind": "core",
+      "title": "Safety, critical operating rules, CSR/DQR, stage closing mechanism"
+    },
+    {
+      "id": "03-notation",
+      "file": "03-notation.md",
+      "kind": "core",
+      "title": "Global notation key and per-claim epistemic gate"
+    },
+    {
+      "id": "04-title-examples",
+      "file": "04-title-examples.md",
+      "kind": "core",
+      "title": "Stage title examples"
+    },
+    {
+      "id": "05-divider-part2",
+      "file": "05-divider-part2.md",
+      "kind": "divider",
+      "title": "Part 2 heading"
+    },
+    {
+      "id": "10-stage-0",
+      "file": "10-stage-0.md",
+      "kind": "stage",
+      "title": "Stage 0 Preliminary review and data gaps"
+    },
+    {
+      "id": "11-stage-1",
+      "file": "11-stage-1.md",
+      "kind": "stage",
+      "title": "Stage 1 Description and contexts"
+    },
+    {
+      "id": "12-stage-2",
+      "file": "12-stage-2.md",
+      "kind": "stage",
+      "title": "Stage 2 Values analysis"
+    },
+    {
+      "id": "13-stage-3",
+      "file": "13-stage-3.md",
+      "kind": "stage",
+      "title": "Stage 3 Authenticity and integrity"
+    },
+    {
+      "id": "14-stage-4",
+      "file": "14-stage-4.md",
+      "kind": "stage",
+      "title": "Stage 4 Comparison with other assets"
+    },
+    {
+      "id": "15-stage-5",
+      "file": "15-stage-5.md",
+      "kind": "stage",
+      "title": "Stage 5 Cultural significance statement"
+    },
+    {
+      "id": "16-stage-6",
+      "file": "16-stage-6.md",
+      "kind": "stage",
+      "title": "Stage 6 Quality check and summary"
+    },
+    {
+      "id": "17-session-report",
+      "file": "17-session-report.md",
+      "kind": "stage",
+      "title": "[CA-IP] Session report and debrief"
+    },
+    {
+      "id": "20-divider-part3",
+      "file": "20-divider-part3.md",
+      "kind": "divider",
+      "title": "Part 3 heading"
+    },
+    {
+      "id": "21-gb-1",
+      "file": "21-gb-1.md",
+      "kind": "reference",
+      "title": "[GB-1] CBSA general guidelines"
+    },
+    {
+      "id": "22-ca-v",
+      "file": "22-ca-v.md",
+      "kind": "reference",
+      "title": "[CA-V] Value types"
+    },
+    {
+      "id": "23-ca-c",
+      "file": "23-ca-c.md",
+      "kind": "reference",
+      "title": "[CA-C] Context types"
+    },
+    {
+      "id": "24-ca-t",
+      "file": "24-ca-t.md",
+      "kind": "reference",
+      "title": "[CA-T] Change types"
+    },
+    {
+      "id": "25-sm-3",
+      "file": "25-sm-3.md",
+      "kind": "reference",
+      "title": "[SM-3] Integrity and Nara Grid theory"
+    },
+    {
+      "id": "26-ca-e",
+      "file": "26-ca-e.md",
+      "kind": "reference",
+      "title": "[CA-E] Phrasing aids"
+    },
+    {
+      "id": "27-ca-cs",
+      "file": "27-ca-cs.md",
+      "kind": "reference",
+      "title": "[CA-CS] Comparative significance criteria"
+    },
+    {
+      "id": "28-ca-img",
+      "file": "28-ca-img.md",
+      "kind": "reference",
+      "title": "[CA-IMG] Image analysis aid"
+    },
+    {
+      "id": "29-ca-ec",
+      "file": "29-ca-ec.md",
+      "kind": "reference",
+      "title": "[CA-EC] Entity categories"
+    },
+    {
+      "id": "30-continuity",
+      "file": "30-continuity.md",
+      "kind": "reference",
+      "title": "Resume capsule and heavy-turn pre-flight"
+    },
+    {
+      "id": "31-ca-he",
+      "file": "31-ca-he.md",
+      "kind": "overlay",
+      "title": "[CA-HE] Hebrew output overlay"
+    },
+    {
+      "id": "40-divider-part4",
+      "file": "40-divider-part4.md",
+      "kind": "divider",
+      "title": "Part 4 heading"
+    },
+    {
+      "id": "41-ca-kg",
+      "file": "41-ca-kg.md",
+      "kind": "product",
+      "title": "[CA-KG] Knowledge graph"
+    },
+    {
+      "id": "42-ca-db-f",
+      "file": "42-ca-db-f.md",
+      "kind": "product",
+      "title": "[CA-DB-F] Dashboard foundation, shared rules"
+    },
+    {
+      "id": "43-ca-db",
+      "file": "43-ca-db.md",
+      "kind": "product",
+      "title": "[CA-DB] Assessment dashboard"
+    },
+    {
+      "id": "50-divider-read",
+      "file": "50-divider-read.md",
+      "kind": "divider",
+      "title": "Read workflows heading"
+    },
+    {
+      "id": "51-ma-ra",
+      "file": "51-ma-ra.md",
+      "kind": "reading",
+      "title": "[MA-RA] Read-assessment"
+    },
+    {
+      "id": "52-ma-rc",
+      "file": "52-ma-rc.md",
+      "kind": "reading",
+      "title": "[MA-RC] Read-collection"
+    },
+    {
+      "id": "53-ca-db-c",
+      "file": "53-ca-db-c.md",
+      "kind": "product",
+      "title": "[CA-DB-C] Collection dashboard"
+    },
+    {
+      "id": "99-end-marker",
+      "file": "99-end-marker.md",
+      "kind": "divider",
+      "title": "End marker"
+    }
+  ]
+}

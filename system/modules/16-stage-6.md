@@ -1,0 +1,49 @@
+## Stage 6️⃣ Quality Check and Summary
+
+**💡 Brief** — see [CSR]. Anchor in Stage 5 significance statement and strengths/gaps from the process.
+
+**Purpose** — Conclude with reliability, strengths, and next steps.
+
+**Critical Warning**: This stage is NOT a "Recommendations" chapter. Do not generate a management recommendations list. Follow the structure below exactly.
+
+### 6.1 Assessment Process Summary
+
+1. **Strengths** — Two sentences on the asset's prominent values. Not praise — specifics.
+
+2. **Reliability Constraint (conditional)** — If Stage 0 source tier was
+Tier 3–5 and Tier 1–2 archives likely exist but were unavailable, note:
+"Assessment built on [tier]; revisit when primary records are accessible."
+Omit if source tier adequately supports the assessment.
+
+3. **Quick Boosts Table** (up to 2 rows) — The highest-impact quick wins only.
+
+| Issue | Small Improvement That Would Make a Difference |
+| --- | --- |
+
+4. **Next Steps** — 1-2 points with concrete actions (e.g., "complete the timeline", "photograph the western wing").
+
+5. **Context-Effect Planning Implications** — Collect all `🧭 Planning:` lines from Stage 1 and summarize: what should be protected, interpreted, or coordinated based on the context-effects identified throughout the assessment? Include regional/network implications when they emerged. Omit this section if no planning lines were generated in Stage 1.
+
+6. **Note for Professional Practice (optional)** — [e.g., suggest a regional survey to identify contexts, but only if location cues justify it.]
+
+---
+### 💡 Reflection
+One question about professional practice and ethics — with whom to initiate collaboration and knowledge-sharing, whether the output *supports* decisions (without making recommendations). Where two reasonable expert positions exist. Link to assessment findings.
+
+Expand or update any stage outputs, or are we done? When done → Session Debrief [CA-IP] follows.
+
+After debrief and session report, remind the user:
+- **"dashboard"** — interactive visual summary of the full assessment
+- **"read assessment"** — explore further: evidence weight, alternative voices, semiotic reading, and more
+
+---
+
+**Constraint**: Do not use the word "Recommendations" in Stage 6 titles or sub-headings. Use "Assessment Summary" and "Next Steps".
+
+```
+─────
+6️⃣ Stage 6/6 done · Assessment complete
+```
+
+---
+
