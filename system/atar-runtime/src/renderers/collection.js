@@ -14,7 +14,7 @@ var COLORS = {
 };
 var DEPTH_COLORS = { rich: COLORS.depthRich, medium: COLORS.depthMedium, thin: COLORS.depthThin };
 var DEPTH_RADIUS = { rich: 10, medium: 7, thin: 5 };
-var VALUE_CELL_COLORS = { e: { bg: COLORS.greenLight, text: '#065f46' }, i: { bg: COLORS.amberLight, text: '#92400e' }, a: { bg: '#f1f5f9', text: COLORS.textMuted } };
+var VALUE_CELL_COLORS = { e: { bg: COLORS.greenLight, text: '#065f46' }, i: { bg: COLORS.amberLight, text: '#92400e' }, a: { bg: '#f1f5f9', text: COLORS.textMuted }, u: { bg: '#e2e8f0', text: '#475569' } };
 var THEME_DOT_COLORS = [COLORS.accent, COLORS.purple, COLORS.green, COLORS.amber, COLORS.red, COLORS.blue, COLORS.slate, '#d946ef', '#14b8a6', '#f97316'];
 
 var UI = {
@@ -24,7 +24,7 @@ var UI = {
     byRegion: 'By Region', byType: 'By Type', byPeriod: 'By Period', byDepth: 'By Depth', collectionSummary: 'Collection Summary',
     patterns: 'Patterns', gapsLabel: 'Gaps', distinctives: 'Distinctives', all: 'All', rich: 'Rich', medium: 'Medium', thin: 'Thin',
     region: 'Region', description: 'Description', threats: 'Threats', site: 'Site', type: 'Type', period: 'Period',
-    explicit: 'Explicit', implied: 'Implied', absent: 'Absent', valueSpecs: 'Value Specifications', backToTab: '← Back',
+    explicit: 'Explicit', implied: 'Implied', absent: 'Absent', unknown: 'Unknown / not stated', valueSpecs: 'Value Specifications', backToTab: '← Back',
     noCoords: 'No coordinates available for this collection', terrain: 'Terrain', satellite: 'Satellite', streets: 'Streets',
     narrative: 'Narrative', noValueData: 'No value data available'
   },
@@ -34,7 +34,7 @@ var UI = {
     byRegion: 'לפי אזור', byType: 'לפי סוג', byPeriod: 'לפי תקופה', byDepth: 'לפי עומק', collectionSummary: 'סיכום אוסף',
     patterns: 'דפוסים', gapsLabel: 'פערים', distinctives: 'ייחודים', all: 'הכל', rich: 'עשיר', medium: 'בינוני', thin: 'דל',
     region: 'אזור', description: 'תיאור', threats: 'איומים', site: 'אתר', type: 'סוג', period: 'תקופה',
-    explicit: 'מפורש', implied: 'משתמע', absent: 'חסר', valueSpecs: 'פירוט ערכים', backToTab: '← חזרה',
+    explicit: 'מפורש', implied: 'משתמע', absent: 'חסר', unknown: 'לא ידוע / לא צוין', valueSpecs: 'פירוט ערכים', backToTab: '← חזרה',
     noCoords: 'אין קואורדינטות זמינות לאוסף זה', terrain: 'שטח', satellite: 'לווין', streets: 'רחובות',
     narrative: 'נרטיב', noValueData: 'אין נתוני ערכים זמינים'
   }
@@ -180,9 +180,9 @@ export function renderCollection(root, data, host, env) {
       var expanded = state.expandedSite === site.id;
       html += '<tr><td>' + siteLink(site) + '</td>';
       data.valueTypes.forEach(function (vt) {
-        var val = (site.values && site.values[vt]) || 'a';
-        var vc = VALUE_CELL_COLORS[val] || VALUE_CELL_COLORS.a;
-        html += '<td class="cd-td-center"><span class="cd-val-cell" style="background:' + vc.bg + ';color:' + vc.text + '">' + escapeHtml(val) + '</span></td>';
+        var val = (site.values && site.values[vt]) || 'u';
+        var vc = VALUE_CELL_COLORS[val] || VALUE_CELL_COLORS.u;
+        html += '<td class="cd-td-center"><span class="cd-val-cell" title="' + escapeHtml(val === 'u' ? ui.unknown : val) + '" style="background:' + vc.bg + ';color:' + vc.text + '">' + escapeHtml(val) + '</span></td>';
       });
       html += '</tr>';
       if (expanded && site.valueSpecs) {
@@ -195,11 +195,11 @@ export function renderCollection(root, data, host, env) {
         }
       }
     });
-    html += '<tr class="cd-table-foot"><td>' + escapeHtml(ui.explicit) + '/' + escapeHtml(ui.implied) + '/' + escapeHtml(ui.absent) + '</td>';
+    html += '<tr class="cd-table-foot"><td>' + escapeHtml(ui.explicit) + '/' + escapeHtml(ui.implied) + '/' + escapeHtml(ui.absent) + '/' + escapeHtml(ui.unknown) + '</td>';
     data.valueTypes.forEach(function (vt) {
-      var eC = 0, iC = 0, aC = 0;
-      data.sites.forEach(function (s) { var v = (s.values && s.values[vt]) || 'a'; if (v === 'e') eC++; else if (v === 'i') iC++; else aC++; });
-      html += '<td class="cd-td-center cd-foot-counts"><span class="cd-c-e">' + eC + '</span>/<span class="cd-c-i">' + iC + '</span>/<span class="cd-c-a">' + aC + '</span></td>';
+      var eC = 0, iC = 0, aC = 0, uC = 0;
+      data.sites.forEach(function (s) { var v = (s.values && s.values[vt]) || 'u'; if (v === 'e') eC++; else if (v === 'i') iC++; else if (v === 'a') aC++; else uC++; });
+      html += '<td class="cd-td-center cd-foot-counts"><span class="cd-c-e">' + eC + '</span>/<span class="cd-c-i">' + iC + '</span>/<span class="cd-c-a">' + aC + '</span>/<span class="cd-c-u">' + uC + '</span></td>';
     });
     html += '</tr></tbody></table></div>';
     return html;

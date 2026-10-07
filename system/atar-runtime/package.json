@@ -1,6 +1,6 @@
 {
   "name": "atar-runtime",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "description": "Atar.Bot artifact-rendering runtime (Knowledge Graph / dashboards / map) for the InSites CBSA bots. Loaded by Claude/GPT/Gemini artifacts via cdn.jsdelivr.net.",
   "main": "dist/atar-runtime.umd.js",
   "files": [
@@ -10,6 +10,7 @@
     "build": "node build.mjs",
     "check": "node --check dist/atar-runtime.umd.js",
     "qa:gpt-hebrew": "npm run build && node qa/gpt-hebrew-smoke.mjs",
+    "qa:compat": "npm run build && node qa/epistemic-compat.mjs",
     "prepublishOnly": "npm run build && npm run check"
   },
   "keywords": [

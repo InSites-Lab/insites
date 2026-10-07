@@ -2,6 +2,8 @@
 
 The rendering runtime behind everything InSites draws: the knowledge graph, the single-assessment dashboard, and the collection dashboard.
 
+**Current release: 0.3.8.** The Claude v11.5, Gemini v11.4 and GPT v11.4 specifications pin it. See [CHANGELOG.md](CHANGELOG.md) for the evidence-status, missing-data, validation and rendering-status changes. In 0.3.8, await the returned `ready` promise to distinguish completed interactive rendering from successful dispatch.
+
 The division of labour is the point. **The specification emits a short shell and a `DATA` object; this runtime does the drawing.** Nothing about layout, colour, right-to-left handling or map behaviour lives in the specification files, which is why the same `DATA` renders identically whether it came from Claude, Gemini or ChatGPT.
 
 ```js

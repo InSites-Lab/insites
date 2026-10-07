@@ -35,7 +35,8 @@ const UI_STRINGS = {
     outgoing: 'Outgoing', incoming: 'Incoming', entitiesToReview: 'Entities to review',
     reviewPrompt: 'Readings beyond the sources — to keep, rename, or reject one, mention it in the chat.',
     inferredReading: 'Inferred — connected from multiple sources',
-    interpretiveReading: 'Interpretive — my reading, not explicit in the sources'
+    interpretiveReading: 'Interpretive — my reading, not explicit in the sources',
+    unlabeledReading: 'No upstream classification', unclassified: 'Unclassified'
   },
   he: {
     graphTitle: 'גרף ידע',
@@ -47,7 +48,8 @@ const UI_STRINGS = {
     outgoing: 'יוצאים', incoming: 'נכנסים', entitiesToReview: 'ישויות לבדיקה',
     reviewPrompt: 'קריאות מעבר למקורות — לשמור, לשנות שם או לדחות אחת, ציין/י בצ׳אט.',
     inferredReading: 'מוסק — חיבור בין כמה ראיות',
-    interpretiveReading: 'פרשני — קריאה שאינה מפורשת במקורות'
+    interpretiveReading: 'פרשני — קריאה שאינה מפורשת במקורות',
+    unlabeledReading: 'ללא סיווג בהערכה המקורית', unclassified: 'ללא סיווג'
   }
 };
 
@@ -437,8 +439,8 @@ export async function renderKG(root, data, host, env) {
       (selectedNode.value_type ? '<div class="kg-meta-row"><strong>' + escapeHtml(ui.valueType) + ':</strong> <span>' + escapeHtml(localizedValueLabel(selectedNode.value_type, anyRTL)) + '</span></div>' : '');
     if (selectedNode.meta) Object.keys(selectedNode.meta).forEach((key) => { html += '<div class="kg-meta-row"><strong>' + escapeHtml(key) + ':</strong> <span>' + escapeHtml(selectedNode.meta[key]) + '</span></div>'; });
     if (selectedNode.epistemic && selectedNode.epistemic !== 'sourced') {
-      const epiMark = selectedNode.epistemic === 'interpretive' ? '💭' : '〰️';
-      const epiText = selectedNode.epistemic === 'interpretive' ? ui.interpretiveReading : ui.inferredReading;
+      const epiMark = selectedNode.epistemic === 'interpretive' ? '💭' : selectedNode.epistemic === 'inferred' ? '〰️' : '○';
+      const epiText = selectedNode.epistemic === 'interpretive' ? ui.interpretiveReading : selectedNode.epistemic === 'inferred' ? ui.inferredReading : ui.unlabeledReading;
       html += '<div class="kg-meta-row kg-epistemic-row"><strong>' + epiMark + ' ' + escapeHtml(epiText) + '</strong>';
       if (selectedNode.epistemic_note) html += '<div class="kg-epistemic-note">' + escapeHtml(selectedNode.epistemic_note) + '</div>';
       html += '</div>';
@@ -462,12 +464,13 @@ export async function renderKG(root, data, host, env) {
       '<div class="kg-stat-card"><div class="kg-stat-value">' + density + '</div><div class="kg-stat-label">' + escapeHtml(ui.density) + '</div></div></div>';
     const epiNon = state.visibleNodes.filter((n) => n.epistemic && n.epistemic !== 'sourced');
     if (epiNon.length) {
-      const nInt = epiNon.filter((n) => n.epistemic === 'interpretive').length, nInf = epiNon.length - nInt;
+      const nInt = epiNon.filter((n) => n.epistemic === 'interpretive').length, nInf = epiNon.filter((n) => n.epistemic === 'inferred').length;
+      const nUnlabeled = epiNon.filter((n) => n.epistemic === 'unlabeled').length;
       html += '<div class="kg-panel-section"><div class="kg-section-label">' + escapeHtml(ui.entitiesToReview) + '</div>';
-      html += '<div class="kg-epistemic-summary">' + (nInt ? '💭 ' + nInt : '') + (nInt && nInf ? ' · ' : '') + (nInf ? '〰️ ' + nInf : '') + '</div>';
+      html += '<div class="kg-epistemic-summary">' + [nInt ? '💭 ' + nInt : '', nInf ? '〰️ ' + nInf : '', nUnlabeled ? '○ ' + nUnlabeled + ' ' + escapeHtml(ui.unclassified) : ''].filter(Boolean).join(' · ') + '</div>';
       html += '<div class="kg-review-prompt">' + escapeHtml(ui.reviewPrompt) + '</div>';
       epiNon.slice().sort((a, b) => (a.epistemic === 'interpretive' ? 0 : 1) - (b.epistemic === 'interpretive' ? 0 : 1)).forEach((node) => {
-        const ic = node.epistemic === 'interpretive' ? '💭' : '〰️';
+        const ic = node.epistemic === 'interpretive' ? '💭' : node.epistemic === 'inferred' ? '〰️' : '○';
         html += '<button class="kg-result-btn kg-review-item" data-node-id="' + escapeHtml(node.id) + '"><span class="kg-review-icon">' + ic + '</span><span class="kg-result-name">' + escapeHtml(node.name) + '</span></button>';
       });
       html += '</div>';

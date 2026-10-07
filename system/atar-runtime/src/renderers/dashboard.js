@@ -21,6 +21,7 @@ var RATING_COLORS = {
   'low-medium': { bg: '#fef3c7', text: '#92400e', border: '#f59e0b', emoji: '🟡' },
   low: { bg: '#fee2e2', text: '#991b1b', border: '#ef4444', emoji: '🔴' }
 };
+var UNRATED_COLOR = { bg: '#f1f5f9', text: '#475569', border: '#94a3b8', emoji: '○' };
 
 var EVIDENCE_ICONS = { sourced: '✅', inferred: '〰️', uncertain: '💭' };
 
@@ -109,7 +110,7 @@ export function renderDashboard(root, data, host, env) {
     if (env.lang !== 'he') return raw;
     return raw.split(/\s*,\s*/).map(function (part) { return VALUE_LABELS_HE[part] || part; }).join(', ');
   }
-  function ratingLabel(value) { return env.lang === 'he' ? (RATING_LABELS_HE[value] || value) : value; }
+  function ratingLabel(value) { if (value == null || value === '') return env.lang === 'he' ? 'לא צוין' : 'Not stated'; return env.lang === 'he' ? (RATING_LABELS_HE[value] || value) : value; }
   function criterionLabel(value) { return env.lang === 'he' ? (CRITERION_LABELS_HE[value] || value) : value; }
   function changeLabel(value) { return env.lang === 'he' ? (CHANGE_LABELS_HE[value] || value) : value; }
   function evidenceLabel(value) { return env.lang === 'he' ? (EVIDENCE_LABELS_HE[value] || value) : value; }
@@ -121,7 +122,7 @@ export function renderDashboard(root, data, host, env) {
 
   /* ── render helpers ── */
   function ratingBadge(rating) {
-    var r = RATING_COLORS[rating] || RATING_COLORS.medium;
+    var r = RATING_COLORS[rating] || UNRATED_COLOR;
     return '<span class="db-rating" style="background:' + r.bg + ';color:' + r.text + ';">' + r.emoji + ' ' + escapeHtml(ratingLabel(rating)) + '</span>';
   }
   function critPill(label, value) {
@@ -179,7 +180,7 @@ export function renderDashboard(root, data, host, env) {
     if (data.nara.length > 0) {
       html += '<div class="db-card"><div class="db-card-title">' + escapeHtml(ui.integrityRange) + '</div><div class="db-integrity-range">';
       data.nara.forEach(function (n) {
-        var r = RATING_COLORS[n.rating] || RATING_COLORS.medium;
+        var r = RATING_COLORS[n.rating] || UNRATED_COLOR;
         html += '<span class="db-integrity-chip" style="background:' + r.bg + ';color:' + r.text + ';border-color:' + r.border + '">' + r.emoji + ' ' + escapeHtml(n.aspect) + '</span>';
       });
       html += '</div></div>';
@@ -245,8 +246,9 @@ export function renderDashboard(root, data, host, env) {
   /* ── 3. Timeline ── */
   function renderTimeline() {
     if (data.timeline.length === 0) return '<div class="db-card db-empty">' + escapeHtml(ui.timelineEmpty) + '</div>';
-    var sorted = data.timeline.slice().sort(function (a, b) { return a.yearStart - b.yearStart; });
-    var minYear = sorted[0].yearStart, maxYear = sorted[sorted.length - 1].yearStart, span = maxYear - minYear || 1;
+    var sorted = data.timeline.filter(function (e) { return Number.isFinite(e.yearStart); }).sort(function (a, b) { return a.yearStart - b.yearStart; });
+    var undated = data.timeline.filter(function (e) { return !Number.isFinite(e.yearStart); });
+    var span = sorted.length ? (sorted[sorted.length - 1].yearStart - sorted[0].yearStart || 1) : 1;
     var html = '<div class="db-card"><div class="db-timeline">';
     sorted.forEach(function (evt, i) {
       var dotColor = CHANGE_COLORS[evt.changeType] || COLORS.slate;
@@ -268,6 +270,11 @@ export function renderDashboard(root, data, host, env) {
       html += '<span><span class="db-tl-legend-dot" style="background:' + CHANGE_COLORS[type] + '"></span>' + escapeHtml(changeLabel(type)) + '</span>';
     });
     html += '</div>';
+    if (undated.length) {
+      html += '<div class="db-card db-undated"><div class="db-card-title">' + (env.lang === 'he' ? 'אירועים ללא תאריך מספרי' : 'Undated events') + '</div><ul>';
+      undated.forEach(function (evt) { html += '<li>' + escapeHtml(evt.year || (env.lang === 'he' ? 'לא צוין' : 'Not stated')) + ' — ' + escapeHtml(evt.label) + '</li>'; });
+      html += '</ul></div>';
+    }
     return html;
   }
 
@@ -354,7 +361,7 @@ export function renderDashboard(root, data, host, env) {
     if (data.nara.length > 0) {
       html += '<div class="db-section-label">' + escapeHtml(ui.naraGrid) + '</div>';
       data.nara.forEach(function (n) {
-        var r = RATING_COLORS[n.rating] || RATING_COLORS.medium;
+        var r = RATING_COLORS[n.rating] || UNRATED_COLOR;
         html += '<div class="db-nara-card"><div class="db-nara-left-bar" style="background:' + r.border + '"></div>';
         html += '<div class="db-nara-body"><div class="db-nara-main"><div class="db-nara-aspect">' + escapeHtml(n.aspect) + '</div>';
         html += '<div class="db-nara-desc">' + escapeHtml(n.desc) + '</div>';

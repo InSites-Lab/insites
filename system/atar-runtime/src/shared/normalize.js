@@ -1,6 +1,6 @@
 // Canonical = the Claude mono full-field spec; normalize() also accepts the GPT abbreviated keys.
 // Each branch returns a fully-derived, presentation-ready object so the renderers stay purely
-// presentational (no internal re-normalization). Missing fields default — never throw.
+// presentational (no internal re-normalization). Unknown evidence remains unknown.
 export function normalize(type, data) {
   if (type === 'kg') return normKG(data);
   if (type === 'collection') return normCollection(data);
@@ -10,7 +10,12 @@ export function normalize(type, data) {
 
 function normKG(d) {
   d = d || {};
-  var nodes = (d.nodes || []).map(function (n) { return Object.assign({}, n); });
+  var nodes = (d.nodes || []).map(function (n) {
+    var copy = Object.assign({}, n, { epistemic: n.epistemic || 'unlabeled', meta: Object.assign({}, n.meta) });
+    if (n.value_label) copy.meta['Original value'] = n.value_label;
+    if (n.mappedValueType) copy.value_type = n.mappedValueType;
+    return copy;
+  });
   var edges = (d.edges || []).map(function (e) {
     return Object.assign({}, e, {
       from: e.from != null ? e.from : e.source,
@@ -28,16 +33,16 @@ function normDashboard(src) {
   var data = {};
 
   data.asset = d.asset || {};
-  data.dataQuality = d.dataQuality || { sources: [], gaps: [] };
+  data.dataQuality = Object.assign({}, d.dataQuality || { sources: [], gaps: [] });
   if (!data.dataQuality.sources) data.dataQuality.sources = [];
   if (!data.dataQuality.gaps) data.dataQuality.gaps = [];
 
   data.timeline = (d.timeline || []).map(function (t) {
     return {
       year: t.year || '',
-      yearStart: t.ys || t.yearStart || 0,
+      yearStart: Number.isFinite(t.ys) ? t.ys : (Number.isFinite(t.yearStart) ? t.yearStart : null),
       label: t.label || '',
-      changeType: t.ct || t.changeType || 'structure'
+      changeType: t.ct || t.changeType || 'Unclassified'
     };
   });
 
@@ -55,7 +60,7 @@ function normDashboard(src) {
     return {
       id: v.id || '',
       name: v.name || '',
-      category: v.cat || v.category || '',
+      category: v.mappedCategory || v.cat || v.category || '',
       evidence: v.ev || v.evidence || 'uncertain',
       summary: v.summary || ''
     };
@@ -75,7 +80,7 @@ function normDashboard(src) {
       aspect: n.aspect || '',
       desc: n.desc || n.description || '',
       valueExpression: n.ve || n.valueExpression || '',
-      rating: n.rating || 'medium'
+      rating: n.rating == null ? '' : n.rating
     };
   });
   data.naraSummary = d.naraSummary || (d.authenticity && d.authenticity.summary) || '';
@@ -173,9 +178,9 @@ function normCollection(src) {
       lng: s.lng != null ? s.lng : null,
       depth: (s.depth || 'thin').toLowerCase(),
       type: s.type || '',
-      typeCategory: s.typeCategory || '',
+      typeCategory: s.mappedTypeCategory || s.typeCategory || '',
       period: s.period || '',
-      periodCategory: s.periodCategory || '',
+      periodCategory: s.mappedPeriodCategory || s.periodCategory || '',
       description: s.description || '',
       significanceSummary: s.significanceSummary || '',
       highlight: s.highlight || '',
@@ -185,7 +190,7 @@ function normCollection(src) {
       integrityNote: s.integrityNote || '',
       threats: s.threats || [],
       comparativeBasis: s.comparativeBasis || '',
-      claimScope: s.claimScope || ''
+      claimScope: s.mappedClaimScope || s.claimScope || ''
     };
   });
 

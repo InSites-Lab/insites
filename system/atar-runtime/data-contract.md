@@ -1,12 +1,18 @@
 # atar-runtime — data contract
 
+**0.3.8 is the current release.** The Claude v11.5, Gemini v11.4 and GPT v11.4 specifications pin it. The DeepSeek V2 specification still pins 0.3.7 until its adapter is removed.
+
 The bot emits a single `DATA` object with a `type` discriminator. `mount(container, DATA, host)` renders it. Canonical field names = the Claude mono spec; `normalize()` also accepts the GPT abbreviated keys (back-compat), so either shape works.
 
 ```
 type: 'kg' | 'assessment' | 'collection'
 ```
 
-If `type` is omitted, it is inferred (`nodes`+`edges`→kg, `sites`→collection, else assessment). Missing fields render empty — never throw.
+If `type` is omitted, it is inferred (`nodes`+`edges`→kg, `sites`→collection, else assessment). Optional analytical fields render empty. Malformed required IDs, duplicate IDs, dangling graph edges and invalid tab definitions produce a readable error inside the view; `mount` returns `{ok:false,error}` for synchronous failures. Graph IDs must be nonempty strings; site/context/value IDs must be unique within their arrays; dynamic-tab IDs cannot collide with fixed tabs. Empty graphs are rejected.
+
+Successful dispatch returns `{ok:true,type,live,ready}`. Await `ready` for `{ok:true}` or `{ok:false,error}` after asynchronous rendering; initial `ok` alone is not evidence of a complete graph. The in-view notice changes from loading to ready/error (English/Chinese, or Hebrew for RTL content). Static graph fallback is retained for inspection but reported as an interactive-rendering error. The HTML shell remains responsible for failure to download the runtime itself.
+
+Projection rules in 0.3.8: original inputs are not mutated. Missing/unlabeled KG status stays unclassified, separate from inference counts. Collection `u`, null and omitted statuses mean unknown, never absent (`a` is explicit absence). Missing/non-numeric timeline years appear in a separate Undated events list; numeric zero and negative years remain valid. Missing change type stays neutral. Missing/nonstandard integrity ratings retain exact text and neutral styling. Approved mapping aliases (`mappedValueType`, `mappedCategory`, `mappedTypeCategory`, `mappedPeriodCategory`, `mappedClaimScope`) affect display only; `value_label` is retained in node metadata. Custom HTML tabs remain supported by the runtime; the current DeepSeek shell deliberately accepts only structured tabs.
 
 ---
 
@@ -23,7 +29,7 @@ If `type` is omitted, it is inferred (`nodes`+`edges`→kg, `sites`→collection
       "type": "string",               // [CA-EC] canonical English token (e.g. 'Asset', 'Place', 'Cultural Value')
       "meaning": "string",            // 5–12 words, the entity's heritage role
       "value_type": "string",         // optional — a [CA-V] value label
-      "epistemic": "sourced | inferred | interpretive",   // default 'sourced'
+      "epistemic": "sourced | inferred | interpretive | unlabeled", // missing -> unlabeled
       "epistemic_note": "string",     // ≤15 words, shown when epistemic != sourced
       "meta": { "key": "value" }      // optional extra fields shown in the Info tab
     }
@@ -86,7 +92,7 @@ If `type` is omitted, it is inferred (`nodes`+`edges`→kg, `sites`→collection
     "id": "string", "name": "string", "region": "string", "lat": 0, "lng": 0,
     "depth": "rich|medium|thin", "type": "string", "typeCategory": "string", "period": "string", "periodCategory": "string",
     "description": "string", "significanceSummary": "string", "highlight": "string",
-    "values": { "Historical": "e|i|a", "Scientific": "e|i|a" },   // e=explicit, i=implied, a=absent
+    "values": { "Historical": "e|i|a|u", "Scientific": "e|i|a|u" }, // e=explicit, i=implied, a=explicit absence, u=unknown; omitted/null -> unknown
     "valueSpecs": { "Historical": "string" }, "integrity": "string", "integrityNote": "string",
     "threats": ["string"], "comparativeBasis": "string", "claimScope": "local|regional|national|international"
   } ],
