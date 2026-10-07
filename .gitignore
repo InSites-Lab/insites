@@ -83,6 +83,13 @@ system/atar-runtime/qa/ayelet-reference.mjs
 .agents/
 tools/check-gpt-hebrew-sync.ps1
 tools/qa-*.mjs
+.github/copilot-instructions.md
+.github/instructions/
+.playwright-mcp/
+
+# GPT plugin prototype: work in progress, not yet published.
+system/gpt/insites-plugin-prototype/
+system/gpt/insites-plugin-prototype-*.zip
 
 # Public delivery: only the current specification and the platform guide.
 # On a version update, replace these exact allowlist entries and retain the
