@@ -1,0 +1,7 @@
+# system/build/build.mjs reads these files and writes the plugin edition with
+# LF line endings. Keeping them LF in every checkout (core.autocrlf included)
+# lets --check compare content and keeps a rebuild from showing as a change.
+system/modules/**            text eol=lf
+system/build/**              text eol=lf
+system/claude-plugin/**      text eol=lf
+system/claude/V-11.5/*.md    text eol=lf

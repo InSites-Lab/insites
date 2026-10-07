@@ -6,7 +6,7 @@ The InSites specification packaged as a Claude plugin: each part of the specific
 
 ## Install
 
-In claude.ai or the Claude desktop app, open **Customize → Plugins → Add → Add marketplace** and enter `InSites-Lab/insites`, then add **insites**. The plugin is saved to your account and becomes available in chat, Cowork and Claude Code.
+In claude.ai or the Claude desktop app, open **Customize → Plugins → Upload** and upload the packaged plugin, `insites.plugin`. The plugin is saved to your account and becomes available in chat, Cowork and Claude Code. It is not offered as a marketplace; installation is by upload only.
 
 Use the plugin **or** the single-file edition in a Project's instructions, not both: two copies of the core rules in one conversation can disagree as soon as one of them is updated.
 
@@ -34,4 +34,4 @@ No mark means stated in the sources; 〰️ marks inference; 💭 marks interpre
 
 ---
 
-תוסף זה הוא אותו מפרט InSites, ארוז כסקילים שנטענים לפי הצורך. התקינו דרך Customize → Plugins → Add marketplace עם `InSites-Lab/insites`. אל תשלבו אותו עם קובץ ההנחיות המלא בהוראות של פרויקט. העלו את חומרי האתר וכתבו **התחל**.
+תוסף זה הוא אותו מפרט InSites, ארוז כסקילים שנטענים לפי הצורך. התקינו דרך Customize → Plugins → Upload, בהעלאת הקובץ הארוז `insites.plugin`. אל תשלבו אותו עם קובץ ההנחיות המלא בהוראות של פרויקט. העלו את חומרי האתר וכתבו **התחל**.

@@ -6,7 +6,9 @@ A paper rests on this repository: *From Report to Inquiry: Governing Generative 
 
 ## State, as of 1 August 2026
 
-**The repository is public and the paper is submitted.** Anything committed is visible immediately. The tag `v1.0.0` exists and is pushed; it is the paper's evidence and does not move. `main` is otherwise free.
+**The repository is public and the paper is submitted.** Anything committed is visible immediately. The tag `v1.0.0` exists and is pushed; it is the paper's evidence and does not move.
+
+**Branches.** `main` is what a reader of the paper sees and what the plugin is packaged from; it moves only by merging `dev` once that branch has passed its checks, or for documentation and hygiene changes with no change in behaviour. Development happens on `dev`. Each plugin edition that has been run end to end is tagged `plugin-v<spec version>` (`plugin-v11.5` is the first).
 
 ## Where things are
 
@@ -14,8 +16,8 @@ A paper rests on this repository: *From Report to Inquiry: Governing Generative 
 |---|---|
 | `system/` | The live specification, one implementation per platform: `claude/`, `gemini/`, `gpt/`. Plus the two cross-platform contracts, `artifact-ux-contract.md` and `atar-runtime/data-contract.md` |
 | `system/modules/` | The Claude specification as one module per section, ordered by `manifest.json`. **This is where the Claude specification is edited from now on.** Joined, the modules equal `system/claude/V-11.5/InSites-claude-v11.5.md`; a new single-file version is produced with `node system/build/build.mjs --monolith <path>`, not edited by hand |
-| `system/build/` | `build.mjs` (joins and copies text; no dependencies) and `claude-plugin/`, the authored wrappers of the plugin edition. `--check` compares the joined modules with the file named as `source` in the manifest, so it fails once a module changes — on purpose — until a new single-file version is generated and named there |
-| `system/claude-plugin/insites/` | **Generated** plugin edition; the root `.claude-plugin/marketplace.json` points at it. Never edit it directly — rebuild |
+| `system/build/` | `build.mjs` (joins and copies text; no dependencies) and `claude-plugin/`, the authored wrappers of the plugin edition. `--check` compares the joined modules with the file named as `source` in the manifest, so it fails once a module changes — on purpose — until a new single-file version is generated and named there. `.gitattributes` keeps the build's inputs and outputs at LF and `build.mjs` normalises line endings on read, so `--check` passes on a Windows checkout too |
+| `system/claude-plugin/insites/` | **Generated** plugin edition, installed by uploading the packaged plugin; it is not offered as a marketplace. Never edit it directly — rebuild |
 | `system/atar-runtime/` | **The code.** ~180 KB of JavaScript and CSS that renders the knowledge graph and the two dashboards, plus the esbuild driver and the React shell an artifact emits. Source of the `atar-runtime` npm package; `npm install && npm run build` works from it. `dist/` is untracked |
 | `docs/` | Written for a reader: `architecture.md` (the anatomy), `epistemic-notation.md` (the marks), `Session-Report-spec.md` (the six intervention tags), `cbsa-archaeology-layer.md` (an optional module), `fig-workflow.html` (the source of the paper's figure) |
 | `studies/heritage4.0-tuba-2026/` | The research record the paper cites. `system/` holds the specification **as it ran**; `session/` the transcript; `protocols/` the observation protocol; `coding/` the claim-level dataset and the extraction runs; `sources/README.md` the citations for the three assessed documents |

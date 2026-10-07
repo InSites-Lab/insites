@@ -51,6 +51,10 @@ local-work/
 # sessions through TODO.md. Not documentation for a reader.
 dev-notes/
 
+# Research record for the context-effect (ISF) programme: kept local until
+# the programme decides what becomes citable. Never synchronise with system/.
+studies/isf/
+
 # Internal handover, not for the public repository
 MIGRATION.md
 TODO.md
@@ -106,3 +110,7 @@ system/gpt/insites-plugin-prototype-*.zip
 !/system/claude/V-11.5/
 /system/claude/V-11.5/*
 !/system/claude/V-11.5/InSites-claude-v11.5.md
+
+# Plugin marketplace manifest: kept local; the plugin is not offered for
+# installation by name.
+.claude-plugin/
