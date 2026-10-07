@@ -203,7 +203,7 @@ Include every dated or period-associated event from the sources. Do not skip.
 **Context ≠ Value**:
 - Context = lens, framework, field of examination (Stage 1)
 - Value = cultural significance identified and classified in the assessment (Stage 2)
-- Contexts are descriptive frameworks. Describe the framework and identify the context-effect. Do not evaluate significance — that is Stage 2's job. If you find yourself writing "this is significant because" or "this demonstrates," you are doing Stage 2 work prematurely.
+- Contexts are descriptive frameworks. Describe the framework and test whether a context effect is supported. Do not evaluate significance — that is Stage 2's job. If you find yourself writing "this is significant because" or "this demonstrates," you are doing Stage 2 work prematurely.
 
 **Starting Point**: Geographic, landscape, urban, historical, social, political, technological, environmental, intangible heritage, thematic.
 
@@ -212,12 +212,13 @@ Include every dated or period-associated event from the sources. Do not skip.
 - Reading between the lines — what the original author may not have noticed (💭)
 - Surprising convergences of details that create meaning (〰️)
 
-**For each context, write 2-3 sentences**:
+**For each context, write 1-3 sentences**:
 1. Site-specific description — not a general definition
-2. Context effect (two-way, evaluative):
-  - How the context frames the significance of the site's features
-  - How the recognition of the site's significance reframes that same context
-  - **Outward dimension**: When source material identifies connections to external sites, traditions, or themes, trace the context-effect beyond the asset — the connected entity gains heritage value from the association. Only source-stated or inferable (〰️) connections qualify. E.g., "The regional mosaic tradition frames Huqoq's program as part of a network; Huqoq's exceptional quality reframes the significance of related sites like Wadi Hamam within the network."
+2. Context-Effect Test (report a finding when at least one direction is supported; state "no supported effect identified" only when that outcome is analytically important):
+  - Assess how the context frames the reading of the site's features (`context → asset`).
+  - Separately assess whether recognizing the site's significance reframes that same context (`asset → context`).
+  - Report only the supported direction or directions. A one-way finding is complete; a two-way finding is not preferred over it. If neither direction is supported, do not manufacture a second sentence. State "no supported effect identified" only when that outcome is analytically important.
+  - **Outward dimension**: When source material identifies connections to external sites, traditions, or themes, assess whether the context effect extends beyond the asset. State only the supported direction or directions; do not presume that a connected entity gains heritage value from the association. Only source-stated or inferable (〰️) connections qualify. E.g., when both directions are supported: "The regional mosaic tradition frames Huqoq's program as part of a network; Huqoq's exceptional quality reframes the significance of related sites like Wadi Hamam within the network."
   - ⚠ Do not use causal phrasing ("caused", "led to", "created change")
   - Context-effect here describes the FRAMING relationship (how context shapes what we notice), not the significance CLAIM itself (that's Stage 2).
 3. `🧭 Planning:` — one sentence on what to protect, interpret, or coordinate, including regional implications when evidence supports them. Omit if no actionable implication exists.
@@ -238,8 +239,8 @@ Political〰️ — Changes in ownership reflect successive shifts in regional g
 
 **Output shaping (critical)**:
 - Lead each context with its emoji marker (see Engagement & Visual Clarity) + type label.
-- **40–60 words per context.** First sentence = site-specific framing, not a generic definition. Second = context effect. Include 🧭 Planning sentence only if warranted — it counts toward the word budget.
-- **Cap: 5 contexts.** Select by evidence weight and analytical contribution — the contexts that most distinctly frame the site's significance. A 6th only if evidence strongly demands it and the context effect is non-redundant.
+- **40–60 words per context.** First sentence = site-specific framing, not a generic definition. A following sentence reports a context-effect finding only when supported; it may be two-way or one-way. "No supported effect identified" may be stated when that outcome is analytically important. Include 🧭 Planning sentence only if warranted — it counts toward the word budget.
+- **Cap: 5 contexts.** Select by evidence weight and analytical contribution — the contexts that most distinctly frame the site's significance. A 6th only if evidence strongly demands it and its analytical contribution is non-redundant.
 - Order by analytical contribution, not alphabetically.
 
 ---

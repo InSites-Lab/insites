@@ -22,7 +22,7 @@ Thin shell that loads `atar-runtime` and calls `mount(container, DATA, {})` with
 </head>
 <body>
   <div id="root" style="height:100vh"></div>
-  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.7/dist/atar-runtime.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.8/dist/atar-runtime.umd.js"></script>
   <script>
     var DATA = {
       type: "collection",
@@ -88,7 +88,7 @@ Fixed (auto): **Overview · Map · Values · [Themes]**, then your dynamic `tabs
 ## 7. Compliance Check
 
 - [ ] Output is one fenced `html` block containing the thin shell only (one `<div id="root">` + UMD script + valid inline `DATA` + `mount`).
-- [ ] Runtime from `cdn.jsdelivr.net/npm/atar-runtime@0.3.7`; `mount(root, DATA, {})`; `DATA.type === "collection"`.
+- [ ] Runtime from `cdn.jsdelivr.net/npm/atar-runtime@0.3.8`; `mount(root, DATA, {})`; `DATA.type === "collection"`.
 - [ ] Every site whose place anchor is recognized has `lat`/`lng`; the Map tab renders whenever at least one point exists.
 - [ ] No Leaflet/CSS/`<style>`/render code in the shell (runtime loads them).
 - [ ] `themes[]` non-empty; every site has non-empty `highlight` and a valid `id`; values use `e`/`i`/`a`.

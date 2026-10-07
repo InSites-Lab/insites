@@ -14,7 +14,7 @@
 
 נדרש:
 - הפק את מעטפת ה־HTML המדויקת שלהלן: רכיב `<div id="root">` יחיד, קובץ UMD של ה־runtime, אובייקט `DATA` וקריאת `mount`.
-- טען את UMD של ה־runtime מכתובת jsDelivr המקובעת: `atar-runtime@0.3.7`.
+- טען את UMD של ה־runtime מכתובת jsDelivr המקובעת: `atar-runtime@0.3.8`.
 - העבר אובייקט `DATA` יחיד עם `type: "kg"` אל `window.AtarRuntime.mount(container, DATA, {})`.
 
 אסור:
@@ -90,7 +90,7 @@
 </head>
 <body>
   <div id="root" style="height:100vh"></div>
-  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.7/dist/atar-runtime.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.8/dist/atar-runtime.umd.js"></script>
   <script>
     var DATA = {
       type: "kg",
@@ -125,14 +125,14 @@ Asset · Place · Structure / Building · Architectural Element · Person · Eve
 
 ## המשך לאחר יצירת גרף ידע
 
-אין לצרף מלל המשך לתשובת הארטיפקט. לאחר שהמשתמש מאשר ש־Preview נפתח, או שואל מה הלאה, הצע להדגיש זוג קשתות אחד של אפקט־הקשר. אם המשתמש מסכים, כתוב לכל היותר שני משפטים: הקשר←נכס ונכס←הקשר, ללא מבוא תאורטי.
+אין לצרף מלל המשך לתשובת הארטיפקט. לאחר שהמשתמש מאשר ש־Preview נפתח, או שואל מה הלאה, הצע להדגיש יחס נתמך אחד של אפקט־הקשר. אם המשתמש מסכים, כתוב לכל היותר שני משפטים ותאר רק את הכיוון או הכיוונים המופיעים בגרף המאושר. כיוון יחיד הוא ממצא שלם. ללא מבוא תאורטי.
 
 **בדיקת ישויות פרשניות — HITL:** באותה אינטראקציית המשך, כאשר הגרף כולל ישויות `interpretive`‏ (💭), הוסף הצעה של עד שני משפטים: ״בגרף יש [מספר] ישויות פרשניות 💭 — ראו ׳ישויות לבדיקה׳ בטאב הניתוח. האם לאשר, לשנות שם, לדחות או להוסיף מקור ולקדם אחת מהן?״ בתגובה, שנה שם או הסר; קדם ל־`sourced` רק כאשר המשתמש הפנה לראיה; ולאחר מכן הצע ליצור את הגרף מחדש. דלג כאשר המספר הוא 0.
 
 ## בדיקת תאימות
 
 - [ ] הפלט הוא fenced block יחיד מסוג `html`, ובו מעטפת דקה בלבד: `<div id="root">` יחיד, סקריפט UMD, ‏`DATA` פנימי תקין וקריאת `mount`.
-- [ ] ה־runtime נטען מ־`cdn.jsdelivr.net/npm/atar-runtime@0.3.7`; נקראת `mount(root, DATA, {})`.
+- [ ] ה־runtime נטען מ־`cdn.jsdelivr.net/npm/atar-runtime@0.3.8`; נקראת `mount(root, DATA, {})`.
 - [ ] מתקיים `DATA.type === "kg"`; לכל צומת `id`, ‏`name`, ‏`type` כאסימון `[CA-EC]` באנגלית ו־`meaning`; הקשתות משתמשות ב־`source`/`target` ובפועל באותיות קטנות.
 - [ ] אין vis-network, ‏D3, ‏React, ‏SVG, ‏UI פנימי, צבע או גודל לכל צומת או CSS.
 - [ ] 10–15 צמתים, לכל היותר 20; עד 25 קשתות; עד שלושה צומתי Cultural Value; ללא יתומים.

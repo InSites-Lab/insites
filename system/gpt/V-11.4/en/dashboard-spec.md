@@ -25,7 +25,7 @@ The bot outputs a thin shell that loads `atar-runtime` and calls `mount(containe
 </head>
 <body>
   <div id="root" style="height:100vh"></div>
-  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.7/dist/atar-runtime.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.8/dist/atar-runtime.umd.js"></script>
   <script>
     var DATA = {
       type: "assessment",
@@ -125,7 +125,7 @@ Use **Code Interpreter** for DOCX export. The Session Debrief follows `[CA-IP]` 
 ## 8. Compliance Check
 
 - [ ] Output is one fenced `html` block containing the thin shell only (one `<div id="root">` + UMD script + valid inline `DATA` + `mount`).
-- [ ] Runtime from `cdn.jsdelivr.net/npm/atar-runtime@0.3.7`; `mount(root, DATA, {})`; `DATA.type === "assessment"`.
+- [ ] Runtime from `cdn.jsdelivr.net/npm/atar-runtime@0.3.8`; `mount(root, DATA, {})`; `DATA.type === "assessment"`.
 - [ ] No Leaflet/CSS/`<style>`/render code in the shell (runtime loads them).
 - [ ] Structured `authenticity.grid`, per-site `comparative.sites`, `timeline[].changeType`, `contexts[].relatedValues`, `vulnerability`.
 - [ ] Location audit completed: a recognized locality or region yields explicit or inferred coordinates, the map renders whenever at least one point exists, and otherwise `dataQuality.gaps` names the unresolved location.

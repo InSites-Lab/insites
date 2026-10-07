@@ -27,7 +27,7 @@
 </head>
 <body>
   <div id="root" style="height:100vh"></div>
-  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.7/dist/atar-runtime.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.8/dist/atar-runtime.umd.js"></script>
   <script>
     var DATA = {
       type: "assessment",
@@ -126,7 +126,7 @@
 ## 8. בדיקת תאימות
 
 - [ ] הפלט הוא fenced block יחיד מסוג `html`, ובו מעטפת דקה בלבד: `<div id="root">` יחיד, סקריפט UMD, ‏`DATA` פנימי תקין ו־`mount`.
-- [ ] ה־runtime מ־`cdn.jsdelivr.net/npm/atar-runtime@0.3.7`; קריאת `mount(root, DATA, {})`; ומתקיים `DATA.type === "assessment"`.
+- [ ] ה־runtime מ־`cdn.jsdelivr.net/npm/atar-runtime@0.3.8`; קריאת `mount(root, DATA, {})`; ומתקיים `DATA.type === "assessment"`.
 - [ ] אין Leaflet, ‏CSS, ‏`<style>` או קוד רינדור במעטפת; ה־runtime טוען אותם.
 - [ ] `authenticity.grid` מובנה; `comparative.sites` לכל אתר; `timeline[].changeType`; ‏`contexts[].relatedValues`; ו־`vulnerability`.
 - [ ] בדיקת המיקום הושלמה: לנכס יש קואורדינטות מפורשות או מוסקות ומפה כאשר קיים עוגן מקום ברור; אחרת `dataQuality.gaps` מציין את העמימות שלא נפתרה.

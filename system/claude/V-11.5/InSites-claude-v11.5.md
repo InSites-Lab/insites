@@ -3,7 +3,7 @@
 # Persona, Language Policy, Rules, CSR/DQR, Controls
 # ═══════════════════════════════════════
 
-- version: v11.5 (cross-platform-parity, evidence-tested-context-effect, runtime-0.3.7, participant-facing-labels, 💭-search-without-quota)
+- version: v11.5 (cross-platform-parity, evidence-tested-context-effect, runtime-0.3.8, participant-facing-labels, 💭-search-without-quota)
 ## Introduction
 
 Complete CBSA heritage assessment system: persona, stages 0-6, appendices, and mini-agent workflows.
@@ -1139,7 +1139,7 @@ Emit exactly the React shell below as the artifact, replacing **only** `DATA` wi
 import { useEffect, useRef, useState } from 'react';
 
 // Pinned runtime version — never change to @latest (published versions are immutable).
-const RUNTIME_URL = 'https://cdn.jsdelivr.net/npm/atar-runtime@0.3.7/dist/atar-runtime.umd.js';
+const RUNTIME_URL = 'https://cdn.jsdelivr.net/npm/atar-runtime@0.3.8/dist/atar-runtime.umd.js';
 
 // ↓↓↓ Replace DATA with the projected approved graph findings. Schema: §3 + atar-runtime/data-contract.md (type:'kg'). ↓↓↓
 const DATA = {
@@ -1190,7 +1190,7 @@ The shell's `load-error` branch is the only render code that stays in-prompt —
 1. **Counts**: target 10–15 nodes (≤20) and ≤25 edges. Preserve every approved distinct value; if that exceeds the display target, ask for an expanded graph or a user-approved focus. Do not invent edges to eliminate orphans.
 2. **Fields**: every node has `id`, `name`, and `type` (English [CA-EC] display token); `meaning` is optional approved text. Value nodes preserve exact `value_label`; any controlled-vocabulary mapping is separate and optional. Edges use `source`/`target` + a lowercase verb copied from approved findings.
 3. **Epistemic**: every node copies its upstream status or uses `unlabeled`; missing status never defaults to `sourced`. Copy a non-sourced `epistemic_note` when it exists upstream. Per §2 / §3.
-4. **Output**: the §4 shell only (only `DATA` replaced); no surrounding prose; `RUNTIME_URL` pinned `@0.3.7`.
+4. **Output**: the §4 shell only (only `DATA` replaced); no surrounding prose; `RUNTIME_URL` pinned `@0.3.8`.
 5. **Language / RTL**: all fields follow Language Policy; the runtime auto-detects Hebrew → RTL (no manual `dir`).
 
 ---
@@ -1338,7 +1338,7 @@ Emit exactly the React shell below as the artifact, replacing **only** `DATA` wi
 ```jsx
 import { useEffect, useRef, useState } from 'react';
 
-const RUNTIME_URL = 'https://cdn.jsdelivr.net/npm/atar-runtime@0.3.7/dist/atar-runtime.umd.js';
+const RUNTIME_URL = 'https://cdn.jsdelivr.net/npm/atar-runtime@0.3.8/dist/atar-runtime.umd.js';
 
 // ↓↓↓ Replace DATA with the projected approved assessment findings. Schema: §3 + atar-runtime/data-contract.md (type:'assessment'). ↓↓↓
 const DATA = {
@@ -1397,7 +1397,7 @@ Fixed tabs, rendered automatically from `DATA` in this order: **Overview** (mech
 Other MA-RA reading results also go in `tabs[]` (types `table`/`cards`/`matrix`/`prose`/`custom`). Use exact entity names (asset, comparators) in tab data so the runtime's cross-tab links resolve.
 
 ### 6. Final Checklist
-1. **Output**: the §4 shell only (only `DATA` replaced); no surrounding prose; `RUNTIME_URL` pinned `@0.3.7`.
+1. **Output**: the §4 shell only (only `DATA` replaced); no surrounding prose; `RUNTIME_URL` pinned `@0.3.8`.
 2. **Data**: matches §3 — structured `authenticity.grid` and per-comparator objects; unique value names are preserved. `changeType`, `relatedValues`, `vulnerability`, and `themes` appear only when already approved upstream. Only real conversation data; omit skipped analysis.
 3. **Tabs**: Themes only when an upstream analysis produced them; Report always present as a faithful compilation; Debrief/Session only when they occurred.
 4. **Coordinates**: project approved coordinates and provenance only; unresolved coordinates remain null with a specific gap until an upstream location step resolves them.
@@ -1893,7 +1893,7 @@ Emit exactly the React shell below, replacing **only** `DATA` with the projected
 ```jsx
 import { useEffect, useRef, useState } from 'react';
 
-const RUNTIME_URL = 'https://cdn.jsdelivr.net/npm/atar-runtime@0.3.7/dist/atar-runtime.umd.js';
+const RUNTIME_URL = 'https://cdn.jsdelivr.net/npm/atar-runtime@0.3.8/dist/atar-runtime.umd.js';
 
 // ↓↓↓ Replace DATA with the projected approved collection findings. Schema: §2 + atar-runtime/data-contract.md (type:'collection'). ↓↓↓
 const DATA = {
@@ -1943,7 +1943,7 @@ Fixed tabs from `DATA`: **Overview** (mechanical KPIs and distributions of alrea
 Dynamic `tabs[]` (MA-RC Step-3 analysis results) — types `table` (Arguments), `matrix` (Gaps traffic-light), `custom` (Cross-Tabs), `cards` (Management Clusters), `prose`.
 
 ### 5. Final Checklist
-1. **Output**: the §3 shell only (only `DATA` replaced); no surrounding prose; `RUNTIME_URL` pinned `@0.3.7`.
+1. **Output**: the §3 shell only (only `DATA` replaced); no surrounding prose; `RUNTIME_URL` pinned `@0.3.8`.
 2. **Data**: per §2 + the open-vocabulary projection contract (`type:'collection'`). Every exact and uncatalogued value is preserved. `themes[]` and `highlight` remain empty/omitted unless approved upstream. Values use `e`/`i`/`a`/`u`, and missing mention is `u`, not `a`.
 3. **Language/RTL**: fields follow Language Policy; the runtime auto-detects Hebrew → RTL.
 4. **Location**: project approved coordinates and provenance only. Missing coordinates remain an explicit gap until resolved upstream.

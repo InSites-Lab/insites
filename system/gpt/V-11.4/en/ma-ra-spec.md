@@ -69,7 +69,7 @@ Present available readings using this format:
 >
 > **Analytical readings** — structured, evidence-based:
 > - **Source-Assessment Fidelity** — checks whether the assessment used source data at the depth the source provides. Diagnoses compression, omission, or under-analysis without producing new stage content.
-> - **Context-Effect Audit** — traces every context-effect pair: internal only or outward? Planning implication? Connections the assessment missed? Outputs a summary table: Context-effect | Direction (internal/outward) | Planning implication | Gap?
+> - **Context-Effect Audit** — tests each identified context relationship without presuming an effect or reciprocity: which direction or directions are supported, internal or outward? Planning implication? Connections the assessment missed? Outputs a summary table: Context relationship | Supported direction(s) / no supported effect identified | Internal/outward | Planning implication | Gap?
 > - **Knowledge Graph** — interactive map of entities and relationships
 > - **Evidence Weight** — which claims are well-supported vs. thinly grounded
 > - **Gap & Strength** — what's solid, what needs work

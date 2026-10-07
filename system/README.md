@@ -8,19 +8,21 @@ The specification has four platform editions. **Load the appropriate files, uplo
 |---|---|---|
 | **Claude** | [`claude/V-11.5/InSites-claude-v11.5.md`](claude/V-11.5/InSites-claude-v11.5.md) | One file |
 | **DeepSeek** | [`deepseek/InSites-deepseek-V2.md`](deepseek/InSites-deepseek-V2.md) | One file; [student guide](deepseek/README.md) |
-| **Google Gemini** | [`gemini/V-11.3/InSites-CAA-GEM-v11.3.md`](gemini/V-11.3/InSites-CAA-GEM-v11.3.md) | One file |
-| **ChatGPT** | [`gpt/V-11.3/en/instructions.md`](gpt/V-11.3/en/instructions.md) plus the knowledge files beside it | Instructions + knowledge files |
+| **Google Gemini** | [`gemini/V-11.4/InSites-CAA-GEM-v11.4.md`](gemini/V-11.4/InSites-CAA-GEM-v11.4.md) | One file |
+| **ChatGPT** | [`gpt/V-11.4/en/instructions.md`](gpt/V-11.4/en/instructions.md) plus the knowledge files beside it | Instructions + knowledge files |
 
 ## Versions
 
-The four implementations are the same architecture and are not at the same generation. Each is what its platform last ran.
+The four implementations are ports of the same architecture. The version number records the specification generation, not performance.
 
 | Platform | Version | Last changed | Form |
 |---|---|---|---|
-| Claude | v11.5 | September 2026 | One file. The Tuba-Zangariyye study ran on this implementation, but on the earlier version archived in [`../studies/heritage4.0-tuba-2026/system/`](../studies/heritage4.0-tuba-2026/system/) — not on the file here |
+| Claude | v11.5 | September 2026 | One file. The Tuba-Zangariyye study ran on an earlier version archived in [`../studies/heritage4.0-tuba-2026/system/`](../studies/heritage4.0-tuba-2026/system/) — not on the file here |
 | DeepSeek | V2 | September 2026 | One file; English/Chinese course edition. Epistemic marks remain in assessment/readings, not the KG |
-| Gemini | v11.3 | August 2026 | One file |
-| ChatGPT | v11.3 | August 2026 | `instructions.md` plus the knowledge files beside it |
+| Gemini | v11.4 | September 2026 | One file |
+| ChatGPT | v11.4 | September 2026 | `instructions.md` plus the knowledge files beside it |
+
+V11.4 removes the requirement to produce a bidirectional context-effect finding. It tests each direction independently and accepts two-way, one-way, and “no supported effect identified” outcomes. Previous working Claude versions are kept locally; the public Claude folder contains only the current edition and its guide.
 
 **Do not read the differences between platforms as performance.** They are ports of one specification to four instruction formats, they have not been compared, and this repository makes no claim about which runs it better.
 
@@ -38,7 +40,7 @@ ChatGPT splits what the single-file editions carry together. `instructions.md` h
 
 ### Hebrew ChatGPT port
 
-The Hebrew workshop port is developed separately in [`gpt/V-11.3/hebrew/`](gpt/V-11.3/hebrew/). It does not replace or modify the English GPT in `gpt/V-11.3/en/`; the English files remain canonical. Its nine runtime files and local parity/rendering checks are complete. It remains a candidate for Preview review until it passes ChatGPT Preview checks in both a builder and participant account.
+The Hebrew workshop port is developed separately in [`gpt/V-11.4/hebrew/`](gpt/V-11.4/hebrew/). It does not replace or modify the English GPT in `gpt/V-11.4/en/`; the English files remain canonical. Its nine runtime files remain a candidate for Preview review until the behavioral change passes ChatGPT Preview checks in both a builder and participant account.
 
 ## The files the specifications name
 

@@ -37,7 +37,7 @@ These sections appear only when the assessment data contains relevant findings. 
 
 | Section | When to include | Content |
 |---------|----------------|---------|
-| **🔗 Context Effects** | When significant bidirectional context↔value relationships emerged | Most impactful context effects + connected planning recommendations (if planning advice was written in the source file) |
+| **🔗 Context Effects** | When significant supported context–value relationships emerged in one or both directions | Most impactful context effects, reporting only supported directions, + connected planning recommendations (if planning advice was written in the source file) |
 | **⚡ Priority Insights** | When surprising or high-priority findings emerged | Key discoveries, emerging patterns, and urgent steps **that were named in the source** — do not introduce new recommendations |
 | **🗺️ Comparative Position** | When comparative analysis produced meaningful distinctions | How this asset sits in its regional/typological context, key differentiators |
 

@@ -12,7 +12,7 @@ This specification is a required implementation contract, not guidance.
 
 Required:
 - Emit the exact HTML shell below (one `<div id="root">` + the runtime UMD + a `DATA` object + a `mount` call).
-- Load the runtime UMD from the pinned jsDelivr URL: `atar-runtime@0.3.7`.
+- Load the runtime UMD from the pinned jsDelivr URL: `atar-runtime@0.3.8`.
 - Pass a single `DATA` object with `type: "kg"` to `window.AtarRuntime.mount(container, DATA, {})`.
 
 Forbidden:
@@ -88,7 +88,7 @@ Generate exactly this; replace only `{LANG}`, `{DIR}`, `{TITLE}`, and the `DATA`
 </head>
 <body>
   <div id="root" style="height:100vh"></div>
-  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.7/dist/atar-runtime.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.8/dist/atar-runtime.umd.js"></script>
   <script>
     var DATA = {
       type: "kg",
@@ -125,14 +125,14 @@ D3 force graph (curved arcs + arrowheads), pan/zoom/drag, click-to-select with n
 
 ## Follow-up after KG
 
-Do not append follow-up prose to the artifact response. After the user confirms that Preview opened, or asks what to do next, offer to highlight one context-effect edge pair. If accepted: 2 sentences max — Context→Asset, Asset→Context. No theory preamble.
+Do not append follow-up prose to the artifact response. After the user confirms that Preview opened, or asks what to do next, offer to highlight one supported context-effect relation. If accepted: 2 sentences max; describe only the direction or directions present in the approved graph. A single direction is complete. No theory preamble.
 
 **Review interpretive entities (HITL):** in that next interaction, when the graph has any `interpretive` (💭) entities, add a ≤2-sentence offer — "This graph has N interpretive (💭) entities (see '💭 Entities to review' in the Analytics tab). Want to confirm, rename, reject, or cite-and-promote any?" On reply, rename/remove or promote to `sourced` when evidence is cited, then offer to regenerate. Skip when N = 0.
 
 ## Compliance Check
 
 - [ ] Output is one fenced `html` block containing the thin shell only: one `<div id="root">` + the UMD script + valid inline `DATA` + the `mount` call.
-- [ ] Runtime loaded from `cdn.jsdelivr.net/npm/atar-runtime@0.3.7`; `mount(root, DATA, {})` called.
+- [ ] Runtime loaded from `cdn.jsdelivr.net/npm/atar-runtime@0.3.8`; `mount(root, DATA, {})` called.
 - [ ] `DATA.type === "kg"`; every node has `id`, `name`, `type` (English [CA-EC] token), `meaning`; edges use `source`/`target` + lowercase verb.
 - [ ] No vis-network / D3 / React / SVG / inline UI / per-node colour / sizing / CSS.
 - [ ] Counts: 10–15 nodes (≤20), ≤25 edges, ≤3 Cultural Value; no orphans.

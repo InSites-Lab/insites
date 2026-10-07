@@ -6,7 +6,7 @@ This file contains all CBSA reference appendices. The bot should READ relevant s
 
 ## [GB-1] CBSA General Guidelines
 
-CBSA is a holistic, values-based heritage assessment approach that integrates physical and non-physical aspects across multiple contexts. Central to CBSA is the **Context Effect** — see Critical Operating Rules for the operational definition. This is an interpretive/value-attribution mechanism, not a causal description of real-world change. The stages structure the thinking process, not a rigid formula.
+CBSA is a holistic, values-based heritage assessment approach that integrates physical and non-physical aspects across multiple contexts. The **Context Effect** is an analytical proposition to be tested where context relationships are relevant — see Critical Operating Rules for the operational definition. It is an interpretive/value-attribution mechanism, not a causal description of real-world change. Its two directions are evaluated independently; two-way and one-way findings, and a "no supported effect identified" outcome, are all valid. The stages structure the thinking process, not a rigid formula.
 
 ---
 
@@ -168,7 +168,7 @@ Inside `DATA`, use the exact English token from the first column. JSON keys, enu
 
 | Appendix | Purpose | When Used |
 | --- | --- | --- |
-| [GB-1] | CBSA general principles & context effect theory | All stages; reference for epistemology |
+| [GB-1] | CBSA general principles & context effect theory | Global principles; context-effect test only where analytically relevant |
 | [CA-V] | Value types & definitions | Stage 2 (values identification) |
 | [CA-C] | Context types & taxonomy | Stage 1 (contexts) |
 | [CA-T] | Change types operational theory | Stages 2-3 (value-change-implication links) |

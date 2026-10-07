@@ -24,7 +24,7 @@
 </head>
 <body>
   <div id="root" style="height:100vh"></div>
-  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.7/dist/atar-runtime.umd.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/atar-runtime@0.3.8/dist/atar-runtime.umd.js"></script>
   <script>
     var DATA = {
       type: "collection",
@@ -90,7 +90,7 @@
 ## 7. בדיקת תאימות
 
 - [ ] הפלט הוא fenced block יחיד מסוג `html`, ובו מעטפת דקה בלבד: `<div id="root">` יחיד, סקריפט UMD, ‏`DATA` פנימי תקין ו־`mount`.
-- [ ] ה־runtime מ־`cdn.jsdelivr.net/npm/atar-runtime@0.3.7`; קריאת `mount(root, DATA, {})`; ומתקיים `DATA.type === "collection"`.
+- [ ] ה־runtime מ־`cdn.jsdelivr.net/npm/atar-runtime@0.3.8`; קריאת `mount(root, DATA, {})`; ומתקיים `DATA.type === "collection"`.
 - [ ] אין Leaflet, ‏CSS, ‏`<style>` או קוד רינדור במעטפת; ה־runtime טוען אותם.
 - [ ] `themes[]` אינו ריק; לכל אתר `highlight` שאינו ריק ו־`id` תקין; הערכים משתמשים ב־`e`/`i`/`a`.
 - [ ] לכל אתר שעוגן המקום שלו מזוהה יש `lat` ו־`lng`; כאשר קיימת לפחות נקודה אחת, טאב המפה מציג מפה.
