@@ -47,6 +47,10 @@ sites-data/**/*.xls*
 # Pre-submission working files
 local-work/
 
+# Development notes and implementation briefs: local, read by Claude Code
+# sessions through TODO.md. Not documentation for a reader.
+dev-notes/
+
 # Internal handover, not for the public repository
 MIGRATION.md
 TODO.md
