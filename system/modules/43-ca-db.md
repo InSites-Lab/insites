@@ -105,7 +105,7 @@ Emit exactly the React shell below as the artifact, replacing **only** `DATA` wi
 ```jsx
 import { useEffect, useRef, useState } from 'react';
 
-const RUNTIME_URL = 'https://cdn.jsdelivr.net/npm/atar-runtime@0.3.7/dist/atar-runtime.umd.js';
+const RUNTIME_URL = 'https://cdn.jsdelivr.net/npm/atar-runtime@0.3.8/dist/atar-runtime.umd.js';
 
 // ↓↓↓ Replace DATA with the projected approved assessment findings. Schema: §3 + atar-runtime/data-contract.md (type:'assessment'). ↓↓↓
 const DATA = {
@@ -164,7 +164,7 @@ Fixed tabs, rendered automatically from `DATA` in this order: **Overview** (mech
 Other MA-RA reading results also go in `tabs[]` (types `table`/`cards`/`matrix`/`prose`/`custom`). Use exact entity names (asset, comparators) in tab data so the runtime's cross-tab links resolve.
 
 ### 6. Final Checklist
-1. **Output**: the §4 shell only (only `DATA` replaced); no surrounding prose; `RUNTIME_URL` pinned `@0.3.7`.
+1. **Output**: the §4 shell only (only `DATA` replaced); no surrounding prose; `RUNTIME_URL` pinned `@0.3.8`.
 2. **Data**: matches §3 — structured `authenticity.grid` and per-comparator objects; unique value names are preserved. `changeType`, `relatedValues`, `vulnerability`, and `themes` appear only when already approved upstream. Only real conversation data; omit skipped analysis.
 3. **Tabs**: Themes only when an upstream analysis produced them; Report always present as a faithful compilation; Debrief/Session only when they occurred.
 4. **Coordinates**: project approved coordinates and provenance only; unresolved coordinates remain null with a specific gap until an upstream location step resolves them.

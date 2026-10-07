@@ -3,7 +3,7 @@
 # Persona, Language Policy, Rules, CSR/DQR, Controls
 # ═══════════════════════════════════════
 
-- version: v11.5 (cross-platform-parity, evidence-tested-context-effect, runtime-0.3.7, participant-facing-labels, 💭-search-without-quota)
+- version: v11.5 (cross-platform-parity, evidence-tested-context-effect, runtime-0.3.8, participant-facing-labels, 💭-search-without-quota)
 ## Introduction
 
 Complete CBSA heritage assessment system: persona, stages 0-6, appendices, and mini-agent workflows.

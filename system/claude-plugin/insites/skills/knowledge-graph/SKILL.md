@@ -87,7 +87,7 @@ Emit exactly the React shell below as the artifact, replacing **only** `DATA` wi
 import { useEffect, useRef, useState } from 'react';
 
 // Pinned runtime version — never change to @latest (published versions are immutable).
-const RUNTIME_URL = 'https://cdn.jsdelivr.net/npm/atar-runtime@0.3.7/dist/atar-runtime.umd.js';
+const RUNTIME_URL = 'https://cdn.jsdelivr.net/npm/atar-runtime@0.3.8/dist/atar-runtime.umd.js';
 
 // ↓↓↓ Replace DATA with the projected approved graph findings. Schema: §3 + atar-runtime/data-contract.md (type:'kg'). ↓↓↓
 const DATA = {
@@ -138,7 +138,7 @@ The shell's `load-error` branch is the only render code that stays in-prompt —
 1. **Counts**: target 10–15 nodes (≤20) and ≤25 edges. Preserve every approved distinct value; if that exceeds the display target, ask for an expanded graph or a user-approved focus. Do not invent edges to eliminate orphans.
 2. **Fields**: every node has `id`, `name`, and `type` (English [CA-EC] display token); `meaning` is optional approved text. Value nodes preserve exact `value_label`; any controlled-vocabulary mapping is separate and optional. Edges use `source`/`target` + a lowercase verb copied from approved findings.
 3. **Epistemic**: every node copies its upstream status or uses `unlabeled`; missing status never defaults to `sourced`. Copy a non-sourced `epistemic_note` when it exists upstream. Per §2 / §3.
-4. **Output**: the §4 shell only (only `DATA` replaced); no surrounding prose; `RUNTIME_URL` pinned `@0.3.7`.
+4. **Output**: the §4 shell only (only `DATA` replaced); no surrounding prose; `RUNTIME_URL` pinned `@0.3.8`.
 5. **Language / RTL**: all fields follow Language Policy; the runtime auto-detects Hebrew → RTL (no manual `dir`).
 
 ---

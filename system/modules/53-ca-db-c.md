@@ -50,7 +50,7 @@ Emit exactly the React shell below, replacing **only** `DATA` with the projected
 ```jsx
 import { useEffect, useRef, useState } from 'react';
 
-const RUNTIME_URL = 'https://cdn.jsdelivr.net/npm/atar-runtime@0.3.7/dist/atar-runtime.umd.js';
+const RUNTIME_URL = 'https://cdn.jsdelivr.net/npm/atar-runtime@0.3.8/dist/atar-runtime.umd.js';
 
 // ↓↓↓ Replace DATA with the projected approved collection findings. Schema: §2 + atar-runtime/data-contract.md (type:'collection'). ↓↓↓
 const DATA = {
@@ -100,7 +100,7 @@ Fixed tabs from `DATA`: **Overview** (mechanical KPIs and distributions of alrea
 Dynamic `tabs[]` (MA-RC Step-3 analysis results) — types `table` (Arguments), `matrix` (Gaps traffic-light), `custom` (Cross-Tabs), `cards` (Management Clusters), `prose`.
 
 ### 5. Final Checklist
-1. **Output**: the §3 shell only (only `DATA` replaced); no surrounding prose; `RUNTIME_URL` pinned `@0.3.7`.
+1. **Output**: the §3 shell only (only `DATA` replaced); no surrounding prose; `RUNTIME_URL` pinned `@0.3.8`.
 2. **Data**: per §2 + the open-vocabulary projection contract (`type:'collection'`). Every exact and uncatalogued value is preserved. `themes[]` and `highlight` remain empty/omitted unless approved upstream. Values use `e`/`i`/`a`/`u`, and missing mention is `u`, not `a`.
 3. **Language/RTL**: fields follow Language Policy; the runtime auto-detects Hebrew → RTL.
 4. **Location**: project approved coordinates and provenance only. Missing coordinates remain an explicit gap until resolved upstream.
