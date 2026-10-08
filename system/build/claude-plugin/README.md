@@ -16,7 +16,7 @@ Use the plugin **or** the single-file edition in a Project's instructions, not b
 
 | Skill | Starts on | Does |
 | --- | --- | --- |
-| `assess` | upload + `start` / `התחל` | Stages 0–6 with a stop for your review after each, the epistemic marks, the session report. Holds the core rules all the others run under |
+| `assess` | upload + `begin assessment` / `התחל הערכה` | Stages 0–6 with a stop for your review after each, the epistemic marks, the session report. Holds the core rules all the others run under |
 | `knowledge-graph` | `kg` / `גרף ידע` | The knowledge graph, drawn by the pinned `atar-runtime` |
 | `dashboard` | `dashboard` / `דשבורד` | The single-assessment dashboard |
 | `read-assessment` | `read assessment` / `קריאת הערכה` | Readings of a completed assessment |
@@ -30,7 +30,7 @@ Use the plugin **or** the single-file edition in a Project's instructions, not b
 
 ## Use
 
-Upload the site documentation and say **start**. After each stage, correct, expand, go back, or say **continue**. In Hebrew, say so at the start; the Hebrew overlay applies to every heading and label.
+Upload the site documentation and say **begin assessment**. After each stage, correct, expand, go back, or say **continue**. In Hebrew, say so at the start; the Hebrew overlay applies to every heading and label.
 
 No mark means stated in the sources; 〰️ marks inference; 💭 marks interpretation open to challenge. The marks support your judgment; your approval does not by itself make a claim a fact.
 
@@ -38,4 +38,4 @@ No mark means stated in the sources; 〰️ marks inference; 💭 marks interpre
 
 **גרסת פיתוח ראשונית:** הורצה על הערכה אחת ולא נבדקה מעבר לזה. אינה מיועדת עדיין להערכות אמיתיות; להערכה, השתמשו בקובץ המפרט היחיד.
 
-תוסף זה הוא אותו מפרט InSites, ארוז כסקילים שנטענים לפי הצורך. התקינו דרך Customize → Plugins → Add marketplace עם `InSites-Lab/insites`. אל תשלבו אותו עם קובץ ההנחיות המלא בהוראות של פרויקט. העלו את חומרי האתר וכתבו **התחל**.
+תוסף זה הוא אותו מפרט InSites, ארוז כסקילים שנטענים לפי הצורך. התקינו דרך Customize → Plugins → Add marketplace עם `InSites-Lab/insites`. אל תשלבו אותו עם קובץ ההנחיות המלא בהוראות של פרויקט. העלו את חומרי האתר וכתבו **התחל הערכה**.
