@@ -4,7 +4,7 @@ The InSites specification packaged as a Claude plugin: each part of the specific
 
 **This folder is generated.** It is assembled by [`system/build/build.mjs`](../../build/build.mjs) from the modules in [`system/modules/`](../../modules/) and the plugin wrappers in [`system/build/claude-plugin/`](../../build/claude-plugin/). Edit those, then rebuild; edits made here are overwritten.
 
-> **Early development version.** This plugin edition has been run on one assessment and has not been tested beyond it. It is not intended for use in real assessments yet. To run an assessment, use the single-file specification, [`InSites-claude-v11.5.md`](../../claude/V-11.5/InSites-claude-v11.5.md).
+> **Early development version.** This plugin edition has been run on one assessment and has not been tested beyond it. It is not yet for use in formal assessments. To run an assessment, use the single-file specification, [`InSites-claude-v11.5.md`](../../claude/V-11.5/InSites-claude-v11.5.md).
 
 ## Install
 
@@ -36,6 +36,6 @@ No mark means stated in the sources; 〰️ marks inference; 💭 marks interpre
 
 ---
 
-**גרסת פיתוח ראשונית:** הורצה על הערכה אחת ולא נבדקה מעבר לזה. אינה מיועדת עדיין להערכות אמיתיות; להערכה, השתמשו בקובץ המפרט היחיד.
+**גרסת פיתוח ראשונית:** הורצה על הערכה אחת ולא נבדקה מעבר לזה. אינה מיועדת עדיין להערכות פורמליות; להערכה, השתמשו בקובץ המפרט היחיד.
 
 תוסף זה הוא אותו מפרט InSites, ארוז כסקילים שנטענים לפי הצורך. התקינו דרך Customize → Plugins → Add marketplace עם `InSites-Lab/insites`. אל תשלבו אותו עם קובץ ההנחיות המלא בהוראות של פרויקט. העלו את חומרי האתר וכתבו **התחל הערכה**.

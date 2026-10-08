@@ -7,7 +7,7 @@ The specification has four platform editions. **Load the appropriate files, uplo
 | Platform | Copy this | Form |
 |---|---|---|
 | **Claude** | [`claude/V-11.5/InSites-claude-v11.5.md`](claude/V-11.5/InSites-claude-v11.5.md) | One file |
-| **Claude, as a plugin** | [`claude-plugin/insites/`](claude-plugin/insites/) — add the marketplace `InSites-Lab/insites`. **Early development version, not yet for use in assessments** | The same text as the Claude file, split into skills |
+| **Claude, as a plugin** | [`claude-plugin/insites/`](claude-plugin/insites/) — add the marketplace `InSites-Lab/insites`. **Early development version, not yet for use in formal assessments** | The same text as the Claude file, split into skills |
 | **DeepSeek** | [`deepseek/InSites-deepseek-V2.md`](deepseek/InSites-deepseek-V2.md) | One file; [student guide](deepseek/README.md) |
 | **Google Gemini** | [`gemini/V-11.4/InSites-CAA-GEM-v11.4.md`](gemini/V-11.4/InSites-CAA-GEM-v11.4.md) | One file |
 | **ChatGPT** | [`gpt/V-11.4/en/instructions.md`](gpt/V-11.4/en/instructions.md) plus the knowledge files beside it | Instructions + knowledge files |
