@@ -111,6 +111,5 @@ system/gpt/insites-plugin-prototype-*.zip
 /system/claude/V-11.5/*
 !/system/claude/V-11.5/InSites-claude-v11.5.md
 
-# Plugin marketplace manifest: kept local; the plugin is not offered for
-# installation by name.
-.claude-plugin/
+# Packaged plugin archives are build products, never committed.
+*.plugin
