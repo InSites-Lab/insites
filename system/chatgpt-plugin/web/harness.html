@@ -1,0 +1,24 @@
+<!doctype html><html><head><meta charset="utf-8"><title>InSites simulated host</title><style>pre{white-space:pre-wrap;overflow-wrap:anywhere}body{font:14px system-ui}</style></head><body>
+<p>SIMULATED HOST. This checks protocol delivery, not a ChatGPT or Claude conversation.</p>
+<iframe id="widget" src="/preview/viewer" style="width:100%;height:900px;border:1px solid #aaa"></iframe><pre id="messages"></pre>
+<script type="module">
+const frame = document.querySelector('#widget'); const query = new URLSearchParams(location.search);
+window.received = []; window.contexts = []; window.deliveryEvents = []; const reply = (id,result) => frame.contentWindow.postMessage({jsonrpc:'2.0',id,result},location.origin);
+window.addEventListener('message', async e => {
+  if(e.source !== frame.contentWindow || e.origin !== location.origin) return;
+  const m=e.data;
+  if(m.method==='ui/initialize') reply(m.id,{protocolVersion:m.params.protocolVersion,hostInfo:{name:'simulated-host',version:'0.1.0'},hostCapabilities:{message:{text:{}},...(query.get('context')==='unsupported'?{}:{updateModelContext:{text:{}}})},hostContext:{theme:'light',displayMode:'inline',availableDisplayModes:['inline','fullscreen']}});
+  else if(m.method==='ui/notifications/initialized'){
+    const data=await fetch('/preview/fixture?type='+(query.get('type')||'probe')).then(r=>r.json());
+    if(query.get('he')==='1') { if(data.asset) data.asset.name='סדנה לדוגמה'; else if(data.collection) data.collection.name='אוסף לדוגמה'; else data.title='גרף לדוגמה'; }
+    frame.contentWindow.postMessage({jsonrpc:'2.0',method:'ui/notifications/tool-result',params:{content:[{type:'text',text:'Synthetic fixture'}],_meta:{insitesData:data}}},location.origin);
+  }
+  else if(m.method==='ui/update-model-context'){
+    window.deliveryEvents.push('context');
+    if(query.get('context')==='reject')frame.contentWindow.postMessage({jsonrpc:'2.0',id:m.id,error:{code:-32603,message:'Context rejected'}},location.origin);
+    else if(query.get('context')!=='timeout'){window.contexts.push(m.params);reply(m.id,{});}
+  }
+  else if(m.method==='ui/message'){window.deliveryEvents.push('message');window.received.push(m.params);document.querySelector('#messages').textContent=JSON.stringify(window.received,null,2);if(query.get('mode')!=='timeout')reply(m.id,{isError:query.get('mode')==='reject'});}
+  else if(m.id!=null)reply(m.id,{});
+});
+</script></body></html>

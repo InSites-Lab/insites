@@ -33,6 +33,8 @@ The Claude specification is also held as modules in [`modules/`](modules/), one 
 
 The build script assembles editions from the modules: the [Claude plugin](claude-plugin/insites/), where each part becomes a skill read when its task arrives, and the joined single file (`--monolith`). It joins and copies text and nothing it produces runs as code, so the specification is still what runs. The plugin folder is generated: edit the modules and the wrappers in [`build/claude-plugin/`](build/claude-plugin/), then rebuild.
 
+The [ChatGPT plugin source](chatgpt-plugin/) builds skills from the modules and includes the stateless MCP server and viewer. Its generated packages are kept out of Git.
+
 ## Why multiple platforms
 
 The architecture is a file. It carries no dependency on a particular model, and the four implementations exist to make that concrete rather than to assert it. That matters for the claim the paper makes: what the study observed belongs to the structure of the interaction between an expert and the system, not to the capability of one model.
