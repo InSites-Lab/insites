@@ -4,10 +4,12 @@ InSites is a **specification** that a language model executes stage by stage, wi
 
 The specification has four platform editions. **Load the appropriate files, upload a heritage document, and type `start`.** For DeepSeek, follow the [student guide](deepseek/README.md); for Claude, see its [quick start](claude/README.md). The system runs Stage 0, reports what the documentation base lacks, and pauses for your review.
 
+**Claude has two editions of the same specification**: the single file, and a plugin installed to your account. Use one or the other, never both in one conversation; [`claude/README.md`](claude/README.md) sets them side by side.
+
 | Platform | Copy this | Form |
 |---|---|---|
 | **Claude** | [`claude/V-11.5/InSites-claude-v11.5.md`](claude/V-11.5/InSites-claude-v11.5.md) | One file |
-| **Claude, as a plugin** | [`claude-plugin/insites/`](claude-plugin/insites/) — add the marketplace `InSites-Lab/insites`. **Early development version, not yet for use in formal assessments** | The same text as the Claude file, split into skills |
+| **Claude, as a plugin** | [`claude-plugin/insites/`](claude-plugin/insites/) — add the marketplace `InSites-Lab/insites`, then say **begin assessment**. **Early development version, not yet for use in formal assessments** | The same text as the Claude file, split into skills |
 | **DeepSeek** | [`deepseek/InSites-deepseek-V2.md`](deepseek/InSites-deepseek-V2.md) | One file; [student guide](deepseek/README.md) |
 | **Google Gemini** | [`gemini/V-11.4/InSites-CAA-GEM-v11.4.md`](gemini/V-11.4/InSites-CAA-GEM-v11.4.md) | One file |
 | **ChatGPT** | [`gpt/V-11.4/en/instructions.md`](gpt/V-11.4/en/instructions.md) plus the knowledge files beside it | Instructions + knowledge files |

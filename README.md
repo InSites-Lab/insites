@@ -10,7 +10,7 @@ The architecture is a prompt file. It is bound to no particular model, and it ne
 
 | If you want to | Go to |
 |---|---|
-| Run an assessment | [`system/`](system/) — pick your platform, copy the file into its instructions field, upload a heritage document, type `start` |
+| Run an assessment | [`system/`](system/) — pick your platform, copy the file into its instructions field, upload a heritage document, type `start`. On Claude there is also a plugin edition: [`system/claude/`](system/claude/) |
 | Browse example source data | [`sites-data/`](sites-data/) — Ayelet water tower in Hebrew; other examples in English |
 | Understand how it works | [`docs/architecture.md`](docs/architecture.md) |
 | Understand the marks | [`docs/epistemic-notation.md`](docs/epistemic-notation.md) |

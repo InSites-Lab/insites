@@ -12,6 +12,15 @@ In claude.ai or the Claude desktop app, open **Customize → Plugins → Add →
 
 Use the plugin **or** the single-file edition in a Project's instructions, not both: two copies of the core rules in one conversation can disagree as soon as one of them is updated.
 
+## Updates
+
+A new version is published from the `main` branch with a new version number; a change without a new number does not reach installed copies.
+
+- **Installed in claude.ai or the desktop app:** the update reaches your account by itself once it syncs from the repository. To take it at once, open **Customize → Plugins**, and on the `InSites-Lab/insites` marketplace choose **Check for updates**; **Sync automatically** keeps it current. One update serves chat, Cowork and Claude Code.
+- **Installed in Claude Code with `/plugin`:** that is a separate copy, and it does not update by itself. Run `/plugin marketplace update insites-lab`, then `/reload-plugins`; or turn on auto-update for the marketplace under `/plugin` → Marketplaces.
+
+The version you are running is in `.claude-plugin/plugin.json`.
+
 ## What it contains
 
 | Skill | Starts on | Does |
@@ -30,7 +39,11 @@ Use the plugin **or** the single-file edition in a Project's instructions, not b
 
 ## Use
 
-Upload the site documentation and say **begin assessment**. After each stage, correct, expand, go back, or say **continue**. In Hebrew, say so at the start; the Hebrew overlay applies to every heading and label.
+Upload the site documentation and say **begin assessment** (Hebrew: **התחל הערכה**). If the assessment does not start, choose **assess** from the `/` menu (in Claude Code, `/insites:assess`): the same skill, started explicitly.
+
+An assessment always starts from `assess`. The `knowledge-graph` and `dashboard` skills, also in the `/` menu, draw on an assessment's approved stages; ask for them by their words (`kg`, `dashboard`) once you have them. `read-assessment` and `read-collection` start from a completed assessment that you upload or paste.
+
+After each stage, correct, expand, go back, or say **continue**. In Hebrew, say so at the start; the Hebrew overlay applies to every heading and label.
 
 No mark means stated in the sources; 〰️ marks inference; 💭 marks interpretation open to challenge. The marks support your judgment; your approval does not by itself make a claim a fact.
 
@@ -38,4 +51,4 @@ No mark means stated in the sources; 〰️ marks inference; 💭 marks interpre
 
 **גרסת פיתוח ראשונית:** הורצה על הערכה אחת ולא נבדקה מעבר לזה. אינה מיועדת עדיין להערכות פורמליות; להערכה, השתמשו בקובץ המפרט היחיד.
 
-תוסף זה הוא אותו מפרט InSites, ארוז כסקילים שנטענים לפי הצורך. התקינו דרך Customize → Plugins → Add marketplace עם `InSites-Lab/insites`. אל תשלבו אותו עם קובץ ההנחיות המלא בהוראות של פרויקט. העלו את חומרי האתר וכתבו **התחל הערכה**.
+תוסף זה הוא אותו מפרט InSites, ארוז כסקילים שנטענים לפי הצורך. התקינו דרך Customize → Plugins → Add marketplace עם `InSites-Lab/insites`. אל תשלבו אותו עם קובץ ההנחיות המלא בהוראות של פרויקט. העלו את חומרי האתר וכתבו **התחל הערכה**; אם ההערכה לא מתחילה, בחרו **assess** מתפריט ה־`/`. גרסה חדשה מגיעה לחשבון מעצמה; כדי לקבל אותה מיד: Customize → Plugins → Check for updates.
