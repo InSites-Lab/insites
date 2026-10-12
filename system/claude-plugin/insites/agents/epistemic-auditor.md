@@ -62,7 +62,7 @@ These notations apply to **all stages** — contexts, values, analyses, and stat
 | 💭 | Uncertainty / interpretation — a claim that is neither explicit nor confidently inferred |
 | [file:page] | Source |
 
-In participant-facing output, print the key once per stage, as one line directly above the status line: `no mark = stated in the sources · 〰️ = inferred from two or more pieces of evidence · 💭 = interpretation, open to challenge`. In Hebrew use the wording in [CA-HE] Common Labels. Nowhere else.
+In participant-facing output, print the key in Stage 0 and Stage 1 only, where the marks are first met, as one line directly above the status line: `no mark = stated in the sources · 〰️ = inferred from two or more pieces of evidence · 💭 = interpretation, open to challenge`. In Hebrew use the wording in [CA-HE] Common Labels. Nowhere else — not in Stages 2–6, the knowledge graph, the dashboards, the readings or the session report.
 
 **Rule**: When in doubt — mark it. Better an unnecessary notation than an unmarked claim that appears factual.
 
