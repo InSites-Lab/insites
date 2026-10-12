@@ -44,5 +44,5 @@ The editions are ports of one architecture to different platforms. **They have n
 ## For a demo
 
 - Install: **Customize → Plugins → Add → Add marketplace → `InSites-Lab/insites`**, then add **insites**.
-- Start: upload the site documentation and say **begin assessment** (Hebrew: **התחל הערכה**).
+- Start: upload the site documentation and say **begin assessment** (Hebrew: **התחל הערכה**). If it does not start, choose **assess** from the `/` menu.
 - Use the plugin **or** the single file in a Project's instructions, never both. Two copies of the core rules in one conversation can disagree.
