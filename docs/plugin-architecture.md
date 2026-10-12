@@ -2,7 +2,7 @@
 
 InSites is a **specification**: written instructions that a language model carries out stage by stage, with an expert review after each stage. The plugin is the same specification in different packaging. The stages, the stops, the epistemic marks and the session report are word for word the same as in the single-file edition. What changes is how the text is stored, loaded and delivered.
 
-> **Early development version.** It has been run on one assessment. For a formal assessment, use the single-file specification.
+> **Development version.** It has been run on one assessment. It is not yet validated for formal assessments; use it at your own discretion.
 
 ## One source, two editions
 

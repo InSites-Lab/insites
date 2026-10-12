@@ -5,7 +5,7 @@ On Claude, InSites comes in two editions of the same specification. Use one **or
 | | Single file | Plugin |
 |---|---|---|
 | **What you load** | [`V-11.5/InSites-claude-v11.5.md`](V-11.5/InSites-claude-v11.5.md), in a Project's instructions or at the start of a session | [`../claude-plugin/insites/`](../claude-plugin/insites/), installed once to your account from the marketplace `InSites-Lab/insites` |
-| **Status** | The edition for assessments | Early development version, not yet for use in formal assessments |
+| **Status** | The established edition | Development version: not yet validated for formal assessments; use at your own discretion |
 | **Start** | Upload, say **start** | Upload, say **begin assessment** (**התחל הערכה**), or choose **assess** from the `/` menu |
 | **New versions** | Replace the file by hand | Through the plugin's update; see [its README](../claude-plugin/insites/README.md) |
 
