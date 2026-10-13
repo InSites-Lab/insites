@@ -1,25 +1,19 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { cp, mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises';
+import { mkdir, mkdtemp, readFile, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import { spawnSync } from 'node:child_process';
-import { root, output } from '../scripts/build.mjs';
+import { root } from '../scripts/build.mjs';
 import { createDelivery, inspectDeliveryPlugin, skillNames } from '../scripts/delivery.mjs';
+import { createPortablePackage } from '../scripts/package.mjs';
 
 const endpoint = 'https://insites-mcp-528503455330.me-west1.run.app/mcp';
 async function portableFixture() {
   await mkdir(resolve(root, 'dist'), { recursive: true });
   const temp = await mkdtemp(resolve(root, 'dist/delivery-test-'));
   const portable = resolve(temp, 'portable');
-  await cp(output, portable, { recursive: true });
-  const servers = { insites: { type: 'streamable-http', url: endpoint } };
-  await writeFile(resolve(portable, 'mcp.json'), JSON.stringify({ mcpServers: servers }));
-  await writeFile(resolve(portable, '.mcp.json'), JSON.stringify({ mcpServers: servers }));
-  const codexPath = resolve(portable, '.codex-plugin/plugin.json');
-  const manifest = JSON.parse(await readFile(codexPath, 'utf8'));
-  manifest.mcpServers = './.mcp.json';
-  await writeFile(codexPath, JSON.stringify(manifest));
+  await createPortablePackage(endpoint, portable);
   return { temp, portable };
 }
 

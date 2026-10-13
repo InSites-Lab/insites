@@ -16,7 +16,7 @@
     "read-collection",
     "stage-spec"
   ],
-  "archiveSHA256": "fc02c73c5a2e56ac527addb7b6198b32a856387b98493cc8e6ccfb6948558cfd",
+  "archiveSHA256": "7c75b6f51f2a64284afcd5c1e7e23000b0d09cee488e1042c464130362d8329c",
   "files": [
     {
       "path": "insites-chatgpt/.codex-plugin/plugin.json",
@@ -36,7 +36,7 @@
     },
     {
       "path": "insites-chatgpt/INSTALL.md",
-      "sha256": "124b127fe145de19d204ca2fc2bbc6956019a6210e87877c284312cf10baa131"
+      "sha256": "9cc3ab3d713acedf1945e99294b7b2a847122b75aea21fc5f12df3394053148d"
     },
     {
       "path": "insites-chatgpt/LICENSE",
@@ -44,7 +44,7 @@
     },
     {
       "path": "insites-chatgpt/README.md",
-      "sha256": "1641e7ab14cd45a663de572de7efac26f8334ea792b67ca07c8a1706b1fdd88f"
+      "sha256": "3405fbf8ce525052fb172c062b882a5004fde8cf7d69c4052c5fb787a2b5ddbc"
     },
     {
       "path": "insites-chatgpt/mcp.json",
