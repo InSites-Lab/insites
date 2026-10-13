@@ -1,0 +1,298 @@
+{
+  "formatVersion": 1,
+  "pluginName": "insites-chatgpt",
+  "pluginVersion": "0.1.3",
+  "specificationVersion": "11.5",
+  "runtimeVersion": "0.3.8",
+  "endpoint": "https://insites-mcp-528503455330.me-west1.run.app/mcp",
+  "authentication": "none",
+  "skillNames": [
+    "assess",
+    "claim-extractor",
+    "connection-test",
+    "dashboard",
+    "knowledge-graph",
+    "read-assessment",
+    "read-collection",
+    "stage-spec"
+  ],
+  "archiveSHA256": "fc02c73c5a2e56ac527addb7b6198b32a856387b98493cc8e6ccfb6948558cfd",
+  "files": [
+    {
+      "path": "insites-chatgpt/.codex-plugin/plugin.json",
+      "sha256": "d89d2ee2bb860ff70f0948d5c80ebbb47face6dcf58fd5c4101b3763bb2249fa"
+    },
+    {
+      "path": "insites-chatgpt/.mcp.json",
+      "sha256": "361f71af99dc890b3992e81f13c55fb893770fb6bf008f9432ee5b2adb846bd1"
+    },
+    {
+      "path": "insites-chatgpt/ADAPTATION.md",
+      "sha256": "ea58e10b72f24cb1a3ac0485e2e25f511dc18e9ba7ba76a5a5f509b8bd805343"
+    },
+    {
+      "path": "insites-chatgpt/BUILD-MANIFEST.json",
+      "sha256": "fe6fc0a697aac99b418f0392d8171edb41dc3725c6fbfc0d423a6ed970253888"
+    },
+    {
+      "path": "insites-chatgpt/INSTALL.md",
+      "sha256": "124b127fe145de19d204ca2fc2bbc6956019a6210e87877c284312cf10baa131"
+    },
+    {
+      "path": "insites-chatgpt/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "path": "insites-chatgpt/README.md",
+      "sha256": "1641e7ab14cd45a663de572de7efac26f8334ea792b67ca07c8a1706b1fdd88f"
+    },
+    {
+      "path": "insites-chatgpt/mcp.json",
+      "sha256": "1589d75b8f47a5a634250e3a78e947b0467e9c9419b6ab8d8bd382c0025e33b6"
+    },
+    {
+      "path": "insites-chatgpt/plugin.json",
+      "sha256": "1cde94cdbb6a421d310cf58256dccb7c8289ba711291a12dc0f094dcaec7c41f"
+    },
+    {
+      "path": "insites-chatgpt/skills/assess/SKILL.md",
+      "sha256": "499efff34220d579b07364b47b09d36b49c0d5327e6576b8e2231b7ee9b55289"
+    },
+    {
+      "path": "insites-chatgpt/skills/assess/references/continuity.md",
+      "sha256": "ded859c51dc4cb6d7ff99b4895df5b19167e9127bd357d139bb0b651348e541b"
+    },
+    {
+      "path": "insites-chatgpt/skills/assess/references/core-rules.md",
+      "sha256": "9661f7e175dc5fb47028683b534a6d25a0d08aa000150b5cb4e796fe46be916b"
+    },
+    {
+      "path": "insites-chatgpt/skills/assess/references/data-contract.md",
+      "sha256": "e96cbbf02c6f13e5a5d2385852f48deab53543a3f0133764fb1d49ce18d222a8"
+    },
+    {
+      "path": "insites-chatgpt/skills/assess/references/entity-categories.md",
+      "sha256": "bbfe06cfc9fde80349ba53b60712806fc1eddc2917083f354f7fc1e1d44f7365"
+    },
+    {
+      "path": "insites-chatgpt/skills/assess/references/hebrew-overlay.md",
+      "sha256": "b297e97c352111f9db788d8516a4538f4988d3cf860e4d23a51e92a0d0fda627"
+    },
+    {
+      "path": "insites-chatgpt/skills/assess/references/image-analysis.md",
+      "sha256": "30f12cb6869921a1c30f5a2de3aef8cbabf20772cfbb44f44045a3f826261273"
+    },
+    {
+      "path": "insites-chatgpt/skills/assess/references/session-report.md",
+      "sha256": "e4f887b4b093b59251957fce01a7b43d860b089c632233e1f18039638c71eb01"
+    },
+    {
+      "path": "insites-chatgpt/skills/assess/references/stage-0.md",
+      "sha256": "809da52963818e05b719acf3858af492f61c5fd45bc97c2779bbe745c4d6d206"
+    },
+    {
+      "path": "insites-chatgpt/skills/assess/references/stage-1.md",
+      "sha256": "5d75e6afceb84076b54c99f01510d2103490c9bc803593c08e0761a86839066a"
+    },
+    {
+      "path": "insites-chatgpt/skills/assess/references/stage-2.md",
+      "sha256": "051bcca4eb0f388f4727ee63ffa2116837e7a16f68e947b97e157fd5c771160c"
+    },
+    {
+      "path": "insites-chatgpt/skills/assess/references/stage-3.md",
+      "sha256": "e706d3ffd5b2938ce4999910c1dcdcba2dc3e6413fb903421e819817ed1b751b"
+    },
+    {
+      "path": "insites-chatgpt/skills/assess/references/stage-4.md",
+      "sha256": "d55a721bf4d7cbbbfeb985ec78f0b860e9c0d67609b86969aedd42d4f0eeac8c"
+    },
+    {
+      "path": "insites-chatgpt/skills/assess/references/stage-5.md",
+      "sha256": "bbdfa5951e8b47fbf8c773aecb4ee531a7b6cff11e62e7218c28437666731a7f"
+    },
+    {
+      "path": "insites-chatgpt/skills/assess/references/stage-6.md",
+      "sha256": "f42cd084d6f6d51ae2a7bddeebebba081981ab20a88f73a3cb37ca1aaf1dec15"
+    },
+    {
+      "path": "insites-chatgpt/skills/assess/references/vocabularies.md",
+      "sha256": "091b83de3c82be51e1afc4cb7fef7b247ba1a5be8f76c8b673e7e5a32119f99a"
+    },
+    {
+      "path": "insites-chatgpt/skills/claim-extractor/SKILL.md",
+      "sha256": "62c2396517d3ba75d7a24194f7c9c8a8dc55d1c0abe696dc4db17702252a872d"
+    },
+    {
+      "path": "insites-chatgpt/skills/connection-test/SKILL.md",
+      "sha256": "1986ae006e49a171dc7d1104d7231caaca17f6c619ca42d4e36495972e31b926"
+    },
+    {
+      "path": "insites-chatgpt/skills/dashboard/SKILL.md",
+      "sha256": "797470d7cfc737c768f6f5f88cf625ec4587c2f903be412cddffbe3c53533be8"
+    },
+    {
+      "path": "insites-chatgpt/skills/dashboard/references/continuity.md",
+      "sha256": "ded859c51dc4cb6d7ff99b4895df5b19167e9127bd357d139bb0b651348e541b"
+    },
+    {
+      "path": "insites-chatgpt/skills/dashboard/references/core-rules.md",
+      "sha256": "9661f7e175dc5fb47028683b534a6d25a0d08aa000150b5cb4e796fe46be916b"
+    },
+    {
+      "path": "insites-chatgpt/skills/dashboard/references/dashboard-foundation.md",
+      "sha256": "be99e2a7aafb1d9c6b2da35552f3a5ef2a1b645628b82c0aacc61eeef5f5e3ad"
+    },
+    {
+      "path": "insites-chatgpt/skills/dashboard/references/data-contract.md",
+      "sha256": "e96cbbf02c6f13e5a5d2385852f48deab53543a3f0133764fb1d49ce18d222a8"
+    },
+    {
+      "path": "insites-chatgpt/skills/dashboard/references/hebrew-overlay.md",
+      "sha256": "b297e97c352111f9db788d8516a4538f4988d3cf860e4d23a51e92a0d0fda627"
+    },
+    {
+      "path": "insites-chatgpt/skills/dashboard/references/notation.md",
+      "sha256": "f456f42ecd9277283ff8390c02a90e435dfc835dbdb73b6804ae9b84b5485a34"
+    },
+    {
+      "path": "insites-chatgpt/skills/knowledge-graph/SKILL.md",
+      "sha256": "37e5eab2675897315b959aea1dac84145636b8c2c52a627b72c040892a86ba0f"
+    },
+    {
+      "path": "insites-chatgpt/skills/knowledge-graph/references/continuity.md",
+      "sha256": "ded859c51dc4cb6d7ff99b4895df5b19167e9127bd357d139bb0b651348e541b"
+    },
+    {
+      "path": "insites-chatgpt/skills/knowledge-graph/references/core-rules.md",
+      "sha256": "9661f7e175dc5fb47028683b534a6d25a0d08aa000150b5cb4e796fe46be916b"
+    },
+    {
+      "path": "insites-chatgpt/skills/knowledge-graph/references/dashboard-foundation.md",
+      "sha256": "be99e2a7aafb1d9c6b2da35552f3a5ef2a1b645628b82c0aacc61eeef5f5e3ad"
+    },
+    {
+      "path": "insites-chatgpt/skills/knowledge-graph/references/data-contract.md",
+      "sha256": "e96cbbf02c6f13e5a5d2385852f48deab53543a3f0133764fb1d49ce18d222a8"
+    },
+    {
+      "path": "insites-chatgpt/skills/knowledge-graph/references/entity-categories.md",
+      "sha256": "bbfe06cfc9fde80349ba53b60712806fc1eddc2917083f354f7fc1e1d44f7365"
+    },
+    {
+      "path": "insites-chatgpt/skills/knowledge-graph/references/hebrew-overlay.md",
+      "sha256": "b297e97c352111f9db788d8516a4538f4988d3cf860e4d23a51e92a0d0fda627"
+    },
+    {
+      "path": "insites-chatgpt/skills/knowledge-graph/references/notation.md",
+      "sha256": "f456f42ecd9277283ff8390c02a90e435dfc835dbdb73b6804ae9b84b5485a34"
+    },
+    {
+      "path": "insites-chatgpt/skills/read-assessment/SKILL.md",
+      "sha256": "eef69dfccd21ccdfa1f74a92062988c9fbd72023f32ee091bdc02cf8a9688799"
+    },
+    {
+      "path": "insites-chatgpt/skills/read-assessment/references/core-rules.md",
+      "sha256": "9661f7e175dc5fb47028683b534a6d25a0d08aa000150b5cb4e796fe46be916b"
+    },
+    {
+      "path": "insites-chatgpt/skills/read-assessment/references/data-contract.md",
+      "sha256": "e96cbbf02c6f13e5a5d2385852f48deab53543a3f0133764fb1d49ce18d222a8"
+    },
+    {
+      "path": "insites-chatgpt/skills/read-assessment/references/hebrew-overlay.md",
+      "sha256": "b297e97c352111f9db788d8516a4538f4988d3cf860e4d23a51e92a0d0fda627"
+    },
+    {
+      "path": "insites-chatgpt/skills/read-assessment/references/notation.md",
+      "sha256": "f456f42ecd9277283ff8390c02a90e435dfc835dbdb73b6804ae9b84b5485a34"
+    },
+    {
+      "path": "insites-chatgpt/skills/read-assessment/references/vocabularies.md",
+      "sha256": "091b83de3c82be51e1afc4cb7fef7b247ba1a5be8f76c8b673e7e5a32119f99a"
+    },
+    {
+      "path": "insites-chatgpt/skills/read-collection/SKILL.md",
+      "sha256": "df933fdab8000491cb00c58a87763e816b3724d513a3707a663da3712ff8b12b"
+    },
+    {
+      "path": "insites-chatgpt/skills/read-collection/references/collection-dashboard.md",
+      "sha256": "0a680fd7dd40699bd6c905fba42df85153faa746ed474a0da07249ffdd218188"
+    },
+    {
+      "path": "insites-chatgpt/skills/read-collection/references/core-rules.md",
+      "sha256": "9661f7e175dc5fb47028683b534a6d25a0d08aa000150b5cb4e796fe46be916b"
+    },
+    {
+      "path": "insites-chatgpt/skills/read-collection/references/dashboard-foundation.md",
+      "sha256": "be99e2a7aafb1d9c6b2da35552f3a5ef2a1b645628b82c0aacc61eeef5f5e3ad"
+    },
+    {
+      "path": "insites-chatgpt/skills/read-collection/references/data-contract.md",
+      "sha256": "e96cbbf02c6f13e5a5d2385852f48deab53543a3f0133764fb1d49ce18d222a8"
+    },
+    {
+      "path": "insites-chatgpt/skills/read-collection/references/hebrew-overlay.md",
+      "sha256": "b297e97c352111f9db788d8516a4538f4988d3cf860e4d23a51e92a0d0fda627"
+    },
+    {
+      "path": "insites-chatgpt/skills/read-collection/references/notation.md",
+      "sha256": "f456f42ecd9277283ff8390c02a90e435dfc835dbdb73b6804ae9b84b5485a34"
+    },
+    {
+      "path": "insites-chatgpt/skills/read-collection/references/vocabularies.md",
+      "sha256": "091b83de3c82be51e1afc4cb7fef7b247ba1a5be8f76c8b673e7e5a32119f99a"
+    },
+    {
+      "path": "insites-chatgpt/skills/stage-spec/SKILL.md",
+      "sha256": "a16acd1f5b1e9e86ccca6e9ca4bdb7c89f4a9f6394f2f1f033f3f4eec10a1060"
+    },
+    {
+      "path": "insites-chatgpt/skills/stage-spec/references/core-rules.md",
+      "sha256": "9661f7e175dc5fb47028683b534a6d25a0d08aa000150b5cb4e796fe46be916b"
+    },
+    {
+      "path": "insites-chatgpt/skills/stage-spec/references/data-contract.md",
+      "sha256": "e96cbbf02c6f13e5a5d2385852f48deab53543a3f0133764fb1d49ce18d222a8"
+    },
+    {
+      "path": "insites-chatgpt/skills/stage-spec/references/hebrew-overlay.md",
+      "sha256": "b297e97c352111f9db788d8516a4538f4988d3cf860e4d23a51e92a0d0fda627"
+    },
+    {
+      "path": "insites-chatgpt/skills/stage-spec/references/notation.md",
+      "sha256": "f456f42ecd9277283ff8390c02a90e435dfc835dbdb73b6804ae9b84b5485a34"
+    },
+    {
+      "path": "insites-chatgpt/skills/stage-spec/references/stage-0.md",
+      "sha256": "4c9a5894da37f9fb909d4bc3f6ea4e1af98b92fcf765df92d7199c8188db4c6f"
+    },
+    {
+      "path": "insites-chatgpt/skills/stage-spec/references/stage-1.md",
+      "sha256": "333fd560d1f172147fde644df746b0f990d0655d3b171ec619f232572615b5db"
+    },
+    {
+      "path": "insites-chatgpt/skills/stage-spec/references/stage-2.md",
+      "sha256": "bfb47f5ccb5c689c273180d8e87acd9795f0f865ea0dd20c49fb5fd9a452b1c3"
+    },
+    {
+      "path": "insites-chatgpt/skills/stage-spec/references/stage-3.md",
+      "sha256": "f191d754ceb42d4b94b3a489d7c3c4765a3e467ea64e3a8bf1a56e4c46da01af"
+    },
+    {
+      "path": "insites-chatgpt/skills/stage-spec/references/stage-4.md",
+      "sha256": "5bb467f615d076686c1988cbfad787f83060db170977aa2d71607a55578c4968"
+    },
+    {
+      "path": "insites-chatgpt/skills/stage-spec/references/stage-5.md",
+      "sha256": "9624a3e4c265299ecde1f8eb9c9b8a124f4ef4083cded496afa7799732b68a65"
+    },
+    {
+      "path": "insites-chatgpt/skills/stage-spec/references/stage-6.md",
+      "sha256": "37abe4ba54329344fb88f283488078aa7f3c13252d3093c246ca8a8e798b0cff"
+    },
+    {
+      "path": "insites-chatgpt/skills/stage-spec/references/vocabularies.md",
+      "sha256": "091b83de3c82be51e1afc4cb7fef7b247ba1a5be8f76c8b673e7e5a32119f99a"
+    }
+  ]
+}

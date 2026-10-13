@@ -10,7 +10,7 @@ async function zip(folder, destination) {
 }
 
 async function sourceZip(destination) {
-  const code = 'import pathlib,sys,zipfile; p=pathlib.Path(sys.argv[1]); z=zipfile.ZipFile(sys.argv[2],"w",zipfile.ZIP_DEFLATED); roots=["adapter","config","scripts","server","shared","web","fixtures","tests"]; files=[p/x for x in ["package.json","package-lock.json","README.md","Dockerfile",".dockerignore",".gcloudignore"]]; files += [f for r in roots for f in (p/r).rglob("*") if f.is_file() and "dist" not in f.relative_to(p).parts]; [z.write(f, (pathlib.Path(p.name)/f.relative_to(p)).as_posix()) for f in sorted(files)]; z.close()';
+  const code = 'import pathlib,sys,zipfile; p=pathlib.Path(sys.argv[1]); z=zipfile.ZipFile(sys.argv[2],"w",zipfile.ZIP_DEFLATED); roots=["adapter","config","distribution","scripts","server","shared","web","fixtures","tests"]; files=[p/x for x in ["package.json","package-lock.json","README.md","Dockerfile",".dockerignore",".gcloudignore"]]; files += [f for r in roots for f in (p/r).rglob("*") if f.is_file() and "dist" not in f.relative_to(p).parts]; [z.write(f, (pathlib.Path(p.name)/f.relative_to(p)).as_posix()) for f in sorted(files)]; z.close()';
   await new Promise((resolvePromise, reject) => { const child = spawn('python', ['-c', code, root, destination], { windowsHide: true, stdio: 'inherit' }); child.on('error', reject); child.on('exit', code => code === 0 ? resolvePromise() : reject(new Error('Source ZIP failed'))); });
 }
 

@@ -37,6 +37,16 @@ contains no MCP declaration; its MCP app is connected separately. Generated
 files under `dist/`, `web/dist/`, and `artifacts/` are never edited or committed.
 The plugin package and Cloud Run service are updated as separate operations.
 
+For a recipient's private Plugin Creator import, run `npm.cmd run package:delivery`.
+This writes the complete archive to `downloads/insites-chatgpt.zip` at the repository
+root, with the account-independent remote MCP declarations and
+[`distribution/INSTALL.md`](distribution/INSTALL.md) included inside. That delivery
+archive and its SHA-256 inspection record are intentionally tracked for download
+from `dev`; the other build products remain ignored. No local installer is needed.
+The recipient uses Plugin Creator's private archive creation tool, installs the
+result, and verifies tool and widget delivery in their own account. Package checks
+do not establish another account's feature eligibility or host acceptance.
+
 The local development command `npm.cmd run dev` can still start a loopback
 server through ngrok, or `npm.cmd run dev -- --cloudflare` through Cloudflare.
 Passing an explicit HTTPS `/mcp` URL to `scripts/package.mjs` is supported only
