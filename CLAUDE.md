@@ -23,7 +23,7 @@ A paper rests on this repository: *From Report to Inquiry: Governing Generative 
 | `studies/heritage4.0-tuba-2026/` | The research record the paper cites. `system/` holds the specification **as it ran**; `session/` the transcript; `protocols/` the observation protocol; `coding/` the claim-level dataset and the extraction runs; `sources/README.md` the citations for the three assessed documents |
 | `studies/Cultural-InSites-Paper/` | A second, unrelated historical record: the specification a class of students used, run on DeepSeek-V3. Static; cite the tagged snapshot `cultural-insites-v1.0`. Same rule as above — never synchronise it with `system/` |
 | `tools/claim-extractor/` | The protocol that produced the coding |
-| `sites-data/` | A listing of practice documents. The documents themselves are third-party and are not here |
+| `sites-data/` | A listing of practice documents. Third-party documents are not here; the few authored by the lab (the Ayelet water tower, the descriptions of three Christian sites) are tracked deliberately |
 
 **Licences differ.** Apache-2.0 for `system/` and `tools/`, **except** `system/atar-runtime/`, which is MIT because that is how the package is published. CC BY 4.0 for `docs/` and `studies/`. See `LICENSING.md`.
 
@@ -59,7 +59,7 @@ The percentages inside `studies/heritage4.0-tuba-2026/coding/` describe that dat
 
 - **`local-work/`** — the working draft of the paper and internal notes. Ignored by git. **Read it for reference; never edit it from a session here.** The paper is edited in Word by the author with tracked changes. If the repository contradicts the paper, report it and let the author decide which is wrong.
 - **`Papers/`** — drafts of other papers and reviewer correspondence, in the private tree. Ignored, and never to be copied in.
-- **The three assessed heritage documents, and everything in `sites-data/`.** Third-party works; rights are not ours. The repository offers the citation, not the document.
+- **The three assessed heritage documents, and the third-party documents listed in `sites-data/`.** Third-party works; rights are not ours. The repository offers the citation, not the document. The exceptions are the documents in `sites-data/` authored by the lab (the Ayelet water tower; the descriptions of three Christian sites), which are tracked deliberately; images extracted from them are not.
 - **`_archive/`** — files withdrawn from publication on 31 July, kept on disk under their original paths. `_archive/README.md` gives the reason for each. **Read that reason before restoring anything**; each was withdrawn on a specific ground, not swept up in a tidy.
 - **`TODO.md` and `PLAN.md`** — the publication working sheet and the execution plan. Working files, deliberately local.
 - **`studies/heritage4.0-tuba-2026/system/PROVENANCE.md`** — the forensic note on which version ran. It is untracked on purpose: it argues from commit hashes in a private repository that no reader can check. Its reader-facing conclusions are in that folder's `README.md`, under "What ran". Do not re-add it.

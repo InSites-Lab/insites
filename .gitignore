@@ -38,6 +38,9 @@ studies/**/*.pdf
 sites-data/**/*.pdf
 sites-data/**/*.doc*
 sites-data/**/*.xls*
+sites-data/**/*.jpg
+sites-data/**/*.jpeg
+sites-data/**/*.png
 !sites-data/README.md
 !sites-data/Ayelet-waterTower/Ayelet-WT.docx
 !sites-data/sites-of-christianity/Description_Beatitude.pdf
