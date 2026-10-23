@@ -1,33 +1,32 @@
 # The InSites system
 
-InSites is a **specification** that a language model executes stage by stage, with an expert review between stages. It is authored rather than trained: there is no code, no orchestration framework and no fine-tuning. What is here is what runs.
+InSites is an AI environment for cultural significance assessment. Its core is a natural-language **specification** that a general-purpose language model executes as a human-gated agentic workflow of seven stages, pausing after every stage for expert review. The specification is what carries out the assessment; it is authored rather than trained, with no orchestration framework and no fine-tuning. The code here renders the knowledge graph and the dashboards, or packages and serves an edition; none of it performs the assessment.
 
-The specification has four platform editions. **Load the appropriate files, upload a heritage document, and type `start`.** For DeepSeek, follow the [student guide](deepseek/README.md); for Claude, see its [quick start](claude/README.md). The system runs Stage 0, reports what the documentation base lacks, and pauses for your review.
+The specification has an edition for each platform below. **Load the appropriate files, upload a heritage document, and type `start`.** For Claude and ChatGPT, start from their pages, [`claude/`](claude/README.md) and [`gpt/`](gpt/README.md), which set each platform's two editions side by side; for DeepSeek, follow the [student guide](deepseek/README.md). The system runs Stage 0, reports what the documentation base lacks, and pauses for your review.
 
 **Claude has two editions of the same specification**: the single file, and a plugin installed to your account. Use one or the other, never both in one conversation; [`claude/README.md`](claude/README.md) sets them side by side.
 
 | Platform | Copy this | Form |
 |---|---|---|
-| **Claude** | [`claude/V-11.5/InSites-claude-v11.5.md`](claude/V-11.5/InSites-claude-v11.5.md) | One file |
-| **Claude, as a plugin** | [`claude-plugin/insites/`](claude-plugin/insites/) — add the marketplace `InSites-Lab/insites`, then say **begin assessment**. **Development version: not yet validated for formal assessments; use at your own discretion** | The same text as the Claude file, split into skills |
+| **Claude** | [`claude/`](claude/README.md): a plugin installed to your account (**development version: not yet validated for formal assessments; use at your own discretion**), or the single file [`claude/V-11.5/InSites-claude-v11.5.md`](claude/V-11.5/InSites-claude-v11.5.md) | Plugin, or one file |
+| **ChatGPT** | [`gpt/`](gpt/README.md): a Custom GPT from [`gpt/V-11.4/en/instructions.md`](gpt/V-11.4/en/instructions.md) and the knowledge files beside it, or the ChatGPT Desktop plugin (development) | Instructions + knowledge files, or a plugin |
 | **DeepSeek** | [`deepseek/InSites-deepseek-V2.md`](deepseek/InSites-deepseek-V2.md) | One file; [student guide](deepseek/README.md) |
 | **Google Gemini** | [`gemini/V-11.4/InSites-CAA-GEM-v11.4.md`](gemini/V-11.4/InSites-CAA-GEM-v11.4.md) | One file |
-| **ChatGPT** | [`gpt/V-11.4/en/instructions.md`](gpt/V-11.4/en/instructions.md) plus the knowledge files beside it | Instructions + knowledge files |
 
 ## Versions
 
-The four implementations are ports of the same architecture. The version number records the specification generation, not performance.
+The implementations are ports of the same architecture. The version number records the specification generation, not performance.
 
 | Platform | Version | Last changed | Form |
 |---|---|---|---|
-| Claude | v11.5 | September 2026 | One file. The Tuba-Zangariyye study ran on an earlier version archived in [`../studies/heritage4.0-tuba-2026/system/`](../studies/heritage4.0-tuba-2026/system/) — not on the file here |
+| Claude | v11.5 | October 2026 | One file. The Tuba-Zangariyye study ran on an earlier version archived in [`../studies/heritage4.0-tuba-2026/system/`](../studies/heritage4.0-tuba-2026/system/) — not on the file here |
 | DeepSeek | V2 | September 2026 | One file; English/Chinese course edition. Epistemic marks remain in assessment/readings, not the KG |
 | Gemini | v11.4 | September 2026 | One file |
 | ChatGPT | v11.4 | September 2026 | `instructions.md` plus the knowledge files beside it |
 
-V11.4 removes the requirement to produce a bidirectional context-effect finding. It tests each direction independently and accepts two-way, one-way, and “no supported effect identified” outcomes. Previous working Claude versions are kept locally; the public Claude folder contains only the current edition and its guide.
+V11.4 removes the requirement to produce a bidirectional context-effect finding. It tests each direction independently and accepts two-way, one-way, and “no supported effect identified” outcomes. Previous working versions are kept locally, not in this repository.
 
-**Do not read the differences between platforms as performance.** They are ports of one specification to four instruction formats, they have not been compared, and this repository makes no claim about which runs it better.
+**Do not read the differences between platforms as performance.** They are ports of one specification to different instruction formats, they have not been compared, and this repository makes no claim about which runs it better.
 
 ## Modules and editions
 
@@ -35,23 +34,15 @@ The Claude specification is also held as modules in [`modules/`](modules/), one 
 
 The build script assembles editions from the modules: the [Claude plugin](claude-plugin/insites/), where each part becomes a skill read when its task arrives, and the joined single file (`--monolith`). It joins and copies text and nothing it produces runs as code, so the specification is still what runs. The plugin folder is generated: edit the modules and the wrappers in [`build/claude-plugin/`](build/claude-plugin/), then rebuild.
 
-The [ChatGPT plugin source](chatgpt-plugin/) builds skills from the modules and includes the stateless MCP server and viewer. Its generated packages are kept out of Git.
+The [ChatGPT plugin source](chatgpt-plugin/) builds skills from the modules and includes the stateless MCP server and viewer. Its generated packages are kept out of Git, except the delivery archive in [`../downloads/`](../downloads/). How the editions are built from one source: [`../docs/plugin-architecture.md`](../docs/plugin-architecture.md); how to edit and build the modules: [`modules/README.md`](modules/README.md).
 
 ## Why multiple platforms
 
-The architecture is a file. It carries no dependency on a particular model, and the four implementations exist to make that concrete rather than to assert it. That matters for the claim the paper makes: what the study observed belongs to the structure of the interaction between an expert and the system, not to the capability of one model.
+The architecture is a file. It carries no dependency on a particular model, and the implementations exist to make that concrete rather than to assert it. That matters for the claim the paper makes: what the study observed belongs to the structure of the interaction between an expert and the system, not to the capability of one model.
 
 ## The ChatGPT knowledge files
 
-ChatGPT splits what the single-file editions carry together. `instructions.md` holds the workflow; the rest are loaded as knowledge:
-
-`cbsa-stages.md` the stage specifications · `cbsa-appendices.md` the taxonomies and reference material · `kg-spec.md`, `dashboard-spec.md`, `collection-dashboard-spec.md`, `report-tab-spec.md` the rendered outputs · `ma-ra-spec.md`, `ma-rc-spec.md` the read-assessment and read-collection workflows.
-
-**These are runtime inputs**, written to be loaded by the platform rather than read. Where the same mechanism is also explained for a reader, that explanation is in [`../docs/`](../docs/) — the two serve different jobs and neither is a copy of the other.
-
-### Hebrew ChatGPT port
-
-The Hebrew workshop port is developed separately in [`gpt/V-11.4/hebrew/`](gpt/V-11.4/hebrew/). It does not replace or modify the English GPT in `gpt/V-11.4/en/`; the English files remain canonical. Its nine runtime files remain a candidate for Preview review until the behavioral change passes ChatGPT Preview checks in both a builder and participant account.
+The Custom GPT splits what the single-file editions carry together: `instructions.md` holds the workflow and the rest are loaded as knowledge. What each file holds, and the Hebrew workshop port, are described in [`gpt/README.md`](gpt/README.md).
 
 ## The files the specifications name
 
