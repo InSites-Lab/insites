@@ -1,6 +1,6 @@
 # Specification modules
 
-This folder is the **source** of the InSites specification, held as one module per section. It is for maintainers. To run an assessment you do not need it: use an edition from [`../claude/`](../claude/README.md), [`../chatgpt/`](../chatgpt/README.md) or the other platform folders.
+This folder is the **source** of the InSites specification, held as one module per section. It is for anyone who edits or adapts the specification. To run an assessment you do not need it: use an edition from [`../claude/`](../claude/README.md), [`../chatgpt/`](../chatgpt/README.md) or the other platform folders.
 
 [`manifest.json`](manifest.json) lists the modules in order. Joined in that order they are the single-file Claude edition, word for word.
 

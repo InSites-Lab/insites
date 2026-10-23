@@ -28,6 +28,6 @@ A Hebrew workshop port is developed separately in [`custom-gpt/hebrew/`](custom-
 
 Follow the four steps in [`downloads/README.md`](downloads/README.md); the same instructions are inside the ZIP. The plugin carries eight skills and a connection to the InSites MCP server, which serves the viewer for the knowledge graph and the dashboards. That server is unauthenticated: do not send private assessment material.
 
-## For maintainers
+## Source and build
 
 The plugin's source is [`plugin/`](plugin/). It builds the eight skills from the same [modules](../modules/) as the Claude editions and includes the stateless MCP server and its viewer; its README gives the build and packaging steps. The Custom GPT files are maintained as a separate port.

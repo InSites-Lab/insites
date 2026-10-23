@@ -45,7 +45,9 @@ Upload a heritage document first. The system opens with Stage 0, which reports w
 
 The findings reported in the paper belong to **one run of one version** of the Claude implementation, archived in `studies/heritage4.0-tuba-2026/system/`. The specification in `system/` has developed since, partly because of what that session exposed: a rule now forbids advancing after a revision until the expert confirms, the prose around a mark must match its epistemic status, and synthesis carries a different mark. **The two are not comparable as performance**, and the paper does not compare them. Cite the tagged record for findings and the live specification for architecture.
 
-## For maintainers
+## Source and build
+
+To adapt InSites to your own work, fork the repository; the specification is open under Apache-2.0.
 
 - [`system/modules/`](system/modules/): the specification source, one module per section. The Claude editions and the ChatGPT plugin are built from it.
 - [`system/build/`](system/build/): `node system/build/build.mjs` builds the Claude plugin; `--check` confirms that the modules equal the single file.

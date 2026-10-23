@@ -35,6 +35,6 @@ No mark means stated in sources; 〰️ marks inference; 💭 marks interpretati
 
 לעבודה בעברית, בקשו בתחילת השיחה לעבוד בעברית. לאחר כל שלב אפשר לבקש הרחבה, לתקן או לאשר המשך. שמרו את המקורות ואת התוצרים שאישרתם.
 
-## For maintainers
+## Source and build
 
 Both editions are generated; do not edit them directly. The source is [`../modules/`](../modules/), and the build is [`../build/build.mjs`](../build/build.mjs). The plugin's wrappers live in [`../build/claude-plugin/`](../build/claude-plugin/), and [`.claude-plugin/marketplace.json`](../../.claude-plugin/marketplace.json) at the repository root is what makes `InSites-Lab/insites` a marketplace. See [`docs/plugin-architecture.md`](../../docs/plugin-architecture.md).
