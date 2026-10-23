@@ -29,18 +29,17 @@ p,.questions li,.pubs li,.status{text-align:justify;hyphens:auto;-webkit-hyphens
 .wrap{max-width:848px;margin:0 auto;padding:0 24px}
 header.top{border-bottom:1px solid var(--line)}
 nav{display:flex;flex-wrap:wrap;gap:18px 28px;align-items:center;justify-content:space-between;padding:18px 0;font-size:.9rem}
-nav .brand{font-family:"Literata",serif;font-weight:600;font-size:1.05rem;color:var(--ink);text-decoration:none}
+nav .brand{display:flex;align-items:center}
+nav .brand img{display:block;height:40px;width:auto;mix-blend-mode:multiply}
+@media (prefers-color-scheme: dark){nav .brand img{mix-blend-mode:normal;background:#fff;padding:4px 6px;border-radius:4px}}
 nav ul{list-style:none;margin:0;padding:0;display:flex;gap:22px;flex-wrap:wrap}
 nav a{color:var(--ink-2);text-decoration:none}
 nav a:hover{color:var(--accent)}
-.hero{padding:72px 0 56px;border-bottom:1px solid var(--line)}
-.eyebrow{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);font-weight:500;margin-bottom:14px}
+.hero{padding:56px 0;border-bottom:1px solid var(--line)}
 .hero .sub{font-family:"Literata",serif;font-size:clamp(1.15rem,2.4vw,1.35rem);font-weight:500;color:var(--ink-2);margin-top:18px}
 @media (max-width:900px){.hero .sub br{display:none}}
 .hero .aff{margin-top:28px;font-size:.95rem;color:var(--ink-2)}
 .hero-grid{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center}
-.logo{display:block;width:170px;height:auto;margin:0 0 16px;mix-blend-mode:multiply}
-@media (prefers-color-scheme: dark){.logo{mix-blend-mode:normal;background:#fff;padding:6px;border-radius:6px}}
 .emblem{margin:0}
 .emblem img{display:block;width:220px;height:220px;border-radius:50%;border:1px solid var(--line)}
 .emblem figcaption{margin-top:10px;max-width:220px;font-size:.75rem;color:var(--ink-2);text-align:center}
@@ -70,7 +69,7 @@ footer p{margin:.3rem 0}
 
 <header class="top"><div class="wrap">
 <nav>
-  <a class="brand" href="#">InSites Knowledge Lab</a>
+  <a class="brand" href="#"><img src="insites-logo.jpg" width="733" height="276" alt="InSites Knowledge Lab"></a>
   <ul>
     <li><a href="#research">Research</a></li>
     <li><a href="#projects">Projects</a></li>
@@ -82,13 +81,11 @@ footer p{margin:.3rem 0}
 </div></header>
 
 <div class="hero"><div class="wrap">
-  <div class="eyebrow">Faculty of Architecture and Town Planning · Technion – Israel Institute of Technology</div>
   <div class="hero-grid">
     <div>
-      <img class="logo" src="insites-logo.jpg" width="733" height="276" decoding="async" alt="InSites">
       <h1>InSites Knowledge Lab</h1>
       <p class="sub">Computational and knowledge-modelling methods <br>in the assessment of built cultural heritage</p>
-      <p class="aff">Head: <a href="https://architecture.technion.ac.il/members/yael-alef/">Assoc. Prof. Yael Alef</a> · Established 2026</p>
+      <p class="aff">Faculty of Architecture and Town Planning<br>Technion – Israel Institute of Technology<br>Head: <a href="https://architecture.technion.ac.il/members/yael-alef/">Assoc. Prof. Yael Alef</a> · Established 2026</p>
     </div>
     <figure class="emblem">
       <img src="lab-alice.jpg" width="220" height="220" decoding="async" alt="Illustration in a classical gallery: Alice, the White Rabbit and the Hatter face a luminous figure drawn as a knowledge graph, among heritage objects, a statue and a robot.">
