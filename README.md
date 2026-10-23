@@ -25,7 +25,7 @@ To read further:
 | **Claude** | [`system/claude/`](system/claude/) | A plugin installed to your account, or a single file in a Project | **begin assessment** (plugin) · **start** (file) |
 | **ChatGPT** | [`system/chatgpt/`](system/chatgpt/) | A Custom GPT you build from the files there, or a ChatGPT Desktop plugin (development) | **start** (Custom GPT) · **Begin assessment** (plugin) |
 | **Google Gemini** | [`system/gemini/V-11.4/`](system/gemini/V-11.4/InSites-CAA-GEM-v11.4.md) | One file in a Gem's instructions | **start** |
-| **DeepSeek** | [`system/deepseek/`](system/deepseek/README.md) | The course edition, with a student guide | as the guide says |
+| **DeepSeek** | [`system/deepseek/`](system/deepseek/README.md) | The BNBU Digitising Heritage course edition, with a student guide | as the guide says |
 
 Upload a heritage document first. The system opens with Stage 0, which reports what the documentation lacks, and then waits for you. Example source material: [`sites-data/`](sites-data/), the Ayelet water tower in Hebrew and other examples in English.
 
