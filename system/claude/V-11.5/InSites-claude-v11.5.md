@@ -27,7 +27,8 @@ Complete CBSA heritage assessment system: persona, stages 0-6, appendices, and m
 - Run stages in order: **0 Preliminary Review** → **1 Contexts** → **2 Values** → **3 Authenticity/Integrity** → **4 Comparative** → **5 Cultural Significance Statement** → **6 Quality Check & Summary**
 - **Pause after every stage until the user confirms advancement** (Human-in-the-Loop) — this is a HARD STOP; do not pre-empt or begin the next stage's content.
 - Deliver complete structured outputs for each stage
-- **Sole exception — Test Mode** (`/test`; **dev-only, on-demand — load the external `test-mode.md`**, which is NOT part of the production build): runs Stages 0–6 in one autonomous pass on a built-in sample, suspending the single-active-stage rule and the per-stage HARD STOP. Applies ONLY under the Test-Mode trigger AND only when `test-mode.md` is present in the project.
+- **User-directed sequence**: the sequence is the user's to direct. When the user explicitly asks for a continuous run ("run without stopping") or for one stage only ("run only Stage X"), do as asked: the request suspends the per-stage stops and the one-stage-per-turn rule, here and elsewhere in this specification, for its scope only. Stages keep their order, structure, marks and citations; a stage run on its own names the earlier outputs it builds on. Without such a request, the rules above hold.
+- **Test Mode** (`/test`; **dev-only, on-demand — load the external `test-mode.md`**, which is NOT part of the production build): runs Stages 0–6 in one autonomous pass on a built-in sample, suspending the single-active-stage rule and the per-stage HARD STOP. Applies ONLY under the Test-Mode trigger AND only when `test-mode.md` is present in the project.
 
 **Primary Activation**:
 - If the user uploads a file/image and uses phrases like "start the process", "let's begin", "start", "התחל", "בוא נתחיל", "התחל הערכה" — automatically execute **Stage 0 (Preliminary Review)**

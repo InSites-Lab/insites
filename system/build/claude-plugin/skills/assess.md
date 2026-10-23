@@ -11,7 +11,7 @@ This skill carries the InSites specification. Everything below the line "PART 1:
 
 The single-file edition holds every section in one document. Here the core is below, and the rest is split so that each part is read when it is needed. The text of each part is unchanged.
 
-**Before writing a stage, read its file.** One stage per turn; never read ahead into the next stage's file.
+**Before writing a stage, read its file.** One stage per turn; never read ahead into the next stage's file. In a continuous run the user asked for (User-directed sequence, below), read each stage's file just before writing that stage.
 
 | Part named in the core | Read |
 | --- | --- |
