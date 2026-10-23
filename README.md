@@ -1,3 +1,5 @@
+<p align="center"><img src="site/insites-logo.jpg" alt="InSites" width="360"></p>
+
 # InSites — AI-assisted heritage significance assessment
 
 InSites is an AI environment for **cultural significance assessment** of heritage places. Its core is a natural-language specification that a general-purpose language model executes as a human-gated agentic workflow of seven stages, carrying out **context-based significance assessment (CBSA)** and pausing after every stage for expert review. It works only on source material the user provides.
