@@ -32,6 +32,8 @@ Governance is not only a layer running inside the analysis. It brackets the anal
 
 Nothing enforces it. The specification requires one stage per turn in fixed order and works as a state machine written in prose, but sequencing is a behaviour the specification asks for and not a constraint a runtime imposes. This matters for reading the system honestly: a prompt-level rule can be broken, and when it is, the expert is the mechanism that catches it.
 
+The sequence is the user's to direct. By default the workflow stops after every stage; on explicit request it runs the stages without stopping, usually for technical testing rather than assessment, or runs a single stage on its own.
+
 Each of Stages 1 to 6 opens with a brief on the previous stage's findings, closes with one reflection question, and pauses for review. The specification requires a question a specialist could answer in more than one way.
 
 ## Epistemic notation
