@@ -1,4 +1,4 @@
-<p align="center"><img src="site/insites-logo.jpg" alt="InSites" width="360"></p>
+<p align="center"><img src="site/insites-logo.jpg" alt="InSites" width="200"></p>
 
 # InSites — AI-assisted heritage significance assessment
 
