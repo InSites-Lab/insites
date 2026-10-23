@@ -1,6 +1,8 @@
-<p align="center"><img src="site/insites-logo.jpg" alt="InSites" width="200"></p>
+<p align="center"><a href="https://insites-lab.github.io/"><img src="site/insites-logo.jpg" alt="InSites" width="220"></a></p>
 
 # InSites — AI-assisted heritage significance assessment
+
+A project of the **[InSites Knowledge Lab](https://insites-lab.github.io/)**, Faculty of Architecture and Town Planning, Technion – Israel Institute of Technology.
 
 InSites is an AI environment for **cultural significance assessment** of heritage places. Its core is a natural-language specification that a general-purpose language model executes as a human-gated agentic workflow of seven stages, carrying out **context-based significance assessment (CBSA)** and pausing after every stage for expert review. It works only on source material the user provides.
 
