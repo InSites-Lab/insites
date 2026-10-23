@@ -35,7 +35,7 @@ Upload a heritage document first. The system opens with Stage 0, which reports w
 
 ## In development
 
-A research instrument built on the same specification, which records and audits each claim, is in development as a private prototype.
+**Vera: agentic verification for InSites.** A research instrument that runs the same specification, has an independent agent audit the epistemic mark of every claim, and records the expert's decision on each one. In development as a private prototype.
 
 ## The research record
 
