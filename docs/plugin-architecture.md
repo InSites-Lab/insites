@@ -17,7 +17,7 @@ flowchart LR
   C --> G["ChatGPT Desktop plugin<br/>8 skills + MCP viewer"]
 ```
 
-The specification is edited as modules, one per section. A build script joins them into the single file or splits them into the Claude plugin. The script only copies text and runs no code of its own, so what runs is still the specification. A check confirms that the joined modules equal the single file. The ChatGPT Desktop plugin has its own build, in [`system/chatgpt-plugin/`](../system/chatgpt-plugin/), which reads the same modules.
+The specification is edited as modules, one per section. A build script joins them into the single file or splits them into the Claude plugin. The script only copies text and runs no code of its own, so what runs is still the specification. A check confirms that the joined modules equal the single file. The ChatGPT Desktop plugin has its own build, in [`system/chatgpt/plugin/`](../system/chatgpt/plugin/), which reads the same modules.
 
 ## Inside the plugin
 

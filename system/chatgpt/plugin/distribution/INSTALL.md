@@ -3,7 +3,7 @@
 Early development version, not yet for use in formal assessments. Use
 non-confidential trial material.
 
-1. Download [insites-chatgpt.zip](https://github.com/InSites-Lab/insites/raw/refs/heads/dev/downloads/insites-chatgpt.zip).
+1. Download [insites-chatgpt.zip](https://github.com/InSites-Lab/insites/raw/main/system/chatgpt/downloads/insites-chatgpt.zip).
 2. Open **ChatGPT Desktop** in your **Personal** account. Find **Plugin Creator**
    under Plugins and install it if needed. Start a Work conversation with
    `@Plugin Creator` and attach the ZIP.

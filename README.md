@@ -11,7 +11,7 @@ The specification is what carries out the assessment. The code around it renders
 | Platform | Go to | What you load | First words |
 |---|---|---|---|
 | **Claude** | [`system/claude/`](system/claude/) | A plugin installed to your account, or a single file in a Project | **begin assessment** (plugin) · **start** (file) |
-| **ChatGPT** | [`system/gpt/`](system/gpt/) | A Custom GPT you build from the files there, or a ChatGPT Desktop plugin (development) | **start** (Custom GPT) · **Begin assessment** (plugin) |
+| **ChatGPT** | [`system/chatgpt/`](system/chatgpt/) | A Custom GPT you build from the files there, or a ChatGPT Desktop plugin (development) | **start** (Custom GPT) · **Begin assessment** (plugin) |
 | **Google Gemini** | [`system/gemini/V-11.4/`](system/gemini/V-11.4/InSites-CAA-GEM-v11.4.md) | One file in a Gem's instructions | **start** |
 | **DeepSeek** | [`system/deepseek/`](system/deepseek/README.md) | The course edition, with a student guide | as the guide says |
 
@@ -45,7 +45,7 @@ The findings reported in the paper belong to **one run of one version** of the C
 
 - [`system/modules/`](system/modules/): the specification source, one module per section. The Claude editions and the ChatGPT plugin are built from it.
 - [`system/build/`](system/build/): `node system/build/build.mjs` builds the Claude plugin; `--check` confirms that the modules equal the single file.
-- [`system/chatgpt-plugin/`](system/chatgpt-plugin/): source of the ChatGPT plugin and its MCP server.
+- [`system/chatgpt/plugin/`](system/chatgpt/plugin/): source of the ChatGPT plugin and its MCP server.
 - [`system/atar-runtime/`](system/atar-runtime/): the code that renders the knowledge graph and the dashboards, published on npm.
 
 ## Citation

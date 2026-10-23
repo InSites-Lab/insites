@@ -38,8 +38,7 @@ files under `dist/`, `web/dist/`, and `artifacts/` are never edited or committed
 The plugin package and Cloud Run service are updated as separate operations.
 
 For a recipient's private Plugin Creator import, run `npm.cmd run package:delivery`.
-This writes the complete archive to `downloads/insites-chatgpt.zip` at the repository
-root, with the account-independent remote MCP declarations and
+This writes the complete archive to `system/chatgpt/downloads/insites-chatgpt.zip`, with the account-independent remote MCP declarations and
 [`distribution/INSTALL.md`](distribution/INSTALL.md) included inside. That delivery
 archive and its SHA-256 inspection record are intentionally tracked for download
 from the repository; the other build products remain ignored. No local installer is needed.

@@ -1,7 +1,7 @@
 # Dependencies and build products — never commit
 node_modules/
 package-lock.json
-!system/chatgpt-plugin/package-lock.json
+!system/chatgpt/plugin/package-lock.json
 system/atar-runtime/dist/
 .venv/
 __pycache__/

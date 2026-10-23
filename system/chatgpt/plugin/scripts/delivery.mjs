@@ -80,8 +80,8 @@ with zipfile.ZipFile(sys.argv[2],"w",zipfile.ZIP_DEFLATED) as z:
 }
 
 export async function createDelivery(portable, {
-  endpoint, archivePath = resolve(repo, 'downloads/insites-chatgpt.zip'),
-  recordPath = resolve(repo, 'downloads/insites-chatgpt-package.json')
+  endpoint, archivePath = resolve(repo, 'system/chatgpt/downloads/insites-chatgpt.zip'),
+  recordPath = resolve(repo, 'system/chatgpt/downloads/insites-chatgpt-package.json')
 }) {
   const url = new URL(endpoint);
   if (url.protocol !== 'https:' || url.pathname !== '/mcp' || url.username || url.password || url.search || url.hash) {
