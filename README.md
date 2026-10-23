@@ -37,7 +37,7 @@ A research instrument built on the same specification, which records and audits 
 
 **[`studies/heritage4.0-tuba-2026/`](studies/heritage4.0-tuba-2026/)** is the record behind *From Report to Inquiry: Governing Generative AI Insights in Heritage Significance Assessment* (Heritage 4.0, Florence, 2026): the specification exactly as it ran, the session transcript, the protocols and the claim-level coding. It is a record of a session that happened, so it is static; the paper cites the tagged snapshot `v1.0.0`. [`tools/claim-extractor/`](tools/claim-extractor/) is the protocol that produced the coding.
 
-**[`studies/Cultural-InSites-Paper/`](studies/Cultural-InSites-Paper/)** is the version of the specification a class of students used, run on DeepSeek-V3. Static; cite the tagged snapshot `cultural-insites-v1.0`.
+**[`studies/Cultural-InSites-Paper/`](studies/Cultural-InSites-Paper/)** is the version of the specification students used in the Digitising Heritage course at Beijing Normal-Hong Kong Baptist University (BNBU), run on DeepSeek-V3. Static; cite the tagged snapshot `cultural-insites-v1.0`.
 
 The findings reported in the paper belong to **one run of one version** of the Claude implementation, archived in `studies/heritage4.0-tuba-2026/system/`. The specification in `system/` has developed since, partly because of what that session exposed: a rule now forbids advancing after a revision until the expert confirms, the prose around a mark must match its epistemic status, and synthesis carries a different mark. **The two are not comparable as performance**, and the paper does not compare them. Cite the tagged record for findings and the live specification for architecture.
 
