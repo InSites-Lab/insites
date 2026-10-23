@@ -35,7 +35,7 @@ Upload a heritage document first. The system opens with Stage 0, which reports w
 
 ## In development
 
-**Vera: agentic verification for InSites.** A research instrument that runs the same specification, has an independent agent audit the epistemic mark of every claim, and records the expert's decision on each one. In development as a private prototype.
+**Vera: agentic verification for InSites.** A research instrument built around the unchanged InSites specification. At each stage, agents check the structure of the output and audit the epistemic mark of every claim against the sources, InSites revises once, and the expert accepts, rejects or edits each claim before the workflow advances; every draft, audit and decision is recorded. A second orchestrator reads these records for patterns that recur across projects, to improve Vera's own layer or to propose changes to InSites that its owners decide on. In development as a private prototype; described here by its design.
 
 ## The research record
 
