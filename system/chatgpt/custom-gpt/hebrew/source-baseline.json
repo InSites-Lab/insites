@@ -3,8 +3,8 @@
   "productVersion": "GPT v11.4",
   "localizedVersion": "GPT v11.4-he",
   "capturedAt": "2026-09-09",
-  "sourceDirectory": "system/gpt/V-11.4/en",
-  "targetDirectory": "system/gpt/V-11.4/hebrew",
+  "sourceDirectory": "system/chatgpt/custom-gpt/en",
+  "targetDirectory": "system/chatgpt/custom-gpt/hebrew",
   "git": {
     "branch": "working-tree",
     "head": "not-captured",

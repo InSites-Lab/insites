@@ -2,14 +2,14 @@
 
 InSites is an AI environment for cultural significance assessment. Its core is a natural-language **specification** that a general-purpose language model executes as a human-gated agentic workflow of seven stages, pausing after every stage for expert review. The specification is what carries out the assessment; it is authored rather than trained, with no orchestration framework and no fine-tuning. The code here renders the knowledge graph and the dashboards, or packages and serves an edition; none of it performs the assessment.
 
-The specification has an edition for each platform below. **Load the appropriate files, upload a heritage document, and type `start`.** For Claude and ChatGPT, start from their pages, [`claude/`](claude/README.md) and [`gpt/`](gpt/README.md), which set each platform's two editions side by side; for DeepSeek, follow the [student guide](deepseek/README.md). The system runs Stage 0, reports what the documentation base lacks, and pauses for your review.
+The specification has an edition for each platform below. **Load the appropriate files, upload a heritage document, and type `start`.** For Claude and ChatGPT, start from their pages, [`claude/`](claude/README.md) and [`chatgpt/`](chatgpt/README.md), which set each platform's two editions side by side; for DeepSeek, follow the [student guide](deepseek/README.md). The system runs Stage 0, reports what the documentation base lacks, and pauses for your review.
 
 **Claude has two editions of the same specification**: the single file, and a plugin installed to your account. Use one or the other, never both in one conversation; [`claude/README.md`](claude/README.md) sets them side by side.
 
 | Platform | Copy this | Form |
 |---|---|---|
 | **Claude** | [`claude/`](claude/README.md): a plugin installed to your account (**development version: not yet validated for formal assessments; use at your own discretion**), or the single file [`claude/V-11.5/InSites-claude-v11.5.md`](claude/V-11.5/InSites-claude-v11.5.md) | Plugin, or one file |
-| **ChatGPT** | [`gpt/`](gpt/README.md): a Custom GPT from [`gpt/V-11.4/en/instructions.md`](gpt/V-11.4/en/instructions.md) and the knowledge files beside it, or the ChatGPT Desktop plugin (development) | Instructions + knowledge files, or a plugin |
+| **ChatGPT** | [`chatgpt/`](chatgpt/README.md): a Custom GPT from [`chatgpt/custom-gpt/en/instructions.md`](chatgpt/custom-gpt/en/instructions.md) and the knowledge files beside it, or the ChatGPT Desktop plugin (development) | Instructions + knowledge files, or a plugin |
 | **DeepSeek** | [`deepseek/InSites-deepseek-V2.md`](deepseek/InSites-deepseek-V2.md) | One file; [student guide](deepseek/README.md) |
 | **Google Gemini** | [`gemini/V-11.4/InSites-CAA-GEM-v11.4.md`](gemini/V-11.4/InSites-CAA-GEM-v11.4.md) | One file |
 
@@ -34,7 +34,7 @@ The Claude specification is also held as modules in [`modules/`](modules/), one 
 
 The build script assembles editions from the modules: the [Claude plugin](claude-plugin/insites/), where each part becomes a skill read when its task arrives, and the joined single file (`--monolith`). It joins and copies text and nothing it produces runs as code, so the specification is still what runs. The plugin folder is generated: edit the modules and the wrappers in [`build/claude-plugin/`](build/claude-plugin/), then rebuild.
 
-The [ChatGPT plugin source](chatgpt-plugin/) builds skills from the modules and includes the stateless MCP server and viewer. Its generated packages are kept out of Git, except the delivery archive in [`../downloads/`](../downloads/). How the editions are built from one source: [`../docs/plugin-architecture.md`](../docs/plugin-architecture.md); how to edit and build the modules: [`modules/README.md`](modules/README.md).
+The [ChatGPT plugin source](chatgpt/plugin/) builds skills from the modules and includes the stateless MCP server and viewer. Its generated packages are kept out of Git, except the delivery archive in [`chatgpt/downloads/`](chatgpt/downloads/). How the editions are built from one source: [`../docs/plugin-architecture.md`](../docs/plugin-architecture.md); how to edit and build the modules: [`modules/README.md`](modules/README.md).
 
 ## Why multiple platforms
 
@@ -42,7 +42,7 @@ The architecture is a file. It carries no dependency on a particular model, and 
 
 ## The ChatGPT knowledge files
 
-The Custom GPT splits what the single-file editions carry together: `instructions.md` holds the workflow and the rest are loaded as knowledge. What each file holds, and the Hebrew workshop port, are described in [`gpt/README.md`](gpt/README.md).
+The Custom GPT splits what the single-file editions carry together: `instructions.md` holds the workflow and the rest are loaded as knowledge. What each file holds, and the Hebrew workshop port, are described in [`chatgpt/README.md`](chatgpt/README.md).
 
 ## The files the specifications name
 

@@ -7,7 +7,7 @@ import { transform } from '../adapter/transforms.mjs';
 import { VERSION } from '../shared/version.mjs';
 
 export const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-export const repo = resolve(root, '../..');
+export const repo = resolve(root, '../../..');
 export const output = resolve(root, 'dist/insites-chatgpt');
 const sha = text => createHash('sha256').update(text).digest('hex');
 async function save(path, text) { await mkdir(dirname(path), { recursive: true }); await writeFile(path, text); }

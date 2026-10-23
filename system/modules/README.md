@@ -1,6 +1,6 @@
 # Specification modules
 
-This folder is the **source** of the InSites specification, held as one module per section. It is for maintainers. To run an assessment you do not need it: use an edition from [`../claude/`](../claude/README.md), [`../gpt/`](../gpt/README.md) or the other platform folders.
+This folder is the **source** of the InSites specification, held as one module per section. It is for maintainers. To run an assessment you do not need it: use an edition from [`../claude/`](../claude/README.md), [`../chatgpt/`](../chatgpt/README.md) or the other platform folders.
 
 [`manifest.json`](manifest.json) lists the modules in order. Joined in that order they are the single-file Claude edition, word for word.
 
@@ -10,7 +10,7 @@ This folder is the **source** of the InSites specification, held as one module p
 |---|---|---|
 | Claude, single file | `node system/build/build.mjs --monolith <path>` | [`../claude/V-11.5/InSites-claude-v11.5.md`](../claude/V-11.5/InSites-claude-v11.5.md) |
 | Claude plugin | `node system/build/build.mjs` | [`../claude-plugin/insites/`](../claude-plugin/insites/), with the wrappers in [`../build/claude-plugin/`](../build/claude-plugin/) |
-| ChatGPT Desktop plugin | its own npm build, in [`../chatgpt-plugin/`](../chatgpt-plugin/README.md) | a packaged ZIP |
+| ChatGPT Desktop plugin | its own npm build, in [`../chatgpt/plugin/`](../chatgpt/plugin/README.md) | a packaged ZIP |
 
 The Gemini edition and the Custom GPT files are maintained as separate ports, not built from here. The modules are kept platform-neutral so that they can be.
 

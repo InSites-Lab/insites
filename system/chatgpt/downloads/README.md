@@ -11,5 +11,5 @@ non-confidential trial material.
 4. Start a new Work conversation with `@InSites`, add a short text of your
    choice, and write **"Begin assessment."**
 
-[Installation instructions](../system/chatgpt-plugin/distribution/INSTALL.md)
+[Installation instructions](../plugin/distribution/INSTALL.md)
 are also included inside the ZIP.
