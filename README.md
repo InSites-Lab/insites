@@ -6,6 +6,18 @@ The specification is what carries out the assessment. The code around it renders
 
 > **Status.** Experimental. The plugin editions are development versions, not yet validated for formal assessments. Use non-confidential material.
 
+## How it works
+
+Two mechanisms distinguish it. **Epistemic notation**: every claim the system writes carries a mark reporting its distance from the sources, so a synthesis or an interpretive reading cannot be mistaken for something a document states. **Human-in-the-loop design**: the workflow pauses after every stage, and the expert adds, corrects, rejects or reframes before it continues.
+
+Beyond the seven stages, InSites reads completed assessments and collections of assessments, and renders an assessment as a knowledge graph or a dashboard.
+
+To read further:
+
+- [`docs/architecture.md`](docs/architecture.md): how it is built and why
+- [`docs/epistemic-notation.md`](docs/epistemic-notation.md): the marks
+- [`docs/plugin-architecture.md`](docs/plugin-architecture.md): how the editions are built from one source
+
 ## Try it
 
 | Platform | Go to | What you load | First words |
@@ -15,19 +27,7 @@ The specification is what carries out the assessment. The code around it renders
 | **Google Gemini** | [`system/gemini/V-11.4/`](system/gemini/V-11.4/InSites-CAA-GEM-v11.4.md) | One file in a Gem's instructions | **start** |
 | **DeepSeek** | [`system/deepseek/`](system/deepseek/README.md) | The course edition, with a student guide | as the guide says |
 
-Upload a heritage document first. The system opens with Stage 0, which reports what the documentation lacks, and then waits for you.
-
-## How it works
-
-Two mechanisms distinguish it. **Epistemic notation**: every claim the system writes carries a mark reporting its distance from the sources, so a synthesis or an interpretive reading cannot be mistaken for something a document states. **Human-in-the-loop design**: the workflow pauses after every stage, and the expert adds, corrects, rejects or reframes before it continues.
-
-Beyond the seven stages, InSites reads completed assessments and collections of assessments, and renders an assessment as a knowledge graph or a dashboard.
-
-- [`docs/architecture.md`](docs/architecture.md): how it is built and why
-- [`docs/epistemic-notation.md`](docs/epistemic-notation.md): the marks
-- [`docs/plugin-architecture.md`](docs/plugin-architecture.md): how the editions are built from one source
-
-Example source material: [`sites-data/`](sites-data/), the Ayelet water tower in Hebrew and other examples in English.
+Upload a heritage document first. The system opens with Stage 0, which reports what the documentation lacks, and then waits for you. Example source material: [`sites-data/`](sites-data/), the Ayelet water tower in Hebrew and other examples in English.
 
 ## In development
 
