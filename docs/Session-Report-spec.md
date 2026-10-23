@@ -9,7 +9,7 @@ This is the layer that turns a session into an audit trail: it records who chang
 
 After a CBSA session has ended and a transcript exists. Two routes:
 
-- **Post-hoc** — give a saved transcript to a fresh Claude, GPT or Gemini context with this specification loaded.
+- **Post-hoc** — give a saved transcript to a fresh model context, on any platform, with this specification loaded.
 - **In a live session** — where the deployment does not generate the report itself, loading this specification re-enables it for that run.
 
 **Triggers:** "session report", "analyze session", "generate [CA-IP]"

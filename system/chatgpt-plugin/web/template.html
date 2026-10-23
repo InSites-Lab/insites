@@ -1,0 +1,9 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>InSites</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font:14px system-ui;background:var(--color-background-primary,#fafaf9);color:var(--color-text-primary,#1c1917)}header{padding:12px 16px;border-bottom:1px solid #d6d3d1}h1{font-size:17px;margin:0 0 8px}.row{display:flex;gap:8px;flex-wrap:wrap}textarea{width:100%;margin:8px 0;padding:8px;font:inherit;min-height:54px}button,select{font:inherit;padding:7px 12px;border:1px solid #a8a29e;border-radius:6px;background:transparent;color:inherit;cursor:pointer}#ask{background:#166534;color:white;border-color:#166534}#delivery{min-height:20px;margin:8px 0 0;font-size:12px}#runtime{height:600px;min-height:400px;width:100%}#runtime>p{padding:18px}#manual-copy{height:180px}.atar-ai-out{display:none}
+</style></head><body>
+<header><h1 id="heading">Ask in the InSites conversation</h1><div class="row"><select id="selection" aria-label="Question scope"><option value="">Whole view</option></select><button id="fullscreen">Fullscreen</button></div>
+<textarea id="question" aria-label="Question" maxlength="2000" placeholder="Your question about this view"></textarea>
+<div class="row"><button id="ask" disabled>Ask in chat</button><button id="copy">Copy question and context</button></div><p id="delivery" role="status" aria-live="polite">Connecting…</p><textarea id="manual-copy" hidden readonly aria-label="Manual copy"></textarea></header>
+<main id="runtime"></main><script>/*RUNTIME*/</script><script type="module">/*APP*/</script></body></html>

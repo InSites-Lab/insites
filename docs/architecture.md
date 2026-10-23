@@ -4,9 +4,9 @@ This document describes how [InSites](../README.md) is built and why. It exists 
 
 ## What the system is
 
-A specification, written in prose, that a single conversational language model executes. There is no orchestration code, no separate processes, and no framework. The specification is authored rather than trained: it is a file, and replacing the model does not replace the design.
+An AI environment for cultural significance assessment, whose core is a natural-language specification that a general-purpose language model executes as a human-gated agentic workflow of seven stages. There is no orchestration code and no framework: the specification is what carries out the assessment. The code around it, the runtime that renders the knowledge graph and the dashboards and the packaging and server of the ChatGPT plugin, performs none of it. The specification is authored rather than trained: it is text, and replacing the model does not replace the design.
 
-**Each stage, and each optional extension, is specified as a mini-agent**: a bounded role with its own brief, its own output, and its own stopping point, written as a section of one prompt file rather than as a separate program. In a multi-agent system these roles would be separate agents; here the separation is expressed in the specification. The separation is what the design depends on, not the packaging, and that is the reason the architecture travels: the same roles can be run as separate agents, or as callable modules, without changing what the assessment does.
+**Each stage, and each optional extension, is specified as a mini-agent**: a bounded role with its own brief, its own output, and its own stopping point, written as a section of the specification rather than as a separate program. In a multi-agent system these roles would be separate agents; here the separation is expressed in the specification. The separation is what the design depends on, not the packaging, and that is the reason the architecture travels: the same roles can be run as separate agents, or as callable modules, without changing what the assessment does.
 
 ## Seven stages in three groups
 
@@ -26,11 +26,13 @@ Governance is not only a layer running inside the analysis. It brackets the anal
 
 **Exit governance — Stage 6, Quality Check and Summary.** Produces a process summary, a quick-improvement table, and planning implications. The expert settles the reliability constraint the finished assessment will carry.
 
-**Extensions** are invoked by name rather than run in sequence: knowledge graph, analytic dashboard, alternative reading, collection analysis.
+**Extensions** are invoked by name rather than run in sequence: knowledge graph, analytic dashboard, reading a completed assessment (read-assessment), and reading a collection of assessments (read-collection).
 
 ## Sequencing, and what enforces it
 
-Nothing enforces it. The specification requires one stage per turn in fixed order and works as a state machine written in prose, but sequencing is a behaviour the specification asks for and not a constraint a runtime imposes. This matters for reading the system honestly: a prompt-level rule can be broken, and when it is, the expert is the mechanism that catches it.
+Nothing enforces it. The specification requires one stage per turn in fixed order and works as a state machine written in prose, but sequencing is a behaviour the specification asks for and not a constraint a runtime imposes. This matters for reading the system honestly: a rule written in the specification can be broken, and when it is, the expert is the mechanism that catches it.
+
+The sequence is the user's to direct. By default the workflow stops after every stage; on explicit request it runs the stages without stopping, usually for technical testing rather than assessment, or runs a single stage on its own.
 
 Each of Stages 1 to 6 opens with a brief on the previous stage's findings, closes with one reflection question, and pauses for review. The specification requires a question a specialist could answer in more than one way.
 
@@ -78,7 +80,7 @@ The paper follows the two mechanisms that act on the analysis itself. Three more
 
 ## Version history and the freeze note
 
-`system/claude/V-11.5/InSites-claude-v11.5.md` is the current specification and changes over time. Previous working Claude versions are kept locally; the public platform folder contains only the current edition.
+`system/claude/V-11.5/InSites-claude-v11.5.md` is the current specification and changes over time. It is edited as modules in [`system/modules/`](../system/modules/README.md) and built into that single file and the Claude plugin; the ChatGPT Desktop plugin is built from the same modules, while the Gemini and Custom GPT editions are maintained as ports. Previous working versions are kept locally, not in this repository.
 
 `studies/heritage4.0-tuba-2026/system/InSites-v2.1_AS-RUN-tuba-2026-03-22.md` is the specification exactly as it ran in the assessment reported in the Heritage 4.0 paper. **Every number in that paper belongs to that file and that session.** Changes since, some of them prompted by what the session exposed: a revision now cannot be followed by advancing until the expert confirms; the prose around a mark must match its epistemic status; synthesis carries 〰️ rather than °; and the marks travel into rendered outputs such as the knowledge graph.
 

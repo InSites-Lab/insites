@@ -1,6 +1,7 @@
 # Dependencies and build products — never commit
 node_modules/
 package-lock.json
+!system/chatgpt-plugin/package-lock.json
 system/atar-runtime/dist/
 .venv/
 __pycache__/
@@ -62,6 +63,10 @@ studies/isf/
 MIGRATION.md
 TODO.md
 PLAN.md
+TASK-publish-lab-site.md
+
+# Internal design documents of Vera, a private prototype with its own repository
+system/Design/
 
 # Forensic working note for the research team. Its reader-facing conclusions
 # live in studies/heritage4.0-tuba-2026/README.md, under "What ran".

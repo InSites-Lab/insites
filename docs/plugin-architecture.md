@@ -4,18 +4,20 @@ InSites is a **specification**: written instructions that a language model carri
 
 > **Development version.** It has been run on one assessment. It is not yet validated for formal assessments; use it at your own discretion.
 
-## One source, two editions
+## One source, three built editions
 
 ```mermaid
 flowchart LR
   M["system/modules/<br/>35 sections"] --> B["build.mjs<br/>joins and copies text"]
   B --> F["Single file<br/>for a Claude Project"]
-  B --> P["Plugin<br/>7 skills + 1 agent"]
+  B --> P["Claude plugin<br/>7 skills + 1 agent"]
   P --> K["Marketplace<br/>InSites-Lab/insites"]
   K --> U["Your Claude account<br/>chat · Cowork · Claude Code"]
+  M --> C["chatgpt-plugin build<br/>npm"]
+  C --> G["ChatGPT Desktop plugin<br/>8 skills + MCP viewer"]
 ```
 
-The specification is edited as modules, one per section. A build script joins them into the single file or splits them into the plugin. The script only copies text and runs no code of its own, so what runs is still the specification. A check confirms that the joined modules equal the single file.
+The specification is edited as modules, one per section. A build script joins them into the single file or splits them into the Claude plugin. The script only copies text and runs no code of its own, so what runs is still the specification. A check confirms that the joined modules equal the single file. The ChatGPT Desktop plugin has its own build, in [`system/chatgpt-plugin/`](../system/chatgpt-plugin/), which reads the same modules.
 
 ## Inside the plugin
 
@@ -36,8 +38,9 @@ The knowledge graph and the dashboards are drawn by `atar-runtime`, a pinned pac
 | **Claude plugin** | Installed once to your account from the marketplace | The core, plus the stage or product currently in use | A version bump in the repository; installed copies pick it up through **Check for updates** |
 | **Gemini Gem** | One file in the Gem's instructions | The whole specification | Replaced by hand |
 | **Custom GPT** | `instructions.md` plus eight knowledge files, split because of the instruction field's size limit | The instructions, with the rest consulted as knowledge | Files re-uploaded by hand |
+| **ChatGPT Desktop plugin** | A ZIP imported once with Plugin Creator in a personal account; a development version | Eight skills, each loaded on its task, and an MCP viewer for the knowledge graph and dashboards | A new ZIP, imported by hand |
 
-Only the two Claude editions are built from the modules. The Gemini and ChatGPT editions are maintained as separate ports. The modules are kept platform-neutral so that those editions can later be built from the same source.
+The two Claude editions and the ChatGPT Desktop plugin are built from the modules. The Gemini and Custom GPT editions are maintained as separate ports; the modules are kept platform-neutral so that those editions can later be built from the same source too.
 
 The editions are ports of one architecture to different platforms. **They have not been compared, and nothing here claims that one runs an assessment better than another.**
 
