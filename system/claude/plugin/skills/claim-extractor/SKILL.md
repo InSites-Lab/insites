@@ -10,7 +10,7 @@ user-invocable: true
 
 **Method**: Directed qualitative content analysis with stage-aware extraction rules. Each claim is identified at the analytical-move level, classified, and traced to its source basis.
 
-**Default transcript**: any complete CBSA session transcript. The one this protocol was built on and applied to is published at [`../../studies/heritage4.0-tuba-2026/session/transcript.md`](../../studies/heritage4.0-tuba-2026/session/transcript.md).
+**Default transcript**: any complete CBSA session transcript. The one this protocol was built on and applied to is published at [`studies/heritage4.0-tuba-2026/session/transcript.md`](https://github.com/InSites-Lab/insites/blob/v1.0.0/studies/heritage4.0-tuba-2026/session/transcript.md).
 **Scope**: CBSA assessment sessions (Stages 0–6). Dedicated to this structure for extraction accuracy.
 
 ---
@@ -269,7 +269,7 @@ Format: "[Finding]. ([numerator]/[denominator], [percentage]%)"
 
 Report the counts as a description of the coded session, not as a measure of the system. One session cannot establish a rate.
 
-Save the full report alongside the other extraction runs, as `claim-extraction-[date].md`. The runs produced by this protocol for the Tuba-Zangariyye session are in [`../../studies/heritage4.0-tuba-2026/coding/runs/`](../../studies/heritage4.0-tuba-2026/coding/runs/).
+Save the full report alongside the other extraction runs, as `claim-extraction-[date].md`. The runs produced by this protocol for the Tuba-Zangariyye session are in [`studies/heritage4.0-tuba-2026/coding/runs/`](https://github.com/InSites-Lab/insites/tree/v1.0.0/studies/heritage4.0-tuba-2026/coding/runs).
 
 ---
 
@@ -296,4 +296,4 @@ This comparison is the reproducibility evidence for the research method.
 ## Version
 - Codebook v1.1 — 2026-03-25
 - v1.1: CBSA-dedicated stage-aware extraction rules; analytical-move granularity (prevents inflation); Step 6 epistemic analysis with cross-tabulations and enabler analysis
-- v1.0: Initial codebook, based on the extraction published as [`../../studies/heritage4.0-tuba-2026/coding/claim-level-count.md`](../../studies/heritage4.0-tuba-2026/coding/claim-level-count.md) (45 claims). Produced 106 claims on re-extraction, because it cut claims at assertion level rather than analytical-move level — which is what v1.1 calibrated.
+- v1.0: Initial codebook, based on the extraction published as [`studies/heritage4.0-tuba-2026/coding/claim-level-count.md`](https://github.com/InSites-Lab/insites/blob/v1.0.0/studies/heritage4.0-tuba-2026/coding/claim-level-count.md) (45 claims). Produced 106 claims on re-extraction, because it cut claims at assertion level rather than analytical-move level — which is what v1.1 calibrated.
