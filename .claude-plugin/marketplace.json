@@ -9,7 +9,7 @@
   "plugins": [
     {
       "name": "insites",
-      "source": "./system/claude-plugin/insites",
+      "source": "./system/claude/plugin",
       "description": "Development version: not yet validated for formal assessments; use at your own discretion. Context-based significance assessment (CBSA) of heritage places, stage by stage with expert review and epistemic marks.",
       "version": "0.1.6",
       "license": "Apache-2.0"

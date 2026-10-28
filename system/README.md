@@ -32,7 +32,7 @@ V11.4 removes the requirement to produce a bidirectional context-effect finding.
 
 The Claude specification is also held as modules in [`modules/`](modules/), one per section, in the order [`modules/manifest.json`](modules/manifest.json) gives. Joined in that order they equal `claude/V-11.5/InSites-claude-v11.5.md` exactly, and [`build/build.mjs`](build/build.mjs) checks that (`node system/build/build.mjs --check`).
 
-The build script assembles editions from the modules: the [Claude plugin](claude-plugin/insites/), where each part becomes a skill read when its task arrives, and the joined single file (`--monolith`). It joins and copies text and nothing it produces runs as code, so the specification is still what runs. The plugin folder is generated: edit the modules and the wrappers in [`build/claude-plugin/`](build/claude-plugin/), then rebuild.
+The build script assembles editions from the modules: the [Claude plugin](claude/plugin/), where each part becomes a skill read when its task arrives, and the joined single file (`--monolith`). It joins and copies text and nothing it produces runs as code, so the specification is still what runs. The plugin folder is generated: edit the modules and the wrappers in [`build/claude-plugin/`](build/claude-plugin/), then rebuild.
 
 The [ChatGPT plugin source](chatgpt/plugin/) builds skills from the modules and includes the stateless MCP server and viewer. Its generated packages are kept out of Git, except the delivery archive in [`chatgpt/downloads/`](chatgpt/downloads/). How the editions are built from one source: [`../docs/plugin-architecture.md`](../docs/plugin-architecture.md); how to edit and build the modules: [`modules/README.md`](modules/README.md).
 

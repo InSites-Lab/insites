@@ -4,7 +4,7 @@ import { resolve, relative } from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { root, repo } from './build.mjs';
 
-const protectedRoots = ['system/modules', 'system/build', 'system/claude-plugin/insites', 'system/atar-runtime/src'];
+const protectedRoots = ['system/modules', 'system/build', 'system/claude/plugin', 'system/atar-runtime/src'];
 async function hashes() {
   const results = {};
   const walk = async path => {
@@ -19,8 +19,8 @@ async function hashes() {
   return results;
 }
 const before = await hashes();
-const generated = resolve(repo, 'system/claude-plugin/insites');
-if (!generated.startsWith(resolve(repo, 'system/claude-plugin') + '\\') && !generated.startsWith(resolve(repo, 'system/claude-plugin') + '/')) throw new Error('Generated target is outside its intended parent');
+const generated = resolve(repo, 'system/claude/plugin');
+if (!generated.startsWith(resolve(repo, 'system/claude') + '\\') && !generated.startsWith(resolve(repo, 'system/claude') + '/')) throw new Error('Generated target is outside its intended parent');
 const check = spawnSync(process.execPath, ['system/build/build.mjs', '--check'], { cwd: repo, encoding: 'utf8', windowsHide: true });
 if (check.status !== 0) throw new Error(check.stderr || check.stdout || 'Repository build check failed');
 const after = await hashes();

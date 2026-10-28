@@ -9,7 +9,7 @@ This folder is the **source** of the InSites specification, held as one module p
 | Edition | Built by | Output |
 |---|---|---|
 | Claude, single file | `node system/build/build.mjs --monolith <path>` | [`../claude/V-11.5/InSites-claude-v11.5.md`](../claude/V-11.5/InSites-claude-v11.5.md) |
-| Claude plugin | `node system/build/build.mjs` | [`../claude-plugin/insites/`](../claude-plugin/insites/), with the wrappers in [`../build/claude-plugin/`](../build/claude-plugin/) |
+| Claude plugin | `node system/build/build.mjs` | [`../claude/plugin/`](../claude/plugin/), with the wrappers in [`../build/claude-plugin/`](../build/claude-plugin/) |
 | ChatGPT Desktop plugin | its own npm build, in [`../chatgpt/plugin/`](../chatgpt/plugin/README.md) | a packaged ZIP |
 
 The Gemini edition and the Custom GPT files are maintained as separate ports, not built from here. The modules are kept platform-neutral so that they can be.

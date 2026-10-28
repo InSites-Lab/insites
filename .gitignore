@@ -115,6 +115,7 @@ system/gpt/insites-plugin-prototype-*.zip
 !/system/deepseek/InSites-deepseek-V2.md
 /system/claude/*
 !/system/claude/README.md
+!/system/claude/plugin/
 !/system/claude/V-11.5/
 /system/claude/V-11.5/*
 !/system/claude/V-11.5/InSites-claude-v11.5.md

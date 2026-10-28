@@ -4,10 +4,10 @@ On Claude, InSites comes in two editions of the same specification. Use one **or
 
 | | Single file | Plugin |
 |---|---|---|
-| **What you load** | [`V-11.5/InSites-claude-v11.5.md`](V-11.5/InSites-claude-v11.5.md), in a Project's instructions or at the start of a session | [`../claude-plugin/insites/`](../claude-plugin/insites/), installed once to your account from the marketplace `InSites-Lab/insites` |
+| **What you load** | [`V-11.5/InSites-claude-v11.5.md`](V-11.5/InSites-claude-v11.5.md), in a Project's instructions or at the start of a session | [`plugin/`](plugin/), installed once to your account from the marketplace `InSites-Lab/insites` |
 | **Status** | The established edition | Development version: not yet validated for formal assessments; use at your own discretion |
 | **Start** | Upload, say **start** | Upload, say **begin assessment** (**התחל הערכה**), or choose **assess** from the `/` menu |
-| **New versions** | Replace the file by hand | Through the plugin's update; see [its README](../claude-plugin/insites/README.md) |
+| **New versions** | Replace the file by hand | Through the plugin's update; see [its README](plugin/README.md) |
 
 Both are built from the same [modules](../modules/), and the text of the specification is the same in both; only the packaging differs. How the plugin is put together: [`docs/plugin-architecture.md`](../../docs/plugin-architecture.md).
 
@@ -27,7 +27,7 @@ Load the [current specification](V-11.5/InSites-claude-v11.5.md) into your Claud
 2. **Start**: upload the site documentation and say **begin assessment** (Hebrew: **התחל הערכה**). If it does not start, choose **assess** from the `/` menu.
 3. **Update**: new versions arrive through the plugin's **Check for updates**.
 
-Its [README](../claude-plugin/insites/README.md) lists the seven skills and the epistemic-auditor agent, and gives the update steps in full.
+Its [README](plugin/README.md) lists the seven skills and the epistemic-auditor agent, and gives the update steps in full.
 
 ## In both
 
