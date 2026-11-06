@@ -1,10 +1,10 @@
 cff-version: 1.2.0
 title: "InSites: AI-assisted heritage significance assessment under epistemic notation and expert governance"
 abstract: >-
-  InSites is an experimental assistant that carries out context-based
-  significance assessment of heritage places. It runs as a prose
-  specification executed by a language model stage by stage, with expert
-  review between stages. Every claim carries a mark reporting its distance
+  InSites is a research instrument for the study of cultural significance
+  assessment. It carries out context-based significance assessment of
+  heritage places as a prose specification executed by a language model
+  stage by stage, with expert review between stages. Every claim carries a mark reporting its distance
   from the source evidence. This repository holds the current
   specification, the architecture documentation, and the research record
   behind the Heritage 4.0 paper.

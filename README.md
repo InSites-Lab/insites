@@ -1,14 +1,30 @@
 <p align="center"><a href="https://insites-lab.github.io/"><img src="site/insites-logo.jpg" alt="InSites" width="220"></a></p>
 
-# InSites — AI-assisted heritage significance assessment
+# InSites: a research instrument for the study of cultural significance assessment
 
 A project of the **[InSites Knowledge Lab](https://insites-lab.github.io/)**, Faculty of Architecture and Town Planning, Technion – Israel Institute of Technology.
 
-InSites is an AI environment for **cultural significance assessment** of heritage places. Its core is a natural-language specification that a general-purpose language model executes as a human-gated agentic workflow of seven stages, carrying out **context-based significance assessment (CBSA)** and pausing after every stage for expert review. It works only on source material the user provides.
+InSites is the AI environment the lab uses in its studies of the information needs of heritage assessment and of methods for assessing heritage places, **cultural significance assessment** in particular. In a session it carries out **context-based significance assessment (CBSA)** on source material the user provides, in seven stages, pausing after every stage for expert review.
 
-The specification is what carries out the assessment. The code around it renders the knowledge graph and the dashboards, or packages and serves an edition; none of it performs the assessment. InSites has no model of its own and is bound to no particular platform.
+> **Status.** Not a product. A research environment, continually revised as the lab's studies require, with no release target. It has not been validated for formal assessments. Use non-confidential material.
 
-> **Status.** Experimental. The plugin editions are development versions, not yet validated for formal assessments. Use non-confidential material.
+## The research record
+
+**[`studies/heritage4.0-tuba-2026/`](studies/heritage4.0-tuba-2026/)** is the record behind *From Report to Inquiry: Governing Generative AI Insights in Heritage Significance Assessment* (Heritage 4.0, Florence, 2026): the specification exactly as it ran, the session transcript, the protocols and the claim-level coding. It is a record of a session that happened, so it is static; the paper cites the tagged snapshot `v1.0.0`. [`tools/claim-extractor/`](tools/claim-extractor/) is the protocol that produced the coding.
+
+**[`studies/Cultural-InSites-Paper/`](studies/Cultural-InSites-Paper/)** is the version of the specification students used in the Digitising Heritage course at Beijing Normal-Hong Kong Baptist University (BNBU), run on DeepSeek-V3. Static; cite the tagged snapshot `cultural-insites-v1.0`.
+
+The findings reported in the paper belong to **one run of one version** of the Claude implementation, archived in `studies/heritage4.0-tuba-2026/system/`. The specification in `system/` has developed since, partly because of what that session exposed: a rule now forbids advancing after a revision until the expert confirms, the prose around a mark must match its epistemic status, and synthesis carries a different mark. **The two are not comparable as performance**, and the paper does not compare them. Cite the tagged record for findings and the live specification for architecture.
+
+## How it is built
+
+Its core is a specification written in natural language, which a general-purpose language model executes as a human-gated agentic workflow. InSites has no model of its own and is bound to no particular platform. Around that core are agentic components, which vary by edition:
+
+- **Stage and extension roles.** Each stage and extension is a bounded role with its own brief, output and stopping point, written into the specification.
+- **Epistemic auditor.** In the Claude plugin, on request, a separate agent checks a stage's marks against the sources in a clean context. It flags mismatches and never rewrites. It runs in Cowork and Claude Code.
+- **Vera.** A claim-review layer, in development as a private prototype. It runs the unchanged specification in an agentic workflow: agents audit every claim, the expert decides on each one, and the record of those decisions is used to study and improve the method.
+
+In the published editions, code renders the knowledge graph and the dashboards and packages the editions. The specification carries out the assessment, and the expert decides.
 
 ## How it works
 
@@ -23,7 +39,7 @@ To read further:
 - [`docs/epistemic-notation.md`](docs/epistemic-notation.md): the marks
 - [`docs/plugin-architecture.md`](docs/plugin-architecture.md): how the editions are built from one source
 
-## Try it
+## Running an edition
 
 | Platform | Go to | What you load | First words |
 |---|---|---|---|
@@ -33,20 +49,6 @@ To read further:
 | **DeepSeek** | [`system/deepseek/`](system/deepseek/README.md) | The BNBU Digitising Heritage course edition, with a student guide | as the guide says |
 
 Upload a heritage document first. The system opens with Stage 0, which reports what the documentation lacks, and then waits for you. Example source material: [`sites-data/`](sites-data/), the Ayelet water tower in Hebrew and other examples in English.
-
-## In development
-
-**Vera: agentic verification for InSites.** A research instrument that runs the unchanged InSites specification inside an agentic workflow: agents audit every claim, the expert decides on each one, and the record of those decisions is used to study and improve the method. In development as a private prototype.
-
-## The research record
-
-InSites also serves as a research instrument in the lab's study of how cultural significance is formed and justified.
-
-**[`studies/heritage4.0-tuba-2026/`](studies/heritage4.0-tuba-2026/)** is the record behind *From Report to Inquiry: Governing Generative AI Insights in Heritage Significance Assessment* (Heritage 4.0, Florence, 2026): the specification exactly as it ran, the session transcript, the protocols and the claim-level coding. It is a record of a session that happened, so it is static; the paper cites the tagged snapshot `v1.0.0`. [`tools/claim-extractor/`](tools/claim-extractor/) is the protocol that produced the coding.
-
-**[`studies/Cultural-InSites-Paper/`](studies/Cultural-InSites-Paper/)** is the version of the specification students used in the Digitising Heritage course at Beijing Normal-Hong Kong Baptist University (BNBU), run on DeepSeek-V3. Static; cite the tagged snapshot `cultural-insites-v1.0`.
-
-The findings reported in the paper belong to **one run of one version** of the Claude implementation, archived in `studies/heritage4.0-tuba-2026/system/`. The specification in `system/` has developed since, partly because of what that session exposed: a rule now forbids advancing after a revision until the expert confirms, the prose around a mark must match its epistemic status, and synthesis carries a different mark. **The two are not comparable as performance**, and the paper does not compare them. Cite the tagged record for findings and the live specification for architecture.
 
 ## Source and build
 
