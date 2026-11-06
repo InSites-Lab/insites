@@ -55,10 +55,6 @@ local-work/
 # sessions through TODO.md. Not documentation for a reader.
 dev-notes/
 
-# Research record for the context-effect (ISF) programme: kept local until
-# the programme decides what becomes citable. Never synchronise with system/.
-studies/isf/
-
 # Internal handover, not for the public repository
 MIGRATION.md
 TODO.md

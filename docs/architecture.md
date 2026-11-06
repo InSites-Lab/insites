@@ -26,7 +26,7 @@ Governance is not only a layer running inside the analysis. It brackets the anal
 
 **Exit governance — Stage 6, Quality Check and Summary.** Produces a process summary, a quick-improvement table, and planning implications. The expert settles the reliability constraint the finished assessment will carry.
 
-**Extensions** are invoked by name rather than run in sequence: knowledge graph, analytic dashboard, reading a completed assessment (read-assessment), and reading a collection of assessments (read-collection).
+**Extensions** are invoked by name rather than run in sequence: knowledge graph, analytic dashboard, reading a completed assessment (read-assessment), and reading a collection of assessments (read-collection). Each is described in [`extensions.md`](extensions.md).
 
 ## Sequencing, and what enforces it
 

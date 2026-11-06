@@ -19,6 +19,7 @@ Beyond the seven stages, InSites reads completed assessments and collections of 
 To read further:
 
 - [`docs/architecture.md`](docs/architecture.md): how it is built and why
+- [`docs/extensions.md`](docs/extensions.md): the knowledge graph, the dashboards and the readings
 - [`docs/epistemic-notation.md`](docs/epistemic-notation.md): the marks
 - [`docs/plugin-architecture.md`](docs/plugin-architecture.md): how the editions are built from one source
 
@@ -38,6 +39,8 @@ Upload a heritage document first. The system opens with Stage 0, which reports w
 **Vera: agentic verification for InSites.** A research instrument that runs the unchanged InSites specification inside an agentic workflow: agents audit every claim, the expert decides on each one, and the record of those decisions is used to study and improve the method. In development as a private prototype.
 
 ## The research record
+
+InSites also serves as a research instrument in the lab's study of how cultural significance is formed and justified.
 
 **[`studies/heritage4.0-tuba-2026/`](studies/heritage4.0-tuba-2026/)** is the record behind *From Report to Inquiry: Governing Generative AI Insights in Heritage Significance Assessment* (Heritage 4.0, Florence, 2026): the specification exactly as it ran, the session transcript, the protocols and the claim-level coding. It is a record of a session that happened, so it is static; the paper cites the tagged snapshot `v1.0.0`. [`tools/claim-extractor/`](tools/claim-extractor/) is the protocol that produced the coding.
 
