@@ -3,7 +3,7 @@
 **Cultural-InSites: A Human-AI Collaboration Framework for Teaching Significance Assessment for Digital Heritage Storytelling**
 Chao Zhou, Eugene Ch'ng, Yael Alef, Yuval Shafriri. Manuscript under review.
 
-The manuscript is in this folder as a PDF under its title.
+The manuscript: [`CulturalInSites_manuscript.pdf`](CulturalInSites_manuscript.pdf)
 
 ## The study in brief
 
