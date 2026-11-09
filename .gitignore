@@ -47,7 +47,7 @@ sites-data/**/*.png
 !sites-data/sites-of-christianity/Description_Beatitude.pdf
 !sites-data/sites-of-christianity/Description_Mt_Tabor.pdf
 !sites-data/sites-of-christianity/Description_Tabgha.pdf
-!studies/cultural-insites-course-study/*.pdf
+!studies/digital_heritage-course-study/*.pdf
 
 # Pre-submission working files
 local-work/
