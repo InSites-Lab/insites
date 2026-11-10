@@ -1,6 +1,6 @@
-# InSites for ChatGPT
+# *InSites* for ChatGPT
 
-On ChatGPT, InSites comes in two editions. Use one **or** the other in a conversation, never both.
+On ChatGPT, *InSites* comes in two editions. Use one **or** the other in a conversation, never both.
 
 | | Custom GPT | ChatGPT Desktop plugin |
 |---|---|---|
@@ -26,7 +26,7 @@ A Hebrew workshop port is developed separately in [`custom-gpt/hebrew/`](custom-
 
 ## The ChatGPT Desktop plugin
 
-Follow the four steps in [`downloads/README.md`](downloads/README.md); the same instructions are inside the ZIP. The plugin carries eight skills and a connection to the InSites MCP server, which serves the viewer for the knowledge graph and the dashboards. That server is unauthenticated: do not send private assessment material.
+Follow the four steps in [`downloads/README.md`](downloads/README.md); the same instructions are inside the ZIP. The plugin carries eight skills and a connection to the *InSites* MCP server, which serves the viewer for the knowledge graph and the dashboards. That server is unauthenticated: do not send private assessment material.
 
 ## Source and build
 

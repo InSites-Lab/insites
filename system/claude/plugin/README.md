@@ -1,6 +1,6 @@
-# InSites — Claude plugin edition
+# *InSites* — Claude plugin edition
 
-The InSites specification packaged as a Claude plugin: each part of the specification is a skill that loads when its task arrives, instead of one file loaded in full on every turn. The text of the specification is the same as in the single-file edition; only its packaging differs.
+The *InSites* specification packaged as a Claude plugin: each part of the specification is a skill that loads when its task arrives, instead of one file loaded in full on every turn. The text of the specification is the same as in the single-file edition; only its packaging differs.
 
 **This folder is generated.** It is assembled by [`system/build/build.mjs`](../../build/build.mjs) from the modules in [`system/modules/`](../../modules/) and the plugin wrappers in [`system/build/claude-plugin/`](../../build/claude-plugin/). Edit those, then rebuild; edits made here are overwritten.
 

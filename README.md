@@ -1,10 +1,10 @@
 <p align="center"><a href="https://insites-lab.github.io/"><img src="site/insites-logo.jpg" alt="InSites" width="220"></a></p>
 
-# InSites: a research instrument for the study of cultural significance assessment
+# *InSites*: a research instrument for the study of cultural significance assessment
 
 A project of the **[InSites Knowledge Lab](https://insites-lab.github.io/)**, Faculty of Architecture and Town Planning, Technion – Israel Institute of Technology.
 
-InSites is the AI environment the lab uses in its studies of the information needs of heritage assessment and of methods for assessing heritage places, **cultural significance assessment** in particular. In a session it carries out **context-based significance assessment (CBSA)** on source material the user provides, in seven stages, pausing after every stage for expert review.
+*InSites* is the AI environment the lab uses in its studies of the information needs of heritage assessment and of methods for assessing heritage places, **cultural significance assessment** in particular. In a session it carries out **context-based significance assessment (CBSA)** on source material the user provides, in seven stages, pausing after every stage for expert review.
 
 > **Status.** Not a product. A research environment, continually revised as the lab's studies require, with no release target. It has not been validated for formal assessments. Use non-confidential material.
 
@@ -18,7 +18,7 @@ The findings reported in the paper belong to **one run of one version** of the C
 
 ## How it is built
 
-Its core is a specification written in natural language, which a general-purpose language model executes as a human-gated agentic workflow. InSites has no model of its own and is bound to no particular platform. Around that core are agentic components, which vary by edition:
+Its core is a specification written in natural language, which a general-purpose language model executes as a human-gated agentic workflow. *InSites* has no model of its own and is bound to no particular platform. Around that core are agentic components, which vary by edition:
 
 - **Stage and extension roles.** Each stage and extension is a bounded role with its own brief, output and stopping point, written into the specification.
 - **Epistemic auditor.** In the Claude plugin, on request, a separate agent checks a stage's marks against the sources in a clean context. It flags mismatches and never rewrites. It runs in Cowork and Claude Code.
@@ -30,7 +30,7 @@ In the published editions, code renders the knowledge graph and the dashboards a
 
 Two mechanisms distinguish it. **Epistemic notation**: every claim the system writes carries a mark reporting its distance from the sources, so a synthesis or an interpretive reading cannot be mistaken for something a document states. **Human-in-the-loop design**: the workflow pauses after every stage, and the expert adds, corrects, rejects or reframes before it continues.
 
-Beyond the seven stages, InSites reads completed assessments and collections of assessments, and renders an assessment as a knowledge graph or a dashboard.
+Beyond the seven stages, *InSites* reads completed assessments and collections of assessments, and renders an assessment as a knowledge graph or a dashboard.
 
 To read further:
 
@@ -52,7 +52,7 @@ Upload a heritage document first. The system opens with Stage 0, which reports w
 
 ## Source and build
 
-To adapt InSites to your own work, fork the repository; the specification is open under Apache-2.0.
+To adapt *InSites* to your own work, fork the repository; the specification is open under Apache-2.0.
 
 - [`system/modules/`](system/modules/): the specification source, one module per section. The Claude editions and the ChatGPT plugin are built from it.
 - [`system/build/`](system/build/): `node system/build/build.mjs` builds the Claude plugin; `--check` confirms that the modules equal the single file.

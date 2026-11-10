@@ -1,6 +1,6 @@
 # atar-runtime
 
-The rendering runtime behind everything InSites draws: the knowledge graph, the single-assessment dashboard, and the collection dashboard.
+The rendering runtime behind everything *InSites* draws: the knowledge graph, the single-assessment dashboard, and the collection dashboard.
 
 **Current release: 0.3.8.** The Claude v11.5, Gemini v11.4 and GPT v11.4 specifications pin it. See [CHANGELOG.md](CHANGELOG.md) for the evidence-status, missing-data, validation and rendering-status changes. In 0.3.8, await the returned `ready` promise to distinguish completed interactive rendering from successful dispatch.
 

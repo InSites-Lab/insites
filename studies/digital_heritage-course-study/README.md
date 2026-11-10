@@ -7,7 +7,7 @@ The manuscript: [`CulturalInSites_manuscript.pdf`](CulturalInSites_manuscript.pd
 
 ## The study in brief
 
-Students of animation and interactive media at Beijing Normal-Hong Kong Baptist University (BNBU) used InSites during a one-semester digital heritage course. They had little formal training in heritage studies. They assessed the cultural significance of heritage places and objects through the staged workflow (Stages 0–6, with a human checkpoint after each stage), then translated the assessment into digital storytelling projects. The study asks how far the workflow supported their ability and confidence in significance assessment (RQ1), and what role human judgement played within the AI-supported reasoning (RQ2).
+Students of animation and interactive media at Beijing Normal-Hong Kong Baptist University (BNBU) used *InSites* during a one-semester digital heritage course. They had little formal training in heritage studies. They assessed the cultural significance of heritage places and objects through the staged workflow (Stages 0–6, with a human checkpoint after each stage), then translated the assessment into digital storytelling projects. The study asks how far the workflow supported their ability and confidence in significance assessment (RQ1), and what role human judgement played within the AI-supported reasoning (RQ2).
 
 The evidence comes from three sources: a post-use survey (N = 25), the students' technical reports and project artefacts, and the staged assessment conversations. It is a single-cohort, course-embedded evaluation without a comparison condition, and the survey measures self-reported perception.
 

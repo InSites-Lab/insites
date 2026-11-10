@@ -6,7 +6,7 @@ The evidence base for **From Report to Inquiry: Governing Generative AI Insights
 
 ## The study in one paragraph
 
-One heritage expert assessed the same site twice: first manually, for European heritage guidance, and then with InSites, from the same three source documents. **The session ran on the Claude implementation.** The other platform implementations in `../../system/` were not used here and nothing reported in the paper extends to them. The system received the descriptive sections she had written for the manual assessment but not its significance sections, so whatever it produced came from re-processing description she had authored. She then reviewed the AI-assisted assessment for moments her manual assessment had not yielded, and the full transcript was coded claim by claim.
+One heritage expert assessed the same site twice: first manually, for European heritage guidance, and then with *InSites*, from the same three source documents. **The session ran on the Claude implementation.** The other platform implementations in `../../system/` were not used here and nothing reported in the paper extends to them. The system received the descriptive sections she had written for the manual assessment but not its significance sections, so whatever it produced came from re-processing description she had authored. She then reviewed the AI-assisted assessment for moments her manual assessment had not yielded, and the full transcript was coded claim by claim.
 
 ## What is here
 

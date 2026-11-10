@@ -1,6 +1,6 @@
-# The InSites system
+# The *InSites* system
 
-InSites is an AI environment for cultural significance assessment. Its core is a natural-language **specification** that a general-purpose language model executes as a human-gated agentic workflow of seven stages, pausing after every stage for expert review. The specification is what carries out the assessment; it is authored rather than trained, with no orchestration framework and no fine-tuning. The code here renders the knowledge graph and the dashboards, or packages and serves an edition; none of it performs the assessment.
+*InSites* is an AI environment for cultural significance assessment. Its core is a natural-language **specification** that a general-purpose language model executes as a human-gated agentic workflow of seven stages, pausing after every stage for expert review. The specification is what carries out the assessment; it is authored rather than trained, with no orchestration framework and no fine-tuning. The code here renders the knowledge graph and the dashboards, or packages and serves an edition; none of it performs the assessment.
 
 The specification has an edition for each platform below. **Load the appropriate files, upload a heritage document, and type `start`.** For Claude and ChatGPT, start from their pages, [`claude/`](claude/README.md) and [`chatgpt/`](chatgpt/README.md), which set each platform's two editions side by side; for DeepSeek, follow the [student guide](deepseek/README.md). The system runs Stage 0, reports what the documentation base lacks, and pauses for your review.
 

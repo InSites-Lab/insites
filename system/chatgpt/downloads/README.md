@@ -1,9 +1,9 @@
-# InSites for ChatGPT Desktop
+# *InSites* for ChatGPT Desktop
 
 Early development version, not yet for use in formal assessments. Use
 non-confidential trial material.
 
-1. [Download the full InSites ZIP](insites-chatgpt.zip).
+1. [Download the full *InSites* ZIP](insites-chatgpt.zip).
 2. In your personal ChatGPT Desktop account, attach it in a conversation with
    **Plugin Creator** and ask it to import the complete package as a private
    plugin, preserving the skills and included MCP connection.

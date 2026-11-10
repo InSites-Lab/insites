@@ -1,6 +1,6 @@
-# InSites for Claude · v11.5
+# *InSites* for Claude · v11.5
 
-On Claude, InSites comes in two editions of the same specification. Use one **or** the other in a conversation, never both: two copies of the core rules can disagree as soon as one of them is updated.
+On Claude, *InSites* comes in two editions of the same specification. Use one **or** the other in a conversation, never both: two copies of the core rules can disagree as soon as one of them is updated.
 
 | | Single file | Plugin |
 |---|---|---|

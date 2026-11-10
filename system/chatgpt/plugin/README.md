@@ -1,8 +1,8 @@
-# InSites ChatGPT plugin and MCP server
+# *InSites* ChatGPT plugin and MCP server
 
 Early development version, not yet for use in formal assessments.
 
-This directory contains the source for eight module-built InSites skills, a
+This directory contains the source for eight module-built *InSites* skills, a
 stateless Node.js MCP server, and its MCP App viewer. The server accepts approved
 display data and serves the viewer; it does not run an AI model or store
 assessment data. The viewer sends bounded view context through the host's model

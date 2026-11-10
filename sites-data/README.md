@@ -1,6 +1,6 @@
 # Example source data
 
-Example heritage documents and images for practising with InSites. Ayelet water tower is in Hebrew; the other examples are in English.
+Example heritage documents and images for practising with *InSites*. Ayelet water tower is in Hebrew; the other examples are in English.
 
 <details>
 <summary>中文说明（点击展开）</summary>
@@ -41,7 +41,7 @@ InSites 只处理你提供的内容。任何遗产文献均可：调查报告、
 | [Ayelet water tower](Ayelet-waterTower/) | Hebrew | [Source document](Ayelet-waterTower/Ayelet-WT.docx), [sample images](Ayelet-waterTower/images-samples/) and [all images](Ayelet-waterTower/all-images/) |
 | [Sites of Christianity](sites-of-christianity/) | English | [Mount of Beatitudes](sites-of-christianity/Description_Beatitude.pdf), [Mount Tabor](sites-of-christianity/Description_Mt_Tabor.pdf) and [Tabgha](sites-of-christianity/Description_Tabgha.pdf) |
 
-Open an example folder to browse its files, or download a source document and upload it to your InSites chat. For Ayelet, you can also upload the sample images; their filenames retain the original page and image identifiers.
+Open an example folder to browse its files, or download a source document and upload it to your *InSites* chat. For Ayelet, you can also upload the sample images; their filenames retain the original page and image identifiers.
 
 ## Study sources
 
@@ -49,12 +49,12 @@ The three documents assessed in the Tuba-Zangariyye study are cited in [`../stud
 
 ## Using your own material
 
-InSites works only on what you provide. Any heritage documentation will do: a survey, a conservation plan, a management report, a research synthesis. Stage 0 opens by assessing the quality of what you uploaded and naming what is missing, so a thin corpus produces an honest gap list rather than a confident assessment.
+*InSites* works only on what you provide. Any heritage documentation will do: a survey, a conservation plan, a management report, a research synthesis. Stage 0 opens by assessing the quality of what you uploaded and naming what is missing, so a thin corpus produces an honest gap list rather than a confident assessment.
 
 ## What only you can add
 
 **Include the material you gathered yourself. This is the part no model can reach on its own.**
 
-A field visit — what you saw, heard, smelled and felt there, the spirit of the place — plus how people use it and speak about it, and what the formal documentation leaves out. All of it counts as source material, and it reaches InSites only if you write it down and upload it.
+A field visit — what you saw, heard, smelled and felt there, the spirit of the place — plus how people use it and speak about it, and what the formal documentation leaves out. All of it counts as source material, and it reaches *InSites* only if you write it down and upload it.
 
 Write it up as a short document, dated and saying who observed what and where. An assessment drawn only from existing documents can do little more than restate them; your first-hand material is what makes it an assessment of **this** place.

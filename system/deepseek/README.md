@@ -1,4 +1,4 @@
-# InSites for DeepSeek
+# *InSites* for DeepSeek
 
 Explore a heritage site's significance through its sources, then use your findings to develop your project. You guide the work and review each stage.
 
@@ -93,9 +93,9 @@ Explore a heritage site's significance through its sources, then use your findin
 
 ## 1. Prepare a chat
 
-Start a new chat for each site. Upload the InSites specification file you received ([current version](InSites-deepseek-V2.md)). Pasting its full text also works, but uploading keeps the conversation readable. Write your instructions in your preferred language: InSites works in Chinese or English, following your instruction language.
+Start a new chat for each site. Upload the *InSites* specification file you received ([current version](InSites-deepseek-V2.md)). Pasting its full text also works, but uploading keeps the conversation readable. Write your instructions in your preferred language: *InSites* works in Chinese or English, following your instruction language.
 
-You can ask “What is InSites?” or “How does CBSA work?” at any time.
+You can ask “What is *InSites*?” or “How does CBSA work?” at any time.
 
 ## 2. Supply sources and start
 
