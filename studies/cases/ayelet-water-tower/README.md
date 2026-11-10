@@ -14,7 +14,9 @@ The documentation of the tower links it to several contexts at once: the long hi
 
 | Item | Where |
 |---|---|
-| The source document (in Hebrew): historical background, the development of the water system, the tower, the Achva group, Michael Ehrlich, a timeline and an architectural comparison | [`sites-data/Ayelet-waterTower/Ayelet-WT.docx`](../../../sites-data/Ayelet-waterTower/Ayelet-WT.docx) |
+| The text of the documentation file (in Hebrew): historical background, the development of the water system, the tower, the Achva group, Michael Ehrlich, a timeline and an architectural comparison | [`sites-data/Ayelet-waterTower/Ayelet-WT.docx`](../../../sites-data/Ayelet-waterTower/Ayelet-WT.docx) |
 | The published assessment of the built heritage of Ayelet HaShachar and Kfar Giladi | Amit-Cohen, I., & Alef, Y. (2017). Cultural built heritage in Kfar Giladi and Ayelet Hashachar: Shaping and preserving the identity of the two kibbutzim. *Horizons in Geography*, 91–92, 317–333 [in Hebrew]. https://www.jstor.org/stable/26598026 |
+
+**The document here is the text alone.** The original documentation file also contains extensive visual material, such as photographs, which is not included in this repository.
 
 Assessments carried out with InSites on this case will be added to this folder.
