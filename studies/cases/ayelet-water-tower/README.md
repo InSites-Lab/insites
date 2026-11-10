@@ -8,15 +8,14 @@ It is a reinforced-concrete tank of about 25 cubic metres on four columns, which
 
 ## Why it is a test case
 
-The documentation of the tower links it to several contexts at once: the long history of water shortage and of the spring, the Achva group and the labour ideology behind its work, the funder's absence from the inscription, and the other buildings of the early kibbutz. Some of these contexts give the tower its meaning, and the tower in turn carries evidence of them. That makes it a place on which to examine how an assessment identifies contexts, relates them to the asset, and argues significance from them. It is also the Hebrew example used for practising with InSites in workshops and courses.
+The documentation of the tower links it to several contexts at once: the long history of water shortage and of the spring, the Achva group and the labour ideology behind its work, the funder's absence from the inscription, and the other buildings of the early kibbutz. Some of these contexts give the tower its meaning, and the tower in turn carries evidence of them. That makes it a place on which to examine how an assessment identifies contexts, relates them to the asset, and argues significance from them. It is also the Hebrew example used for practising with *InSites* in workshops and courses.
 
 ## Material
 
 | Item | Where |
 |---|---|
-| The text of the documentation file (in Hebrew): historical background, the development of the water system, the tower, the Achva group, Michael Ehrlich, a timeline and an architectural comparison | [`sites-data/Ayelet-waterTower/Ayelet-WT.docx`](../../../sites-data/Ayelet-waterTower/Ayelet-WT.docx) |
+| The documentation file of the tower, 2014 (in Hebrew), with its visual material: historical background, the development of the water system, the tower, the Achva group, Michael Ehrlich, a timeline and an architectural comparison | [`Ayelet-water-tower.pdf`](Ayelet-water-tower.pdf) |
+| The text of the documentation file alone, for uploading to an *InSites* chat | [`sites-data/Ayelet-waterTower/Ayelet-WT.docx`](../../../sites-data/Ayelet-waterTower/Ayelet-WT.docx) |
 | The published assessment of the built heritage of Ayelet HaShachar and Kfar Giladi | Amit-Cohen, I., & Alef, Y. (2017). Cultural built heritage in Kfar Giladi and Ayelet Hashachar: Shaping and preserving the identity of the two kibbutzim. *Horizons in Geography*, 91–92, 317–333 [in Hebrew]. https://www.jstor.org/stable/26598026 |
 
-**The document here is the text alone.** The original documentation file also contains extensive visual material, such as photographs, which is not included in this repository.
-
-Assessments carried out with InSites on this case will be added to this folder.
+Assessments carried out with *InSites* on this case will be added to this folder.
