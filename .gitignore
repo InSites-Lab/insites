@@ -121,3 +121,6 @@ system/gpt/insites-plugin-prototype-*.zip
 
 # Packaged plugin archives are build products, never committed.
 *.plugin
+
+# Course-study manuscript: not public in its current state (2026-11-12)
+studies/digital_heritage-course-study/CulturalInSites_manuscript.pdf
