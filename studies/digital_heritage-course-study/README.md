@@ -5,6 +5,8 @@ Chao Zhou, Eugene Ch'ng, Yael Alef, Yuval Shafriri. Manuscript under review.
 
 The manuscript: [`CulturalInSites_manuscript.pdf`](CulturalInSites_manuscript.pdf)
 
+The *InSites* version the students used, archived under the tag `cultural-insites-v1.0`: [`../Cultural-InSites-Paper/`](../Cultural-InSites-Paper/)
+
 ## The study in brief
 
 Students of animation and interactive media at Beijing Normal-Hong Kong Baptist University (BNBU) used *InSites* during a one-semester digital heritage course. They had little formal training in heritage studies. They assessed the cultural significance of heritage places and objects through the staged workflow (Stages 0–6, with a human checkpoint after each stage), then translated the assessment into digital storytelling projects. The study asks how far the workflow supported their ability and confidence in significance assessment (RQ1), and what role human judgement played within the AI-supported reasoning (RQ2).
