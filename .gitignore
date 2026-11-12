@@ -48,7 +48,8 @@ sites-data/**/*.png
 !sites-data/sites-of-christianity/Description_Mt_Tabor.pdf
 !sites-data/sites-of-christianity/Description_Tabgha.pdf
 !studies/digital_heritage-course-study/*.pdf
-!studies/cases/ayelet-water-tower/Ayelet-water-tower.pdf
+!studies/cases/**/*.pdf
+studies/cases/**/*.docx
 
 # Pre-submission working files
 local-work/
