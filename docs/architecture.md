@@ -1,6 +1,6 @@
 # Architecture
 
-This document describes how [InSites](../README.md) is built and why. It exists so that papers about the system can point here instead of spending pages on mechanics.
+This document describes how [InSites](../README.md) is built and why. It exists so that papers about the system can point here instead of spending pages on mechanics. It is the first of the documents listed in [`README.md`](README.md).
 
 ## What the system is
 
@@ -9,6 +9,10 @@ An AI environment for cultural significance assessment, whose core is a natural-
 **Each stage, and each optional extension, is specified as a mini-agent**: a bounded role with its own brief, its own output, and its own stopping point, written as a section of the specification rather than as a separate program. In a multi-agent system these roles would be separate agents; here the separation is expressed in the specification. The separation is what the design depends on, not the packaging, and that is the reason the architecture travels: the same roles can be run as separate agents, or as callable modules, without changing what the assessment does. Two components already work this way. In the Claude plugin, the `epistemic-auditor` agent checks a stage's marks against the sources in a clean context, on request. Vera, a private prototype, runs the unchanged specification in an agentic workflow in which agents audit every claim and the expert decides on each one.
 
 ## Seven stages in three groups
+
+<p align="center"><img src="insites-workflow.png" alt="The CBSA stages in InSites. Stage 0, Data Review and Gaps. Stages 1 to 5, the CBSA analysis stages: Description and Contexts; Values Analysis; Authenticity and Integrity; Comparative Evaluation; Significance Statement. Stage 6, Quality Check and Summary. Expert review follows every stage. Each claim carries its source and an epistemic mark. Extensions: Knowledge Graph, Alternative Reading, Collection Analysis, Image Analysis. The figure also marks an independent agentic review of claims; among the published editions only the Claude plugin has one, on request, and a review of every claim is in development." width="620"></p>
+
+**Figure.** The CBSA stages in *InSites*. Hollow circles are the gates on the data (Stage 0) and on quality (Stage 6); filled circles are the analysis stages. The double tick stands for two reviews of a stage: the expert's, and an independent agentic review of its claims. The expert's review follows every stage in every edition. Among the published editions, only the Claude plugin has an agentic review: the `epistemic-auditor` agent checks a stage's marks when the user asks. Vera, which reviews every claim, is a private prototype in development. The figure uses short labels for the stages; the specification gives their full names.
 
 Governance is not only a layer running inside the analysis. It brackets the analysis at both ends.
 
@@ -26,7 +30,7 @@ Governance is not only a layer running inside the analysis. It brackets the anal
 
 **Exit governance — Stage 6, Quality Check and Summary.** Produces a process summary, a quick-improvement table, and planning implications. The expert settles the reliability constraint the finished assessment will carry.
 
-**Extensions** are invoked by name rather than run in sequence: knowledge graph, analytic dashboard, reading a completed assessment (read-assessment), and reading a collection of assessments (read-collection). Each is described in [`extensions.md`](extensions.md).
+**Extensions** are invoked by name rather than run in sequence: Knowledge Graph, Alternative Reading (reading a completed assessment), Collection Analysis (reading a collection of assessments) and Image Analysis. An assessment or a collection can also be rendered as a dashboard. Each is described in [`extensions.md`](extensions.md).
 
 ## Sequencing, and what enforces it
 
