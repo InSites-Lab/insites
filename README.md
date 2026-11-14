@@ -71,4 +71,4 @@ The three heritage documents assessed in the Tuba-Zangariyye study are third-par
 
 ## Who
 
-InSites Lab: Yael Alef (Technion) and Yuval Shafriri. [insites-lab.github.io](https://insites-lab.github.io/)
+Assoc.professor Yael Alef - InSites Lab: (Technion) [insites-lab.github.io](https://insites-lab.github.io/) and Yuval Shafriri,  EdTech Consultant. 
