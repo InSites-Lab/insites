@@ -6,7 +6,7 @@ The water tower of Kibbutz Ayelet HaShachar, in the Hula Valley in northern Isra
 
 It is a reinforced-concrete tank of about 25 cubic metres on four columns, which received water pumped up from a spring in the wadi. Unusually for a functional structure of this kind, it carries modest neo-classical decoration: gables, framed facades and, on the side facing the houses, an inscription naming the builders and the supervisor but not the settlement's funder. During the disturbances of 1936–1939 it served as a signal station, and the gables were destroyed. A bakery was built against it in the 1940s, and the tower went out of use in the 1960s. A conservation project began in 2018; its lower part now houses the oven of the new bakery.
 
-## Why it is a test case
+## The tower as a test case
 
 The documentation of the tower links it to several contexts at once: the long history of water shortage and of the spring, the Achva group and the labour ideology behind its work, the funder's absence from the inscription, and the other buildings of the early kibbutz. Some of these contexts give the tower its meaning, and the tower in turn carries evidence of them. That makes it a place on which to examine how an assessment identifies contexts, relates them to the asset, and argues significance from them. It is also the Hebrew example used for practising with *InSites* in workshops and courses.
 
