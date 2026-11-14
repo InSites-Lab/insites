@@ -86,7 +86,7 @@ Papers and other documents, the lab's web page and the install instructions poin
 - The repository root, and so `README.md`. The front page must keep naming the two study tags, `v1.0.0` and `cultural-insites-v1.0`, so that a reader arriving from a paper finds the archived version.
 - `studies/cases/` and `studies/digital_heritage-course-study/`.
 - `studies/heritage4.0-tuba-2026/` and `studies/Cultural-InSites-Paper/`, each also cited at its tag.
-- `system/claude/plugin/`, which `.claude-plugin/marketplace.json` names as the plugin's source.
+- `system/claude/plugin/`, which `.claude-plugin/marketplace.json` names as the plugin's source. The front page also links to the files inside it, one per stage and one per skill, as the readable form of the specification; if a rebuild renames one of them, update the links in `README.md` in the same commit.
 - `system/chatgpt/downloads/insites-chatgpt.zip`, linked from the plugin's install instructions.
 - `sites-data/`, linked from the DeepSeek student guide.
 

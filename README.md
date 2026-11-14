@@ -13,7 +13,7 @@ A project of the **[InSites Knowledge Lab](https://insites-lab.github.io/)**, Fa
 | To see | Go to |
 |---|---|
 | How it works | [`docs/architecture.md`](docs/architecture.md), the central document, and the rest of [`docs/`](docs/README.md) |
-| The specification itself | [`system/claude/V-11.5/InSites-claude-v11.5.md`](system/claude/V-11.5/InSites-claude-v11.5.md), the current specification as one readable file |
+| The specification itself | By part, as the [Claude plugin](system/claude/plugin/) holds it: one file for each stage and one skill for each extension, linked from the sections below. Or whole, as [one file](system/claude/V-11.5/InSites-claude-v11.5.md). The text is the same in both |
 | Cases and studies | [`studies/`](studies/README.md): the test cases, and the research records behind the papers |
 
 ## The process
@@ -26,13 +26,15 @@ The user uploads documentation of a heritage place. The model works through the 
 
 | Stage | What it produces |
 |---|---|
-| **0** Data Review and Gaps | A data-quality summary, a category checklist, a documentation profile and a list of gaps |
-| **1** Description and Contexts | The site description, a timeline, the contexts, marked and cited, and planning implications |
-| **2** Values Analysis | The values, marked and cited, and a table linking attributes, values, significance and implications |
-| **3** Authenticity and Integrity | A Nara Grid table and the integrity condition |
-| **4** Comparative Evaluation | A comparison set against stated criteria, with a summary |
-| **5** Significance Statement | The statement of significance and the open questions |
-| **6** Quality Check and Summary | A process summary, a table of quick improvements and planning implications |
+| **0** [Data Review and Gaps](system/claude/plugin/skills/assess/references/stage-0.md) | A data-quality summary, a category checklist, a documentation profile and a list of gaps |
+| **1** [Description and Contexts](system/claude/plugin/skills/assess/references/stage-1.md) | The site description, a timeline, the contexts, marked and cited, and planning implications |
+| **2** [Values Analysis](system/claude/plugin/skills/assess/references/stage-2.md) | The values, marked and cited, and a table linking attributes, values, significance and implications |
+| **3** [Authenticity and Integrity](system/claude/plugin/skills/assess/references/stage-3.md) | A Nara Grid table and the integrity condition |
+| **4** [Comparative Evaluation](system/claude/plugin/skills/assess/references/stage-4.md) | A comparison set against stated criteria, with a summary |
+| **5** [Significance Statement](system/claude/plugin/skills/assess/references/stage-5.md) | The statement of significance and the open questions |
+| **6** [Quality Check and Summary](system/claude/plugin/skills/assess/references/stage-6.md) | A process summary, a table of quick improvements and planning implications |
+
+Each stage links to its text in the specification. The rules that govern every stage, the notation among them, are the core of the specification, in [`assess/SKILL.md`](system/claude/plugin/skills/assess/SKILL.md), and the vocabularies are in [`vocabularies.md`](system/claude/plugin/skills/assess/references/vocabularies.md).
 
 The workflow stops after every stage and waits for the expert. The figure and the table use short labels for the stages; their full names are in the specification. What the expert decides at each stage is set out in [`docs/architecture.md`](docs/architecture.md).
 
@@ -47,23 +49,25 @@ The workflow stops after every stage and waits for the expert. The figure and th
 
 ## Extensions
 
-Around the seven stages the specification offers extensions, each invoked by name. None of them changes a mark a claim received in the stages. They are described in [`docs/extensions.md`](docs/extensions.md).
+Around the seven stages the specification offers extensions, each invoked by name. None of them changes a mark a claim received in the stages. They are described in [`docs/extensions.md`](docs/extensions.md), and each name below links to its text in the specification.
 
-- **Knowledge Graph** represents an assessment as a network: the places, structures, events, actors, contexts and values it names, and the relations between them.
-- **Alternative Reading** reads a completed assessment, whether produced in the session, uploaded or pasted, and offers analytical and interpretive readings of it.
-- **Collection Analysis** reads records or assessments together, at any depth of documentation, to surface patterns and gaps. It produces no new assessments.
-- **Image Analysis** adds observations from photographs, on values, condition and context, to the evidence for an assessment.
+- **[Knowledge Graph](system/claude/plugin/skills/knowledge-graph/SKILL.md)** represents an assessment as a network: the places, structures, events, actors, contexts and values it names, and the relations between them.
+- **[Alternative Reading](system/claude/plugin/skills/read-assessment/SKILL.md)** reads a completed assessment, whether produced in the session, uploaded or pasted, and offers analytical and interpretive readings of it.
+- **[Collection Analysis](system/claude/plugin/skills/read-collection/SKILL.md)** reads records or assessments together, at any depth of documentation, to surface patterns and gaps. It produces no new assessments.
+- **[Image Analysis](system/claude/plugin/skills/assess/references/image-analysis.md)** adds observations from photographs, on values, condition and context, to the evidence for an assessment.
 
-An assessment or a collection can also be rendered as an interactive **dashboard**, a report view of the approved outputs.
+An assessment or a collection can also be rendered as an interactive **[dashboard](system/claude/plugin/skills/dashboard/SKILL.md)**, a report view of the approved outputs.
 
 ## How it is built
 
 Its core is a specification written in natural language, which a general-purpose language model executes as a human-gated agentic workflow. *InSites* has no model of its own and is bound to no particular platform. Around that core are agentic components, which vary by edition:
 
 - **Stage and extension roles.** Each stage and extension is a bounded role with its own brief, output and stopping point, written into the specification.
-- **Epistemic auditor.** In the Claude plugin, on request, a separate agent checks a stage's marks against the sources in a clean context. It flags mismatches and never rewrites. It runs in Cowork and Claude Code.
+- **[Epistemic auditor](system/claude/plugin/agents/epistemic-auditor.md).** In the Claude plugin, on request, a separate agent checks a stage's marks against the sources in a clean context. It flags mismatches and never rewrites. It runs in Cowork and Claude Code.
 
 In the published editions, code renders the knowledge graph and the dashboards and packages the editions. The specification carries out the assessment, and the expert decides. How the editions are built from one source: [`docs/plugin-architecture.md`](docs/plugin-architecture.md).
+
+The links on this page open the specification as the Claude plugin holds it, because there each stage is a file of its own and each extension a skill, which is the easier form to read by part. The text is the same as in the single file; the plugin adds a short wrapper around each part. As an edition to install, the plugin is a development version; see [Running an edition](#running-an-edition).
 
 ## In development
 
