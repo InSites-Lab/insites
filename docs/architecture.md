@@ -68,9 +68,9 @@ The workflow pauses after each stage, and the pause holds because the expert hol
 
 Each intervention is tagged from a fixed vocabulary of six actions — `+add`, `−reject`, `~revise`, `↔replace`, `?question`, `!correct` — and the tags accumulate into a session report that closes the run as an audit trail of who changed what.
 
-## The vocabularies of values and contexts, and what lies beyond them
+## The value taxonomy and the context types, and what lies beyond them
 
-The specification carries two reference vocabularies. Where a stage names a value it can draw on fourteen types, listed with the specification and adapted per domain: historical, aesthetic, social, technological, symbolic, landscape, scientific, documentary and archival, spiritual, environmental, urban, mystery and enigma, functional, educational. Eleven context types frame the analysis: geographic, landscape, urban, historical, social, political, technological, environmental, intangible heritage, thematic, archaeological.
+The specification carries two reference vocabularies. Where a stage names a value it can draw on the fourteen-type value taxonomy of the CBSA framework, listed with the specification and adapted per domain: historical, aesthetic, social, technological, symbolic, landscape, scientific, documentary and archival, spiritual, environmental, urban, mystery and enigma, functional, educational. Eleven context types frame the analysis: geographic, landscape, urban, historical, social, political, technological, environmental, intangible heritage, thematic, archaeological.
 
 **Each is a reference vocabulary, not a closed taxonomy.** It is where the analysis starts, not where it must stop. The specification asks the model to go further in two directions, and this is where the epistemic notation does its work.
 
