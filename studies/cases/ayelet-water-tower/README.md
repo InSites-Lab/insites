@@ -2,7 +2,7 @@
 
 ## The place
 
-The water tower of Kibbutz Ayelet HaShachar, in the Hula Valley in northern Israel, was built in 1923, when the settlement moved to its permanent site. It was built together with the cowshed and the first five stone houses, on the hilltop at the centre of the horseshoe-shaped layout. The builders were the Achva group of the Joseph Trumpeldor Labour Battalion (Gdud HaAvoda), working for the Histadrut's Office of Public Works (later Solel Boneh), under the supervision of Michael Ehrlich.
+The water tower of Kibbutz Ayelet HaShachar, in the Hula Valley in northern Israel, was built in 1923, when the kibbutz, founded in 1918, moved to its permanent site. It was built together with the cowshed and the first five stone houses, on the hilltop at the centre of the horseshoe-shaped layout. The builders were the Achva group of the Joseph Trumpeldor Labour Battalion (Gdud HaAvoda), working for the Histadrut's Office of Public Works (later Solel Boneh), under the supervision of Michael Ehrlich.
 
 It is a reinforced-concrete tank of about 25 cubic metres on four columns, which received water pumped up from a spring in the wadi. Unusually for a functional structure of this kind, it carries modest neo-classical decoration: gables, framed facades and, on the side facing the houses, an inscription naming the builders and the supervisor but not the settlement's funder. During the disturbances of 1936–1939 it served as a signal station, and the gables were destroyed. A bakery was built against it in the 1940s, and the tower went out of use in the 1960s. A conservation project began in 2018; its lower part now houses the oven of the new bakery.
 
