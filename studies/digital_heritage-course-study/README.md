@@ -3,9 +3,11 @@
 **Cultural-InSites: A Human-AI Collaboration Framework for Teaching Significance Assessment for Digital Heritage Storytelling**
 Chao Zhou, Eugene Ch'ng, Yael Alef, Yuval Shafriri. Manuscript under review.
 
-The manuscript will be added here after review.
+- **The manuscript** is under review and will be added here after review.
+- **The study and its findings** are summarised below.
+- **The *InSites* version the students used** is the [archived Cultural-InSites specification](../Cultural-InSites-Paper/), a single file kept unchanged under the tag `cultural-insites-v1.0`.
 
-The *InSites* version the students used, archived under the tag `cultural-insites-v1.0`: [`../Cultural-InSites-Paper/`](../Cultural-InSites-Paper/)
+*InSites* is an AI environment for context-based significance assessment (CBSA) of heritage places: a language model carries out the assessment stage by stage, and an expert reviews every stage. What it is and how it works are set out on the [front page of this repository](../../README.md); the other research records are listed in the [studies index](../README.md).
 
 ## The study in brief
 
@@ -21,7 +23,7 @@ The evidence comes from three sources: a post-use survey (N = 25), the students'
 - **Engagement at the checkpoints varied.** Some students steered the reasoning by supplying cited evidence that prompted a stage revision, correcting outputs or redirecting the assessment toward documented history. Others advanced with little intervention, and in one case evidence gathering was delegated to the model. The paper concludes that human judgement cannot be assumed simply because checkpoints are present; it depends on the criteria learners are given for evaluating evidence, values and interpretive claims.
 - **From significance to storytelling.** Support was perceived as stronger for structuring evidence and identifying values than for translating significance into narrative and design decisions.
 
-The findings are in the sections *Perceived Improvement across CBSA*, *Human Judgement in AI-Supported CBSA Reasoning* and *Artefact-Based Evidence from Student Reports and AI Outputs*, and are discussed under *Human Judgement and the Boundary of AI-Supported Assessment*.
+In the manuscript, the findings are in the sections *Perceived Improvement across CBSA*, *Human Judgement in AI-Supported CBSA Reasoning* and *Artefact-Based Evidence from Student Reports and AI Outputs*, and are discussed under *Human Judgement and the Boundary of AI-Supported Assessment*.
 
 ## Data
 
