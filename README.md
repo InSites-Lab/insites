@@ -79,7 +79,7 @@ In the published editions, code renders the knowledge graph and the dashboards a
 
 A tagged snapshot is a fixed copy of this repository as it stood for that study; the link opens it, and it does not change. [`tools/claim-extractor/`](tools/claim-extractor/) is the protocol that produced the claim-level coding.
 
-A study record documents work done with one version of the specification, and the specification in `system/` has developed since. **A record and the current specification are not comparable as performance.** Cite the tagged record for findings and the live specification for architecture; [`studies/README.md`](studies/README.md) says more.
+The findings reported in the Heritage 4.0 paper belong to **one run of one version** of the Claude implementation, archived with that record, and the specification in `system/` has developed since. **A record and the current specification are not comparable as performance**, and the paper does not compare them. Cite the tagged record for findings and the live specification for architecture; [`studies/README.md`](studies/README.md) says more.
 
 ## Running an edition
 

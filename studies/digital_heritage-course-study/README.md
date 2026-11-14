@@ -5,7 +5,7 @@ Chao Zhou, Eugene Ch'ng, Yael Alef, Yuval Shafriri. Manuscript under review.
 
 - **The manuscript** is under review and will be added here after review.
 - **The study and its findings** are summarised below.
-- **The *InSites* version the students used** is the [archived Cultural-InSites specification](../Cultural-InSites-Paper/), a single file kept unchanged under the tag `cultural-insites-v1.0`.
+- **The *InSites* version the students used** is the [archived Cultural-InSites specification](../Cultural-InSites-Paper/), a single file kept unchanged under the tag [`cultural-insites-v1.0`](https://github.com/InSites-Lab/insites/tree/cultural-insites-v1.0/studies/Cultural-InSites-Paper).
 
 *InSites* is an AI environment for context-based significance assessment (CBSA) of heritage places: a language model carries out the assessment stage by stage, and an expert reviews every stage. What it is and how it works are set out on the [front page of this repository](../../README.md); the other research records are listed in the [studies index](../README.md).
 
