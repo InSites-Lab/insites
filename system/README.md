@@ -23,7 +23,7 @@ This folder holds the specification itself. How the system works is described in
 
 On Claude and on ChatGPT, use one edition or the other, never both in one conversation.
 
-Worth knowing before a first run:
+Worth knowing before a first run. These notes follow the Claude specification; an edition for another platform may not carry every one of them.
 
 - **The output language follows the language you write in**, not the language of the documents you upload.
 - **The first reading of each stage is deliberately short.** Say **expand** to go deeper, or **go back** to revisit a stage.
