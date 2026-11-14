@@ -11,10 +11,10 @@ Example heritage documents and images for practising with *InSites*. Ayelet wate
 
 | 示例 | 语言 | 文件 |
 |---|---|---|
-| [Ayelet 水塔](Ayelet-waterTower/) | 希伯来文 | [源文档](Ayelet-waterTower/Ayelet-WT.docx)、[示例图片](Ayelet-waterTower/images-samples/) 及[全部图片](Ayelet-waterTower/all-images/) |
+| [Ayelet 水塔](Ayelet-waterTower/) | 希伯来文 | [源文档](Ayelet-waterTower/Ayelet-WT.docx) |
 | [基督教圣地](sites-of-christianity/) | 英文 | [八福山](sites-of-christianity/Description_Beatitude.pdf)、[他泊山](sites-of-christianity/Description_Mt_Tabor.pdf) 和[塔布加](sites-of-christianity/Description_Tabgha.pdf) |
 
-打开示例文件夹浏览其中的文件，或下载源文档并上传到你的 InSites 对话。Ayelet 示例还可上传示例图片；其文件名保留了原始的页码与图片编号。
+打开示例文件夹浏览其中的文件，或下载源文档并上传到你的 InSites 对话。Ayelet 资料的图片未收录在本仓库中；带有图像材料的完整文献文件见 [`../studies/cases/ayelet-water-tower/`](../studies/cases/ayelet-water-tower/)。
 
 ### 研究资料
 
@@ -38,10 +38,10 @@ InSites 只处理你提供的内容。任何遗产文献均可：调查报告、
 
 | Example | Language | Files |
 |---|---|---|
-| [Ayelet water tower](Ayelet-waterTower/) | Hebrew | [Source document](Ayelet-waterTower/Ayelet-WT.docx), [sample images](Ayelet-waterTower/images-samples/) and [all images](Ayelet-waterTower/all-images/) |
+| [Ayelet water tower](Ayelet-waterTower/) | Hebrew | [Source document](Ayelet-waterTower/Ayelet-WT.docx) |
 | [Sites of Christianity](sites-of-christianity/) | English | [Mount of Beatitudes](sites-of-christianity/Description_Beatitude.pdf), [Mount Tabor](sites-of-christianity/Description_Mt_Tabor.pdf) and [Tabgha](sites-of-christianity/Description_Tabgha.pdf) |
 
-Open an example folder to browse its files, or download a source document and upload it to your *InSites* chat. For Ayelet, you can also upload the sample images; their filenames retain the original page and image identifiers.
+Open an example folder to browse its files, or download a source document and upload it to your *InSites* chat. The images of the Ayelet documentation are not distributed in this repository; the full documentation file, with its visual material, is in [`../studies/cases/ayelet-water-tower/`](../studies/cases/ayelet-water-tower/).
 
 ## Study sources
 
