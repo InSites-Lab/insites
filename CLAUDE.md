@@ -20,7 +20,9 @@ A paper rests on this repository: *From Report to Inquiry: Governing Generative 
 | `system/claude/` | Both Claude editions in one place. `README.md` sets them side by side; `V-11.5/` holds the single file; `plugin/` is the **generated** plugin edition, installed from the marketplace `InSites-Lab/insites` (root `.claude-plugin/marketplace.json`). An early development edition; its README says so, and that line stays until the plugin is validated. Never edit it directly — rebuild |
 | `system/chatgpt/` | Both ChatGPT editions in one place. `README.md` sets them side by side; `custom-gpt/` holds the Custom GPT files (`en/` canonical, `hebrew/` the workshop port); `plugin/` is the source of the ChatGPT Desktop plugin (eight skills built from the modules, a stateless MCP server and its viewer; an early development version); `downloads/` holds the packaged ZIP for a private Plugin Creator import, packaged at a point in time and not rebuilt with every module change |
 | `system/atar-runtime/` | **The code.** ~180 KB of JavaScript and CSS that renders the knowledge graph and the two dashboards, plus the esbuild driver and the React shell an artifact emits. Source of the `atar-runtime` npm package; `npm install && npm run build` works from it. `dist/` is untracked. The package is published under the npm account `insites-lab` (https://www.npmjs.com/settings/insites-lab/profile); `npm publish` needs `npm login` as that account and a 2FA code, so it is run by the author, not by a session |
-| `docs/` | Written for a reader: `architecture.md` (the anatomy), `extensions.md` (the graph, dashboards and readings), `epistemic-notation.md` (the marks), `Session-Report-spec.md` (the six intervention tags), `cbsa-archaeology-layer.md` (an optional module), `fig-workflow.html` (the source of the paper's figure) |
+| `docs/` | Written for a reader: `README.md` (the index and reading order), `architecture.md` (the anatomy, and the central document), `extensions.md` (the graph, the readings, image analysis and the dashboards), `epistemic-notation.md` (the marks), `Session-Report-spec.md` (the six intervention tags), `cbsa-archaeology-layer.md` (an optional module), `insites-workflow.png` (the current figure of the stages, shown in the root README and in `architecture.md`), `fig-workflow.html` (the source of the paper's figure) |
+| `studies/cases/` | Heritage places on which the system is tested, one folder per case |
+| `studies/digital_heritage-course-study/` | The course study in brief; its manuscript is under review and stays out of the repository |
 | `studies/heritage4.0-tuba-2026/` | The research record the paper cites. `system/` holds the specification **as it ran**; `session/` the transcript; `protocols/` the observation protocol; `coding/` the claim-level dataset and the extraction runs; `sources/README.md` the citations for the three assessed documents |
 | `studies/Cultural-InSites-Paper/` | A second, unrelated historical record: the specification a class of students used, run on DeepSeek-V3. Static; cite the tagged snapshot `cultural-insites-v1.0`. Same rule as above — never synchronise it with `system/` |
 | `tools/claim-extractor/` | The protocol that produced the coding |
@@ -76,3 +78,16 @@ The percentages inside `studies/heritage4.0-tuba-2026/coding/` describe that dat
 ## The tag
 
 Do not move or delete `v1.0.0`, and do not rename the repository or the `InSites-Lab` organisation. Each of the three breaks reference [10], and the paper is already submitted with those strings printed in it.
+
+## Paths that documents outside this repository point at
+
+Papers and other documents, the lab's web page and the install instructions point at the paths below, on `main` or at a tag. **Do not move or rename any of them.** Their content may be updated, except where a rule above says otherwise.
+
+- The repository root, and so `README.md`. The front page must keep naming the two study tags, `v1.0.0` and `cultural-insites-v1.0`, so that a reader arriving from a paper finds the archived version.
+- `studies/cases/` and `studies/digital_heritage-course-study/`.
+- `studies/heritage4.0-tuba-2026/` and `studies/Cultural-InSites-Paper/`, each also cited at its tag.
+- `system/claude/plugin/`, which `.claude-plugin/marketplace.json` names as the plugin's source.
+- `system/chatgpt/downloads/insites-chatgpt.zip`, linked from the plugin's install instructions.
+- `sites-data/`, linked from the DeepSeek student guide.
+
+A new paper should cite a tag rather than a path on a branch: a tag cannot drift, while a branch path, once cited, is frozen for good. The full register of who points where, and the script that checks it, are local, in `dev-notes/`.
