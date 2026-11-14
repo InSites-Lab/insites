@@ -18,7 +18,7 @@ On ChatGPT, *InSites* comes in two editions. Use one **or** the other in a conve
 
 ChatGPT splits what the single-file editions carry together, because of the size limit of the instructions field. `instructions.md` holds the workflow; the rest are loaded as knowledge:
 
-`cbsa-stages.md` the stage specifications · `cbsa-appendices.md` the taxonomies and reference material · `kg-spec.md`, `dashboard-spec.md`, `collection-dashboard-spec.md`, `report-tab-spec.md` the rendered outputs · `ma-ra-spec.md`, `ma-rc-spec.md` the read-assessment and read-collection workflows.
+`cbsa-stages.md` the stage specifications · `cbsa-appendices.md` the reference vocabularies, the rules and other reference material · `kg-spec.md`, `dashboard-spec.md`, `collection-dashboard-spec.md`, `report-tab-spec.md` the rendered outputs · `ma-ra-spec.md`, `ma-rc-spec.md` the read-assessment and read-collection workflows.
 
 **These are runtime inputs**, written to be loaded by the platform rather than read. Where the same mechanism is also explained for a reader, that explanation is in [`../../docs/`](../../docs/); the two serve different jobs and neither is a copy of the other.
 

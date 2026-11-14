@@ -72,7 +72,7 @@ Each intervention is tagged from a fixed vocabulary of six actions — `+add`, `
 
 The specification carries two reference vocabularies. Where a stage names a value it can draw on fourteen types, listed with the specification and adapted per domain: historical, aesthetic, social, technological, symbolic, landscape, scientific, documentary and archival, spiritual, environmental, urban, mystery and enigma, functional, educational. Eleven context types frame the analysis: geographic, landscape, urban, historical, social, political, technological, environmental, intangible heritage, thematic, archaeological.
 
-**Both are open vocabularies, not closed taxonomies.** They are where the analysis starts, not where it must stop. The specification asks the model to go further in two directions, and this is where the epistemic notation does its work.
+**Each is a reference vocabulary, not a closed taxonomy.** It is where the analysis starts, not where it must stop. The specification asks the model to go further in two directions, and this is where the epistemic notation does its work.
 
 - **Beyond the vocabulary.** A value or a context that emerges from the particular description of the place is kept in its own terms, even where no listed type fits it. It is never replaced by the nearest category or by a generic label. A value that maps to nothing on the list remains a valid value, and may itself be a finding.
 - **Beyond the explicit text.** The model is asked to infer values and contexts by connecting evidence that the sources do not connect, and to read between the lines for what the author of a source may not have noticed.
