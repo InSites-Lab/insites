@@ -68,11 +68,16 @@ The workflow pauses after each stage, and the pause holds because the expert hol
 
 Each intervention is tagged from a fixed vocabulary of six actions — `+add`, `−reject`, `~revise`, `↔replace`, `?question`, `!correct` — and the tags accumulate into a session report that closes the run as an audit trail of who changed what.
 
-## The value taxonomy
+## The vocabularies of values and contexts, and what lies beyond them
 
-Where a stage names a value it draws on fourteen types, listed with the specification and adapted per domain: historical, aesthetic, social, technological, symbolic, landscape, scientific, documentary and archival, spiritual, environmental, urban, mystery and enigma, functional, educational.
+The specification carries two reference vocabularies. Where a stage names a value it can draw on fourteen types, listed with the specification and adapted per domain: historical, aesthetic, social, technological, symbolic, landscape, scientific, documentary and archival, spiritual, environmental, urban, mystery and enigma, functional, educational. Eleven context types frame the analysis: geographic, landscape, urban, historical, social, political, technological, environmental, intangible heritage, thematic, archaeological.
 
-Eleven context types frame the analysis: geographic, landscape, urban, historical, social, political, technological, environmental, intangible heritage, thematic, archaeological. Every selected context must be supported by evidence and linked to values.
+**Both are open vocabularies, not closed taxonomies.** They are where the analysis starts, not where it must stop. The specification asks the model to go further in two directions, and this is where the epistemic notation does its work.
+
+- **Beyond the vocabulary.** A value or a context that emerges from the particular description of the place is kept in its own terms, even where no listed type fits it. It is never replaced by the nearest category or by a generic label. A value that maps to nothing on the list remains a valid value, and may itself be a finding.
+- **Beyond the explicit text.** The model is asked to infer values and contexts by connecting evidence that the sources do not connect, and to read between the lines for what the author of a source may not have noticed.
+
+The mark is what makes this latitude acceptable. A value or a context drawn from several pieces of evidence carries 〰️, an interpretive reading carries 💭, and the expert accepts, revises or rejects it at the checkpoint. The limits are stated as firmly as the latitude: every selected context must be supported by evidence and linked to values, and what the specification forbids is an unmarked claim presented as fact.
 
 ## Other governance components
 
