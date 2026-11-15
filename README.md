@@ -78,7 +78,7 @@ The links on this page open the specification as the Claude plugin holds it, bec
 | Folder | What it holds | Cite as |
 |---|---|---|
 | [`studies/cases/`](studies/cases/) | Heritage places on which *InSites* is tested: the Ayelet HaShachar water tower, and Ard al-Yahud in Haifa | |
-| [`studies/heritage4.0-tuba-2026/`](studies/heritage4.0-tuba-2026/) | The record behind *From Report to Inquiry: Governing Generative AI Insights in Heritage Significance Assessment* (Heritage 4.0, Florence, 2026): the specification exactly as it ran, the session transcript, the protocols and the claim-level coding | The tagged snapshot [`v1.0.0`](https://github.com/InSites-Lab/insites/tree/v1.0.0) |
+| [`studies/heritage4.0-tuba-2026/`](studies/heritage4.0-tuba-2026/) | The record behind *From Report to Inquiry: Governing Generative AI Insights in Heritage Significance Assessment* (Heritage 4.0, Florence, 2026): the specification exactly as it ran, the session transcript, the protocols and the claim-level coding | The tagged snapshot [`v1.0.0`](https://github.com/InSites-Lab/insites/tree/v1.0.0/studies/heritage4.0-tuba-2026) |
 | [`studies/digital_heritage-course-study/`](studies/digital_heritage-course-study/) | A course study with students of the Digitising Heritage course at Beijing Normal-Hong Kong Baptist University (BNBU): the study in brief | The manuscript is under review |
 | [`studies/Cultural-InSites-Paper/`](studies/Cultural-InSites-Paper/) | The version of the specification those students used, run on DeepSeek-V3 | The tagged snapshot [`cultural-insites-v1.0`](https://github.com/InSites-Lab/insites/tree/cultural-insites-v1.0/studies/Cultural-InSites-Paper) |
 
