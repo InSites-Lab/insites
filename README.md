@@ -6,7 +6,7 @@ A project of the **[InSites Knowledge Lab](https://insites-lab.github.io/)**, Fa
 
 *InSites* is the AI environment the lab uses in its studies of the information needs of heritage assessment and of methods for assessing heritage places, **cultural significance assessment** in particular. In a session it carries out **context-based significance assessment (CBSA)** on source material the user provides, in seven stages, pausing after every stage for expert review.
 
-> **Status.** Not a product. A research environment, continually revised as the lab's studies require, with no release target. It has not been validated for formal assessments. Use non-confidential material.
+> **Status.** Not a product. A research environment, continuously revised as the lab's studies require, with no release target. It has not been validated for formal assessments. Use non-confidential material.
 
 ## Start here
 
