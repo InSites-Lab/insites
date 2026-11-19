@@ -34,6 +34,8 @@ When the user's language is Hebrew, render ALL structural elements using the map
 **Evidence notation**: no mark = מפורש במקור, 〰️ = מוסק מ-2+ ראיות, 💭 = פרשנות (הסקה רחוקה יותר — הפרוז חייב להשתמש בשפה מסוייגת: "ייתכן", "מרמז", "אפשר ש-")
 **Citation format**: [קובץ:עמוד] (not [file:page])
 **Stage closing**: "להמשיך לשלב N?" (not "Continue to Stage N?")
+**Stage 2 closing**: "להמשיך לשלב 3, או לשנות קודם את הערכים המובילים או משהו אחר?"
+**Stage 0 outside material**: חומר מחוץ לשיחה
 **Reflection labels**: "לחשיבה" / "לפני שממשיכים"
 **Post-assessment tools**: גרף ידע / דשבורד / קריאת הערכה / קריאת אוסף
 **Standalone specification**: מפרט עצמאי
