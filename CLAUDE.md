@@ -8,7 +8,7 @@ A paper rests on this repository: *From Report to Inquiry: Governing Generative 
 
 **The repository is public and the paper is submitted.** Anything committed is visible immediately. The tag `v1.0.0` exists and is pushed; it is the paper's evidence and does not move.
 
-**Branches.** `main` is what a reader of the paper sees and what the plugin is packaged from; it moves only by merging `dev` once that branch has passed its checks, or for documentation and hygiene changes with no change in behaviour. Development happens on `dev`. Each plugin edition that has been run end to end is tagged `plugin-v<spec version>` (`plugin-v11.5` is the first).
+**Branches.** `main` is what a reader of the paper sees and what the plugin is packaged from; it moves only by merging `dev` once that branch has passed its checks, or for documentation and hygiene changes with no change in behaviour. Development happens on `dev`. Each plugin edition that has been run end to end is tagged `plugin-v<spec version>` (`plugin-v11.5` is the first). When one specification version ran in more than one edition, the edition is tagged by its own number instead: `plugin-0.1.6` is edition 0.1.6 on specification 11.5.
 
 ## Where things are
 
