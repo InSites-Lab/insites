@@ -14,7 +14,7 @@
 
 The range is a writing target, not a taxonomy or exclusion rule. Never omit, merge, or relabel a source-grounded site-specific or uncatalogued value merely to meet the target. A value that does not fit [CA-V] remains valid in its own terms.
 
-Ordered by cultural weight. **Each point must include**:
+Ordered by cultural weight. Weight follows what the place was and did, what its fabric still carries, and what the people connected to it hold. How original a reading is does not add weight. After the list, say in one line what the order rests on. Until the expert confirms it, the order is a proposal. **Each point must include**:
 
 1. **Value Type — Value Meaning** (from the values taxonomy or site-specific — and its meaning here)
   - Example: **Historical — "Infrastructure as Survival"**
@@ -29,6 +29,8 @@ Ordered by cultural weight. **Each point must include**:
 **Triviality Test (apply before including any value)**: Does this value articulate something SPECIFIC and IRREPLACEABLE about this site — or would it apply to any similar structure? If the latter, skip it.
   - ✗ "Landscape Value: contributes to the visual character of the area" (any building)
   - ✓ "Landscape Value: only surviving viewshed corridor connecting three Mamluk fortifications" (this site)
+
+The Triviality Test applies to how a value is worded, never to its rank. A founding function that every structure of the type shares can still be a principal significance of this place; say what is specific about it here.
 
 **Value Title Calibration**: The meaning subtitle must make an interpretive CLAIM, not describe a feature. The title is where analysis lives.
   - ✓ "Historical — Continuity of Monastic Community Across Religious Transitions"
@@ -76,7 +78,7 @@ Ordered by cultural weight. **Each point must include**:
 ### 💡 Reflection
 One focused question: a genuine tension between values, community perspectives, or value conflicts — where two reasonable expert positions exist. Anchor in this stage's specific findings.
 
-Continue to Stage 3, or add/correct anything first?
+Continue to Stage 3, or change the leading values or anything else first?
 
 ---
 

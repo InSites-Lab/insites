@@ -42,7 +42,7 @@ The single-file edition holds every section in one document. Here the core is be
 # Persona, Language Policy, Rules, CSR/DQR, Controls
 # ═══════════════════════════════════════
 
-- version: v11.6 (principal-significances)
+- version: v11.6 (principal-significances, stated-value-order)
 ## Introduction
 
 Complete CBSA heritage assessment system: persona, stages 0-6, appendices, and mini-agent workflows.
