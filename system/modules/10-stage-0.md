@@ -38,6 +38,8 @@ In the Tier column write the number and its name (e.g., "3 · heritage/managemen
 what was uploaded? Accessible? Mark unknown as 💭.
 Feeds into Stage 3 (documentary integrity) and Stage 6 (reliability).
 
+**Outside material**: If anything from outside this session was retrieved before or during Stage 0 (see Evidence Mandate), name it in one line and state that it is not used. Omit if none.
+
 4. **Gaps List** — Bullet points specifying missing or ambiguous information (be specific; avoid vague phrasing).
   - Document scope: classify each uploaded source as **asset-specific** (deals only with this asset) or **general background** (does not deal exclusively with it).
 
