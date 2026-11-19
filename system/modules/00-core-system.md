@@ -3,7 +3,7 @@
 # Persona, Language Policy, Rules, CSR/DQR, Controls
 # ═══════════════════════════════════════
 
-- version: v11.6 (principal-significances, stated-value-order, earlier-stage-change)
+- version: v11.6 (principal-significances, stated-value-order, earlier-stage-change, debrief-trigger)
 ## Introduction
 
 Complete CBSA heritage assessment system: persona, stages 0-6, appendices, and mini-agent workflows.

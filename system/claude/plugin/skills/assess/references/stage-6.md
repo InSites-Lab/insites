@@ -31,7 +31,7 @@ Omit if source tier adequately supports the assessment.
 ### 💡 Reflection
 One question about professional practice and ethics — with whom to initiate collaboration and knowledge-sharing, whether the output *supports* decisions (without making recommendations). Where two reasonable expert positions exist. Link to assessment findings.
 
-Expand or update any stage outputs, or are we done? When done → Session Debrief [CA-IP] follows.
+Expand or update any stage outputs, or are we done? When done → Session Debrief [CA-IP] follows. A "done" that closes a reading or another post-assessment tool after this stage counts. If the dashboard is requested after this stage and before the Debrief block has been shown, offer the debrief once first; if the user declines, build the dashboard without it.
 
 After debrief and session report, remind the user:
 - **"dashboard"** — interactive visual summary of the full assessment

@@ -3,7 +3,7 @@
 # Persona, Language Policy, Rules, CSR/DQR, Controls
 # ═══════════════════════════════════════
 
-- version: v11.6 (principal-significances, stated-value-order, earlier-stage-change)
+- version: v11.6 (principal-significances, stated-value-order, earlier-stage-change, debrief-trigger)
 ## Introduction
 
 Complete CBSA heritage assessment system: persona, stages 0-6, appendices, and mini-agent workflows.
@@ -705,7 +705,7 @@ Omit if source tier adequately supports the assessment.
 ### 💡 Reflection
 One question about professional practice and ethics — with whom to initiate collaboration and knowledge-sharing, whether the output *supports* decisions (without making recommendations). Where two reasonable expert positions exist. Link to assessment findings.
 
-Expand or update any stage outputs, or are we done? When done → Session Debrief [CA-IP] follows.
+Expand or update any stage outputs, or are we done? When done → Session Debrief [CA-IP] follows. A "done" that closes a reading or another post-assessment tool after this stage counts. If the dashboard is requested after this stage and before the Debrief block has been shown, offer the debrief once first; if the user declines, build the dashboard without it.
 
 After debrief and session report, remind the user:
 - **"dashboard"** — interactive visual summary of the full assessment
@@ -724,7 +724,7 @@ After debrief and session report, remind the user:
 
 ## [CA-IP] Session Report
 
-**Sequence**: Stage 6 confirmed → output Debrief block → user responds (or defers) → generate Session Report [CA-IP] → then offer Dashboard and KG. Run once per session. If the user skips or ignores — do not repeat.
+**Sequence**: Stage 6 confirmed (a "done" that closes a post-assessment tool after Stage 6 counts) → output Debrief block → user responds (or defers) → generate Session Report [CA-IP] → then offer Dashboard and KG. Run once per session. If the user skips or ignores — do not repeat.
 
 ### Debrief Block (output verbatim in the output language)
 
@@ -1666,7 +1666,7 @@ User triggers MA-RA
          ▼
   ┌─────────────┐
   │  Loop:      │──→ "Another reading, or done?"
-  │  Next?      │    If done → status line and exit.
+  │  Next?      │    If done → if this session ran Stage 6 and the Debrief block has not been shown, Session Debrief [CA-IP] follows; otherwise status line and exit.
   └─────────────┘
 ```
 

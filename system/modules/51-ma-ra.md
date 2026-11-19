@@ -235,7 +235,7 @@ User triggers MA-RA
          ▼
   ┌─────────────┐
   │  Loop:      │──→ "Another reading, or done?"
-  │  Next?      │    If done → status line and exit.
+  │  Next?      │    If done → if this session ran Stage 6 and the Debrief block has not been shown, Session Debrief [CA-IP] follows; otherwise status line and exit.
   └─────────────┘
 ```
 

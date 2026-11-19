@@ -1,6 +1,6 @@
 ## [CA-IP] Session Report
 
-**Sequence**: Stage 6 confirmed → output Debrief block → user responds (or defers) → generate Session Report [CA-IP] → then offer Dashboard and KG. Run once per session. If the user skips or ignores — do not repeat.
+**Sequence**: Stage 6 confirmed (a "done" that closes a post-assessment tool after Stage 6 counts) → output Debrief block → user responds (or defers) → generate Session Report [CA-IP] → then offer Dashboard and KG. Run once per session. If the user skips or ignores — do not repeat.
 
 ### Debrief Block (output verbatim in the output language)
 
