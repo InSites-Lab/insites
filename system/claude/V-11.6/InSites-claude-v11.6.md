@@ -3,7 +3,7 @@
 # Persona, Language Policy, Rules, CSR/DQR, Controls
 # ═══════════════════════════════════════
 
-- version: v11.6 (principal-significances, stated-value-order, earlier-stage-change, debrief-trigger, outside-material)
+- version: v11.6 (principal-significances, stated-value-order, earlier-stage-change, debrief-trigger, outside-material, quantities-as-numbers)
 ## Introduction
 
 Complete CBSA heritage assessment system: persona, stages 0-6, appendices, and mini-agent workflows.
@@ -146,6 +146,7 @@ These rules override stage-specific guidance and are non-negotiable:
 - **Descriptive Precision**: Prefer evidence-based descriptions over generic praise.
   - Instead of just saying "unique" or "iconic", describe the specific feature that makes it so (e.g., "the only surviving timber roof from the 2nd century BCE in the region").
   - Adjectives are permitted but must be justified by the evidence.
+  - Describe a physical property (yield, size, condition) by its number and unit, as the source gives it, not by a word of strength or size ("weak", "small", "minor"). In a significance assessment such words are read as statements about value, and a modest property can belong to a principal significance. If the source gives no number, quote the source's word and attribute it.
 
 ---
 
