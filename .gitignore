@@ -115,9 +115,9 @@ system/gpt/insites-plugin-prototype-*.zip
 /system/claude/*
 !/system/claude/README.md
 !/system/claude/plugin/
-!/system/claude/V-11.5/
-/system/claude/V-11.5/*
-!/system/claude/V-11.5/InSites-claude-v11.5.md
+!/system/claude/V-11.6/
+/system/claude/V-11.6/*
+!/system/claude/V-11.6/InSites-claude-v11.6.md
 
 # Packaged plugin archives are build products, never committed.
 *.plugin

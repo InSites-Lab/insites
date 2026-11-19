@@ -1,10 +1,10 @@
-# *InSites* for Claude · v11.5
+# *InSites* for Claude · v11.6
 
 On Claude, *InSites* comes in two editions of the same specification. Use one **or** the other in a conversation, never both: two copies of the core rules can disagree as soon as one of them is updated.
 
 | | Single file | Plugin |
 |---|---|---|
-| **What you load** | [`V-11.5/InSites-claude-v11.5.md`](V-11.5/InSites-claude-v11.5.md), in a Project's instructions or at the start of a session | [`plugin/`](plugin/), installed once to your account from the marketplace `InSites-Lab/insites` |
+| **What you load** | [`V-11.6/InSites-claude-v11.6.md`](V-11.6/InSites-claude-v11.6.md), in a Project's instructions or at the start of a session | [`plugin/`](plugin/), installed once to your account from the marketplace `InSites-Lab/insites` |
 | **Status** | The established edition | Development version: not yet validated for formal assessments; use at your own discretion |
 | **Start** | Upload, say **start** | Upload, say **begin assessment** (**התחל הערכה**), or choose **assess** from the `/` menu |
 | **New versions** | Replace the file by hand | Through the plugin's update; see [its README](plugin/README.md) |
@@ -13,7 +13,7 @@ Both are built from the same [modules](../modules/), and the text of the specifi
 
 ## The single file
 
-Load the [current specification](V-11.5/InSites-claude-v11.5.md) into your Claude session. Use a separate session for each heritage site.
+Load the [current specification](V-11.6/InSites-claude-v11.6.md) into your Claude session. Use a separate session for each heritage site.
 
 1. Ask Claude to follow the specification, choose your working language, and wait for source material.
 2. Upload site documents, photographs or drawings with source/page identifiers, then say **start**. Check the Stage 0 inventory and missing information.

@@ -8,7 +8,7 @@ This folder is the **source** of the *InSites* specification, held as one module
 
 | Edition | Built by | Output |
 |---|---|---|
-| Claude, single file | `node system/build/build.mjs --monolith <path>` | [`../claude/V-11.5/InSites-claude-v11.5.md`](../claude/V-11.5/InSites-claude-v11.5.md) |
+| Claude, single file | `node system/build/build.mjs --monolith <path>` | [`../claude/V-11.6/InSites-claude-v11.6.md`](../claude/V-11.6/InSites-claude-v11.6.md) |
 | Claude plugin | `node system/build/build.mjs` | [`../claude/plugin/`](../claude/plugin/), with the wrappers in [`../build/claude-plugin/`](../build/claude-plugin/) |
 | ChatGPT Desktop plugin | its own npm build, in [`../chatgpt/plugin/`](../chatgpt/plugin/README.md) | a packaged ZIP |
 

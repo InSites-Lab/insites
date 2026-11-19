@@ -8,7 +8,7 @@ This folder holds the specification itself. How the system works is described in
 
 | Folder or file | What it is |
 |---|---|
-| [`claude/`](claude/README.md) | The two Claude editions: the single file [`claude/V-11.5/InSites-claude-v11.5.md`](claude/V-11.5/InSites-claude-v11.5.md), and a [plugin](claude/plugin/) installed to your account (**development version: not yet validated for formal assessments; use at your own discretion**) |
+| [`claude/`](claude/README.md) | The two Claude editions: the single file [`claude/V-11.6/InSites-claude-v11.6.md`](claude/V-11.6/InSites-claude-v11.6.md), and a [plugin](claude/plugin/) installed to your account (**development version: not yet validated for formal assessments; use at your own discretion**) |
 | [`chatgpt/`](chatgpt/README.md) | The two ChatGPT editions: a Custom GPT built from [`chatgpt/custom-gpt/en/instructions.md`](chatgpt/custom-gpt/en/instructions.md) and the knowledge files beside it, and a ChatGPT Desktop plugin (development), with its [source](chatgpt/plugin/) and its [packaged archive](chatgpt/downloads/) |
 | `gemini/` | The Google Gemini edition, one file: [`gemini/V-11.4/InSites-CAA-GEM-v11.4.md`](gemini/V-11.4/InSites-CAA-GEM-v11.4.md) |
 | [`deepseek/`](deepseek/README.md) | The DeepSeek course edition, one file, [`deepseek/InSites-deepseek-V2.md`](deepseek/InSites-deepseek-V2.md), with a student guide |
@@ -37,7 +37,7 @@ The implementations are ports of the same architecture. The version number recor
 
 | Platform | Version | Last changed | Form |
 |---|---|---|---|
-| Claude | v11.5 | October 2026 | One file. The Tuba-Zangariyye study ran on an earlier version archived in [`../studies/heritage4.0-tuba-2026/system/`](../studies/heritage4.0-tuba-2026/system/) — not on the file here |
+| Claude | v11.6 | November 2026 | One file. The Tuba-Zangariyye study ran on an earlier version archived in [`../studies/heritage4.0-tuba-2026/system/`](../studies/heritage4.0-tuba-2026/system/) — not on the file here |
 | DeepSeek | V2 | September 2026 | One file; English/Chinese course edition. Epistemic marks remain in assessment/readings, not the KG |
 | Gemini | v11.4 | September 2026 | One file |
 | ChatGPT | v11.4 | September 2026 | `instructions.md` plus the knowledge files beside it |
@@ -52,7 +52,7 @@ The architecture is a file. It carries no dependency on a particular model, and 
 
 ## How the editions are built
 
-The Claude specification is edited as modules in [`modules/`](modules/), one per section. Joined in the order of the manifest they equal `claude/V-11.5/InSites-claude-v11.5.md` exactly, and `node system/build/build.mjs --check` confirms it.
+The Claude specification is edited as modules in [`modules/`](modules/), one per section. Joined in the order of the manifest they equal `claude/V-11.6/InSites-claude-v11.6.md` exactly, and `node system/build/build.mjs --check` confirms it.
 
 The build script assembles the editions from the modules: the [Claude plugin](claude/plugin/), where each part becomes a skill read when its task arrives, and the joined single file (`--monolith`). It joins and copies text and nothing it produces runs as code, so the specification is still what runs. The plugin folder is generated: edit the modules and the wrappers in [`build/claude-plugin/`](build/claude-plugin/), then rebuild.
 

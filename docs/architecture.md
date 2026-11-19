@@ -89,7 +89,7 @@ The paper follows the two mechanisms that act on the analysis itself. Three more
 
 ## Version history and the freeze note
 
-`system/claude/V-11.5/InSites-claude-v11.5.md` is the current specification and changes over time. It is edited as modules in [`system/modules/`](../system/modules/README.md) and built into that single file and the Claude plugin; the ChatGPT Desktop plugin is built from the same modules, while the Gemini and Custom GPT editions are maintained as ports. Previous working versions are kept locally, not in this repository.
+`system/claude/V-11.6/InSites-claude-v11.6.md` is the current specification and changes over time. It is edited as modules in [`system/modules/`](../system/modules/README.md) and built into that single file and the Claude plugin; the ChatGPT Desktop plugin is built from the same modules, while the Gemini and Custom GPT editions are maintained as ports. Previous working versions are kept locally, not in this repository.
 
 `studies/heritage4.0-tuba-2026/system/InSites-v2.1_AS-RUN-tuba-2026-03-22.md` is the specification exactly as it ran in the assessment reported in the Heritage 4.0 paper. **Every number in that paper belongs to that file and that session.** Changes since, some of them prompted by what the session exposed: a revision now cannot be followed by advancing until the expert confirms; the prose around a mark must match its epistemic status; synthesis carries 〰️ rather than °; and the marks travel into rendered outputs such as the knowledge graph.
 

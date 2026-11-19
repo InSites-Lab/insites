@@ -1,7 +1,7 @@
 {
   "spec": "InSites CBSA",
-  "version": "11.5",
-  "source": "system/claude/V-11.5/InSites-claude-v11.5.md",
+  "version": "11.6",
+  "source": "system/claude/V-11.6/InSites-claude-v11.6.md",
   "modules": [
     {
       "id": "00-core-system",

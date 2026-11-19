@@ -13,7 +13,7 @@ A project of the **[InSites Knowledge Lab](https://insites-lab.github.io/)**, Fa
 | To see | Go to |
 |---|---|
 | How it works | [`docs/architecture.md`](docs/architecture.md), the central document, and the rest of [`docs/`](docs/README.md) |
-| The specification itself | By part, as the [Claude plugin](system/claude/plugin/) holds it: one file for each stage and one skill for each extension, linked from the sections below. Or whole, as [one file](system/claude/V-11.5/InSites-claude-v11.5.md). The text is the same in both |
+| The specification itself | By part, as the [Claude plugin](system/claude/plugin/) holds it: one file for each stage and one skill for each extension, linked from the sections below. Or whole, as [one file](system/claude/V-11.6/InSites-claude-v11.6.md). The text is the same in both |
 | Cases and studies | [`studies/`](studies/README.md): the test cases, and the research records behind the papers |
 
 ## The process
