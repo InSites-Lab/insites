@@ -1,0 +1,849 @@
+<meta charset="utf-8">
+<meta name="claude:viewport-fit-sides" content="cover">
+<title>InSites Session Notes</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@500;700&family=Heebo:wght@400;500;600&display=swap">
+<style>
+/* Layout: one narrow column of note fields in the order of the session, under a sticky bar that carries the save state, a jump row and the two export actions. */
+:root {
+  --bg: #eef2f3;
+  --surface: #ffffff;
+  --fg: #1b2529;
+  --muted: #56666d;
+  --line: #cfd8dc;
+  --accent: #1c6a74;
+  --accent-fg: #ffffff;
+  --warn: #8a5a00;
+  --font-display: "Frank Ruhl Libre", Georgia, "Times New Roman", serif;
+  --font-body: "Heebo", "Segoe UI", system-ui, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #11181b; --surface: #192226; --fg: #e4eaec; --muted: #93a2a8;
+    --line: #2b383d; --accent: #62b6c0; --accent-fg: #0c1417; --warn: #e0b25a;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #11181b; --surface: #192226; --fg: #e4eaec; --muted: #93a2a8;
+  --line: #2b383d; --accent: #62b6c0; --accent-fg: #0c1417; --warn: #e0b25a;
+  color-scheme: dark;
+}
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0 0 auto;
+  height: env(safe-area-inset-top, 0px);
+  z-index: 10;
+  background: var(--bg);
+}
+.wrap {
+  max-width: 46rem;
+  margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 4rem;
+}
+.bar {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 5;
+  background: var(--bg);
+  border-bottom: 1px solid var(--line);
+  padding-block: 0.8rem 0.55rem;
+  display: grid;
+  gap: 0.55rem;
+}
+.bar-top {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  justify-content: space-between;
+}
+.titles { min-width: 0; }
+h1 {
+  font-family: var(--font-display);
+  font-size: 1.55rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  text-wrap: balance;
+}
+.sub { color: var(--muted); font-size: 0.9rem; margin: 0; }
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.sess { display: flex; flex-wrap: wrap; gap: 0.4rem 0.5rem; align-items: center; margin-top: 0.35rem; min-width: 0; }
+select, input[type="text"] {
+  box-sizing: border-box;
+  min-height: 40px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0.3rem 0.6rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+  font: inherit;
+}
+select { flex: 0 1 22rem; }
+.btn:disabled { opacity: 0.5; cursor: default; }
+.newform { display: grid; gap: 0.35rem; }
+.newform label { font-size: 0.85rem; color: var(--muted); }
+.newrow { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+.newrow input { flex: 1 1 14rem; }
+textarea:disabled { opacity: 0.55; }
+.actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+button { font: inherit; cursor: pointer; }
+.btn {
+  min-height: 40px;
+  padding: 0.4rem 0.95rem;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-weight: 500;
+}
+.btn.quiet { background: transparent; color: var(--accent); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.state { display: flex; flex-wrap: wrap; gap: 0.15rem 1rem; font-size: 0.85rem; color: var(--muted); min-height: 1.3em; }
+.state p { margin: 0; }
+#status { font-variant-numeric: tabular-nums; }
+#status[data-warn="1"] { color: var(--warn); font-weight: 500; }
+.jump { display: flex; gap: 0.35rem; overflow-x: auto; padding-bottom: 0.2rem; }
+.chip {
+  flex: none;
+  min-height: 36px;
+  min-width: 36px;
+  padding: 0.2rem 0.65rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+  font-size: 0.9rem;
+}
+.chip.has { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+.chip.has::after { content: " •"; }
+.intro { color: var(--muted); max-width: 65ch; margin: 1rem 0 0.4rem; }
+.where { color: var(--muted); font-size: 0.9rem; max-width: 65ch; margin: 0 0 0.6rem; }
+.note {
+  display: grid;
+  gap: 0.5rem;
+  padding-block: 1.1rem 0.5rem;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 12.5rem;
+}
+.note h2 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.15rem 0.6rem;
+  align-items: baseline;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+.num {
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.stamp {
+  margin-inline-start: auto;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 400;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+textarea {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 16rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface);
+  color: var(--fg);
+  font: 400 17px/1.6 var(--font-body);
+  resize: vertical;
+  field-sizing: content;
+}
+textarea:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; border-color: var(--accent); }
+textarea::placeholder { color: var(--muted); opacity: 0.75; }
+.fallback { display: grid; gap: 0.5rem; padding-block: 1.1rem 0; border-top: 1px solid var(--line); }
+.fallback p { margin: 0; color: var(--muted); font-size: 0.9rem; }
+.fallback textarea { min-height: 12rem; font-size: 15px; }
+@media (max-width: 30rem) {
+  h1 { font-size: 1.3rem; }
+  .note { scroll-margin-top: 16rem; }
+}
+</style>
+
+<div class="wrap" dir="ltr" lang="en">
+
+  <header class="bar">
+    <div class="bar-top">
+      <div class="titles">
+        <h1>Session notes</h1>
+        <div class="sess">
+          <label class="sr" for="session-select">Session</label>
+          <select id="session-select"></select>
+          <button class="btn quiet" id="btn-new" type="button" disabled>New session</button>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="btn" id="btn-download" type="button">Download notes</button>
+        <button class="btn quiet" id="btn-copy" type="button">Copy</button>
+      </div>
+    </div>
+    <form class="newform" id="new-form" hidden>
+      <label for="new-name">Name of the new session</label>
+      <div class="newrow">
+        <input id="new-name" type="text" maxlength="80" autocomplete="off" placeholder="The site or the case">
+        <button class="btn" id="btn-create" type="submit">Create</button>
+        <button class="btn quiet" id="btn-cancel" type="button">Cancel</button>
+      </div>
+    </form>
+    <div class="state">
+      <p id="status" role="status" aria-live="polite"></p>
+      <p id="msg" role="status" aria-live="polite"></p>
+    </div>
+    <nav class="jump" aria-label="Jump to a stage">
+      <button class="chip" type="button" data-go="s0" aria-label="Stage 0">0</button>
+      <button class="chip" type="button" data-go="s1" aria-label="Stage 1">1</button>
+      <button class="chip" type="button" data-go="s2" aria-label="Stage 2">2</button>
+      <button class="chip" type="button" data-go="s3" aria-label="Stage 3">3</button>
+      <button class="chip" type="button" data-go="s4" aria-label="Stage 4">4</button>
+      <button class="chip" type="button" data-go="s5" aria-label="Stage 5">5</button>
+      <button class="chip" type="button" data-go="kg">Graph</button>
+      <button class="chip" type="button" data-go="s6" aria-label="Stage 6">6</button>
+      <button class="chip" type="button" data-go="reading">Reading</button>
+      <button class="chip" type="button" data-go="dashboard">Dashboard</button>
+      <button class="chip" type="button" data-go="general">General</button>
+    </nav>
+  </header>
+
+  <p class="intro">Write here what you want to remember and is not part of the session itself: an insight, a problem, a correction you made, a surprise, a question. No stage has to be filled in. What you write is saved as you go, under the session chosen above.</p>
+  <p class="where" id="where">Notes are saved in this device's browser only. When you finish, download or copy them.</p>
+
+  <section class="note" id="sec-s0">
+    <h2 id="h-s0"><span class="num">Stage 0</span><span>Preliminary Review</span><span class="stamp" id="stamp-s0"></span></h2>
+    <textarea id="note-s0" dir="auto" aria-labelledby="h-s0" data-title="Stage 0: Preliminary Review" placeholder="An insight, a problem, a question…"></textarea>
+  </section>
+
+  <section class="note" id="sec-s1">
+    <h2 id="h-s1"><span class="num">Stage 1</span><span>Contexts</span><span class="stamp" id="stamp-s1"></span></h2>
+    <textarea id="note-s1" dir="auto" aria-labelledby="h-s1" data-title="Stage 1: Contexts" placeholder="An insight, a problem, a question…"></textarea>
+  </section>
+
+  <section class="note" id="sec-s2">
+    <h2 id="h-s2"><span class="num">Stage 2</span><span>Values</span><span class="stamp" id="stamp-s2"></span></h2>
+    <textarea id="note-s2" dir="auto" aria-labelledby="h-s2" data-title="Stage 2: Values" placeholder="An insight, a problem, a question…"></textarea>
+  </section>
+
+  <section class="note" id="sec-s3">
+    <h2 id="h-s3"><span class="num">Stage 3</span><span>Authenticity &amp; Integrity</span><span class="stamp" id="stamp-s3"></span></h2>
+    <textarea id="note-s3" dir="auto" aria-labelledby="h-s3" data-title="Stage 3: Authenticity &amp; Integrity" placeholder="An insight, a problem, a question…"></textarea>
+  </section>
+
+  <section class="note" id="sec-s4">
+    <h2 id="h-s4"><span class="num">Stage 4</span><span>Comparative Analysis</span><span class="stamp" id="stamp-s4"></span></h2>
+    <textarea id="note-s4" dir="auto" aria-labelledby="h-s4" data-title="Stage 4: Comparative Analysis" placeholder="An insight, a problem, a question…"></textarea>
+  </section>
+
+  <section class="note" id="sec-s5">
+    <h2 id="h-s5"><span class="num">Stage 5</span><span>Cultural Significance Statement</span><span class="stamp" id="stamp-s5"></span></h2>
+    <textarea id="note-s5" dir="auto" aria-labelledby="h-s5" data-title="Stage 5: Cultural Significance Statement" placeholder="An insight, a problem, a question…"></textarea>
+  </section>
+
+  <section class="note" id="sec-kg">
+    <h2 id="h-kg"><span class="num">After Stage 5</span><span>Knowledge Graph</span><span class="stamp" id="stamp-kg"></span></h2>
+    <textarea id="note-kg" dir="auto" aria-labelledby="h-kg" data-title="Knowledge Graph" placeholder="An insight, a problem, a question…"></textarea>
+  </section>
+
+  <section class="note" id="sec-s6">
+    <h2 id="h-s6"><span class="num">Stage 6</span><span>Quality Check &amp; Summary</span><span class="stamp" id="stamp-s6"></span></h2>
+    <textarea id="note-s6" dir="auto" aria-labelledby="h-s6" data-title="Stage 6: Quality Check &amp; Summary" placeholder="An insight, a problem, a question…"></textarea>
+  </section>
+
+  <section class="note" id="sec-reading">
+    <h2 id="h-reading"><span class="num">After Stage 6</span><span>Read Assessment</span><span class="stamp" id="stamp-reading"></span></h2>
+    <textarea id="note-reading" dir="auto" aria-labelledby="h-reading" data-title="Read Assessment" placeholder="An insight, a problem, a question…"></textarea>
+  </section>
+
+  <section class="note" id="sec-dashboard">
+    <h2 id="h-dashboard"><span class="num">At the end</span><span>Dashboard</span><span class="stamp" id="stamp-dashboard"></span></h2>
+    <textarea id="note-dashboard" dir="auto" aria-labelledby="h-dashboard" data-title="Dashboard" placeholder="An insight, a problem, a question…"></textarea>
+  </section>
+
+  <section class="note" id="sec-general">
+    <h2 id="h-general"><span class="num">Any time</span><span>General notes</span><span class="stamp" id="stamp-general"></span></h2>
+    <textarea id="note-general" dir="auto" aria-labelledby="h-general" data-title="General notes" placeholder="Anything that does not belong to one stage…"></textarea>
+  </section>
+
+  <section class="fallback" id="fallback" hidden>
+    <p>All the notes as one text. The text is selected, and you can copy it from here.</p>
+    <textarea id="fallback-text" dir="auto" readonly aria-label="All the notes as one text"></textarea>
+  </section>
+
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var IDS = ["s0", "s1", "s2", "s3", "s4", "s5", "kg", "s6", "reading", "dashboard", "general"];
+  // The first session is kept in the top-level "notes" collection; every later one under "sessions/<id>/notes".
+  // A published copy can name it: change the title here, and give createdAt an ISO date to show beside it.
+  var FIRST = { id: "first-session", title: "First session", createdAt: "" };
+  var LS_FIRST = "stage-notes-v1";
+  var LS_CURRENT = "stage-notes-current";
+  var LS_SESSIONS = "stage-notes-sessions";
+  var SID_RE = /^[a-z0-9][a-z0-9-]{2,39}$/;
+  var RESERVED = { settings: 1, sidebar: 1, customize: 1, upgrade: 1, downloads: 1 };
+  var SEP = "\n\n— — —\n\n";
+  var WHERE_LOCAL = "Notes are saved in this device's browser only. When you finish, download or copy them.";
+  var WHERE_PAGE = "Notes are saved in the page itself and on this device, and can be opened from another device.";
+  var WHERE_NONE = "This browser does not allow saving here. Copy your notes before you close the page.";
+
+  var E = {};             // per field: the element, its title, its stamp and its chip
+  var cur = null;         // the open session: its id and the save state of each field
+  var db = null;          // the artifact's store, when this view has one
+  var dbDenied = false;   // a write was refused: stay on device storage for this visit
+  var dbProven = false;   // at least one write reached the store
+  var localOk = true;
+  var dl = null;
+  var sessions = [FIRST]; // known sessions, newest first
+  var listReady = false;  // the store has answered with the whole list
+  var listSig = "";
+  var pendingSid = "";    // a session named by the link, waiting for the list
+  var pendingTimer = null;
+
+  function byId(id) { return document.getElementById(id); }
+  var statusEl = byId("status");
+  var whereEl = byId("where");
+  var msgEl = byId("msg");
+  var selectEl = byId("session-select");
+  var newBtn = byId("btn-new");
+  var newForm = byId("new-form");
+  var newName = byId("new-name");
+
+  try {
+    document.documentElement.setAttribute("lang", "en");
+    document.documentElement.setAttribute("dir", "ltr");
+  } catch (e) {}
+
+  function hhmm(d) {
+    try { return d.toLocaleTimeString("en-GB", { hour: "2-digit", minute: "2-digit" }); }
+    catch (e) { return ""; }
+  }
+  function when(iso) {
+    try { return new Date(iso).toLocaleString("en-GB", { dateStyle: "medium", timeStyle: "short" }); }
+    catch (e) { return iso; }
+  }
+  function day(iso) {
+    try {
+      var d = new Date(iso);
+      if (isNaN(d.getTime())) return "";
+      return d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
+    } catch (e) { return ""; }
+  }
+  function isoDay(d) {
+    function p(n) { return (n < 10 ? "0" : "") + n; }
+    return d.getFullYear() + "-" + p(d.getMonth() + 1) + "-" + p(d.getDate());
+  }
+  function setStatus(text, warn) {
+    statusEl.textContent = text;
+    statusEl.setAttribute("data-warn", warn ? "1" : "0");
+  }
+  function say(text) { msgEl.textContent = text; }
+
+  /* ---- sessions: where each one keeps its notes ---- */
+  function validSid(s) {
+    return typeof s === "string" && SID_RE.test(s) && !RESERVED[s] && s.indexOf("comment-") !== 0;
+  }
+  function colPath(sid) { return sid === FIRST.id ? "notes" : "sessions/" + sid + "/notes"; }
+  function lsKey(sid) { return sid === FIRST.id ? LS_FIRST : LS_FIRST + ":" + sid; }
+  function findSession(sid) {
+    for (var i = 0; i < sessions.length; i++) if (sessions[i].id === sid) return sessions[i];
+    return null;
+  }
+  function label(s) {
+    var d = day(s.createdAt);
+    return d ? s.title + " · " + d : s.title;
+  }
+  function setSessions(list) {
+    var all = [FIRST].concat(list.filter(function (s) { return s.id !== FIRST.id; }));
+    all.sort(function (a, b) { return a.createdAt < b.createdAt ? 1 : (a.createdAt > b.createdAt ? -1 : 0); });
+    sessions = all;
+    renderSessions();
+  }
+  function renderSessions() {
+    var shown = sessions.slice();
+    var want = cur ? cur.sid : pendingSid;
+    if (want && !findSession(want)) shown.unshift({ id: want, title: "Opening the session…", createdAt: "" });
+    var sig = JSON.stringify(shown) + "|" + want;
+    if (sig !== listSig) {
+      listSig = sig;
+      selectEl.textContent = "";
+      shown.forEach(function (s) {
+        var o = document.createElement("option");
+        o.value = s.id;
+        o.textContent = label(s);
+        selectEl.appendChild(o);
+      });
+    }
+    if (want) selectEl.value = want;
+  }
+  function hashSid() {
+    try { return decodeURIComponent((location.hash || "").replace(/^#/, "")); } catch (e) { return ""; }
+  }
+  function setHash(sid) {
+    try { if (hashSid() !== sid) location.hash = sid; } catch (e) {}
+  }
+  function lsGet(key) {
+    try { return localStorage.getItem(key); } catch (e) { return null; }
+  }
+  function lsSet(key, value) {
+    try { localStorage.setItem(key, value); return true; } catch (e) { return false; }
+  }
+
+  /* ---- where the notes are, in words ---- */
+  function ok() { return !!(db && cur && cur.snap && !cur.dead && !cur.gone && !dbDenied); }
+  function describeWhere() {
+    whereEl.textContent = (ok() && dbProven) ? WHERE_PAGE : (localOk ? WHERE_LOCAL : WHERE_NONE);
+  }
+  function showSaved() {
+    var t = hhmm(new Date());
+    if (cur && cur.gone) setStatus("This session is no longer on the page. Download or copy these notes.", true);
+    else if (ok() && dbProven) setStatus("Saved to the page, " + t, false);
+    else if (localOk) setStatus("Saved on this device, " + t, false);
+    else setStatus("Not saved. Copy your notes before you close the page.", true);
+    describeWhere();
+  }
+
+  /* ---- device storage: the baseline, written on every keystroke, one copy per session ---- */
+  function readLocal(sid) {
+    try {
+      var raw = localStorage.getItem(lsKey(sid));
+      var o = raw ? JSON.parse(raw) : null;
+      return (o && typeof o === "object") ? o : {};
+    } catch (e) { localOk = false; return {}; }
+  }
+  function writeLocal() {
+    if (!cur) return;
+    var o = {};
+    IDS.forEach(function (id) {
+      var t = E[id].el.value;
+      if (t) o[id] = { text: t, at: cur.F[id].at || "" };
+    });
+    localOk = lsSet(lsKey(cur.sid), JSON.stringify(o));
+  }
+
+  /* ---- fields ---- */
+  var autoSize = !(window.CSS && CSS.supports && CSS.supports("field-sizing", "content"));
+  function size(el) {
+    if (!autoSize) return;
+    el.style.height = "auto";
+    el.style.height = (el.scrollHeight + 2) + "px";
+  }
+  function mark(id) {
+    var e = E[id];
+    var at = cur ? cur.F[id].at : "";
+    e.chip.classList.toggle("has", e.el.value.trim() !== "");
+    e.stampEl.textContent = (at && e.el.value) ? "Noted " + hhmm(new Date(at)) : "";
+  }
+  function apply(id, text, at) {
+    E[id].el.value = text;
+    if (cur) cur.F[id].at = at || "";
+    size(E[id].el);
+    mark(id);
+  }
+
+  /* ---- the page's own store: an upgrade when a write goes through ---- */
+  function push(id) {
+    var ctx = cur;
+    if (!ctx) return;
+    var f = ctx.F[id];
+    clearTimeout(f.timer);
+    if (!ok() || !f.dirty) return;
+    // Text and path are fixed here, so a write that lands after a switch still goes to its own session.
+    var text = E[id].el.value;
+    var at = f.at || new Date().toISOString();
+    var title = E[id].title;
+    var ref;
+    try { ref = db.doc(colPath(ctx.sid) + "/" + id); } catch (e) { return; }
+    f.chain = f.chain.then(function () {
+      if (f.remote === text) return null;
+      return ref.set({ text: text, updatedAt: at, title: title }).then(function () {
+        f.remote = text;
+        dbProven = true;
+      });
+    }).then(function () {
+      if (ctx !== cur) return;
+      if (E[id].el.value === text) f.dirty = false;
+      showSaved();
+    }).catch(function (e) {
+      var code = e && e.code;
+      if (code === "unavailable" || code === "resource_exhausted" || code === "quota_exceeded") {
+        if (ctx === cur) setStatus("Saving to the page failed just now. Your notes are saved on this device.", true);
+      } else {
+        dbDenied = true; // no write access in this view: stay on device storage
+        if (ctx === cur) { showSaved(); updateNewButton(); }
+      }
+    });
+  }
+  function flushAll() {
+    if (!cur) return;
+    writeLocal();
+    IDS.forEach(function (id) { if (cur.F[id].dirty) push(id); });
+  }
+  function onInput(id) {
+    var ctx = cur;
+    if (!ctx) return;
+    var f = ctx.F[id];
+    f.at = new Date().toISOString();
+    f.dirty = true;
+    writeLocal();
+    size(E[id].el);
+    mark(id);
+    say("");
+    clearTimeout(f.timer);
+    if (ok()) {
+      setStatus("Saving…", false);
+      f.timer = setTimeout(function () { if (ctx === cur) push(id); }, 1200);
+    } else {
+      showSaved();
+    }
+  }
+
+  function mergeRemote(ctx, id, remote, at) {
+    var f = ctx.F[id];
+    var el = E[id].el;
+    var curText = el.value;
+    f.remote = remote;
+    if (remote === curText) { f.dirty = false; return; }
+    if (ctx.snap) {
+      // a later change from another device: take it only when this field is idle
+      if (!f.dirty && document.activeElement !== el) { apply(id, remote, at); writeLocal(); }
+      return;
+    }
+    // first answer from the store: never choose between two different texts
+    if (!curText) { apply(id, remote, at); return; }
+    if (!remote) { f.dirty = true; return; }
+    if (remote.indexOf(curText) !== -1) { apply(id, remote, at); return; }
+    if (curText.indexOf(remote) !== -1) { f.dirty = true; return; }
+    apply(id, remote + SEP + curText, new Date().toISOString());
+    f.dirty = true;
+  }
+  function onSnap(ctx, snap) {
+    if (ctx !== cur) return;
+    clearTimeout(ctx.loadTimer);
+    var seen = {};
+    snap.docs.forEach(function (d) {
+      if (!ctx.F[d.id]) return;
+      var data = d.data() || {};
+      seen[d.id] = true;
+      mergeRemote(ctx, d.id, typeof data.text === "string" ? data.text : "", data.updatedAt || "");
+    });
+    if (ctx.snap) return;
+    ctx.snap = true;
+    writeLocal();
+    if (snap.docs.length) setStatus("Notes loaded from the page.", false);
+    describeWhere();
+    IDS.forEach(function (id) {
+      var f = ctx.F[id];
+      if (!seen[id]) f.remote = "";
+      if (E[id].el.value !== f.remote) { f.dirty = true; push(id); }
+    });
+  }
+  function subscribe(ctx) {
+    if (!db || dbDenied) return;
+    ctx.loadTimer = setTimeout(function () {
+      if (ctx === cur && !ctx.snap) setStatus("Saving to the page is not available yet. Your notes are saved on this device.", true);
+    }, 10000);
+    try {
+      ctx.unsub = db.collection(colPath(ctx.sid)).onSnapshot(function (snap) { onSnap(ctx, snap); }, function () {
+        clearTimeout(ctx.loadTimer);
+        ctx.dead = true;
+        if (ctx === cur) describeWhere();
+      });
+    } catch (e) { ctx.dead = true; }
+  }
+
+  /* ---- opening a session: save the one that is open, clear every field, then load ---- */
+  function openSession(sid, note) {
+    if (cur && cur.sid === sid) return;
+    clearTimeout(pendingTimer);
+    pendingSid = "";
+    if (cur) {
+      var old = cur;
+      flushAll();
+      IDS.forEach(function (id) { clearTimeout(old.F[id].timer); });
+      clearTimeout(old.loadTimer);
+      if (old.unsub) { try { old.unsub(); } catch (e) {} }
+    }
+    var ctx = { sid: sid, F: {}, snap: false, dead: false, gone: false, created: false, unsub: null, loadTimer: null };
+    IDS.forEach(function (id) {
+      ctx.F[id] = { at: "", remote: null, dirty: false, timer: null, chain: Promise.resolve() };
+    });
+    cur = ctx;
+    var saved = readLocal(sid);
+    var had = false;
+    IDS.forEach(function (id) {
+      var s = saved[id];
+      var text = (s && typeof s.text === "string") ? s.text : "";
+      apply(id, text, text ? (s.at || "") : "");
+      E[id].el.disabled = false;
+      if (text) had = true;
+    });
+    byId("fallback").hidden = true;
+    lsSet(LS_CURRENT, sid);
+    setHash(sid);
+    renderSessions();
+    describeWhere();
+    setStatus(had ? "Notes loaded from this device." : "", false);
+    say(note || "");
+    subscribe(ctx);
+  }
+  function holdFields(sid) {
+    pendingSid = sid;
+    IDS.forEach(function (id) { E[id].el.value = ""; E[id].el.disabled = true; mark(id); });
+    setStatus("Opening the session…", false);
+    renderSessions();
+    pendingTimer = setTimeout(function () {
+      if (pendingSid) openSession(FIRST.id, "That session could not be opened here. Showing the first session.");
+    }, 10000);
+  }
+  function hasText() {
+    return IDS.some(function (id) { return E[id].el.value.trim() !== ""; });
+  }
+
+  /* ---- the list of sessions, as the store holds it ---- */
+  function updateNewButton() {
+    newBtn.disabled = !(db && listReady && !dbDenied);
+  }
+  function onSessions(snap) {
+    var list = [];
+    snap.docs.forEach(function (d) {
+      var data = d.data() || {};
+      if (!validSid(d.id) || d.id === FIRST.id) return;
+      if (typeof data.title !== "string" || !data.title.trim()) return;
+      list.push({
+        id: d.id,
+        title: data.title.trim().slice(0, 80),
+        createdAt: typeof data.createdAt === "string" ? data.createdAt : ""
+      });
+    });
+    var full = !(snap.metadata && snap.metadata.fromCache);
+    if (!full && listReady) return;
+    setSessions(list);
+    if (full) {
+      listReady = true;
+      lsSet(LS_SESSIONS, JSON.stringify(list));
+      updateNewButton();
+    }
+    if (pendingSid) {
+      if (findSession(pendingSid)) openSession(pendingSid);
+      else if (full) openSession(FIRST.id, "That session was not found. Showing the first session.");
+      return;
+    }
+    if (full && cur && cur.sid !== FIRST.id && !cur.created && !cur.gone && !findSession(cur.sid)) {
+      if (!hasText()) {
+        openSession(FIRST.id, "That session is no longer on the page. Showing the first session.");
+      } else {
+        cur.gone = true;
+        showSaved();
+      }
+    }
+  }
+  function createSession(title) {
+    if (!db || dbDenied || !listReady) { say("A new session cannot be created here."); return; }
+    var now = new Date();
+    var sid = "s-" + isoDay(now).replace(/-/g, "") + "-" + (Math.random().toString(36) + "0000").slice(2, 6);
+    var rec = { id: sid, title: title, createdAt: now.toISOString() };
+    byId("btn-create").disabled = true;
+    say("Creating the session…");
+    db.doc("sessions/" + sid).set({ title: rec.title, createdAt: rec.createdAt }).then(function () {
+      dbProven = true;
+      if (!findSession(sid)) setSessions(sessions.concat([rec]));
+      newForm.hidden = true;
+      newName.value = "";
+      openSession(sid, "New session created.");
+      if (cur && cur.sid === sid) cur.created = true;
+    }, function (e) {
+      var code = e && e.code;
+      if (code === "unavailable" || code === "resource_exhausted") {
+        say("The session could not be created just now. Try again.");
+      } else {
+        dbDenied = true;
+        updateNewButton();
+        newForm.hidden = true;
+        say("A new session cannot be created in this view.");
+      }
+    }).then(function () { byId("btn-create").disabled = false; });
+  }
+
+  function initStore() {
+    function noStore() {
+      if (pendingSid) openSession(FIRST.id, "That session could not be opened here. Showing the first session.");
+    }
+    if (!window.claude || typeof window.claude.use !== "function") { noStore(); return; }
+    try {
+      window.claude.use("downloads").then(function (x) { dl = x; }, function () {});
+      window.claude.use("db").then(function (x) {
+        if (!x) { noStore(); return; }
+        db = x;
+        try {
+          db.collection("sessions").onSnapshot(onSessions, function () { noStore(); });
+        } catch (e) { noStore(); }
+        if (cur && !cur.unsub) subscribe(cur);
+      }, function () { noStore(); });
+    } catch (e) { noStore(); }
+  }
+
+  /* ---- export ---- */
+  function buildText() {
+    if (!cur) return "";
+    var parts = [];
+    IDS.forEach(function (id) {
+      var t = E[id].el.value.trim();
+      var at = cur.F[id].at;
+      if (!t) return;
+      parts.push("## " + E[id].title + "\n\n" + t + (at ? "\n\nNoted: " + when(at) : ""));
+    });
+    if (!parts.length) return "";
+    var s = findSession(cur.sid) || { title: cur.sid, createdAt: "" };
+    var d = day(s.createdAt);
+    return "# Session notes: " + s.title + "\n\n" + (d ? "Session: " + d + "\n" : "") + "Exported: " +
+      when(new Date().toISOString()) + "\n\n" + parts.join("\n\n") + "\n";
+  }
+  function showFallback(text, why) {
+    var box = byId("fallback");
+    var ta = byId("fallback-text");
+    box.hidden = false;
+    ta.value = text;
+    size(ta);
+    say(why);
+    try { box.scrollIntoView({ block: "start" }); ta.focus(); ta.select(); } catch (e) {}
+  }
+  byId("btn-download").addEventListener("click", function () {
+    var text = buildText();
+    if (!text) { say("No notes to export yet."); return; }
+    var name = "session-notes-" + cur.sid + "-" + isoDay(new Date()) + ".md";
+    if (dl) {
+      dl.save({ filename: name, data: text }).then(function () {
+        say("File saved.");
+      }, function (e) {
+        if (e && e.code === "declined") { say(""); return; }
+        showFallback(text, "A file cannot be downloaded here. The text is shown below.");
+      });
+      return;
+    }
+    if (!window.claude) {
+      try {
+        var url = URL.createObjectURL(new Blob([text], { type: "text/markdown;charset=utf-8" }));
+        var a = document.createElement("a");
+        a.href = url; a.download = name;
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 2000);
+        say("File downloaded.");
+        return;
+      } catch (e) {}
+    }
+    showFallback(text, "A file cannot be downloaded here. The text is shown below.");
+  });
+  byId("btn-copy").addEventListener("click", function () {
+    var text = buildText();
+    if (!text) { say("No notes to copy yet."); return; }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () {
+        say("Notes copied.");
+      }, function () {
+        showFallback(text, "Copying was blocked. The text is shown below.");
+      });
+    } else {
+      showFallback(text, "The text is shown below.");
+    }
+  });
+
+  /* ---- session controls ---- */
+  selectEl.addEventListener("change", function () {
+    var sid = selectEl.value;
+    if (validSid(sid)) openSession(sid);
+  });
+  newBtn.addEventListener("click", function () {
+    newForm.hidden = !newForm.hidden;
+    if (!newForm.hidden) { try { newName.focus(); } catch (e) {} }
+  });
+  byId("btn-cancel").addEventListener("click", function () {
+    newForm.hidden = true;
+    newName.value = "";
+    say("");
+  });
+  newForm.addEventListener("submit", function (ev) {
+    ev.preventDefault();
+    var title = newName.value.replace(/\s+/g, " ").trim().slice(0, 80);
+    if (!title) { say("Give the session a name."); try { newName.focus(); } catch (e) {} return; }
+    createSession(title);
+  });
+  window.addEventListener("hashchange", function () {
+    var sid = hashSid();
+    if (!validSid(sid) || (cur && cur.sid === sid)) return;
+    if (findSession(sid)) openSession(sid);
+  });
+
+  /* ---- start ---- */
+  var reduce = false;
+  try { reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches; } catch (e) {}
+  var chips = {};
+  Array.prototype.forEach.call(document.querySelectorAll(".chip"), function (b) {
+    chips[b.getAttribute("data-go")] = b;
+    b.addEventListener("click", function () {
+      var t = byId("sec-" + b.getAttribute("data-go"));
+      if (t) t.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    });
+  });
+  IDS.forEach(function (id) {
+    var el = byId("note-" + id);
+    E[id] = { el: el, title: el.getAttribute("data-title"), stampEl: byId("stamp-" + id), chip: chips[id] };
+    el.addEventListener("input", function () { onInput(id); });
+    el.addEventListener("blur", function () { if (cur && cur.F[id].dirty) push(id); });
+  });
+
+  // The list this device saw last, so a session opens under its name before the store answers.
+  try {
+    var cached = JSON.parse(lsGet(LS_SESSIONS) || "[]");
+    if (Array.isArray(cached)) {
+      setSessions(cached.filter(function (s) {
+        return s && validSid(s.id) && typeof s.title === "string" && typeof s.createdAt === "string";
+      }));
+    }
+  } catch (e) {}
+
+  // Which session to open is decided once, at load: the link, then the last one used here, then the first.
+  var want = hashSid();
+  if (!validSid(want)) want = lsGet(LS_CURRENT) || "";
+  if (!validSid(want)) want = "";
+  if (!want || want === FIRST.id || findSession(want)) openSession(want || FIRST.id);
+  else holdFields(want);
+
+  window.addEventListener("pagehide", flushAll);
+  document.addEventListener("visibilitychange", function () {
+    if (document.visibilityState === "hidden") flushAll();
+  });
+
+  initStore();
+})();
+</script>
