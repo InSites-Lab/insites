@@ -1,0 +1,116 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Ayelet Water Tower Graph</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+:root { --bg: #ffffff; --fg: #1d2330; --warn: #b45309; --muted: #64748b; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #12151c; --fg: #e6e9ef; --warn: #f0a24a; --muted: #9aa4b5; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #12151c; --fg: #e6e9ef; --warn: #f0a24a; --muted: #9aa4b5; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0; }
+#kg-wrap { height: 82vh; min-height: 540px; }
+#kg { height: 100%; }
+#kg-fallback { padding-block: 16px; font: 14px system-ui, sans-serif; }
+#kg-fallback p { color: var(--warn); font-weight: 700; }
+#kg-fallback i { color: var(--muted); }
+</style>
+
+<div id="kg-wrap">
+  <div id="kg"></div>
+  <div id="kg-fallback" hidden>
+    <p>Graph runtime unavailable — node / edge list:</p>
+    <ul id="kg-list"></ul>
+  </div>
+</div>
+
+<script>
+(function () {
+  // Pinned runtime version — never change to @latest (published versions are immutable).
+  var RUNTIME_URL = 'https://cdn.jsdelivr.net/npm/atar-runtime@0.3.8/dist/atar-runtime.umd.js';
+
+  var DATA = {
+    type: 'kg',
+    title: 'Ayelet Hashachar Water Tower (1923) — Knowledge Graph',
+    nodes: [
+      { id: 'tower', name: 'Ayelet Hashachar Water Tower (1923)', type: 'Heritage Asset', meaning: 'Founding infrastructure of the permanent settlement; its first piped, pressurised water.', epistemic: 'sourced' },
+      { id: 'ica', name: 'ICA Bureau Technique', type: 'Social Group', meaning: 'Designed the tower (1922) within its horseshoe plan for the settlement.', epistemic: 'sourced' },
+      { id: 'ica_drawing', name: 'ICA tower drawing, 22 June 1922', type: 'Artwork / Artefact', meaning: 'Half section, half elevation; gabled top, corner posts, thickened column bases.', epistemic: 'sourced' },
+      { id: 'ahva', name: 'Ahva group, Labour Battalion', type: 'Social Group', meaning: 'Built the tower in 1923, learning the trade on the job.', epistemic: 'sourced' },
+      { id: 'ehrlich', name: 'Michael Ehrlich', type: 'Person', meaning: 'Technician who supervised construction in 1923.', epistemic: 'sourced' },
+      { id: 'plaque', name: 'Concrete plaque, north face', type: 'Artwork / Artefact', meaning: 'Names the labour office, Ahva and Ehrlich; omits ICA. Untreated in 2018, anchors rusting.', epistemic: 'sourced' },
+      { id: 'horseshoe', name: 'Horseshoe layout', type: 'Place', meaning: 'ICA-planned core of the kibbutz; the tower stands on the hilltop at its centre.', epistemic: 'sourced' },
+      { id: 'spring', name: 'Wadi Waqqas spring (Nahal Hazor)', type: 'Natural Phenomenon', meaning: 'The tower’s natural water source, pumped up from 1923 (6–9 m³ a day) and contested with Arab al-Kirad; the pump house still stands.', epistemic: 'sourced' },
+      { id: 'shelter', name: 'Lookout and signalling shelter (1936–39)', type: 'Architectural Element', meaning: 'Built on the tank in place of the gables; kept in the 2018 restoration.', epistemic: 'sourced' },
+      { id: 'haganah_net', name: 'Haganah Upper Galilee signal network', type: 'Social Group', meaning: 'Settlements linked by Morse and light signals; Abba Rabinowitz operated the tower post.', epistemic: 'sourced' },
+      { id: 'room', name: 'Room between the columns', type: 'Architectural Element', meaning: 'First a security room and armoury, later the bakery oven, still sometimes used.', epistemic: 'sourced' },
+      { id: 'gables', name: 'Gables', type: 'Architectural Element', meaning: 'Part of the 1923 ICA design; lost in 1936–39; only painted in 2018.', epistemic: 'sourced' },
+      { id: 'restoration', name: '2018 restoration and reopening', type: 'Event', meaning: 'Kibbutz members, the Council for Conservation and the Upper Galilee Regional Council; concrete repairs; reopened with song and a member’s retelling.', epistemic: 'sourced' },
+      { id: 'yesod', name: 'Yesod HaMa’ala water tower (1930s)', type: 'Structure / Building', meaning: 'A similar tower built by Ayelet Hashachar members.', epistemic: 'sourced' },
+      { id: 'v_water', name: 'Household and farmyard water', type: 'Cultural Value', value_label: 'Environmental-economic — Pressurised water for the households and farmyard, while the fields went short', meaning: 'Secured daily life and the livestock economy; irrigation waited for the wells and Mekorot.', epistemic: 'inferred', epistemic_note: 'Household role sourced; contrast with irrigation inferred from Doc pp. 8, 21.' },
+      { id: 'v_political', name: 'Two authorships', type: 'Cultural Value', value_label: 'Political-historical — ICA’s design for a temporary commune, signed by its labour builders', meaning: 'Drawing and plaque together record the 1920s contest over settlement form.', epistemic: 'interpretive', epistemic_note: 'Reading drawing and plaque together; neither source states the contest.' },
+      { id: 'v_security', name: 'Signal relay', type: 'Cultural Value', value_label: 'Security — A relay post in the Upper Galilee Haganah signal chain', meaning: 'Significance reaching beyond the kibbutz to the regional network it signalled to.', epistemic: 'inferred', epistemic_note: 'Network reach inferred from the news report and Doc p. 21.' },
+      { id: 'v_social', name: 'Community stewardship', type: 'Cultural Value', value_label: 'Social — Stewarded by the community itself', meaning: 'Members started and celebrated the restoration; the oven is still sometimes used.', epistemic: 'inferred', epistemic_note: 'Identity role inferred from restoration initiative and continued oven use.' },
+      { id: 'v_tech', name: 'Decorated concrete tank', type: 'Cultural Value', value_label: 'Technological-aesthetic — A decorated concrete tank where water towers were plain', meaning: 'ICA’s gabled top shares the gabled form of the colony-style houses around it.', epistemic: 'inferred', epistemic_note: 'ICA design choice inferred; Stage 4: decoration alone not distinctive.' },
+      { id: 'v_documentary', name: 'Dated record of every layer', type: 'Cultural Value', value_label: 'Documentary — Recorded from drawing board to scaffold to completion', meaning: 'Each layer dated by drawing or photograph, 1922–2018.', epistemic: 'interpretive', epistemic_note: 'Rarity among 1920s farm infrastructure is an interpretive claim.' }
+    ],
+    edges: [
+      { source: 'ica', target: 'tower', label: 'designed' },
+      { source: 'ahva', target: 'tower', label: 'built' },
+      { source: 'ehrlich', target: 'tower', label: 'supervised' },
+      { source: 'plaque', target: 'tower', label: 'part_of' },
+      { source: 'plaque', target: 'ahva', label: 'names' },
+      { source: 'tower', target: 'horseshoe', label: 'located_in' },
+      { source: 'ica', target: 'horseshoe', label: 'planned' },
+      { source: 'spring', target: 'tower', label: 'supplied' },
+      { source: 'shelter', target: 'tower', label: 'part_of' },
+      { source: 'shelter', target: 'gables', label: 'replaced' },
+      { source: 'gables', target: 'tower', label: 'part_of' },
+      { source: 'room', target: 'tower', label: 'part_of' },
+      { source: 'tower', target: 'haganah_net', label: 'relayed_signals_for' },
+      { source: 'restoration', target: 'tower', label: 'restored' },
+      { source: 'yesod', target: 'tower', label: 'similar_to' },
+      { source: 'tower', target: 'v_water', label: 'expresses_value' },
+      { source: 'spring', target: 'v_water', label: 'supports' },
+      { source: 'plaque', target: 'v_political', label: 'carries' },
+      { source: 'ica_drawing', target: 'v_political', label: 'carries' },
+      { source: 'shelter', target: 'v_security', label: 'carries' },
+      { source: 'room', target: 'v_security', label: 'carries' },
+      { source: 'room', target: 'v_social', label: 'carries' },
+      { source: 'restoration', target: 'v_social', label: 'expresses_value' },
+      { source: 'gables', target: 'v_tech', label: 'carries' },
+      { source: 'ica_drawing', target: 'v_documentary', label: 'carries' }
+    ]
+  };
+
+  var container = document.getElementById('kg');
+
+  function showFallback() {
+    var list = document.getElementById('kg-list');
+    DATA.nodes.forEach(function (n) {
+      var li = document.createElement('li');
+      li.textContent = n.name + ' ';
+      var t = document.createElement('i');
+      t.textContent = '(' + n.type + ')';
+      li.appendChild(t);
+      list.appendChild(li);
+    });
+    document.getElementById('kg-wrap').style.height = 'auto';
+    container.hidden = true;
+    document.getElementById('kg-fallback').hidden = false;
+  }
+
+  function go() {
+    var live = typeof window !== 'undefined' && window.claude && typeof window.claude.complete === 'function';
+    var host = live ? { complete: window.claude.complete.bind(window.claude) } : {};
+    try { window.AtarRuntime.mount(container, DATA, host); }
+    catch (e) { showFallback(); }
+  }
+
+  if (window.AtarRuntime) { go(); return; }
+  var s = document.createElement('script');
+  s.src = RUNTIME_URL;
+  s.onload = go;
+  s.onerror = showFallback;
+  document.head.appendChild(s);
+})();
+</script>
+
+</body></html>

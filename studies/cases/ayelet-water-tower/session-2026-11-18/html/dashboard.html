@@ -1,0 +1,687 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Ayelet Water Tower Dashboard</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<style>
+:root { --bg: #ffffff; --fg: #1d2330; --warn: #b45309; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --bg: #12151c; --fg: #e6e9ef; --warn: #f0a24a; color-scheme: dark } }
+:root[data-theme="dark"] { --bg: #12151c; --fg: #e6e9ef; --warn: #f0a24a; color-scheme: dark }
+body { background: var(--bg); color: var(--fg); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); padding-block: 0; }
+#db-wrap { height: 82vh; min-height: 560px; }
+#db { height: 100%; }
+#db-fallback { padding-block: 16px; font: 14px system-ui, sans-serif; }
+#db-fallback .t { color: var(--warn); font-weight: 700; }
+</style>
+
+<div id="db-wrap">
+  <div id="db"></div>
+  <div id="db-fallback" hidden>
+    <p class="t">Dashboard runtime unavailable.</p>
+    <p id="db-summary"></p>
+  </div>
+</div>
+
+<script>
+(function () {
+  var RUNTIME_URL = 'https://cdn.jsdelivr.net/npm/atar-runtime@0.3.8/dist/atar-runtime.umd.js';
+  var DATA = {
+ "type": "assessment",
+ "asset": {
+  "name": "Ayelet Hashachar Water Tower",
+  "location": "Kibbutz Ayelet Hashachar, southern Hula Valley, Upper Galilee: hilltop at the centre of the horseshoe",
+  "type": "Reinforced-concrete water tower",
+  "period": "Designed 1922, built 1923; restored 2018",
+  "description": "ICA-designed concrete water tower built in 1923, the settlement's first piped water; Haganah lookout 1936–39; restored by the community in 2018.",
+  "coordinates": {
+   "lat": 33.0209,
+   "lng": 35.5763
+  },
+  "coordinateSource": "inferred"
+ },
+ "dataQuality": {
+  "sources": [
+   "Doc: Y. Alef, Documenting the Water Tower at Ayelet Hashachar 1923–2012, for the Council for Conservation of Heritage Sites (appendix 2016)",
+   "Art: Amit-Cohen & Alef 2017, Ofakim BeGeografia 91–92: 317–333",
+   "Img: Soskin 1923, Lavon Institute sos-80-1501",
+   "News: E. Ashkenazi, Walla, 17 March 2018",
+   "Img2018: photograph of the 2018 reopening (supplied by the assessor)",
+   "User: assessor's additions, 18 Nov 2026"
+  ],
+  "gaps": [
+   "Solel Boneh contract file (Lavon IV-124-1-44) not consulted",
+   "Ahva diary (Kibbutz Sarid archive) read only through the article",
+   "Extent of the 2018 concrete repairs undocumented",
+   "Condition of the spring pool, channel and pools not recorded since 2012",
+   "Stage 4 comparison with ICA towers (Kfar Giladi, Rosh Pina, Metula) deferred",
+   "Tower coordinates read approximately from the 2008 aerial grid in Doc (ITM E 254200, N 769600)"
+  ]
+ },
+ "timeline": [
+  {
+   "year": "1882–1957",
+   "yearStart": 1882,
+   "label": "Land held by Rothschild, then ICA (1900), PICA (1924) and the state (1957)",
+   "changeType": null
+  },
+  {
+   "year": "1915–1921",
+   "yearStart": 1915,
+   "label": "Group farms at the Nijmat a-Subh farmyard; water carried in tins and barrels; independent settlement founded 1918",
+   "changeType": null
+  },
+  {
+   "year": "1921",
+   "yearStart": 1921,
+   "label": "ICA pipe and pump bring spring water to the farmyard",
+   "changeType": null
+  },
+  {
+   "year": "1922",
+   "yearStart": 1922,
+   "label": "1 April: ICA agrees to the permanent site north of Nahal Hazor",
+   "changeType": null
+  },
+  {
+   "year": "1922",
+   "yearStart": 1922,
+   "label": "21–22 June: ICA Bureau Technique signs the house plans and the tower drawing",
+   "changeType": null
+  },
+  {
+   "year": "1922–1923",
+   "yearStart": 1922,
+   "label": "Ehrlich supervises building at Kfar Giladi, then moves with Ahva to Ayelet Hashachar",
+   "changeType": null
+  },
+  {
+   "year": "1923",
+   "yearStart": 1923,
+   "label": "Tower built by Ahva under Ehrlich, with gables and plaque; supplies spring water to taps outside the houses; cowshed and five houses built",
+   "changeType": null
+  },
+  {
+   "year": "1923",
+   "yearStart": 1923,
+   "label": "A central group leaves for workers' moshavim after the dispute with ICA",
+   "changeType": null
+  },
+  {
+   "year": "1925",
+   "yearStart": 1925,
+   "label": "Spring-water dispute with Arab al-Kirad; joint memo against PICA's individual contracts",
+   "changeType": null
+  },
+  {
+   "year": "1926",
+   "yearStart": 1926,
+   "label": "ICA colony plan marks the reservoir and water main",
+   "changeType": null
+  },
+  {
+   "year": "1926–1929",
+   "yearStart": 1926,
+   "label": "Four further houses built in concrete",
+   "changeType": null
+  },
+  {
+   "year": "1927",
+   "yearStart": 1927,
+   "label": "Vineyard and fruit trees planted, watered from barrels until 1931–33; motor shelter drawn",
+   "changeType": null
+  },
+  {
+   "year": "1931–1933",
+   "yearStart": 1931,
+   "label": "Concrete channel and \"300\" pool carry spring water to the orchards",
+   "changeType": null
+  },
+  {
+   "year": "1931–1940",
+   "yearStart": 1931,
+   "label": "Survey map marks the tower (\"W.T.\")",
+   "changeType": null
+  },
+  {
+   "year": "1936",
+   "yearStart": 1936,
+   "label": "Well A in use; first dining hall built north of the tower",
+   "changeType": null
+  },
+  {
+   "year": "c. 1936–1938",
+   "yearStart": 1936,
+   "label": "Room built between the columns; used as security room and armoury",
+   "changeType": null
+  },
+  {
+   "year": "1936–1939",
+   "yearStart": 1936,
+   "label": "Haganah lookout and signalling post; shelter replaces the gables",
+   "changeType": null
+  },
+  {
+   "year": "1937",
+   "yearStart": 1937,
+   "label": "\"500\" pool completed; tower fed from the wells",
+   "changeType": null
+  },
+  {
+   "year": "1938",
+   "yearStart": 1938,
+   "label": "Photo shows the lookout on top and the lower part closed",
+   "changeType": null
+  },
+  {
+   "year": "1939",
+   "yearStart": 1939,
+   "label": "Aerial photo shows the tower at the centre of the horseshoe",
+   "changeType": null
+  },
+  {
+   "year": "1940–1942",
+   "yearStart": 1940,
+   "label": "Well B in use; water-shortage letter to PICA",
+   "changeType": null
+  },
+  {
+   "year": "After 1945",
+   "yearStart": 1945,
+   "label": "Bakery built against the tower; the room later holds the bakery oven",
+   "changeType": null
+  },
+  {
+   "year": "1950–1957",
+   "yearStart": 1950,
+   "label": "Wells electrified; Mekorot schemes connected; underground pool built",
+   "changeType": null
+  },
+  {
+   "year": "1958–1960s",
+   "yearStart": 1958,
+   "label": "New dining hall encloses the tower; tower and tank out of use",
+   "changeType": null
+  },
+  {
+   "year": "2011–2012",
+   "yearStart": 2011,
+   "label": "Surveyed and documented; not listed in 2012",
+   "changeType": null
+  },
+  {
+   "year": "c. 2012",
+   "yearStart": 2012,
+   "label": "Members raise the idea of restoring the tower",
+   "changeType": null
+  },
+  {
+   "year": "2016–2017",
+   "yearStart": 2016,
+   "label": "ICA drawings appended to the documentation; article published",
+   "changeType": null
+  },
+  {
+   "year": "2018",
+   "yearStart": 2018,
+   "label": "Restored (concrete repairs; gables painted, not rebuilt; plaque untreated) and reopened with a community ceremony",
+   "changeType": null
+  },
+  {
+   "year": "By 2027",
+   "yearStart": 2026,
+   "label": "Statutory listing in progress, to be finalised with the kibbutz master plan",
+   "changeType": null
+  }
+ ],
+ "contexts": [
+  {
+   "id": "ctx_political",
+   "type": "Political",
+   "label": "ICA and the kvutza competing over what the settlement should become. ICA designed the tower within a horseshoe plan meant to convert into a moshav; the plaque names only the labour builders.",
+   "relatedValues": [
+    "v_political"
+   ],
+   "timespan": "1922–1925"
+  },
+  {
+   "id": "ctx_environmental",
+   "type": "Environmental",
+   "label": "Water as the settlement's limiting resource: tins by donkey, a 1921 pipe, disputed spring rights, wells from 1936, Mekorot from 1951. The tower is the first pressurised point in a system later extended by the channel, pools and wells.",
+   "relatedValues": [
+    "v_water"
+   ],
+   "timespan": "1915–1961"
+  },
+  {
+   "id": "ctx_social",
+   "type": "Social",
+   "label": "From the Labour Battalion to today's members. The Ahva builders wrote their group into the fabric; the 2018 restoration links the founders to the present community.",
+   "relatedValues": [
+    "v_social"
+   ],
+   "timespan": "1923–2018"
+  },
+  {
+   "id": "ctx_security",
+   "type": "Security",
+   "label": "A node in the Haganah's lookout and signalling network. The tower's height made it a relay linking Upper Galilee settlements, including reports of clandestine immigrants; its base held an armoury.",
+   "relatedValues": [
+    "v_security"
+   ],
+   "timespan": "1936–1939"
+  },
+  {
+   "id": "ctx_technological",
+   "type": "Technological",
+   "label": "Early reinforced concrete with a decorated tank. Concrete water towers appeared in the country from 1912; this tank's framed panels, gables and corner blocks were unusual for the type.",
+   "relatedValues": [
+    "v_tech"
+   ],
+   "timespan": "1912–1920s"
+  }
+ ],
+ "values": [
+  {
+   "id": "v_water",
+   "name": "Environmental-economic — Pressurised water for the households and farmyard, while the fields went short",
+   "mappedCategory": null,
+   "evidence": "inferred",
+   "summary": "Founding infrastructure: the settlement's first piped water, securing daily life and the livestock economy; irrigation waited for the wells and Mekorot."
+  },
+  {
+   "id": "v_political",
+   "name": "Political-historical — ICA's design for a temporary commune, signed by its labour builders",
+   "mappedCategory": null,
+   "evidence": "interpretive",
+   "summary": "One structure holds both sides of the 1920s argument over settlement form: ICA designed it, the labour builders put their name on it."
+  },
+  {
+   "id": "v_security",
+   "name": "Security — A relay post in the Upper Galilee Haganah signal chain",
+   "mappedCategory": null,
+   "evidence": "inferred",
+   "summary": "The shelter on top is the physical evidence of a role that reached beyond the kibbutz to the regional signal network."
+  },
+  {
+   "id": "v_social",
+   "name": "Social — Stewarded by the community itself",
+   "mappedCategory": null,
+   "evidence": "inferred",
+   "summary": "Members started and celebrated the 2018 restoration; the bakery oven is still sometimes used."
+  },
+  {
+   "id": "v_tech",
+   "name": "Technological-aesthetic — A decorated concrete tank where water towers were plain",
+   "mappedCategory": null,
+   "evidence": "inferred",
+   "summary": "The tower's gabled top, part of ICA's 1922 design, shares the gabled form of the stone, tile-roofed houses ICA planned around it in the manner of the moshavot."
+  },
+  {
+   "id": "v_documentary",
+   "name": "Documentary — Recorded from drawing board to scaffold to completion",
+   "mappedCategory": null,
+   "evidence": "interpretive",
+   "summary": "Every layer can be dated from drawings or photographs, 1922–2018."
+  }
+ ],
+ "attributeTable": [
+  {
+   "attribute": "Plaque, north face",
+   "values": [
+    "v_political",
+    "v_social"
+   ],
+   "significance": "Labour's signature on ICA's design",
+   "implication": "Loss of the plaque → the labour authorship disappears from the fabric; it was left untreated, with rusting anchors."
+  },
+  {
+   "attribute": "Shelter on top of the tank",
+   "values": [
+    "v_security"
+   ],
+   "significance": "Only physical trace of the signal relay",
+   "implication": "Removing it → the relay role survives only in stories."
+  },
+  {
+   "attribute": "Tank: framed panels, corner blocks, painted gables",
+   "values": [
+    "v_tech",
+    "v_political"
+   ],
+   "significance": "ICA's unusual decorated design",
+   "implication": "Losing or repainting the frames → the departure from the plain norm can no longer be seen."
+  },
+  {
+   "attribute": "Four columns, tie beams, thickened bases",
+   "values": [
+    "v_tech"
+   ],
+   "significance": "Early reinforced-concrete frame",
+   "implication": "Replacing the frame → the evidence of early concrete is lost."
+  },
+  {
+   "attribute": "Room between the columns, with the oven",
+   "values": [
+    "v_security",
+    "v_social"
+   ],
+   "significance": "Armoury, then bakery oven, still used",
+   "implication": "Clearing the room or stopping its use → the sequence of uses and the living use both end."
+  },
+  {
+   "attribute": "Hilltop position at the centre of the horseshoe",
+   "values": [
+    "v_political",
+    "v_water",
+    "v_security"
+   ],
+   "significance": "Hub of the plan, gravity supply, signal height",
+   "implication": "Blocking the view or the setting → the logic of ICA's plan and the signalling range can no longer be read."
+  },
+  {
+   "attribute": "Spring pool, channel, \"500\" pool, Well A",
+   "values": [
+    "v_water"
+   ],
+   "significance": "Household supply beside a separate irrigation system",
+   "implication": "Losing these → the split between the tower's household role and the fields' irrigation can no longer be read."
+  },
+  {
+   "attribute": "Drawings and photographs, 1922–2018",
+   "values": [
+    "v_documentary"
+   ],
+   "significance": "Every layer dated from images",
+   "implication": "Dispersing them → the layers can no longer be dated."
+  }
+ ],
+ "authenticity": {
+  "grid": [
+   {
+    "aspect": "Form and design",
+    "description": "Gables gone since 1936–39 and only painted in 2018; shelter kept; legs partly enclosed",
+    "valueExpression": "The ICA top is shown in paint; the security layer is complete",
+    "rating": "medium"
+   },
+   {
+    "aspect": "Materials and substance",
+    "description": "Original concrete frame and tank survive; 2018 concrete repairs of unknown extent; original lime plaster under later cement render",
+    "valueExpression": "Evidence of early reinforced concrete largely present",
+    "rating": "medium"
+   },
+   {
+    "aspect": "Plaque",
+    "description": "Text legible in 2012; cracked around rusting anchors; untreated in 2018",
+    "valueExpression": "The main carrier of the political value is decaying (at risk)",
+    "rating": "low"
+   },
+   {
+    "aspect": "Use and function",
+    "description": "Water supply ended in the 1960s; signalling ended 1939; oven still sometimes used",
+    "valueExpression": "Water and security uses survive as stories; oven use continues",
+    "rating": "low"
+   },
+   {
+    "aspect": "Location and setting",
+    "description": "Still on the hilltop at the centre of the horseshoe; enclosed by the dining hall since 1936 and the bakery after 1945",
+    "valueExpression": "The logic of ICA's plan is readable; visual prominence and signalling height are not",
+    "rating": "medium"
+   },
+   {
+    "aspect": "Associations and feeling",
+    "description": "Signaller figure on the shelter; community ceremony; the 2018 account does not mention ICA",
+    "valueExpression": "Security and community meanings are strong; ICA's authorship is absent",
+    "rating": "medium"
+   },
+   {
+    "aspect": "Water system",
+    "description": "Spring pool, channel, \"500\" pool and Well A visible in 2012; current condition unknown",
+    "valueExpression": "The household-supply system could be read in 2012",
+    "rating": "medium"
+   },
+   {
+    "aspect": "Documentary/archival",
+    "description": "ICA drawing (1922); construction and completion photos (1923); 1938 photo; aerials 1939–1960s; measured survey (2012); 2018 photo",
+    "valueExpression": "Every layer can be dated; no specifications or correspondence in the CZA",
+    "rating": "high"
+   }
+  ],
+  "summary": "The restoration secured the concrete fabric and the 1936–39 security layer. The 1923 ICA top survives only as paint, and the plaque, labour's signature, was left to decay."
+ },
+ "comparative": {
+  "summary": "Three values set the tower apart: it is an ICA-designed example of a type that, in the comparators named in the sources, was otherwise designed for Zionist-labour clients; it held a security role in 1936–39, before the 1948 symbolism of the Negev towers; and its documentation runs from drawing to scaffold to completion. Decoration alone is not distinctive. The comparison with ICA towers such as Kfar Giladi's is deferred.",
+  "comparators": [
+   {
+    "name": "Yesod HaMa'ala water tower",
+    "period": "1930s",
+    "architect": "Built by Ayelet Hashachar members",
+    "distinction": "A similar tower; in the photo a plain box tank on four legs, so the type may have been carried onward without the ICA decoration. Map point marks the settlement, not the tower.",
+    "criteria": {},
+    "coordinates": {
+     "lat": 33.05611,
+     "lng": 35.60417
+    }
+   },
+   {
+    "name": "Kfar Giladi",
+    "period": "1922–1923 (ICA-built housing)",
+    "architect": "Ehrlich supervised ICA building there before moving to Ayelet Hashachar",
+    "distinction": "Proposed comparator to test whether ICA decorated its other towers; comparison deferred by the assessor. Map point marks the settlement.",
+    "criteria": {},
+    "coordinates": {
+     "lat": 33.2425,
+     "lng": 35.575
+    }
+   },
+   {
+    "name": "Merhavia cooperative farm",
+    "period": "1912–1914",
+    "architect": "Alexander Berwald",
+    "distinction": "Among the first reinforced-concrete towers: a plain rectangular tank of about 20 m³ for a cooperative farm. Ayelet's tank is similar in form and size but decorated and ICA-designed.",
+    "criteria": {},
+    "coordinates": {
+     "lat": null,
+     "lng": null
+    }
+   },
+   {
+    "name": "Kfar Hittim",
+    "period": "1924–1926",
+    "architect": "Breuer & Alek",
+    "distinction": "A round tank on arches: architectural treatment was not unique among 1920s towers, so Ayelet's distinction narrows to its classical vocabulary within ICA's colony-style ensemble.",
+    "criteria": {},
+    "coordinates": {
+     "lat": null,
+     "lng": null
+    }
+   },
+   {
+    "name": "Negev towers of the 1940s",
+    "period": "1940s",
+    "architect": "",
+    "distinction": "Symbols of 1948. Ayelet's security role came a decade earlier and worked as a relay in a regional signal network, not as a front-line stronghold.",
+    "criteria": {},
+    "coordinates": {
+     "lat": null,
+     "lng": null
+    }
+   }
+  ]
+ },
+ "significance": {
+  "statement": "The Ayelet Hashachar water tower is significant first as the founding infrastructure of the permanent settlement. It was built in 1923 together with the cowshed and the first five houses, and it gave the settlement its first piped, pressurised water. For eight years the settlers had carried water in tins and barrels and contested a weak spring. The tower fed taps at the houses and the farmyard by gravity, and it stood as the landmark at the centre of the horseshoe. The report on its 2018 reopening calls it a symbol of the beginning of settlement. Its supply was on the scale of households and the farmyard; the fields had to wait for the wells of 1936–40 and for Mekorot in the 1950s. The members later built a similar tower at Yesod HaMa'ala.\n\nLater layers deepened this founding role. Read together, ICA's 1922 drawing and the plaque that names only the labour builders record the 1920s contest over what form the settlement should take. In 1936–39 a shelter on the tank made the tower a relay in the Haganah's Upper Galilee signal network, a decade before the Negev towers became symbols of 1948. In 2018 the members restored it and reopened it with song and a member's retelling of its history. Every layer can be dated from a drawing or a photograph, from ICA's 1922 sheet to Soskin's 1923 completion photo.\n\nThe tank and its frame still show the tower's water role, but it no longer works, and the water system around it was last recorded in 2012. The restoration kept the security shelter, marked the gables in paint and left the plaque untreated. Open: whether ICA decorated its other towers, such as Kfar Giladi's; what the painted gables convey; how much original concrete the repairs kept; and whether the plaque will survive until the 2027 listing."
+ },
+ "vulnerability": [],
+ "processQuality": {
+  "strengths": 2,
+  "gaps": 2,
+  "quickBoosts": [
+   "Comparison lacks ICA and Upper Galilee towers: add Kfar Giladi, Rosh Pina and Metula (date, designer, one photo each)",
+   "2018 repairs and plaque condition undocumented: obtain the Council's restoration file, or photograph the plaque and the four column bases now"
+  ],
+  "nextSteps": [
+   "Read Lavon file IV-124-1-44 to confirm the 269-pound cost and what \"casting the pool\" refers to",
+   "Record the current state of the spring pool and pump house, the concrete channel and the \"500\" pool"
+  ]
+ },
+ "stagesCompleted": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6
+ ],
+ "themes": {
+  "valueThemes": [],
+  "contextThemes": [],
+  "threatThemes": []
+ },
+ "tabs": [
+  {
+   "id": "report",
+   "label": "Report",
+   "icon": "📄",
+   "type": "prose",
+   "data": {
+    "sections": [
+     {
+      "title": "📋 Assessment Overview",
+      "body": "**Asset:** Ayelet Hashachar Water Tower, a reinforced-concrete water tower on the hilltop at the centre of the kibbutz's horseshoe layout, southern Hula Valley. Designed by ICA's Bureau Technique in June 1922 and built in 1923 by the Ahva group of the Labour Battalion under technician Michael Ehrlich, together with the first cowshed and five houses. A tank of about 25 m³ on four columns, with framed panels, gables and corner blocks, and a plaque naming its builders.\n\n**Sources:** a Tier 3 documentation report (Alef 2012, appendix 2016), a Tier 2 article (Amit-Cohen & Alef 2017), Soskin's 1923 photograph, a 2018 news report (Walla), a 2018 photograph and the assessor's additions. The CZA holds no further data on the tower."
+     },
+     {
+      "title": "💎 Key Values",
+      "body": "**Environmental-economic — Pressurised water for the households and farmyard, while the fields went short.** The settlement's first piped water; irrigation ran through separate channels, pools and wells.\n\n**Political-historical — ICA's design for a temporary commune, signed by its labour builders.** ICA's drawing and the labour plaque, read together.\n\n**Security — A relay post in the Upper Galilee Haganah signal chain.** Lookout and signal post in 1936–39; armoury between the columns.\n\n**Social — Stewarded by the community itself.** Members started the 2018 restoration; the oven is still sometimes used.\n\n**Technological-aesthetic — A decorated concrete tank where water towers were plain.** The gabled top, part of ICA's design, shares the form of ICA's colony-style houses.\n\n**Documentary — Recorded from drawing board to scaffold to completion.** Every layer dated from images, 1922–2018."
+     },
+     {
+      "title": "🏛️ Integrity Snapshot",
+      "body": "The restoration secured the concrete fabric and the 1936–39 security layer. The 1923 ICA top survives only as paint, and the plaque was left untreated. Ratings: form medium; materials medium; plaque low (at risk); use low for water, with the oven still in use; setting medium; associations medium; water system unknown since 2012; documentation high. The highest-stakes attributes are the plaque, the only physical carrier of the labour side, and the shelter, the only physical evidence of the signalling role."
+     },
+     {
+      "title": "✨ Significance Statement",
+      "body": "The tower is significant first as the founding infrastructure of the permanent settlement and its first piped, pressurised water, standing as the landmark at the centre of the horseshoe. Later layers deepened that role: ICA's design signed by labour, the 1936–39 Haganah relay, and the community's 2018 restoration. The full statement is in the Significance tab."
+     },
+     {
+      "title": "📐 Process & Methodology",
+      "body": "InSites context-based significance assessment, Stages 0–6, with a pause for the assessor after each stage. Every claim is marked as stated in the sources, inferred from two or more pieces of evidence, or interpretive. The assessor added data on the design, the restoration, the listing and the bakery, corrected the dates of the bakery and the signalling, rejected one interpretation of the decoration, and moved the water value to the top of the significance statement. The Stage 4 comparison with ICA towers was deferred."
+     },
+     {
+      "title": "Context Effects",
+      "body": "Two contexts show effects in both directions. **Political:** ICA's convertible plan frames the tower as ICA infrastructure, while the plaque and drawing together put the settlement contest into one object. **Security:** the signal network turns the shelter into a working part of the tower, and the tower links its story to the Upper Galilee settlements it signalled to. Environmental, social and technological contexts frame the tower in one direction only. The political and security effects compete for the tower's top: the shelter replaced the gables, and the 2018 restoration kept the shelter and painted the gables."
+     },
+     {
+      "title": "📥 Export",
+      "body": "Ask in chat to export this as a formatted Word/PDF document."
+     }
+    ]
+   }
+  },
+  {
+   "id": "semiotic",
+   "label": "Semiotic Reading",
+   "icon": "🔎",
+   "type": "prose",
+   "data": {
+    "sections": [
+     {
+      "title": "1923 photograph: infrastructure arriving on an empty plateau",
+      "body": "Soskin frames the tower as the only vertical on bare, stony ground, with a worker halfway up the ladder and the Hula Valley and Hermon behind. The image reads as a scene of making. What the frame leaves out: the spring that fed the tower was shared and disputed with Arab al-Kirad."
+     },
+     {
+      "title": "The gables: a tank dressed as a building",
+      "body": "The gables gave a water tank a roof, the same gabled crown as the stone houses below it. A tank shaped like a house says dwelling and permanence rather than machine. A reading of the form, not a claim about what ICA intended."
+     },
+     {
+      "title": "The plaque: a text that claims authorship",
+      "body": "The north face, turned towards the houses, names the labour office, Ahva and the technician. The form came from ICA's drawing; the words name only the builders. Form and text speak for two different authors."
+     },
+     {
+      "title": "The shelter: a roof replaced by a lookout",
+      "body": "In 1936–39 a blank box replaced the gabled crown. The sign changed from home to watch, from facing the settlement to looking out over the region. The 2018 figure with flags makes the signalling visible, though the sources describe Morse and light, not flags."
+     },
+     {
+      "title": "The painted outline: a sign of something absent",
+      "body": "The painted gables point to the 1923 crown without rebuilding it. The tower now quotes its own photograph: the gables exist mainly as pictures, one in an archive, one on the concrete."
+     },
+     {
+      "title": "Four messages, layered",
+      "body": "ICA's form, labour's text, the Haganah's lookout, and the community's paint and figure. Each later layer comments on the earlier ones without erasing them."
+     }
+    ]
+   }
+  }
+ ]
+,
+ "kg": {
+    nodes: [
+      { id: 'tower', name: 'Ayelet Hashachar Water Tower (1923)', type: 'Heritage Asset', meaning: 'Founding infrastructure of the permanent settlement; its first piped, pressurised water.', epistemic: 'sourced' },
+      { id: 'ica', name: 'ICA Bureau Technique', type: 'Social Group', meaning: 'Designed the tower (1922) within its horseshoe plan for the settlement.', epistemic: 'sourced' },
+      { id: 'ica_drawing', name: 'ICA tower drawing, 22 June 1922', type: 'Artwork / Artefact', meaning: 'Half section, half elevation; gabled top, corner posts, thickened column bases.', epistemic: 'sourced' },
+      { id: 'ahva', name: 'Ahva group, Labour Battalion', type: 'Social Group', meaning: 'Built the tower in 1923, learning the trade on the job.', epistemic: 'sourced' },
+      { id: 'ehrlich', name: 'Michael Ehrlich', type: 'Person', meaning: 'Technician who supervised construction in 1923.', epistemic: 'sourced' },
+      { id: 'plaque', name: 'Concrete plaque, north face', type: 'Artwork / Artefact', meaning: 'Names the labour office, Ahva and Ehrlich; omits ICA. Untreated in 2018, anchors rusting.', epistemic: 'sourced' },
+      { id: 'horseshoe', name: 'Horseshoe layout', type: 'Place', meaning: 'ICA-planned core of the kibbutz; the tower stands on the hilltop at its centre.', epistemic: 'sourced' },
+      { id: 'spring', name: 'Wadi Waqqas spring (Nahal Hazor)', type: 'Natural Phenomenon', meaning: 'The tower’s natural water source, pumped up from 1923 (6–9 m³ a day) and contested with Arab al-Kirad; the pump house still stands.', epistemic: 'sourced' },
+      { id: 'shelter', name: 'Lookout and signalling shelter (1936–39)', type: 'Architectural Element', meaning: 'Built on the tank in place of the gables; kept in the 2018 restoration.', epistemic: 'sourced' },
+      { id: 'haganah_net', name: 'Haganah Upper Galilee signal network', type: 'Social Group', meaning: 'Settlements linked by Morse and light signals; Abba Rabinowitz operated the tower post.', epistemic: 'sourced' },
+      { id: 'room', name: 'Room between the columns', type: 'Architectural Element', meaning: 'First a security room and armoury, later the bakery oven, still sometimes used.', epistemic: 'sourced' },
+      { id: 'gables', name: 'Gables', type: 'Architectural Element', meaning: 'Part of the 1923 ICA design; lost in 1936–39; only painted in 2018.', epistemic: 'sourced' },
+      { id: 'restoration', name: '2018 restoration and reopening', type: 'Event', meaning: 'Kibbutz members, the Council for Conservation and the Upper Galilee Regional Council; concrete repairs; reopened with song and a member’s retelling.', epistemic: 'sourced' },
+      { id: 'yesod', name: 'Yesod HaMa’ala water tower (1930s)', type: 'Structure / Building', meaning: 'A similar tower built by Ayelet Hashachar members.', epistemic: 'sourced' },
+      { id: 'v_water', name: 'Household and farmyard water', type: 'Cultural Value', value_label: 'Environmental-economic — Pressurised water for the households and farmyard, while the fields went short', meaning: 'Secured daily life and the livestock economy; irrigation waited for the wells and Mekorot.', epistemic: 'inferred', epistemic_note: 'Household role sourced; contrast with irrigation inferred from Doc pp. 8, 21.' },
+      { id: 'v_political', name: 'Two authorships', type: 'Cultural Value', value_label: 'Political-historical — ICA’s design for a temporary commune, signed by its labour builders', meaning: 'Drawing and plaque together record the 1920s contest over settlement form.', epistemic: 'interpretive', epistemic_note: 'Reading drawing and plaque together; neither source states the contest.' },
+      { id: 'v_security', name: 'Signal relay', type: 'Cultural Value', value_label: 'Security — A relay post in the Upper Galilee Haganah signal chain', meaning: 'Significance reaching beyond the kibbutz to the regional network it signalled to.', epistemic: 'inferred', epistemic_note: 'Network reach inferred from the news report and Doc p. 21.' },
+      { id: 'v_social', name: 'Community stewardship', type: 'Cultural Value', value_label: 'Social — Stewarded by the community itself', meaning: 'Members started and celebrated the restoration; the oven is still sometimes used.', epistemic: 'inferred', epistemic_note: 'Identity role inferred from restoration initiative and continued oven use.' },
+      { id: 'v_tech', name: 'Decorated concrete tank', type: 'Cultural Value', value_label: 'Technological-aesthetic — A decorated concrete tank where water towers were plain', meaning: 'ICA’s gabled top shares the gabled form of the colony-style houses around it.', epistemic: 'inferred', epistemic_note: 'ICA design choice inferred; Stage 4: decoration alone not distinctive.' },
+      { id: 'v_documentary', name: 'Dated record of every layer', type: 'Cultural Value', value_label: 'Documentary — Recorded from drawing board to scaffold to completion', meaning: 'Each layer dated by drawing or photograph, 1922–2018.', epistemic: 'interpretive', epistemic_note: 'Rarity among 1920s farm infrastructure is an interpretive claim.' }
+    ],
+    edges: [
+      { source: 'ica', target: 'tower', label: 'designed' },
+      { source: 'ahva', target: 'tower', label: 'built' },
+      { source: 'ehrlich', target: 'tower', label: 'supervised' },
+      { source: 'plaque', target: 'tower', label: 'part_of' },
+      { source: 'plaque', target: 'ahva', label: 'names' },
+      { source: 'tower', target: 'horseshoe', label: 'located_in' },
+      { source: 'ica', target: 'horseshoe', label: 'planned' },
+      { source: 'spring', target: 'tower', label: 'supplied' },
+      { source: 'shelter', target: 'tower', label: 'part_of' },
+      { source: 'shelter', target: 'gables', label: 'replaced' },
+      { source: 'gables', target: 'tower', label: 'part_of' },
+      { source: 'room', target: 'tower', label: 'part_of' },
+      { source: 'tower', target: 'haganah_net', label: 'relayed_signals_for' },
+      { source: 'restoration', target: 'tower', label: 'restored' },
+      { source: 'yesod', target: 'tower', label: 'similar_to' },
+      { source: 'tower', target: 'v_water', label: 'expresses_value' },
+      { source: 'spring', target: 'v_water', label: 'supports' },
+      { source: 'plaque', target: 'v_political', label: 'carries' },
+      { source: 'ica_drawing', target: 'v_political', label: 'carries' },
+      { source: 'shelter', target: 'v_security', label: 'carries' },
+      { source: 'room', target: 'v_security', label: 'carries' },
+      { source: 'room', target: 'v_social', label: 'carries' },
+      { source: 'restoration', target: 'v_social', label: 'expresses_value' },
+      { source: 'gables', target: 'v_tech', label: 'carries' },
+      { source: 'ica_drawing', target: 'v_documentary', label: 'carries' }
+    ]
+  }
+};
+  var container = document.getElementById('db');
+  function showFallback() {
+    document.getElementById('db-summary').innerHTML = '<b></b> — ' + DATA.values.length + ' values, ' + DATA.contexts.length + ' contexts.';
+    document.querySelector('#db-summary b').textContent = DATA.asset.name;
+    container.hidden = true;
+    document.getElementById('db-wrap').style.height = 'auto';
+    document.getElementById('db-fallback').hidden = false;
+  }
+  function go() {
+    var live = typeof window !== 'undefined' && window.claude && typeof window.claude.complete === 'function';
+    var host = live ? { complete: window.claude.complete.bind(window.claude) } : {};
+    try { window.AtarRuntime.mount(container, DATA, host); }
+    catch (e) { showFallback(); }
+  }
+  if (window.AtarRuntime) { go(); return; }
+  var s = document.createElement('script');
+  s.src = RUNTIME_URL; s.onload = go; s.onerror = showFallback;
+  document.head.appendChild(s);
+})();
+</script>
+
+</body></html>
