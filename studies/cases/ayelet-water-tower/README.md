@@ -16,6 +16,5 @@ The documentation of the tower links it to several contexts at once: the long hi
 |---|---|
 | The documentation file of the tower, 2014 (Hebrew, 51 pages), with its assessment chapters | [`ayelet-water-tower-documentation.pdf`](ayelet-water-tower-documentation.pdf) |
 | The same file without the assessment chapters (48 pages), as uploaded to an *InSites* chat | [`ayelet-water-tower-documentation-without-assessment.pdf`](ayelet-water-tower-documentation-without-assessment.pdf) |
-| A short text on the history of the settlement and its water system, by Y. Alef (Hebrew, 6 pages) | [`Ayelet-water-tower.pdf`](Ayelet-water-tower.pdf) |
 | A published article comparing the planning of the two kibbutzim, Ayelet HaShachar and Kfar Giladi | Amit-Cohen, I., & Alef, Y. (2017). Cultural built heritage in Kfar Giladi and Ayelet Hashachar: Shaping and preserving the identity of the two kibbutzim. *Horizons in Geography*, 91–92, 317–333 [in Hebrew]. https://www.jstor.org/stable/26598026 |
 | A demonstration session of *InSites* on the tower, 18 November 2026, with the expert's review at every stage: transcript, assessment, knowledge graph, reading and dashboard | [`session-2026-11-18/`](session-2026-11-18/README.md) |
