@@ -8,7 +8,7 @@ This folder records one demonstration session of *InSites* on the water tower of
 |---|---|
 | [`assessment-report.pdf`](assessment-report.pdf) | The full report the system exported at the end of the session: Stages 0–6, the explanation of the context-effect relationships, the semiotic reading, the Session Report with the map of the expert's interventions, and the expert's own notes |
 | [`transcript.md`](transcript.md) | The whole session, turn by turn, with the expert's replies |
-| [`html/`](html/) | The three interactive pages as they were published in the session: the knowledge graph ([`kg.html`](html/kg.html)), the dashboard ([`dashboard.html`](html/dashboard.html)) and the semiotic reading ([`semiotic-reading.html`](html/semiotic-reading.html)). Download a page and open it in a browser; the graph and the dashboard load the `atar-runtime` package, version 0.3.8, from a public CDN |
+| [`html/`](html/) | The three interactive pages as they were published in the session, to open online: the [knowledge graph](https://insites-lab.github.io/demos/ayelet-water-tower-2026-11-18/kg.html), the [dashboard](https://insites-lab.github.io/demos/ayelet-water-tower-2026-11-18/dashboard.html) and the [semiotic reading](https://insites-lab.github.io/demos/ayelet-water-tower-2026-11-18/semiotic-reading.html). The same files are kept in this folder; the graph and the dashboard load the `atar-runtime` package, version 0.3.8, from a public CDN |
 
 ## The run
 
